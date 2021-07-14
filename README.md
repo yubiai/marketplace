@@ -37,20 +37,27 @@ This is still a Work in Progress so any kind of improvement is valid (architectu
 If you have a question, suggestion or idea, please, submit an Issue
 If you have a code improvement, fork the repository and sned a PR so that we can review it, discuss it, and potentially merge it.
 
-##Possible errors while try to test locally
+##Possible errors while trying to test locally
+###MetaMask
+```
 _ inpage.js:1 MetaMask - RPC Error: Error: [ethjs-query] while formatting outputs from RPC '{"value":{"code":-32603,"data":{"message":"the tx doesn't have the correct nonce. account has nonce of: 0 tx has nonce of: 10","code":-32000,"data":{"stack":"TXRejectedError: the tx doesn't have the correct nonce. account has nonce of: 0 tx has nonce of: 10\n    at validateNonce. 
 {code: -32603, message: "Error: [ethjs-query] while formatting outputs from…k_queues.js:72:11)\",\"name\":\"TXRejectedError\"}}}}'"}
+
+```
+
 This is due to a metamask issue, the way to solve is by situating on the acc 2 while in metamask, go to settings > advance > reset account. Then try again to Buy.
 
+###Server errors
 Another possible error is the Server running on port 4000
 
 https://user-images.githubusercontent.com/55702500/125140180-4e8f9800-e0e8-11eb-969c-1cc1e3a77bb3.png
 
-To fix this, You have to Add to metamask ganache localhost network with the private key and password that is shown when You do migrate .. on the terminal of the Main roto source folder, if You don't know how to Add check the link of the vídeo on how to do it.
+To fix this, You have to Add to metamask ganache localhost network with the private key and password that is shown when You do migrate .. on the terminal of the Main root source folder, if You don't know how to Add check the link of the vídeo on how to do it(https://www.youtube.com/watch?v=f5npM1PvoyE&t=816s minute 1:04:40.
 
-
+Other error is not whitelisting your IP address
+```
 (node:28083) UnhandledPromiseRejectionWarning: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
-
+```
 Well the error is clear, here You just have to Add your IP to a whitelist in mongodb, going to security then network access
 
 Credits to Julien
