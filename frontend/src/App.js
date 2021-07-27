@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Store from './Store.js';
 import getBlockchain from './ethereum.js';
+import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     <div className='container'>
       <div className='col-sm-12'>
         <h1>Proof Of Humanity MarketPlace</h1>
+        <Link to={'/profile'}>View profile</Link>
         <Store paymentProcessor={paymentProcessor} ubi={ubi} />
       </div>
     </div>
