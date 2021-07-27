@@ -1,0 +1,26 @@
+[
+    {
+        "reviewId": 443,
+        "user": "Mario",
+        "img": "a1",
+        "stars": 4
+    },
+    {
+        "reviewId": 346,
+        "user": "Camila",
+        "img": "a5",
+        "stars": 3
+    },
+    {
+        "reviewId": 992,
+        "user": "Nicolas",
+        "img": "a2",
+        "stars": 5
+    },
+    {
+        "reviewId": 181,
+        "user": "Daría",
+        "img": "a6",
+        "stars": 4
+    }
+]
