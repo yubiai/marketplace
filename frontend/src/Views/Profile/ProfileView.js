@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ProfileViewStyles.css';
 
 import { ethers } from 'ethers';
@@ -9,7 +10,9 @@ import demoPicts from './fixtures/profile.pictures';
 
 import starEmptyIcon from '../../media/star-empty.svg';
 import starFullIcon from '../../media/star-full.svg';
+import backIcon from '../../media/play.svg';
 
+const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
 export default function ProfileView() {
     const _Provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -26,7 +29,8 @@ export default function ProfileView() {
         }
         async function fetchWalletBalance () {
             const balance = await _Signer.getBalance();
-            setWalletBalance(parseFloat(balance.toString()).toFixed(63));
+            const balanceAmount = (parseFloat(balance.toString())) / DECIMAL_BALANCE_CONST;
+            setWalletBalance(balanceAmount);
         }
         fetchWalletAddress();
         fetchWalletBalance();
@@ -108,6 +112,12 @@ export default function ProfileView() {
                             <a href="#">See all reviews</a>
                         </div>
                     </div>
+                </div>
+                <div className="profile-back-action">
+                    <Link to={'/'}>
+                        <img src={backIcon} alt="Back" />
+                        <span>Back</span>
+                    </Link>
                 </div>
             </div>
         </div>

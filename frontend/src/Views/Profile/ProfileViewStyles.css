@@ -104,3 +104,26 @@
     width: 100%;
     height: 100%;
 }
+
+/*
+    Back icon
+*/
+.profile-back-action {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 1.25rem;
+    left: 1.25rem;
+}
+
+.profile-back-action img {
+    transform: rotate(180deg) scale(0.5);
+}
+
+.profile-back-action a,
+.profile-back-action a:hover,
+.profile-back-action a:focus,
+.profile-back-action a:active {
+    color: #000;
+    text-decoration: none;
+}
