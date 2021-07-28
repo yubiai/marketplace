@@ -50,46 +50,13 @@ const Navbar = () => {
           <NavbarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon src={logoImage.default} />
-              <div style={{ margin: "auto auto auto 0" }}>DBI360</div>
+              <div style={{ margin: "auto auto auto 0" }}>ProofHumanity</div>
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              <NavItem>
-                <NavLinks to="/">Home</NavLinks>
-                
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/aboutus">About us</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/dashboard">Dashboard</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinksURL
-                  href={"https://heuristic-boyd-b8bc48.netlify.app/"}
-                  target="blank"
-                >
-                  360° Product View
-                </NavLinksURL>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/contactus">Contact Us</NavLinks>
-              </NavItem>
-              <NavItemBtn>
-                {button ? (
-                  <NavBtnLink to="/sign-up">
-                    <Button primary>SIGN UP</Button>
-                  </NavBtnLink>
-                ) : (
-                  <NavBtnLink to="s/sign-up">
-                    <Button fontBig primary>
-                      SIGNUP
-                    </Button>
-                  </NavBtnLink>
-                )}
-              </NavItemBtn>
+              
             </NavMenu>
           </NavbarContainer>
         </Nav>

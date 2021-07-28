@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import { Container } from "../../globalStyles";
 
 export const Nav = styled.nav`
-  .background-nav {
-    background: rgb(255,186,121);
-    background: linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%);
-};
-   height: 80px;
+   background: rgb(255,186,121);
+   background: linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%);
+   height: 180px;
    display: flex;
    justify-content: center;
    align-items: center;
