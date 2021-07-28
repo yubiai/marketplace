@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.div`
-  .background-foot {
-    background: rgb(255,186,121);
-    background: linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%);
-} 
+  background: rgb(255,186,121);
+  background: linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%);
   padding: 4rem 0 2rem 0;
   display: flex;
   flex-direction: column;
