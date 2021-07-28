@@ -1,0 +1,30 @@
+[
+    {
+        "productId": 1121,
+        "name": "Product A",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_826049-MLU45726655519_042021-O.webp",
+        "price": 200,
+        "currency": "UBIs"
+    },
+    {
+        "productId": 3381,
+        "name": "Product B",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_898702-MLU46688314706_072021-O.webp",
+        "price": 140,
+        "currency": "UBIs"
+    },
+    {
+        "productId": 2543,
+        "name": "Product C",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_799106-MLU46283853875_062021-O.webp",
+        "price": 400,
+        "currency": "UBIs"
+    },
+    {
+        "productId": 3903,
+        "name": "Product D",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_634218-MLU46010672537_052021-O.webp",
+        "price": 280,
+        "currency": "UBIs"
+    }
+]
