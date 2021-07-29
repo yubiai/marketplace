@@ -56,7 +56,7 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
 
-            {/* Resolver redirect quitar _top*/}
+            {/* Resolver redirect quitar _top */}
             <Link to={'/profile'} target="_top"  replace style={{ color: 'white', textDecoration: 'none', underline:'none'}}>
                         <img src={profileIcon} alt="View Profile" className="profileIcon" height="70px" />
                         <span>Profile</span>
