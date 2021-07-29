@@ -4,11 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Store from './Store.js';
 import getBlockchain from './ethereum.js';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-
-=======
 import { Navbar, Footer } from "./components"; 
->>>>>>> errorNavLink
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -42,11 +38,6 @@ function App() {
   return (
     <div className='container'>
       <div className='col-sm-12'>
-<<<<<<< HEAD
-        <h1>Proof Of Humanity MarketPlace</h1>
-        <Link to={'/profile'}>View profile</Link>
-        <Store paymentProcessor={paymentProcessor} ubi={ubi} />
-=======
         <Router>
           <GlobalStyle />
           <Navbar />
@@ -54,7 +45,6 @@ function App() {
           <Store paymentProcessor={paymentProcessor} ubi={ubi} />
           <Footer />
         </Router>
->>>>>>> errorNavLink
       </div>
     </div>
   );
