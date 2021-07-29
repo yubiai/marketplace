@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Form>
-        <FormInput name="email" type="email" placeholder="Your Email" />
+        <FormInput name="email" type="email" placeholder="Your EthMail" />
         <Button fontBig>Contact Me</Button>
       </Form>
       <SocialMedia>

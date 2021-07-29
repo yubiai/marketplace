@@ -12,11 +12,7 @@ import {
   NavIcon,
   MobileIcon,
   NavMenu,
-  NavItem,
-  NavLinks,
-  NavLinksURL,
-  NavItemBtn,
-  NavBtnLink,
+  
 } from "./Navbar.elements";
 
 

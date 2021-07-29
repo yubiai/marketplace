@@ -1,7 +1,7 @@
 import React from 'react';
 import { ethers } from 'ethers';
 import axios from 'axios';
-
+import ubiicon from './images/logoubi.png';
 
 const API_URL = 'http://localhost:4000';
 
@@ -32,7 +32,7 @@ function Store({ paymentProcessor, ubi })  {
     return (
       <ul className="list-group">
         <li className="list-group-item">
-          Buy item1 - <span className='font-weight-bold'>100 UBI</span>
+          <img src="https://http2.mlstatic.com/D_NQ_NP_826049-MLU45726655519_042021-O.webp" alt="Shoes" width="180" height="180"></img><span className='font-weight-bold'>200 <img src={ubiicon}  alt="Ubi" /></span>
           <button 
             type="button" 
             className="btn btn-primary float-right"
@@ -42,7 +42,7 @@ function Store({ paymentProcessor, ubi })  {
           </button>
         </li>
         <li className="list-group-item">
-          Buy item2 - <span className='font-weight-bold'>200 UBI</span>
+          <img src="https://http2.mlstatic.com/D_NQ_NP_898702-MLU46688314706_072021-O.webp" alt="Shoes" width="180" height="180"></img><span className='font-weight-bold'>140 <img src={ubiicon}  alt="Ubi" /> </span>
           <button 
             type="button" 
             className="btn btn-primary float-right"
