@@ -112,12 +112,12 @@
     display: flex;
     align-items: center;
     position: fixed;
-    bottom: 1.25rem;
+    top: 6.25rem;
     left: 1.25rem;
 }
 
 .profile-back-action img {
-    transform: rotate(180deg) scale(0.5);
+    transform: rotate(180deg) scale(0.6);
 }
 
 .profile-back-action a,

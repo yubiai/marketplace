@@ -22,7 +22,7 @@ export default function ProfileView() {
     const [walletBalance, setWalletBalance] = useState('');
     const [products, setProducts] = useState([]);
     const [reviews, setReviews] = useState([]);
-    let name = "Benja";
+    let name = "Nombre de Usuario";
     let bio = "Aca va algo";
     useEffect(() => {
         async function fetchWalletAddress () {
@@ -57,7 +57,14 @@ export default function ProfileView() {
                     <div className="profile-bio">{ walletBalance } ETH</div>
                 </div>
             </div>
+            <div className="profile-back-action">
+                    <Link to={'/'}>
+                        <img src={backIcon} alt="Back" />
+                        <span>Back</span>
+                    </Link>
+            </div>
             <div className="profile-body">
+           
                 <div className="profile-product-list">
                     <h3>Products</h3>
                     <div className="profile-product-container">
@@ -123,12 +130,7 @@ export default function ProfileView() {
                         
                     </a>
                 </div>
-                <div className="profile-back-action">
-                    <Link to={'/'}>
-                        <img src={backIcon} alt="Back" />
-                        <span>Back</span>
-                    </Link>
-                </div>
+                
             </div>
         </div>
     );

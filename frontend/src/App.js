@@ -41,7 +41,7 @@ function App() {
         <Router>
           <GlobalStyle />
           <Navbar />
-          <Link to={'/profile'}>View profile</Link>
+          {/* <Link to={'/profile'}>View profile</Link> */}
           <Store paymentProcessor={paymentProcessor} ubi={ubi} />
           <Footer />
         </Router>

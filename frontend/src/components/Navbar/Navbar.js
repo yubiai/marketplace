@@ -4,7 +4,10 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
+import { Link } from 'react-router-dom';
+import profileIcon from '../../images/profileIcon.png';
 import { Button } from "../../globalStyles";
+
 import {
   Nav,
   NavbarContainer,
@@ -52,7 +55,12 @@ const Navbar = () => {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              
+
+            {/* Resolver redirect quitar _top*/}
+            <Link to={'/profile'} target="_top"  replace style={{ color: 'white', textDecoration: 'none', underline:'none'}}>
+                        <img src={profileIcon} alt="View Profile" className="profileIcon" height="70px" />
+                        <span>Profile</span>
+            </Link>
             </NavMenu>
           </NavbarContainer>
         </Nav>
