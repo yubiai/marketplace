@@ -17,9 +17,9 @@
 
 .profile-photo {
     border-radius: 50%;
-    height: 75px;
+    height: 50px;
     margin-right: 1.5rem;
-    width: 75px;
+    width: 50px;
 }
 
 .profile-photo img {
@@ -124,6 +124,30 @@
 .profile-back-action a:hover,
 .profile-back-action a:focus,
 .profile-back-action a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+/*
+    kleros icon
+*/
+.profile-dispute-action {
+    display: flex;
+    align-items: right;
+    position: fixed;
+    bottom: 0.0rem;
+    right: 1.25rem;
+    
+}
+
+.profile-dispute-action img {
+    transform:  scale(0.5);
+}
+
+.profile-dispute-action a,
+.profile-dispute-action a:hover,
+.profile-dispute-action a:focus,
+.profile-dispute-action a:active {
     color: #000;
     text-decoration: none;
 }
