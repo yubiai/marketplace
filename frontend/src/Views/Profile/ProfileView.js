@@ -11,6 +11,7 @@ import demoPicts from './fixtures/profile.pictures';
 import starEmptyIcon from '../../media/star-empty.svg';
 import starFullIcon from '../../media/star-full.svg';
 import backIcon from '../../media/play.svg';
+import klerosIcon from '../../media/logo_kleros.png';
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -21,7 +22,8 @@ export default function ProfileView() {
     const [walletBalance, setWalletBalance] = useState('');
     const [products, setProducts] = useState([]);
     const [reviews, setReviews] = useState([]);
-
+    let name = "Benja";
+    let bio = "Aca va algo";
     useEffect(() => {
         async function fetchWalletAddress () {
             const address = await _Signer.getAddress();
@@ -46,8 +48,8 @@ export default function ProfileView() {
                         <img src={demoPicts['a3'].default} alt='Profile' />
                     </div>
                     <div className="profile-name">
-                        <div className="profile-fullname">David Rivero</div>
-                        <div className="profile-bio">Short bio</div>
+                        <div className="profile-fullname">{name}</div>
+                        <div className="profile-bio">{bio}</div>
                     </div>
                 </div>
                 <div className="profile-wallet">
@@ -112,6 +114,14 @@ export default function ProfileView() {
                             <a href="#">See all reviews</a>
                         </div>
                     </div>
+                </div>
+
+                <div className="profile-dispute-action">
+                    <a href={"https://resolve.kleros.io/create/" } target="_blank">
+                        <img src={klerosIcon} alt="Create Dispute Kleros"  />
+                        {/* <span>Create Dispute</span> */}
+                        
+                    </a>
                 </div>
                 <div className="profile-back-action">
                     <Link to={'/'}>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import GlobalStyle from "./globalStyles";
+import { BrowserRouter as Router } from "react-router-dom";
 import Store from './Store.js';
 import getBlockchain from './ethereum.js';
 import { Link } from 'react-router-dom';
-
+import { Navbar, Footer } from "./components"; 
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -36,9 +38,13 @@ function App() {
   return (
     <div className='container'>
       <div className='col-sm-12'>
-        <h1>Proof Of Humanity MarketPlace</h1>
-        <Link to={'/profile'}>View profile</Link>
-        <Store paymentProcessor={paymentProcessor} ubi={ubi} />
+        <Router>
+          <GlobalStyle />
+          <Navbar />
+          <Link to={'/profile'}>View profile</Link>
+          <Store paymentProcessor={paymentProcessor} ubi={ubi} />
+          <Footer />
+        </Router>
       </div>
     </div>
   );
