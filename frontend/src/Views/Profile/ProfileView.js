@@ -14,8 +14,8 @@ import starEmptyIcon from '../../media/star-empty.svg';
 import starFullIcon from '../../media/star-full.svg';
 import backIcon from '../../media/play.svg';
 import klerosIcon from '../../media/logo_kleros.png';
-import {Card} from 'react-bootstrap'; 
-import {Button} from 'react-bootstrap'; 
+import {Card, Button} from 'react-bootstrap'; 
+// import {Button} from 'react-bootstrap'; 
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -28,6 +28,8 @@ export default function ProfileView() {
     const [reviews, setReviews] = useState([]);
     let name = "Nombre de Usuario";
     let bio = "Aca va algo";
+    const [isShown, setIsShown] = useState(false);
+
     useEffect(() => {
         async function fetchWalletAddress () {
             const address = await _Signer.getAddress();
@@ -85,7 +87,7 @@ export default function ProfileView() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                                   </Card.Text>
-                                  <Button variant="primary">{product.price}{product.currency}</Button>
+                                  <Button variant="success">{product.price}{product.currency}</Button>
                                 </Card.Body>
                               </Card>
                               </div>;
@@ -138,13 +140,18 @@ export default function ProfileView() {
                     <Footer />
                 </div>
 
-                <div className="profile-dispute-action">
-                    <a href={"https://resolve.kleros.io/create/" } target="_blank">
-                        <img src={klerosIcon} alt="Create Dispute Kleros"  />
-                        {/* <span>Create Dispute</span> */}
-                        
-                    </a>
-                </div>
+              
+            <div className="profile-dispute-action" onMouseEnter={() => setIsShown(true)}
+                             onMouseLeave={() => setIsShown(false)}>
+                            <a href={"https://resolve.kleros.io/create/" } target="_blank"  
+                        >
+                                <img src={klerosIcon} alt="Create Dispute Kleros"  />
+                                {isShown && ( <span style={{fontWeight:'bold'}}>Create Dispute</span>)} 
+                            </a>
+            </div>              
+
+
+                
                 
             </div>
         </div>
