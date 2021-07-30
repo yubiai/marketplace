@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProfileViewStyles.css';
+import { Footer } from '../../components'; 
+import  {Navbar} from '../../components';
 
 import { ethers } from 'ethers';
 
@@ -12,6 +14,8 @@ import starEmptyIcon from '../../media/star-empty.svg';
 import starFullIcon from '../../media/star-full.svg';
 import backIcon from '../../media/play.svg';
 import klerosIcon from '../../media/logo_kleros.png';
+import {Card} from 'react-bootstrap'; 
+import {Button} from 'react-bootstrap'; 
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -41,11 +45,12 @@ export default function ProfileView() {
     }, []);
 
     return (
-        <div className="profile-view">
+          <div className="profile-view">
+            <Navbar />
             <div className="profile-header">
                 <div className="profile-overview">
                     <div className="profile-photo">
-                        <img src={demoPicts['a3'].default} alt='Profile' />
+                        <img circular src={demoPicts['a3'].default} alt='Profile' />
                     </div>
                     <div className="profile-name">
                         <div className="profile-fullname">{name}</div>
@@ -70,13 +75,20 @@ export default function ProfileView() {
                     <div className="profile-product-container">
                         {
                             products.slice(0, 3).map((product) => {
-                                return <div className="profile-product-item" key={`product-${product.productId}`}>
-                                    <div className="profile-product-pict">
-                                        <img src={product.img} alt={product.productId} />
-                                    </div>
-                                    <div className="profile-product-name">{product.name}</div>
-                                    <div className="profile-product-price">{product.price}{product.currency}</div>
-                                </div>;
+                                 return <div className="profile-product-item" key={`product-${product.productId}`}>
+                              
+                                <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={product.img} alt={product.productId} style={{padding:'2.5rem'}} />
+                                <Card.Body>
+                                  <Card.Title>{product.name}</Card.Title>
+                                  <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                                  </Card.Text>
+                                  <Button variant="primary">{product.price}{product.currency}</Button>
+                                </Card.Body>
+                              </Card>
+                              </div>;
                             })
                         }
                         <div className="profile-product-actions">
@@ -84,6 +96,8 @@ export default function ProfileView() {
                             <a href="#">Create new product</a>
                         </div>
                     </div>
+
+                   
                 </div>
                 <div className="profile-review-list">
                     <h3>Reviews</h3>
@@ -104,13 +118,13 @@ export default function ProfileView() {
                                         <img src={profileImgSrc} alt={review.img} />
                                     </div>
                                     <div className="profile-review-name">{review.user}</div>
-                                    <div className="profile-review-stars">
+                                    <div className="profile-review-stars" >
                                         {
                                             stars.map((star, index) => {
                                                 if (star) {
-                                                    return <img key={`star-${index}`} src={starFullIcon} alt='Star' />;
+                                                    return <img key={`star-${index}`} src={starFullIcon} alt='Star' style={{width: "1.5rem"}} />;
                                                 }
-                                                return <img key={`star-${index}`} src={starEmptyIcon} alt='Empty star' />;
+                                                return <img key={`star-${index}`} src={starEmptyIcon} alt='Empty star' style={{width: "1.5rem"}} />;
                                             })
                                         }
                                     </div>
@@ -121,6 +135,7 @@ export default function ProfileView() {
                             <a href="#">See all reviews</a>
                         </div>
                     </div>
+                    <Footer />
                 </div>
 
                 <div className="profile-dispute-action">
