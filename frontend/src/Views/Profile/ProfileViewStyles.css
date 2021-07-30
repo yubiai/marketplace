@@ -53,6 +53,7 @@
 .profile-product-container,
 .profile-review-container {
     display: flex;
+    margin: 1.2rem;
 }
 
 .profile-product-item,
