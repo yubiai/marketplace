@@ -137,8 +137,9 @@ export default function ProfileView() {
                             <a href="#">See all reviews</a>
                         </div>
                     </div>
-                    <Footer />
+                    <Footer /> 
                 </div>
+                
 
               
             <div className="profile-dispute-action" onMouseEnter={() => setIsShown(true)}
