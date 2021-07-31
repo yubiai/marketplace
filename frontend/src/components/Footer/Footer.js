@@ -34,13 +34,14 @@ const Footer = () => {
         <SocialMediaWrap>
           <SocialLogo to="/">
             <SocialIcon src={logoImage.default} />
-            PoH
+            
           </SocialLogo>
           <WebsiteRights> MarketPlace Proofofhumanity © 2021</WebsiteRights>
           <SocialIcons>
             <SocialIconLink
               href={"https://www.instagram.com/proofofhumanity/"}
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -56,6 +57,7 @@ const Footer = () => {
             <SocialIconLink
               href={"https://twitter.com/proofofhumanity"}
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Twitter"
             >
               <FaTwitter />

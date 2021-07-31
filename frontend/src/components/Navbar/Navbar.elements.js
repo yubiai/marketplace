@@ -121,9 +121,10 @@ const NavLinkStyle = `
    display: table;
    color: #000;
    &:hover {
-    color: #008968;
-  }
-  
+     color: #008968;
+     text-decoration: none;
+     transition: all 0.3s ease;
+   }
  }
  
 `;
