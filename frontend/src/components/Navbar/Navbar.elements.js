@@ -116,7 +116,7 @@ const NavLinkStyle = `
 
    &:hover {
      color: #008968;
-     text-decoration: underline;
+     text-decoration: none;
      transition: all 0.3s ease;
    }
  }
