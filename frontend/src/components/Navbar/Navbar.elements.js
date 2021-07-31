@@ -77,6 +77,8 @@ export const NavMenu = styled.ul`
     font-weight: 400;
     margin-left: 0;
     line-height: 0;
+    
+ 
   }
 `;
 
@@ -84,17 +86,21 @@ export const NavItem = styled.li`
   height: 40px;
   border-bottom: 0px solid transparent;
 
-  &:hover {
-    border-bottom: none;
-  }
+      &:hover {
+        border-bottom: none;
+        color: #008968; 
+      }
 
-  @media screen and (max-width: 960px) {
-    width: 100%;
+        @media only screen and (max-width: 960px) {
+          width: 100%;
+          &:hover {
+            color: #008968;
+              
+                } 
+         }
 
-    &:hover {
-      border: none;
-      
-    }
+
+
   }
 `;
 
@@ -113,13 +119,14 @@ const NavLinkStyle = `
    padding: 2rem;
    width: 80%;
    display: table;
-
+   color: #000;
    &:hover {
      color: #008968;
      text-decoration: none;
      transition: all 0.3s ease;
    }
  }
+ 
 `;
 
 export const NavLinks = styled(Link)`
