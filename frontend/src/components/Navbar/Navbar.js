@@ -7,7 +7,8 @@ import {
 import { IconContext } from "react-icons/lib";
 import { Link } from 'react-router-dom';
 import profileIcon from '../../images/profileIcon.png';
-
+import SearchBar from '../SearchBar/Searchbar';
+/*import Gsnc from './Gsnc';*/
 
 import {
   Nav,
@@ -59,6 +60,12 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
             <NavItem>
+              <SearchBar 
+             input={"input"} 
+             onChange={"ss"}
+            />
+            </NavItem>
+            <NavItem>
               <NavLinks to="/profile" target="_top" style={{display: "flex", justifyContent: "center",alignItems: "center"}}>
               <NavIcon src={profileIcon} style={{height:'3rem',marginLeft:"-4rem"}} />              
                  Profile  
@@ -78,6 +85,8 @@ const Navbar = () => {
             {/* Resolver redirect quitar _top */}
             
             </NavMenu>
+            
+           {/*<Gsnc Gsnc={Gsnc}/>*/}
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

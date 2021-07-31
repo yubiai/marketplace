@@ -140,7 +140,7 @@ export const SocialIcon = styled.img`
   margin-right: 10px;
   border-radius: 50%;
   height: 40px;
- 
+  
 `;
 
 export const WebsiteRights = styled.small`
