@@ -93,6 +93,7 @@ export const NavItem = styled.li`
 
     &:hover {
       border: none;
+      
     }
   }
 `;
@@ -105,9 +106,7 @@ const NavLinkStyle = `
  padding: 0.5rem 1rem;
  height: 100%;
  &:hover {
-  color: #008968;
- 
-  
+  color: #008968;  
 }
  @media screen and (max-width: 960px) {
    text-align: left;

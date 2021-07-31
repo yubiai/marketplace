@@ -59,23 +59,20 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
             <NavItem>
-              <NavLinks to="/profile" target="_top" style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
-              <NavIcon src={profileIcon} style={{height:'3rem',marginLeft:"-4rem"}} />
-              
-                 Profile
-               
-                 
+              <NavLinks to="/profile" target="_top" style={{display: "flex", justifyContent: "center",alignItems: "center"}}>
+              <NavIcon src={profileIcon} style={{height:'3rem',marginLeft:"-4rem"}} />              
+                 Profile  
               </NavLinks>   
               </NavItem> 
                
               <NavItem>
-                <NavLinks to="/" style={{display: "flex"}}>Home</NavLinks>
+                <NavLinks to="/" >Home</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/Categories" style={{display: "flex"}}>Categories</NavLinks>
+                <NavLinks to="/Categories" >Categories</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/Sell" style={{display: "flex"}}>Sell</NavLinks>
+                <NavLinks to="/Sell" >Sell</NavLinks>
               </NavItem>
               
             {/* Resolver redirect quitar _top */}
