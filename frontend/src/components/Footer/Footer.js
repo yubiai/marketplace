@@ -34,7 +34,7 @@ const Footer = () => {
         <SocialMediaWrap>
           <SocialLogo to="/">
             <SocialIcon src={logoImage.default} />
-            PoH
+            
           </SocialLogo>
           <WebsiteRights> MarketPlace Proofofhumanity © 2021</WebsiteRights>
           <SocialIcons>

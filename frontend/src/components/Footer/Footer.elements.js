@@ -140,12 +140,16 @@ export const SocialIcon = styled.img`
   margin-right: 10px;
   border-radius: 50%;
   height: 40px;
+ 
 `;
 
 export const WebsiteRights = styled.small`
   color: #666;
   font-weight: 400;
   margin-bottom: 16px;
+  &:hover {
+  color: #008968;  
+}
 `;
 
 export const SocialIcons = styled.div`
@@ -153,9 +157,14 @@ export const SocialIcons = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 240px;
+   
+
 `;
 
 export const SocialIconLink = styled.a`
   color: #666;
   font-size: 24px;
+  &:hover {
+  color: #008968;  
+}
 `;
