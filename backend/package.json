@@ -15,10 +15,5 @@
     "ethers": "^5.4.0",
     "koa": "^2.13.1",
     "mongoose": "^5.13.0"
-  },
-  "devDependencies": {
-    "@types/koa": "^2.13.3",
-    "@types/koa__cors": "^3.0.2",
-    "@types/koa__router": "^8.0.4"
   }
 }

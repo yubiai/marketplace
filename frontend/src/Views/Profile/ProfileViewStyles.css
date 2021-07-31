@@ -13,17 +13,21 @@
 .profile-overview {
     align-items: center;
     display: flex;
+    
 }
 
 .profile-photo {
     border-radius: 50%;
-    height: 75px;
+    height: 50px;
     margin-right: 1.5rem;
-    width: 75px;
+    width: 50px;
+    
 }
 
 .profile-photo img {
     width: 100%;
+    border-radius: 50%;
+    right: 2rem;
 }
 
 .profile-wallet {
@@ -49,6 +53,7 @@
 .profile-product-container,
 .profile-review-container {
     display: flex;
+    margin: 1.2rem;
 }
 
 .profile-product-item,
@@ -89,15 +94,18 @@
     width: 100%;
     height: 100%;
 }
-
+.card-img-top{
+    max-height: 250px;
+    height: 245px;
+}
 /*
     Review section
 */
 
 .profile-review-pict {
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 50px;
+    width: 50px;
 }
 
 .profile-review-pict img {
@@ -112,18 +120,43 @@
     display: flex;
     align-items: center;
     position: fixed;
-    bottom: 1.25rem;
+    top: 7.25rem;
     left: 1.25rem;
+    z-index: 999;
 }
 
 .profile-back-action img {
-    transform: rotate(180deg) scale(0.5);
+    transform: rotate(180deg) scale(0.6);
 }
 
 .profile-back-action a,
 .profile-back-action a:hover,
 .profile-back-action a:focus,
 .profile-back-action a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+/*
+    kleros icon
+*/
+.profile-dispute-action {
+    display: flex;
+    align-items: right;
+    position: fixed;
+    bottom: 0.0rem;
+    right: 1.25rem;
+    
+}
+
+.profile-dispute-action img {
+    transform:  scale(0.5);
+}
+
+.profile-dispute-action a,
+.profile-dispute-action a:hover,
+.profile-dispute-action a:focus,
+.profile-dispute-action a:active {
     color: #000;
     text-decoration: none;
 }

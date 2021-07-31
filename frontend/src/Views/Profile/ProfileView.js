@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProfileViewStyles.css';
+import { Footer } from '../../components'; 
+import  {Navbar} from '../../components';
 
 import { ethers } from 'ethers';
 
@@ -11,6 +13,9 @@ import demoPicts from './fixtures/profile.pictures';
 import starEmptyIcon from '../../media/star-empty.svg';
 import starFullIcon from '../../media/star-full.svg';
 import backIcon from '../../media/play.svg';
+import klerosIcon from '../../media/logo_kleros.png';
+import {Card, Button} from 'react-bootstrap'; 
+// import {Button} from 'react-bootstrap'; 
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -21,6 +26,9 @@ export default function ProfileView() {
     const [walletBalance, setWalletBalance] = useState('');
     const [products, setProducts] = useState([]);
     const [reviews, setReviews] = useState([]);
+    let name = "Nombre de Usuario";
+    let bio = "Aca va algo";
+    const [isShown, setIsShown] = useState(false);
 
     useEffect(() => {
         async function fetchWalletAddress () {
@@ -39,15 +47,16 @@ export default function ProfileView() {
     }, []);
 
     return (
-        <div className="profile-view">
+          <div className="profile-view">
+            <Navbar />
             <div className="profile-header">
                 <div className="profile-overview">
                     <div className="profile-photo">
-                        <img src={demoPicts['a3'].default} alt='Profile' />
+                        <img circular src={demoPicts['a3'].default} alt='Profile' />
                     </div>
                     <div className="profile-name">
-                        <div className="profile-fullname">David Rivero</div>
-                        <div className="profile-bio">Short bio</div>
+                        <div className="profile-fullname">{name}</div>
+                        <div className="profile-bio">{bio}</div>
                     </div>
                 </div>
                 <div className="profile-wallet">
@@ -55,19 +64,33 @@ export default function ProfileView() {
                     <div className="profile-bio">{ walletBalance } ETH</div>
                 </div>
             </div>
+            <div className="profile-back-action">
+                    <Link to={'/'}>
+                        <img src={backIcon} alt="Back" />
+                        <span>Back</span>
+                    </Link>
+            </div>
             <div className="profile-body">
+           
                 <div className="profile-product-list">
                     <h3>Products</h3>
                     <div className="profile-product-container">
                         {
                             products.slice(0, 3).map((product) => {
-                                return <div className="profile-product-item" key={`product-${product.productId}`}>
-                                    <div className="profile-product-pict">
-                                        <img src={product.img} alt={product.productId} />
-                                    </div>
-                                    <div className="profile-product-name">{product.name}</div>
-                                    <div className="profile-product-price">{product.price}{product.currency}</div>
-                                </div>;
+                                 return <div className="profile-product-item" key={`product-${product.productId}`}>
+                              
+                                <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={product.img} alt={product.productId} style={{padding:'2.5rem'}} />
+                                <Card.Body>
+                                  <Card.Title>{product.name}</Card.Title>
+                                  <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                                  </Card.Text>
+                                  <Button variant="success">{product.price}{product.currency}</Button>
+                                </Card.Body>
+                              </Card>
+                              </div>;
                             })
                         }
                         <div className="profile-product-actions">
@@ -75,6 +98,8 @@ export default function ProfileView() {
                             <a href="#">Create new product</a>
                         </div>
                     </div>
+
+                   
                 </div>
                 <div className="profile-review-list">
                     <h3>Reviews</h3>
@@ -95,13 +120,13 @@ export default function ProfileView() {
                                         <img src={profileImgSrc} alt={review.img} />
                                     </div>
                                     <div className="profile-review-name">{review.user}</div>
-                                    <div className="profile-review-stars">
+                                    <div className="profile-review-stars" >
                                         {
                                             stars.map((star, index) => {
                                                 if (star) {
-                                                    return <img key={`star-${index}`} src={starFullIcon} alt='Star' />;
+                                                    return <img key={`star-${index}`} src={starFullIcon} alt='Star' style={{width: "1.5rem"}} />;
                                                 }
-                                                return <img key={`star-${index}`} src={starEmptyIcon} alt='Empty star' />;
+                                                return <img key={`star-${index}`} src={starEmptyIcon} alt='Empty star' style={{width: "1.5rem"}} />;
                                             })
                                         }
                                     </div>
@@ -112,13 +137,23 @@ export default function ProfileView() {
                             <a href="#">See all reviews</a>
                         </div>
                     </div>
+                    <Footer /> 
                 </div>
-                <div className="profile-back-action">
-                    <Link to={'/'}>
-                        <img src={backIcon} alt="Back" />
-                        <span>Back</span>
-                    </Link>
-                </div>
+                
+
+              
+            <div className="profile-dispute-action" onMouseEnter={() => setIsShown(true)}
+                             onMouseLeave={() => setIsShown(false)}>
+                            <a href={"https://resolve.kleros.io/create/" } target="_blank"  
+                        >
+                                <img src={klerosIcon} alt="Create Dispute Kleros"  />
+                                {isShown && ( <span style={{fontWeight:'bold'}}>Create Dispute</span>)} 
+                            </a>
+            </div>              
+
+
+                
+                
             </div>
         </div>
     );

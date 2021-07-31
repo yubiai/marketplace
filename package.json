@@ -1,7 +1,7 @@
 {
   "name": "web3-ecommerce-ubi",
   "version": "1.0.0",
-  "description": "",
+  "description": "An attempt to a MarketPlace Store for every Human registered on the ProofOfHumanity registry!",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -13,6 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.1.0"
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@openzeppelin/contracts": "^4.1.0",
+    "bootstrap": "^5.0.2",
+    "material-ui": "^0.20.2",
+    "react-bootstrap": "^2.0.0-beta.4",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.3.0"
   }
 }
