@@ -1,3 +1,4 @@
+import { stripZeros } from "ethers/lib/utils";
 import React, { useState, useEffect } from "react";
 import {
   FaBars,
@@ -6,13 +7,15 @@ import {
 import { IconContext } from "react-icons/lib";
 import { Link } from 'react-router-dom';
 import profileIcon from '../../images/profileIcon.png';
-import { Button } from "../../globalStyles";
+
 
 import {
   Nav,
   NavbarContainer,
   NavLogo,
   NavIcon,
+  NavItem,
+  NavLinks,
   MobileIcon,
   NavMenu,
   
@@ -49,18 +52,28 @@ const Navbar = () => {
           <NavbarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon src={logoImage.default} />
-              <div style={{ margin: "auto auto auto 0" }}>ProofHumanity</div>
+              <div style={{ margin: "auto auto auto 0", color: 'black'}}>Proof of Humanity MarketPlace</div>
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-
+              <NavItem>
+                <NavIcon src={profileIcon} />
+                <div alt="View Profile" className="profileIcon" height="50px"  ></div>
+                <NavLinks to="/profile" target="_top"> Profile</NavLinks>
+              </NavItem>  
+              <NavItem>
+                <NavLinks to="/">Home</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/Categories">Categories</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/Sell">Sell</NavLinks>
+              </NavItem>
             {/* Resolver redirect quitar _top */}
-            <Link to={'/profile'} target="_top"  replace style={{ color: 'white', textDecoration: 'none', underline:'none'}}>
-                        <img src={profileIcon} alt="View Profile" className="profileIcon" height="70px" />
-                        <span>Profile</span>
-            </Link>
+            
             </NavMenu>
           </NavbarContainer>
         </Nav>

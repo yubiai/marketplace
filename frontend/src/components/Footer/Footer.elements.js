@@ -35,12 +35,13 @@ export const Form = styled.form`
 `;
 
 export const FormInput = styled.input`
-  padding: 10px 20px;
+  padding: 6px 18px;
   border-radius: 2px;
   margin-right: 10px;
+  margin-top: 15px;
   outline: none;
   border: none;
-  font-size: 16px;
+  font-size: 10px;
   border: 1px solid #fff;
   &::placeholder {
     color: #242424;
@@ -93,7 +94,7 @@ const linkStyle = `
   text-decoration: none;
   margin-bottom: 0.5rem;
   &:hover {
-    color: #0467fb;
+    color: #008968;
     transition: 0.3s ease-out;
   }
 `;
@@ -124,11 +125,12 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: #fff;
+  color: #666;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-weight: 400;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   margin-bottom: 16px;
@@ -137,11 +139,12 @@ export const SocialLogo = styled(Link)`
 export const SocialIcon = styled.img`
   margin-right: 10px;
   border-radius: 50%;
-  height: 50px;
+  height: 40px;
 `;
 
 export const WebsiteRights = styled.small`
-  color: #fff;
+  color: #666;
+  font-weight: 400;
   margin-bottom: 16px;
 `;
 
@@ -153,6 +156,6 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: #fff;
+  color: #666;
   font-size: 24px;
 `;

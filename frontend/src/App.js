@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from "./globalStyles";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Store from './Store.js';
 import getBlockchain from './ethereum.js';
 import { Link } from 'react-router-dom';
 import { Navbar, Footer } from "./components"; 
+import Categories from "./pages/Categories/Categories";
+import Sell from "./pages/Sell/Sell";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -40,8 +44,14 @@ function App() {
       <div className='col-sm-12'>
         <Router>
           <GlobalStyle />
+          <ScrollToTop />
           <Navbar />
-          {/* <Link to={'/profile'}>View profile</Link> */}
+          <Switch>
+            <Route path="/"  />
+            <Route path="/categories" exact component={Categories} />
+            <Route path="/sell" exact component={Sell} />
+          </Switch>
+          {/* <Link to={'/profile'}>View profile</Link> esto fue cambiado en el navbar */} 
           <Store paymentProcessor={paymentProcessor} ubi={ubi} />
           <Footer />
         </Router>
