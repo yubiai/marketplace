@@ -41,6 +41,7 @@ const Footer = () => {
             <SocialIconLink
               href={"https://www.instagram.com/proofofhumanity/"}
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -56,6 +57,7 @@ const Footer = () => {
             <SocialIconLink
               href={"https://twitter.com/proofofhumanity"}
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Twitter"
             >
               <FaTwitter />
