@@ -58,20 +58,26 @@ const Navbar = () => {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
+            <NavItem>
+              <NavLinks to="/profile" target="_top" style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
+              <NavIcon src={profileIcon} style={{height:'3rem',marginLeft:"-4rem"}} />
+              
+                 Profile
+               
+                 
+              </NavLinks>   
+              </NavItem> 
+               
               <NavItem>
-                <NavIcon src={profileIcon} />
-                <div alt="View Profile" className="profileIcon" height="50px"  ></div>
-                <NavLinks to="/profile" target="_top"> Profile</NavLinks>
-              </NavItem>  
-              <NavItem>
-                <NavLinks to="/">Home</NavLinks>
+                <NavLinks to="/" style={{display: "flex"}}>Home</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/Categories">Categories</NavLinks>
+                <NavLinks to="/Categories" style={{display: "flex"}}>Categories</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/Sell">Sell</NavLinks>
+                <NavLinks to="/Sell" style={{display: "flex"}}>Sell</NavLinks>
               </NavItem>
+              
             {/* Resolver redirect quitar _top */}
             
             </NavMenu>

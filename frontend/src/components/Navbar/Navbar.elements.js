@@ -65,8 +65,8 @@ export const NavMenu = styled.ul`
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
-    width: 35%;
-    height: 57.3vh;
+    width: 50%;
+    height: 64.3vh;
     position: absolute;
     top: 100px;
     left: ${({ click }) => (click ? 0 : "-100%")};
@@ -104,7 +104,11 @@ const NavLinkStyle = `
  text-decoration: none;
  padding: 0.5rem 1rem;
  height: 100%;
-
+ &:hover {
+  color: #008968;
+ 
+  
+}
  @media screen and (max-width: 960px) {
    text-align: left;
    padding: 2rem;
@@ -113,6 +117,7 @@ const NavLinkStyle = `
 
    &:hover {
      color: #008968;
+     text-decoration: underline;
      transition: all 0.3s ease;
    }
  }
