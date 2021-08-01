@@ -60,7 +60,7 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
             <NavItem>
-              <SearchBar input={"input"} onChange={"ss"} />
+              <SearchBar input={"input"} />
             </NavItem>
 
             <NavItem>

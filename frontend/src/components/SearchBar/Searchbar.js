@@ -8,13 +8,7 @@ const SearchBar = ({keyword,setKeyword}) => {
       padding:"0.3rem"
     };
   return (
-    <input 
-     style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"Search"}
-     onChange={(e) => setKeyword(e.target.value)}
-    />
+    <input  style={BarStyling} key="random1" value={keyword} placeholder={"Search"}   />
   );
 }
 
