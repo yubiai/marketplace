@@ -60,17 +60,15 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
             <NavItem>
-              <SearchBar 
-             input={"input"} 
-             onChange={"ss"}
-            />
+              <SearchBar input={"input"} />
             </NavItem>
+
             <NavItem>
-              <NavLinks to="/profile" target="_top" style={{display: "flex", justifyContent: "center",alignItems: "center"}}>
-              <NavIcon src={profileIcon} style={{height:'3rem',marginLeft:"-4rem"}} />              
+              <NavLinks to="/profile" target="_top">
+              <NavIcon src={profileIcon} style={{height:'3rem'}} />              
                  Profile  
               </NavLinks>   
-              </NavItem> 
+            </NavItem> 
                
               <NavItem>
                 <NavLinks to="/" >Home</NavLinks>
