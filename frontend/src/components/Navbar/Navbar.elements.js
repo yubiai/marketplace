@@ -10,7 +10,7 @@ export const Nav = styled.nav`
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 1.2rem;
+   font-size: 1.0rem;
    position: relative;
    top: 0;
    z-index: 999;
@@ -101,7 +101,7 @@ export const NavItem = styled.li`
 
 
 
-  }
+  
 `;
 
 const NavLinkStyle = `

@@ -50,6 +50,7 @@ const Navbar = () => {
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
+           
           <NavbarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon src={logoImage.default} />
@@ -60,15 +61,14 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
             <NavItem>
-              <SearchBar input={"input"} />
+              <SearchBar input={"input"} style={{marginLeft : 370}} />
             </NavItem>
-
-            <NavItem>
-              <NavLinks to="/profile" target="_top">
-              <NavIcon src={profileIcon} style={{height:'3rem'}} />              
+              <NavItem>
+                <NavLinks to="/profile" target="_top">
+                  <NavIcon src={profileIcon} style={{height:'3rem'}} />              
                  Profile  
-              </NavLinks>   
-            </NavItem> 
+                </NavLinks>   
+              </NavItem> 
                
               <NavItem>
                 <NavLinks to="/" >Home</NavLinks>

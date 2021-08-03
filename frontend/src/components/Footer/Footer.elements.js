@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 export const FooterContainer = styled.div`
   background: rgb(255,186,121);
   background: linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%);
-  
-  padding: 1rem 0 3rem 0;
+  padding: 1rem 0 0.1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
