@@ -24,7 +24,8 @@ This is a work in progress to learn about building a fully functioning Decentral
 ## How to run it: 
 1_Install node.js (for backend https://nodejs.org/en/)
 2_Install truffle (for smart contracts, contains solidity and ganache, open a terminal command `npm install -g truffle`, after being installed type `truffle init`, then `npm init -y`)
-3_Install react & bootstrap. (in the root of the project while in a terminal run `npm install bootstrap ethers axios`, you can remove setupTest.js, logo.svg, App.test.js , App.css
+3_Standing on backend dir   `npm install koa @koa/router @koa/cors ethers mongoose`
+4_Install react & bootstrap. (in the root of the project while in a terminal run `npm install bootstrap ethers axios`, you can remove setupTest.js, logo.svg, App.test.js , App.css
 index.css) 
 
 _You will need 3 terminals, 1 for server.js opened in the backend folder(running "node server.js", 1 for the frontend located in the main folder(command npm start), and another for truffle ganache in main folder (command `truffle develop`, then `migrate --reset`) 
