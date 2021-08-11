@@ -5,28 +5,30 @@ import Ubi from './contracts/Ubi.json';
 const getBlockchain = () =>
   new Promise((resolve, reject) => {
     window.addEventListener('load', async () => {
-        if(window.ethereum) {
-          await window.ethereum.enable();
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          const signer = provider.getSigner();
-          
-    
-          const paymentProcessor = new Contract(
-            PaymentProcessor.networks[window.ethereum.networkVersion].address,
-            PaymentProcessor.abi,
-            signer
-          );
+      if(window.ethereum) {
+        await window.ethereum.enable();
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const signerAddress = await signer.getAddress();
 
-          const ubi = new Contract(
-            Ubi.networks[window.ethereum.networkVersion].address, //for mainnet and public testnet replace by address of already deployed ubi token
-            Ubi.abi,
-            signer
-          );
+        const paymentProcessor = new Contract(
+          PaymentProcessor.networks[window.ethereum.networkVersion].address,
+          PaymentProcessor.abi,
+          signer
+        );
 
-          resolve({provider, paymentProcessor, ubi});
-        }
-        resolve({provider: undefined, paymentProcessor: undefined, ubi: undefined});
+        const ubi = new Contract(
+          Ubi.networks[window.ethereum.networkVersion].address,
+          Ubi.abi,
+          signer
+        );
+
+        resolve({provider, paymentProcessor, ubi, signerAddress});
+      }
+      resolve({provider: undefined, paymentProcessor: undefined, ubi: undefined, signerAddress: undefined});
     });
-});
+  });
 
 export default getBlockchain;
+
+

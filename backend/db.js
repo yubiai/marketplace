@@ -1,18 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect(
-    'mongodb+srv://benja:rTbZ7S95RwxMtr5a@cluster0.dn7hp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    {useNewUrlParser: true, useUnifiedTopology: true}
-);
+mongoose.Promise = global.Promise;
 
-const paymentSchema = new mongoose.Schema({
-    id: String,
-    itemId: String,
-    paid: Boolean
-});
-
-const Payment = mongoose.model('Payment', paymentSchema);
-
-module.exports = {
-    Payment
+if (!process.env.MONGODB_URL) {
+  console.log(
+    "Setee la variable de entorno MONGODB_URL",
+    process.env.MONGODB_URL
+  );
+  process.exit(1);
 }
+
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(function () {
+    console.log("Conectado a la Base de Datos con éxito!");
+  })
+  .catch(function (err) {
+    console.log("Ups! Hubo un error al conectar con la base de datos!");
+    console.log(err.message);
+  });
+
+module.exports = mongoose.connection;
