@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "export $(cat .env | xargs) && env && cross-env NODE_ENV=production node server.js",
+    "dev": "export $(cat .env | xargs) && env && cross-env NODE_ENV=development nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Proof Of Humanity",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "ethers": "^5.0.14",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
+    "nodemon": "^2.0.12"
+  }
+}
