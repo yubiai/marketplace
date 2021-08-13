@@ -8,13 +8,15 @@ const { Payment } = require("./models/Payment");
 
 const app = express();
 const item = require("./routes/item/item");
+const profile = require("./routes/profile/profile");
 const config = require("./db");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/api", item);
+app.use("/api/items", item);
+app.use("/api/profiles", profile);
 
 app.listen(4000, () => {
   console.log("Server running on port 4000");

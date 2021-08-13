@@ -53,5 +53,6 @@ async function login(req, res, _) {
 }
 
 module.exports = {
-    getProfile
+    getProfile,
+    login
 };
