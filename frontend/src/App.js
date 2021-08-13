@@ -4,6 +4,7 @@ import GlobalStyle from "./globalStyles";
 import Store from './components/store/Store';
 import Message from './components/message/Message';
 import  NavBar  from './components/navbar/NavBar';
+import  Footer  from './components/footer/Footer';
 import ProfileView from './components/profile/Profile';
 
 
@@ -39,9 +40,11 @@ function App() {
       <body>  
         <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
         
-      </body>  
-      
+      </body> 
+
+      <Footer />
     </div>
+     
   );
 }
 

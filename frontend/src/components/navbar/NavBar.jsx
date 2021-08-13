@@ -18,13 +18,16 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 
+
+
 const useStyles = makeStyles((theme) => ({
-    container: {
-        display: 'flex',
-        height: '100px',
-        background: 'rgb(255,186,121)',
-        background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+    // container: {
+    //     display: 'flex',
+    //     height: '100px',
+    //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
         
+    // },
+    navbar:{background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
     },
     logo: {
         width: '35%',
@@ -168,7 +171,7 @@ export default function NavBar() {
     return (
         
             <div className={classes.container}>
-                <AppBar position="static">
+                <AppBar className={classes.navbar} position="static">
                     
                     <Toolbar>
                         <IconButton
