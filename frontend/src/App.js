@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import getBlockchain from './ethereum.js';
-
+import GlobalStyle from "./globalStyles";
 import Store from './components/store/Store';
 import Message from './components/message/Message';
+import  NavBar  from './components/navbar/NavBar';
 import ProfileView from './components/profile/Profile';
+
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -27,12 +29,18 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <div className='col-sm-12'>
-        <h1>UBI Commerce de Proof Of Humanity</h1>
-        <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
+    <div className='App'>
+      <header className="App-header">
+        <NavBar />
         {/* <ProfileView /> */}
-      </div>
+
+        
+      </header>
+      <body>  
+        <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
+        
+      </body>  
+      
     </div>
   );
 }
