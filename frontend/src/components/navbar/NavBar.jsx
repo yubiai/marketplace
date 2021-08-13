@@ -27,10 +27,13 @@ const useStyles = makeStyles((theme) => ({
     //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
         
     // },
-    navbar:{background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
+    navbar:{
+         background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+         height: '100px',
     },
     logo: {
         width: '35%',
+        marginRight: '2.2rem',
     },
     menuButton: {
         marginRight: theme.spacing(2),

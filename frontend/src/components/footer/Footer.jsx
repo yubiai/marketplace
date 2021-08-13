@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
     marginTop: 'auto',
    // backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],  
-   background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
+   background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
   }, 
 }));
 
