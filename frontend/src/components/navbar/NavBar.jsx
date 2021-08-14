@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         display: 'none',
+        fontSize: '18px',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
@@ -177,37 +178,42 @@ export default function NavBar() {
                 <AppBar className={classes.navbar} position="static">
                     
                     <Toolbar>
+                        
+                        <div>
+                            <img className={classes.logo} src={logoImage.default}></img>
+                        </div>
                         <IconButton
                             edge="start"
                             className={classes.menuButton}
                             color="inherit"
                             aria-label="open drawer"
                         >
-
-                        </IconButton>
-                        <div>
-                            <img className={classes.logo} src={logoImage.default}></img>
-                        </div>
+                        <Typography className={classes.title} variant="h10" noWrap> Categories </Typography>        
+                        </IconButton >
 
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
+                                
 
                             </div>
                             <InputBase
-                                placeholder="Search…"
+                                placeholder="Search for goods, services or anything you need..."
                                 classes={{
                                     root: classes.inputRoot,
                                     input: classes.inputInput,
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
-
+                            
                         </div>
+
+                        <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
                         <div className={classes.container} />
                         <div className={classes.sectionDesktop}>
-                            <MenuIcon />
-                            <IconButton aria-label="show 17 new notifications" color="inherit">
+                            
+                            {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
+                            <IconButton aria-label="apuntar a notif, una vez creado" color="inherit">
                                 <Badge badgeContent={17} color="secondary">
                                     <NotificationsIcon />
                                 </Badge>
@@ -231,8 +237,10 @@ export default function NavBar() {
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
                             >
+                                
                                 <MoreIcon />
                             </IconButton>
+                            
                         </div>
                     </Toolbar>
                 </AppBar>
