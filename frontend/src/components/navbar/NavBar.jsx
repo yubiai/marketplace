@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
         
         [theme.breakpoints.up('sm')]: {
             display: 'block',
+            '&:hover': {
+                borderBottom: 'none',
+                color: '#008968', 
+              }
         },
     },
     link: {
@@ -52,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
         textDecorationColor: 'transparent',
         marginRight: '2.2rem',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
          
         
     },
