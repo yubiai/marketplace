@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
+    minHeight: '64vh',
   },
   main: {
     marginTop: theme.spacing(8),
@@ -34,10 +34,17 @@ const useStyles = makeStyles((theme) => ({
    // backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],  
    background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
   }, 
+  logo: {
+    width: '120px',
+    marginLeft: '1.2rem',
+},
+
+
 }));
 
 export default function StickyFooter() {
   const classes = useStyles();
+  const logoImage = require("../../images/logo2.png");
 
   return (
     <div className={classes.root}>
@@ -53,7 +60,9 @@ export default function StickyFooter() {
         <Typography variant="body1">Sticky footer placeholder.</Typography>
       </Container> */}
       <footer className={classes.footer}>
+      <div><img className={classes.logo} src={logoImage.default}></img></div>
         <Container maxWidth="sm">
+        
           <Typography variant="body1">My sticky footer can be found here.</Typography>
           <Copyright />
         </Container>
