@@ -18,7 +18,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import { BrowserRouter as Router, Link }  from 'react-router-dom';
-
+import LoyaltyOutlinedIcon from '@material-ui/icons/LoyaltyOutlined';
+import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
+import AddToQueueOutlinedIcon from '@material-ui/icons/AddToQueueOutlined';
+import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 
 const useStyles = makeStyles((theme) => ({
     // container: {
@@ -32,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
          height: '100px',
     },
     logo: {
-        width: '100px',
+        width: '120px',
         marginRight: '2.2rem',
     },
     menuButton: {
@@ -63,6 +66,22 @@ const useStyles = makeStyles((theme) => ({
          
         
     },
+    linkmenu: {
+        display: 'flex',
+        fontSize: '18px',
+        color: '#000000',
+        textDecorationColor: 'transparent',
+        marginLeft: '1rem',
+
+    },
+    linkmenuicon: {
+        display: 'flex',
+        size: '18px',
+        color: '#000000',
+        textDecorationColor: 'transparent',
+        
+
+    },    
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -153,6 +172,7 @@ export default function NavBar() {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            
         </Menu>
     );
 
@@ -187,6 +207,70 @@ export default function NavBar() {
                 </IconButton>
                 <p>Profile</p>
             </MenuItem>
+            <MenuItem>
+                <IconButton  color="inherit">
+                    <Badge  >
+                        <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                    </Badge>
+                </IconButton>
+                <p>Categories</p>
+            </MenuItem>
+            <MenuItem>
+                <Router>
+                <IconButton color="inherit"  >
+                    <Link  to="/sell">
+                        <Badge  color="secondary">
+                            <LoyaltyOutlinedIcon className={classes.linkmenuicon}></LoyaltyOutlinedIcon>
+                            <div className={classes.linkmenu}>
+                            <p>Sell</p>
+                            </div>
+                        </Badge>
+                    </Link>
+                </IconButton>
+                </Router>
+            </MenuItem>
+            <MenuItem>
+                <Router>
+                <IconButton color="inherit"  >
+                    <Link  to="/browsinghistory">
+                        <Badge  color="secondary">
+                            <HistoryOutlinedIcon className={classes.linkmenuicon}></HistoryOutlinedIcon>
+                            <div className={classes.linkmenu}>
+                            <p>Browsing history</p>
+                            </div>
+                        </Badge>
+                    </Link>
+                </IconButton>
+                </Router>
+            </MenuItem>
+            <MenuItem>
+                <Router>
+                <IconButton color="inherit"  >
+                    <Link  to="/watchlist">
+                        <Badge  color="secondary">
+                            <AddToQueueOutlinedIcon className={classes.linkmenuicon}></AddToQueueOutlinedIcon>
+                            <div className={classes.linkmenu}>
+                            <p>Watch list</p>
+                            </div>
+                        </Badge>
+                    </Link>
+                </IconButton>
+                </Router>
+            </MenuItem>
+            <MenuItem>
+                <Router>
+                <IconButton color="inherit"  >
+                    <Link  to="/helpdesk">
+                        <Badge  color="secondary">
+                            <ContactSupportOutlinedIcon className={classes.linkmenuicon}></ContactSupportOutlinedIcon>
+                            <div className={classes.linkmenu}>
+                            <p>Help desk</p>
+                            </div>
+                        </Badge>
+                    </Link>
+                </IconButton>
+                </Router>
+            </MenuItem>
         </Menu>
     );
 
@@ -201,22 +285,7 @@ export default function NavBar() {
                         <div>
                             <img className={classes.logo} src={logoImage.default}></img>
                         </div>
-                        <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                        >
-                        <Typography className={classes.title} variant="h10" noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
-                        </IconButton >
-                        <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
-                         </Link>
+                        
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
@@ -233,14 +302,31 @@ export default function NavBar() {
                             />
                             
                         </div>
+                       
 
-                        <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                        
                         <div className={classes.container} />
                         <div className={classes.sectionDesktop}>
                             
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                             <IconButton aria-label="apuntar a notif, una vez creado" color="inherit">
                                 <Badge badgeContent={17} color="secondary">
+                                <IconButton
+                            edge="start"
+                            className={classes.menuButton}
+                            color="inherit"
+                            aria-label="open drawer"
+                        >
+                        <Typography className={classes.title}  noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
+                        </IconButton >
+                        <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
+                         </Link>
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
@@ -253,6 +339,7 @@ export default function NavBar() {
                                 color="inherit"
                             >
                                 <AccountCircle />
+                                <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
                             </IconButton>
                         </div>
                         <div className={classes.sectionMobile}>
@@ -262,6 +349,7 @@ export default function NavBar() {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
+                                
                             >
                                 
                                 <MoreIcon />
