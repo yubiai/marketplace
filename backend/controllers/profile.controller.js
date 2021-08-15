@@ -1,24 +1,19 @@
 const { Profile } = require("../models/Profile");
-const { SignJWT } = require("jose/jwt/sign");
+const jwt = require("jsonwebtoken");
+const got = require("got");
 
-const POH_API_URL = 'https://api.poh.dev/';
+const POH_API_URL = 'https://api.poh.dev';
 const JWT_PRIVATE_KEY = process.env.JWT_PRIVATE_KEY || '';
 
 /**
  * Util functions
  */
 async function checkProfileOnPOH(walletAddress) {
-    return await fetch(`${POH_API_URL}/profiles/${walletAddress}`);
+    return await got(`${POH_API_URL}/profiles/${walletAddress}`).json();
 }
 
-async function signData(rawData={}) {
-    return await new SignJWT({ ...rawData, currentDate: new Date() })
-        .setProtectedHeader({ alg: 'ES256' })
-        .setIssuedAt()
-        .setIssuer('urn:example:issuer')
-        .setAudience('urn:example:audience')
-        .setExpirationTime('2h')
-        .sign(JWT_PRIVATE_KEY);
+function signData(rawData={}) {
+    return jwt.sign({ ...rawData, currentDate: new Date() }, JWT_PRIVATE_KEY);
 }
 
 
@@ -37,18 +32,23 @@ async function getProfile(req, res, _) {
     }
 }
 
-async function login(req, res, _) {
-    const { walletAddress } = req;
-    const checkPOHRequest = await checkProfileOnPOH(walletAddress);
-    if (checkPOHRequest.status === 200) {
-        const token = await signData({
-            walletAddress
-        });
-        res.status(200).json({
-            token: token
-        });
-    } else {
-        res.status(401);
+async function login(req, res, next) {
+    // FIXME: Replace hardcoded wallet with '{ ...req.body }';
+    const { walletAddress } = { walletAddress: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c' };
+    try {
+        const response = await checkProfileOnPOH(walletAddress);
+        if (response) {
+            const token = signData({
+                walletAddress
+            });
+            res.status(200).json({
+                token: token
+            });
+        }
+    } catch (error) {
+        console.log('ERROR: ', error);
+        res.status(401).json({error: 'Unauthorized'});
+        next();
     }
 }
 
