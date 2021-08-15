@@ -16,7 +16,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { FaBars, FaTimes } from "react-icons/fa";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-
+import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 
 
 
@@ -188,7 +188,7 @@ export default function NavBar() {
                             color="inherit"
                             aria-label="open drawer"
                         >
-                        <Typography className={classes.title} variant="h10" noWrap> Categories </Typography>        
+                        <Typography className={classes.title} variant="h10" noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>        
                         </IconButton >
 
                         <div className={classes.search}>
