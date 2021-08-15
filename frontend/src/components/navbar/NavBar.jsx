@@ -17,7 +17,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { FaBars, FaTimes } from "react-icons/fa";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
-
+import { BrowserRouter as Router, Link }  from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
          height: '100px',
     },
     logo: {
-        width: '35%',
+        width: '100px',
         marginRight: '2.2rem',
     },
     menuButton: {
@@ -41,9 +41,19 @@ const useStyles = makeStyles((theme) => ({
     title: {
         display: 'none',
         fontSize: '18px',
+        
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
+    },
+    link: {
+        display: 'flex',
+        fontSize: '18px',
+        color: '#fff',
+        textDecorationColor: 'transparent',
+        marginRight: '2.2rem',
+         
+        
     },
     search: {
         position: 'relative',
@@ -175,6 +185,7 @@ export default function NavBar() {
     return (
         
             <div className={classes.container}>
+                <Router>
                 <AppBar className={classes.navbar} position="static">
                     
                     <Toolbar>
@@ -188,9 +199,16 @@ export default function NavBar() {
                             color="inherit"
                             aria-label="open drawer"
                         >
-                        <Typography className={classes.title} variant="h10" noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>        
+                        <Typography className={classes.title} variant="h10" noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
                         </IconButton >
-
+                        <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
+                         </Link>
+                         <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
+                         </Link>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
@@ -244,6 +262,7 @@ export default function NavBar() {
                         </div>
                     </Toolbar>
                 </AppBar>
+                </Router>
                 {renderMobileMenu}
                 {renderMenu}
             </div>
