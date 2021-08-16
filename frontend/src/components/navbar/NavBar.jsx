@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Grid from '@material-ui/core/Grid';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import Button from '@material-ui/core/Button';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import { BrowserRouter as Router, Link }  from 'react-router-dom';
@@ -22,6 +22,7 @@ import LoyaltyOutlinedIcon from '@material-ui/icons/LoyaltyOutlined';
 import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import AddToQueueOutlinedIcon from '@material-ui/icons/AddToQueueOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles((theme) => ({
     // container: {
@@ -30,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
         
     // },
+    root:{
+        marginTop: '10px',
+   },
+
     navbar:{
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
          height: '100px',
@@ -43,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         display: 'none',
-        fontSize: '18px',
+        fontSize: '14px',
         justifyContent: 'space-evenly',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
@@ -55,11 +60,22 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         display: 'flex',
-        fontSize: '18px',
+        fontSize: '14px',
         color: '#fff',
         textDecorationColor: 'transparent',
-        marginRight: '2rem',
+        marginRight: '1rem',
         justifyContent: 'space-evenly',
+        alignItems: 'center',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
+    lang: {
+        
+        fontSize: '14px',
+        color: '#fff',
+        textDecorationColor: 'transparent',
         alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
@@ -68,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     notificon: {
-        justifyContent: 'space-evenly',
+        marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
@@ -76,9 +92,9 @@ const useStyles = makeStyles((theme) => ({
           }
     },
     accicon: {
-        justifyContent: 'space-evenly',
+        marginLeft: theme.spacing(2),
         alignItems: 'center',
-        marginLeft: '1rem',
+        
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
@@ -86,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     carticon: {
-        
+        marginLeft: theme.spacing(2),
         alignItems: 'center',
         
         '&:hover': {
@@ -97,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
 
     linkmenu: {
         display: 'flex',
-        fontSize: '18px',
+        fontSize: '14px',
         color: '#000000',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
@@ -113,10 +129,11 @@ const useStyles = makeStyles((theme) => ({
     },    
     search: {
         position: 'relative',
+        color: 'black',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
+        backgroundColor: alpha(theme.palette.common.white, 1),
         '&:hover': {
-           backgroundColor: alpha(theme.palette.common.white, 0.25),
+           backgroundColor: alpha(theme.palette.common.white, 0.75),
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
@@ -145,7 +162,7 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
-            width: '20ch',
+            width: '40ch',
         },
     },
     sectionDesktop: {
@@ -309,10 +326,15 @@ export default function NavBar() {
                 <Router>
                 <AppBar className={classes.navbar} position="static">
                     <Toolbar>
-                        <div>
-                            <img className={classes.logo} src={logoImage.default}></img>
-                        </div>
-                        <div className={classes.search}>
+
+     <div className={classes.root}>
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+        <div><img className={classes.logo} src={logoImage.default}></img></div>
+        </Grid>
+        <Grid item xs={6}>
+            {/* Caja de Busqueda */}
+            <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
                             </div>
@@ -324,41 +346,58 @@ export default function NavBar() {
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
-                        </div>
-                        <div className={classes.container} />
-                        <div className={classes.sectionDesktop}>
+            </div>
+        </Grid>
+        <Grid item xs={3}>
+        <Link className={classes.lang} to="/sell" >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
+        <Button variant="contained" color="primary">Connect</Button>
+        </Grid>
+
+        {/* Second row */}
+        <Grid item xs={3}>
+        <LocationOnIcon></LocationOnIcon>Send to Buenos Aires
+        </Grid>
+        <Grid item xs={6}>
+             
+        <div className={classes.container} />
+        <div className={classes.sectionDesktop}>
                             
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                            <IconButton aria-label="apuntar a notif, una vez creado" color="inherit">
-                                <Badge badgeContent={17} color="secondary" >
-                                <Typography className={classes.link}  noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
-                                <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
+                           
+                                <Typography className={classes.link}  noWrap>  
+                                <Link className={classes.link} to="/sell" >Categories 
+                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> 
                                 </Link>
-                                <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
+                                <Link className={classes.link} to="/sell" >Sell  
                                 </Link>
-                                <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
+                                <Link className={classes.link} to="/browsinghistory" >Browsing history  
                                 </Link>
-                                <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
+                                <Link className={classes.link} to="/watchlist" >Watch list  
                                 </Link>
-                                <NotificationsIcon className={classes.notificon} />
-                                </Badge>
-                                <AccountCircle className={classes.accicon} />
-                            </IconButton>
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                onClick={handleProfileMenuOpen}
-                                color="inherit"
-                            >
-                                
-                                
-                                
-                            </IconButton>
-                            
+                                <Link className={classes.link} to="/helpdesk" >Help desk 
+                                </Link></Typography>  
+                               
+
+                                                             
                         </div>
-                        <ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+        </Grid>
+        <Grid item xs={3}>
+        
+                <AccountCircle className={classes.accicon} />                                 
+                <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
+                <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
+                               
+        </Grid>
+        
+      </Grid>
+    </div>
+
+                        
+
+                     
+                        
+
+                        
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"

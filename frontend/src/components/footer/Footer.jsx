@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -97,7 +97,7 @@ export default function StickyFooter() {
         <Container maxWidth="lg">
         <Grid container spacing={0}>
         <Grid item xs={2}>
-          <div className={classes.paper}><img className={classes.logo} src={logoImage.default}></img></div>
+          <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
         </Grid>
         <Grid item xs={3}>
         <div className={classes.paper}>
