@@ -110,18 +110,18 @@ export default function StickyFooter() {
         <Grid item xs={5}>
         <div className={classes.paper}>
         <Typography>
-        <Link className={classes.link} href="#" onClick={preventDefault} >Governance Forum </Link>
+        <Link className={classes.link} href="https://gov.proofofhumanity.id/" onClick={preventDefault} >Governance Forum </Link>
         <Link className={classes.link} href="#" onClick={preventDefault} >Snapshot  </Link>
         <Link className={classes.link} href="#" onClick={preventDefault} >UBI Vaults </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} >Kleros</Link>
+        <Link className={classes.link} href="https://court.kleros.io/" onClick={preventDefault} >Kleros</Link>
         </Typography>
 
         </div>
         </Grid> 
         <Grid item xs={2}>
         <div className={classes.paper}>
-        <YouTubeIcon className={classes.socialMedia} />
-        <TwitterIcon className={classes.socialMedia}/>
+        <Link className={classes.link} href="https://youtube.com"> <YouTubeIcon className={classes.socialMedia}  /></Link>
+        <Link className={classes.link} href="https://twitter.com"> <TwitterIcon className={classes.socialMedia}  /></Link>
         </div>
         </Grid>
       </Grid>
