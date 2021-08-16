@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -64,6 +64,7 @@ submit: {
   fontSize: '14px',
   color: '#FCB877',
   background: 'white',
+  marginLeft: 20,
   borderRadius : 20,
   '&:hover': {
     borderBottom: 'none',
@@ -74,10 +75,11 @@ submit: {
 },
 contact: {
   padding: 0,
-  margin: 3,
+  margin: 0,
   fontSize: '14px',
   color: '#FCB877',
-  background: 'white',
+  width: '120px',
+  height: '20px',
 
 },
 
@@ -107,11 +109,12 @@ export default function StickyFooter() {
         </Grid>
         <Grid item xs={3}>
         <div className={classes.paper}>
-          <form className={classes.contact} noValidate autoComplete="off">
-            <TextField id="name-input" name="name" label="Name" variant="outlined" type="text" />
-            
-          <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
+          <form  noValidate autoComplete="off">
+            <TextField className={classes.contact} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Search for goods, services or anything you need...' />
+          
+          
           </form>
+          <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
         </div>
         </Grid>
         <Grid item xs={5}>
