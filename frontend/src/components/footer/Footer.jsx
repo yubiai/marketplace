@@ -1,28 +1,24 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     minHeight: '64vh',
+    flexGrow: 1,
   },
   main: {
     marginTop: theme.spacing(8),
@@ -36,7 +32,25 @@ const useStyles = makeStyles((theme) => ({
   }, 
   logo: {
     width: '120px',
-    marginLeft: '1.2rem',
+   
+},
+paper: {
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+},
+link: {
+ 
+  fontSize: '14px',
+  color: '#fff',
+  flexDirection: 'row',
+  textDecorationColor: 'transparent',
+  padding: 5,
+  '&:hover': {
+      borderBottom: 'none',
+      color: '#008968', 
+    }
+ 
 },
 
 
@@ -45,26 +59,51 @@ const useStyles = makeStyles((theme) => ({
 export default function StickyFooter() {
   const classes = useStyles();
   const logoImage = require("../../images/logo2.png");
+  const [name, setName] = useState("");
+
+  const preventDefault = (event) => {
+    console.log(name);
+  };
+  
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {/* <Container component="main" className={classes.main} maxWidth="sm">
-        <Typography variant="h2" component="h1" gutterBottom>
-          Sticky footer
-        </Typography>
-        <Typography variant="h5" component="h2" gutterBottom>
-          {'Pin a footer to the bottom of the viewport.'}
-          {'The footer will move as the main element of the page grows.'}
-        </Typography>
-        <Typography variant="body1">Sticky footer placeholder.</Typography>
-      </Container> */}
+      
       <footer className={classes.footer}>
-      <div><img className={classes.logo} src={logoImage.default}></img></div>
-        <Container maxWidth="sm">
+      
+        <Container maxWidth="xl">
+        <Grid container spacing={0}>
+        <Grid item xs={3}>
+          <div className={classes.paper}><img className={classes.logo} src={logoImage.default}></img></div>
+        </Grid>
+        <Grid item xs={3}>
+        <div className={classes.paper}>
+          <form className={classes.contact} noValidate autoComplete="off">
+            <TextField id="name-input" name="name" label="Name" variant="outlined" type="text" />
+          </form>   
+          <Button variant="contained" color="primary" type="submit">Contact Us</Button>
+        </div>
+        </Grid>
+        <Grid item xs={4}>
+        <div className={classes.paper}>
+        <Typography>
+        <Link className={classes.link} href="#" onClick={preventDefault} to="/sell" >Governance Forum </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} to="/browsinghistory" >Snapshot  </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} to="/watchlist" >UBI Vaults </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} to="/helpdesk" >Kleros</Link>
+        </Typography>
+
+        </div>
+        </Grid> 
+        <Grid item xs={2}>
+        <div className={classes.paper}>
+        <YouTubeIcon />
+        <TwitterIcon />
+        </div>
+        </Grid>
+      </Grid>
         
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
-          <Copyright />
         </Container>
       </footer>
     </div>
