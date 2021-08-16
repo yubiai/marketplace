@@ -17,18 +17,20 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '64vh',
+    minHeight: '53vh',
     flexGrow: 1,
+    fontSize: '14px',
   },
   main: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(0, 0),
     marginTop: 'auto',
    // backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],  
    background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+   fontSize: '14px',
   }, 
   logo: {
     width: '120px',
@@ -39,10 +41,13 @@ paper: {
   textAlign: 'center',
   color: theme.palette.text.secondary,
 },
-link: {
- 
+socialMedia: {
+  padding: 0,
+  margin: 3,
+},
+link: { 
   fontSize: '14px',
-  color: '#fff',
+  color: 'black',
   flexDirection: 'row',
   textDecorationColor: 'transparent',
   padding: 5,
@@ -51,6 +56,22 @@ link: {
       color: '#008968', 
     }
  
+},
+submit: {
+  padding: 0,
+  margin: 3,
+  fontSize: '14px',
+  color: '#FCB877',
+  background: 'white',
+
+},
+contact: {
+  padding: 0,
+  margin: 3,
+  fontSize: '14px',
+  color: '#FCB877',
+  background: 'white',
+
 },
 
 
@@ -72,34 +93,35 @@ export default function StickyFooter() {
       
       <footer className={classes.footer}>
       
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
         <Grid container spacing={0}>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <div className={classes.paper}><img className={classes.logo} src={logoImage.default}></img></div>
         </Grid>
         <Grid item xs={3}>
         <div className={classes.paper}>
           <form className={classes.contact} noValidate autoComplete="off">
             <TextField id="name-input" name="name" label="Name" variant="outlined" type="text" />
-          </form>   
-          <Button variant="contained" color="primary" type="submit">Contact Us</Button>
+            
+          <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
+          </form>
         </div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={5}>
         <div className={classes.paper}>
         <Typography>
-        <Link className={classes.link} href="#" onClick={preventDefault} to="/sell" >Governance Forum </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} to="/browsinghistory" >Snapshot  </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} to="/watchlist" >UBI Vaults </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} to="/helpdesk" >Kleros</Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} >Governance Forum </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} >Snapshot  </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} >UBI Vaults </Link>
+        <Link className={classes.link} href="#" onClick={preventDefault} >Kleros</Link>
         </Typography>
 
         </div>
         </Grid> 
         <Grid item xs={2}>
         <div className={classes.paper}>
-        <YouTubeIcon />
-        <TwitterIcon />
+        <YouTubeIcon className={classes.socialMedia} />
+        <TwitterIcon className={classes.socialMedia}/>
         </div>
         </Grid>
       </Grid>

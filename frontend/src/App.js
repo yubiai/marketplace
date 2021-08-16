@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import getBlockchain from './ethereum.js';
-import GlobalStyle from "./globalStyles";
+
 import Store from './components/store/Store';
 import Message from './components/message/Message';
 import  NavBar  from './components/navbar/NavBar';
