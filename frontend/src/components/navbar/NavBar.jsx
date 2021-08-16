@@ -65,13 +65,34 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#008968', 
           }
-         
-        
     },
+
     notificon: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
+    accicon: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        marginLeft: '1rem',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
 
+    carticon: {
+        
+        alignItems: 'center',
+        
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
     },
 
     linkmenu: {
@@ -310,13 +331,6 @@ export default function NavBar() {
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                             <IconButton aria-label="apuntar a notif, una vez creado" color="inherit">
                                 <Badge badgeContent={17} color="secondary" >
-                                <IconButton
-                                     edge="start"
-                                     className={classes.menuButton}
-                                     color="inherit"
-                                     aria-label="open drawer"
-                                >
-                                </IconButton >
                                 <Typography className={classes.link}  noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
                                 <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
                                 </Link>
@@ -326,8 +340,9 @@ export default function NavBar() {
                                 </Link>
                                 <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
                                 </Link>
-                                <NotificationsIcon className={classes.notificon}/>
+                                <NotificationsIcon className={classes.notificon} />
                                 </Badge>
+                                <AccountCircle className={classes.accicon} />
                             </IconButton>
                             <IconButton
                                 edge="end"
@@ -337,10 +352,13 @@ export default function NavBar() {
                                 onClick={handleProfileMenuOpen}
                                 color="inherit"
                             >
-                                <AccountCircle />
-                                <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                                
+                                
+                                
                             </IconButton>
+                            
                         </div>
+                        <ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"
