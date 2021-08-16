@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -49,7 +49,7 @@ socialMedia: {
   margin: 3,
 },
 link: { 
-  fontSize: '14px',
+  fontSize: '13px',
   color: 'black',
   flexDirection: 'row',
   textDecorationColor: 'transparent',
@@ -58,18 +58,19 @@ link: {
   '&:hover': {
       borderBottom: 'none',
       color: '#008968', 
+      textDecorationColor: 'transparent',
     }
  
 },
 submit: {
   padding: 4,
   
-  fontSize: '14px',
+  fontSize: '10px',
   color: '#FCB877',
   background: 'white',
-  marginLeft: '20',
+  marginLeft: '10px',
   borderRadius : 20,
-  width: '112px',
+  width: '70px',
   '&:hover': {
     borderBottom: 'none',
     color: 'white',
@@ -121,7 +122,7 @@ export default function StickyFooter() {
         <Grid item xs={2}>
           <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
         <div classes={classes.form} >
           <form    noValidate autoComplete="off">
             {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
@@ -130,18 +131,18 @@ export default function StickyFooter() {
                                 className={classes.input}
                                 inputProps={{ 'aria-label': 'contact' }}
                             />
-            <IconButton  color="inherit">
+            {/* <IconButton  color="inherit">
               <SendIcon></SendIcon>
-           </IconButton>
-          
+           </IconButton> */}
+           <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
           </form>
-          {/* <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button> */}
+          
          
 
         
         </div>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
         <div className={classes.paper}>
         <Typography>
         <Link className={classes.link} href="https://gov.proofofhumanity.id/" onClick={preventDefault} >Governance Forum </Link>
