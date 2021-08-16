@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         display: 'none',
         fontSize: '18px',
-        
+        justifyContent: 'space-evenly',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
             '&:hover': {
@@ -58,14 +58,43 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '18px',
         color: '#fff',
         textDecorationColor: 'transparent',
-        marginRight: '2.2rem',
+        marginRight: '2rem',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
           }
-         
-        
     },
+
+    notificon: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
+    accicon: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        marginLeft: '1rem',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
+
+    carticon: {
+        
+        alignItems: 'center',
+        
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
+
     linkmenu: {
         display: 'flex',
         fontSize: '18px',
@@ -87,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 0.15),
         '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.25),
+           backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
@@ -279,18 +308,13 @@ export default function NavBar() {
             <div className={classes.container}>
                 <Router>
                 <AppBar className={classes.navbar} position="static">
-                    
                     <Toolbar>
-                        
                         <div>
                             <img className={classes.logo} src={logoImage.default}></img>
                         </div>
-                        
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
-                                
-
                             </div>
                             <InputBase
                                 placeholder="Search for goods, services or anything you need..."
@@ -300,35 +324,25 @@ export default function NavBar() {
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
-                            
                         </div>
-                       
-
-                        
                         <div className={classes.container} />
                         <div className={classes.sectionDesktop}>
                             
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                             <IconButton aria-label="apuntar a notif, una vez creado" color="inherit">
-                                <Badge badgeContent={17} color="secondary">
-                                <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                        >
-                        <Typography className={classes.title}  noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
-                        </IconButton >
-                        <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
-                         </Link>
-                         <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
-                         </Link>
-                                    <NotificationsIcon />
+                                <Badge badgeContent={17} color="secondary" >
+                                <Typography className={classes.link}  noWrap> Categories <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon></Typography>  
+                                <Link className={classes.link} to="/sell" ><Typography >Sell </Typography>  
+                                </Link>
+                                <Link className={classes.link} to="/browsinghistory" ><Typography >Browsing history </Typography>  
+                                </Link>
+                                <Link className={classes.link} to="/watchlist" ><Typography >Watch list </Typography>  
+                                </Link>
+                                <Link className={classes.link} to="/helpdesk" ><Typography >Help desk </Typography>  
+                                </Link>
+                                <NotificationsIcon className={classes.notificon} />
                                 </Badge>
+                                <AccountCircle className={classes.accicon} />
                             </IconButton>
                             <IconButton
                                 edge="end"
@@ -338,10 +352,13 @@ export default function NavBar() {
                                 onClick={handleProfileMenuOpen}
                                 color="inherit"
                             >
-                                <AccountCircle />
-                                <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                                
+                                
+                                
                             </IconButton>
+                            
                         </div>
+                        <ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"
