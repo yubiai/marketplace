@@ -51,6 +51,7 @@ link: {
   flexDirection: 'row',
   textDecorationColor: 'transparent',
   padding: 5,
+ 
   '&:hover': {
       borderBottom: 'none',
       color: '#008968', 
