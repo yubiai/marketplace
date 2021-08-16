@@ -111,6 +111,18 @@ const useStyles = makeStyles((theme) => ({
           }
     },
 
+    connect: {
+        fontSize: '14px',
+        color: '#FCB877',
+        background: 'white',
+        borderRadius : 20,
+        marginLeft: '1rem',
+        '&:hover': {
+            borderBottom: 'none',
+            color: 'white',
+            background: '#FCB877', 
+          }
+    },
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -350,7 +362,7 @@ export default function NavBar() {
         </Grid>
         <Grid item xs={3}>
         <Link className={classes.lang} to="/sell" >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
-        <Button variant="contained" color="primary">Connect</Button>
+        <Button className={classes.connect} variant="contained" color="primary">Connect</Button>
         </Grid>
 
         {/* Second row */}

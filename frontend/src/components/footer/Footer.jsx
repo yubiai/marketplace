@@ -59,11 +59,17 @@ link: {
  
 },
 submit: {
-  padding: 0,
-  margin: 3,
+  padding: 4,
+ 
   fontSize: '14px',
   color: '#FCB877',
   background: 'white',
+  borderRadius : 20,
+  '&:hover': {
+    borderBottom: 'none',
+    color: 'white',
+    background: '#FCB877', 
+  }
 
 },
 contact: {
