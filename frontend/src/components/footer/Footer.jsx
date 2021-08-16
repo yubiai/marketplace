@@ -5,10 +5,13 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import SendIcon from '@material-ui/icons/Send';
+import IconButton from '@material-ui/core/IconButton';
 
 
 
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
    fontSize: '14px',
   }, 
   logo: {
-    width: '120px',
+    width: '90px',
    
 },
 paper: {
@@ -60,12 +63,13 @@ link: {
 },
 submit: {
   padding: 4,
- 
+  
   fontSize: '14px',
   color: '#FCB877',
   background: 'white',
-  marginLeft: 20,
+  marginLeft: '20',
   borderRadius : 20,
+  width: '112px',
   '&:hover': {
     borderBottom: 'none',
     color: 'white',
@@ -73,14 +77,24 @@ submit: {
   }
 
 },
-contact: {
-  padding: 0,
-  margin: 0,
-  fontSize: '14px',
+input: {
+  padding: '5px',
+  marginTop: '15px',
+  fontSize: '12px',
+  color: '#000',
+  width: '205px',
+  height: '30px',
+  background: '#ffffff',
+  borderRadius : 10,
+},
+form: {
+  display: 'flex',
+  marginTop: '30px',
+ 
   color: '#FCB877',
-  width: '120px',
+  width: '230px',
   height: '20px',
-
+  background: '#fff',
 },
 
 
@@ -108,13 +122,23 @@ export default function StickyFooter() {
           <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
         </Grid>
         <Grid item xs={3}>
-        <div className={classes.paper}>
-          <form  noValidate autoComplete="off">
-            <TextField className={classes.contact} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Search for goods, services or anything you need...' />
-          
+        <div classes={classes.form} >
+          <form    noValidate autoComplete="off">
+            {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
+
+            <InputBase  placeholder="Want to talk? Share us your ETHMail"
+                                className={classes.input}
+                                inputProps={{ 'aria-label': 'contact' }}
+                            />
+            <IconButton  color="inherit">
+              <SendIcon></SendIcon>
+           </IconButton>
           
           </form>
-          <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
+          {/* <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button> */}
+         
+
+        
         </div>
         </Grid>
         <Grid item xs={5}>
