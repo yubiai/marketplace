@@ -119,10 +119,10 @@ export default function StickyFooter() {
       
         <Container maxWidth="lg">
         <Grid container spacing={0}>
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={2}>
           <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
         <div classes={classes.form} >
           <form    noValidate autoComplete="off">
             {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
@@ -142,7 +142,7 @@ export default function StickyFooter() {
         
         </div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
         <div className={classes.paper}>
         <Typography>
         <Link className={classes.link} href="https://gov.proofofhumanity.id/" onClick={preventDefault} >Governance Forum </Link>
@@ -153,7 +153,7 @@ export default function StickyFooter() {
 
         </div>
         </Grid> 
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={2}>
         <div className={classes.paper}>
         <Link className={classes.link} href="https://youtube.com"> <YouTubeIcon className={classes.socialMedia}  /></Link>
         <Link className={classes.link} href="https://twitter.com"> <TwitterIcon className={classes.socialMedia}  /></Link>

@@ -410,10 +410,10 @@ export default function NavBar() {
 
      <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item  sm={3} xs={6}>
         <div><img className={classes.logo} src={logoImage.default}></img></div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item sm={6} xs={6}>
             {/* Caja de Busqueda */}
             <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -429,16 +429,16 @@ export default function NavBar() {
                             />
             </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item sm={3} xs={6}>
         <Link className={classes.lang} aria-controls="language" aria-haspopup="true" onClick={OpenLanguage}>EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
         <Button className={classes.connect} variant="contained" color="primary">Connect</Button>
         </Grid>
 
         {/* Second row */}
-        <Grid item xs={3}>
+        <Grid item sm={3} xs={6}>
         <LocationOnIcon></LocationOnIcon>Send to Buenos Aires
         </Grid>
-        <Grid item xs={6}>
+        <Grid item sm={6} xs={6}>
              
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
@@ -461,7 +461,7 @@ export default function NavBar() {
                                                              
                         </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item sm={3} xs={6}>
         
                 <AccountCircle className={classes.accicon} />                                 
                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
