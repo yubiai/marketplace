@@ -64,13 +64,13 @@ link: {
 },
 submit: {
   padding: 4,
-  
+  padding: '5px',
   fontSize: '10px',
   color: '#FCB877',
   background: 'white',
   marginLeft: '10px',
   borderRadius : 20,
-  width: '70px',
+  width: '80px',
   '&:hover': {
     borderBottom: 'none',
     color: 'white',
@@ -79,11 +79,11 @@ submit: {
 
 },
 input: {
-  padding: '5px',
+  padding: '10px',
   marginTop: '15px',
   fontSize: '12px',
   color: '#000',
-  width: '205px',
+  width: '215px',
   height: '30px',
   background: '#ffffff',
   borderRadius : 10,
