@@ -6,7 +6,8 @@ import { ethers } from "ethers";
 import _products from "./fixtures/product.demo.json";
 import _reviews from "./fixtures/review.demo.json";
 import demoPicts from "./fixtures/profile.pictures";
-
+import NavBar from "../navbar/NavBar";
+import Footer from "../footer/Footer"
 import starEmptyIcon from "../../media/star-empty.svg";
 import starFullIcon from "../../media/star-full.svg";
 import backIcon from "../../media/play.svg";
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         
       },
 
-      profilePhoto img : {
+      profilePhoto  : {
         width: '100%',
         borderRadius: '50%',
         right: '2rem',
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
       },
   
       profileWalletAddress: {
-        border: 1px solid '#314ACE',
+        border: '1px solid #314ACE',
         borderRadius: '4px',
         padding: '0.5rem',
         textAlign: 'center',
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
       */
 
       
-      profileReviewList h3: {
+      profileReviewList: {
         fontWeight: '300',
       },
 
@@ -186,6 +187,7 @@ const useStyles = makeStyles((theme) => ({
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
 const ProfileView = () => {
+  const classes = useStyles();
   const _Provider = new ethers.providers.Web3Provider(window.ethereum);
   const _Signer = _Provider.getSigner();
   const [walletAddress, setWalletAddress] = useState("");
@@ -215,7 +217,7 @@ const ProfileView = () => {
 
   return (
     <div className={clases.profileView}>
-      {/* <Navbar /> */}
+      <NavBar></NavBar>  
       <div className={profileHeader}>
         <div className="profileOverview">
           <div className="profilePhoto">
@@ -326,7 +328,7 @@ const ProfileView = () => {
               <a href="#">See all reviews</a>
             </div>
           </div>
-          {/* <Footer /> */}
+          <Footer /> 
         </div>
 
         <div
