@@ -217,6 +217,24 @@ export default function NavBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+  
+   
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const OpenLanguage = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const OpenCategories = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const open = Boolean(anchorEl);
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -233,6 +251,57 @@ export default function NavBar() {
             
         </Menu>
     );
+
+    const categories = 'categories-menu';
+    const renderMenuCategories = (
+                                <Menu
+                                        id={categories}
+                                        anchorEl={anchorEl}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                          }}
+                                          transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                          }}
+                                        keepMounted
+                                        open={Boolean(anchorEl)}
+                                        onClose={handleClose}
+                                        >
+                                        <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
+                                        <MenuItem onClick={handleClose}>Atomotive</MenuItem>
+                                        <MenuItem onClick={handleClose}>Appliances</MenuItem>
+                                        <MenuItem onClick={handleClose}>VideoGames</MenuItem>
+                                </Menu>
+                                );
+
+                const language = 'language-menu';
+                const renderMenuLanguage = (
+                    <Menu
+                            id={language}
+                            anchorEl={anchorEl}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                                }}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                            >
+                            <MenuItem onClick={handleClose}>EN</MenuItem>
+                            <MenuItem onClick={handleClose}>ES</MenuItem>
+                            <MenuItem onClick={handleClose}>PT</MenuItem>
+                            <MenuItem onClick={handleClose}>FR</MenuItem>
+                    </Menu>
+                    );
+
+
+
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -361,7 +430,7 @@ export default function NavBar() {
             </div>
         </Grid>
         <Grid item xs={3}>
-        <Link className={classes.lang} to="/sell" >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
+        <Link className={classes.lang} aria-controls="language" aria-haspopup="true" onClick={OpenLanguage}>EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
         <Button className={classes.connect} variant="contained" color="primary">Connect</Button>
         </Grid>
 
@@ -377,7 +446,7 @@ export default function NavBar() {
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                            
                                 <Typography className={classes.link}  noWrap>  
-                                <Link className={classes.link} to="/sell" >Categories 
+                                <Link className={classes.link} aria-controls="categories" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> 
                                 </Link>
                                 <Link className={classes.link} to="/sell" >Sell  
@@ -388,8 +457,7 @@ export default function NavBar() {
                                 </Link>
                                 <Link className={classes.link} to="/helpdesk" >Help desk 
                                 </Link></Typography>  
-                               
-
+                                
                                                              
                         </div>
         </Grid>
@@ -429,6 +497,9 @@ export default function NavBar() {
                 </Router>
                 {renderMobileMenu}
                 {renderMenu}
+                {renderMenuCategories}
+                {renderMenuLanguage}
+                
             </div>
         
     );

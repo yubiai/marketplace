@@ -109,7 +109,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       <h4>Last items posted on the marketplace </h4>
       <Grid container spacing={2}>
         {/* Esta es para el spacing */}
-        <Grid item xs={6} sm={1}>
+        <Grid item xs={12} sm={1}>
           {/* <Paper className={classes.paper}>xs=6 sm=3</Paper> */}
         </Grid>
 
@@ -355,7 +355,8 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       <h4>Items on your watch list </h4>
       <Grid container spacing={3}>
         
-      <Grid item xs={6} sm={1}>
+        {/* Relleno */}
+      <Grid item xs={12} sm={1}>
           {/* <Paper className={classes.paper}>xs=6 sm=3</Paper> */}
         </Grid>
 
