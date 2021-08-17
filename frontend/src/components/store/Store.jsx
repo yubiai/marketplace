@@ -16,8 +16,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Container from '@material-ui/core/Container';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+// import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+// import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 
 const API_URL = "http://localhost:4000";

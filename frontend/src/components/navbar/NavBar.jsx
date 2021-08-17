@@ -8,7 +8,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Grid from '@material-ui/core/Grid';
@@ -258,6 +258,7 @@ export default function NavBar() {
     const renderMenu = (
         <Menu
             anchorEl={profileAnchorEl}
+            getContentAnchorEl={null}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={menuId}
             keepMounted
@@ -276,15 +277,14 @@ export default function NavBar() {
                                 <Menu
                                         id={categories}
                                         anchorEl={categoriesAnchorEl}
+                                        getContentAnchorEl={null}
                                         anchorOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'left',
+                                            vertical: "bottom", horizontal: "center",
                                           }}
                                           transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'left',
+                                            vertical: "top", horizontal: "center"
                                           }}
-                                        keepMounted
+                                          keepMounted={false}
                                         open={Boolean(categoriesMenuOpen)}
                                         onClose={handleClose}
                                         >
@@ -300,6 +300,7 @@ export default function NavBar() {
                     <Menu
                             id={language}
                             anchorEl={languageAnchorEl}
+                            getContentAnchorEl={null}
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'left',
@@ -309,7 +310,7 @@ export default function NavBar() {
                                 horizontal: 'left',
                                 }}
                             keepMounted
-                            open={Boolean(languageAnchorEl)}
+                            open={Boolean(languageMenuOpen)}
                             onClose={handleClose}
                             >
                             <MenuItem onClick={handleClose}>EN</MenuItem>
