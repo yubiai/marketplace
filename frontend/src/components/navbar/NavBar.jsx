@@ -23,6 +23,7 @@ import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import AddToQueueOutlinedIcon from '@material-ui/icons/AddToQueueOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     // container: {
@@ -407,7 +408,7 @@ export default function NavBar() {
                 <Router>
                 <AppBar className={classes.navbar} position="static">
                     <Toolbar>
-
+                    <Container maxWidth="lg">
      <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item  sm={3} xs={6}>
@@ -470,7 +471,9 @@ export default function NavBar() {
         </Grid>
         
       </Grid>
+      
     </div>
+    </Container>
 
                         
 

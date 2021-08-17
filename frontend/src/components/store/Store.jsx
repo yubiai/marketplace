@@ -15,6 +15,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Container from '@material-ui/core/Container';
 
 
 
@@ -104,7 +105,9 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   const logoImage = require("../../media/Shoes-PNG-File.png");
 
   return (
-    <div>
+    
+    <Container maxWidth="lg">
+    <div className="row">
       {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
       <h4>Last items posted on the marketplace </h4>
       <Grid container spacing={2}>
@@ -354,11 +357,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
       <h4>Items on your watch list </h4>
       <Grid container spacing={3}>
-        
-        {/* Relleno */}
-      <Grid item xs={12} sm={1}>
-          {/* <Paper className={classes.paper}>xs=6 sm=3</Paper> */}
-        </Grid>
+      
 
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
@@ -606,6 +605,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
       {/* <ul className="list-group">{newList}</ul> */}
     </div>
+    </Container>
   );
 };
 
