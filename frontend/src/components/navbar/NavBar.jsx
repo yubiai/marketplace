@@ -199,6 +199,8 @@ export default function NavBar() {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
+    
+
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     const handleProfileMenuOpen = (event) => {
@@ -220,18 +222,18 @@ export default function NavBar() {
 
   
    
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const OpenLanguage = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
   const OpenCategories = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
+  const OpenLanguage = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+ 
+  
   
   const open = Boolean(anchorEl);
   
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -258,6 +260,7 @@ export default function NavBar() {
                                 <Menu
                                         id={categories}
                                         anchorEl={anchorEl}
+                                        
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'left',
@@ -282,6 +285,7 @@ export default function NavBar() {
                     <Menu
                             id={language}
                             anchorEl={anchorEl}
+                            
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'left',
@@ -431,8 +435,9 @@ export default function NavBar() {
             </div>
         </Grid>
         <Grid item sm={3} xs={6}>
-        <Link className={classes.lang} aria-controls="language" aria-haspopup="true" onClick={OpenLanguage}>EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
+        <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage} >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
         <Button className={classes.connect} variant="contained" color="primary">Connect</Button>
+        
         </Grid>
 
         {/* Second row */}
@@ -447,8 +452,9 @@ export default function NavBar() {
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                            
                                 <Typography className={classes.link}  noWrap>  
-                                <Link className={classes.link} aria-controls="categories" aria-haspopup="true" onClick={OpenCategories} >Categories 
-                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> 
+                                <Link className={classes.link} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                                 
                                 </Link>
                                 <Link className={classes.link} to="/sell" >Sell  
                                 </Link>

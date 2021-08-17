@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./ProfileViewStyles.css";
 
+import { alpha, makeStyles } from '@material-ui/core/styles';
 import { ethers } from "ethers";
 
 import _products from "./fixtures/product.demo.json";
@@ -13,6 +13,175 @@ import backIcon from "../../media/play.svg";
 import klerosIcon from "../../media/logo_kleros.png";
 //import { Card, Button } from "react-bootstrap";
 // import {Button} from 'react-bootstrap';
+
+const useStyles = makeStyles((theme) => ({
+      profileView: {
+        padding: '1rem',
+      },
+
+      /*
+        Header
+      */
+
+      profilHeader: {
+        display: 'flex',
+      },
+
+      profileOverview: {
+        alignItems: 'center',
+        display: 'flex',
+        
+      },
+
+      profilePhoto: {
+        borderRadius: '50%',
+        height: '50px',
+        marginRight: '1.5rem',
+        width: '50px',
+        
+      },
+
+      profilePhoto img : {
+        width: '100%',
+        borderRadius: '50%',
+        right: '2rem',
+      },
+
+      profileWallet: {
+        marginLeft: 'auto',
+      },
+  
+      profileWalletAddress: {
+        border: 1px solid '#314ACE',
+        borderRadius: '4px',
+        padding: '0.5rem',
+        textAlign: 'center',
+      },
+
+      /*
+        Body section
+      */
+
+      
+      profileReviewList h3: {
+        fontWeight: '300',
+      },
+
+      
+      profileReviewContainer: {
+        display: 'flex',
+        margin: '1.2rem',
+      },
+
+      profileProductItem,
+      profileReviewItem: {
+        cursor: 'pointer',
+        margin: '0 2rem',
+      },
+
+      profileReviewActions,
+      profileProductActions: {
+        flexDirection: 'column',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 'auto',
+      },
+
+      
+      profileProductActions: {
+        color: '#000',
+        margin: '1rem 0',
+      },
+    })); 
+      /*
+        Product section
+      
+
+      profile-product-list {
+        margin: 48px 0;
+      }
+
+      profile-product-pict {
+        width: 250px;
+        height: 250px;
+      }
+
+      profile-product-pict img {
+        width: 100%;
+        height: 100%;
+      }
+      card-img-top{
+        max-height: 250px;
+        height: 245px;
+      }
+      /*
+        Review section
+      */
+      /*
+      profile-review-pict {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+      }
+
+      profile-review-pict img {
+        width: 100%;
+        height: 100%;
+      }
+
+      /*
+        Back icon
+      */
+    /*
+      profile-back-action {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 7.25rem;
+        left: 1.25rem;
+        z-index: 999;
+      }
+
+      profile-back-action img {
+        transform: rotate(180deg) scale(0.6);
+      }
+
+      profile-back-action a,
+      profile-back-action a:hover,
+      profile-back-action a:focus,
+      profile-back-action a:active {
+       color: #000;
+        text-decoration: none;
+      }
+      
+      /*
+        kleros icon
+      */
+    /*
+      profile-dispute-action {
+        display: flex;
+        align-items: right;
+        position: fixed;
+        bottom: 0.0rem;
+        right: 1.25rem;
+        
+      }
+
+      profile-dispute-action img {
+        transform:  scale(0.5);
+      }
+
+      profile-dispute-action a,
+      profile-dispute-action a:hover,
+      profile-dispute-action a:focus,
+      profile-dispute-action a:active {
+        color: #000;
+        text-decoration: none;
+      }
+      */
+
+
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -45,14 +214,14 @@ const ProfileView = () => {
   }, []);
 
   return (
-    <div className="profile-view">
+    <div className={clases.profileView}>
       {/* <Navbar /> */}
-      <div className="profile-header">
-        <div className="profile-overview">
-          <div className="profile-photo">
+      <div className={profileHeader}>
+        <div className="profileOverview">
+          <div className="profilePhoto">
             <img src={demoPicts["a3"].default} alt="Profile" />
           </div>
-          <div className="profile-name">
+          <div className="profileName">
             <div className="profile-fullname">{name}</div>
             <div className="profile-bio">{bio}</div>
           </div>
