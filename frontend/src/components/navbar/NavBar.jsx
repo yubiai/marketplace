@@ -203,12 +203,27 @@ export default function NavBar() {
     const logoImage = require("../../images/logo2.png");
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
+    const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
+    const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const categoriesMenuOpen = Boolean(categoriesAnchorEl);
+    const languageMenuOpen = Boolean(languageAnchorEl);
+    const profileMenuOpen = Boolean(profileAnchorEl);
 
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+
+    const OpenCategories = (event) => {
+        setCategoriesAnchorEl(event.currentTarget);
+      };
+
+      const OpenLanguage = (event) => {
+        setLanguageAnchorEl(event.currentTarget);
+      };
+
+    const OpenProfile = (event) => {
+        setProfileAnchorEl(event.currentTarget);
     };
 
     const handleMobileMenuClose = () => {
@@ -222,35 +237,32 @@ export default function NavBar() {
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
-    };
-
-  
+    }; 
    
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const OpenLanguage = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const OpenCategories = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  
+ 
   
   const open = Boolean(anchorEl);
   
   const handleClose = () => {
     setAnchorEl(null);
+    setCategoriesAnchorEl(null);
+    setLanguageAnchorEl(null);
+    setProfileAnchorEl(null);
   };
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
-            anchorEl={anchorEl}
+            anchorEl={profileAnchorEl}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={menuId}
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMenuOpen}
+            open={profileMenuOpen}
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
@@ -263,7 +275,7 @@ export default function NavBar() {
     const renderMenuCategories = (
                                 <Menu
                                         id={categories}
-                                        anchorEl={anchorEl}
+                                        anchorEl={categoriesAnchorEl}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'left',
@@ -273,7 +285,7 @@ export default function NavBar() {
                                             horizontal: 'left',
                                           }}
                                         keepMounted
-                                        open={Boolean(anchorEl)}
+                                        open={Boolean(categoriesMenuOpen)}
                                         onClose={handleClose}
                                         >
                                         <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
@@ -287,7 +299,7 @@ export default function NavBar() {
                 const renderMenuLanguage = (
                     <Menu
                             id={language}
-                            anchorEl={anchorEl}
+                            anchorEl={languageAnchorEl}
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'left',
@@ -297,7 +309,7 @@ export default function NavBar() {
                                 horizontal: 'left',
                                 }}
                             keepMounted
-                            open={Boolean(anchorEl)}
+                            open={Boolean(languageAnchorEl)}
                             onClose={handleClose}
                             >
                             <MenuItem onClick={handleClose}>EN</MenuItem>
@@ -330,7 +342,7 @@ export default function NavBar() {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
+            <MenuItem onClick={OpenProfile}>
                 <IconButton
                     aria-label="account of current user"
                     aria-controls="primary-search-account-menu"
