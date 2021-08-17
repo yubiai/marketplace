@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '1rem 0',
       },
     })); 
-      /*
+      
         Product section
       
 
@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
         color: #000;
         text-decoration: none;
       }
-      */
+      
 
 
 
@@ -216,7 +216,7 @@ const ProfileView = () => {
 
   return (
     <div className={classes.profileView}>
-      <NavBar></NavBar>  
+      {/* <NavBar></NavBar>   */}
       <div className={classes.profileHeader}>
         <div className="profileOverview">
           <div className="profilePhoto">
@@ -327,7 +327,7 @@ const ProfileView = () => {
               <a href="#">See all reviews</a>
             </div>
           </div>
-          <Footer /> 
+          {/* <Footer />  */}
         </div>
 
         <div

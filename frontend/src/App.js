@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import getBlockchain from './ethereum.js';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Store from './components/store/Store';
 import Message from './components/message/Message';
 import  NavBar  from './components/navbar/NavBar';
@@ -31,21 +36,33 @@ function App() {
   }
 
   return (
+    <Router>
     <div className='App'>
       <header className="App-header">
         <NavBar />
-        {/* <ProfileView /> */}
+       
 
         
       </header>
-      <body>  
-        <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
-        <Carousel/>
+      <body>         
+
+        <Switch>
+          <Route path="/cart">
+          
+          </Route>
+          <Route path="/profile">
+          <ProfileView />
+          </Route>
+          <Route path="/">
+          <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
+          <Carousel/>
+          </Route>
+        </Switch>
       </body> 
 
       <Footer />
     </div>
-     
+    </Router>
   );
 }
 
