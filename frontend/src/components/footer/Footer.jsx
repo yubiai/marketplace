@@ -146,8 +146,8 @@ export default function StickyFooter() {
         <div className={classes.paper}>
         <Typography>
         <Link className={classes.link} href="https://gov.proofofhumanity.id/" onClick={preventDefault} >Governance Forum </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} >Snapshot  </Link>
-        <Link className={classes.link} href="#" onClick={preventDefault} >UBI Vaults </Link>
+        <Link className={classes.link} href="https://snapshot.org/#/" onClick={preventDefault} >Snapshot  </Link>
+        <Link className={classes.link} href="https://democracy.earth/#/" onClick={preventDefault} >UBI Vaults </Link>
         <Link className={classes.link} href="https://court.kleros.io/" onClick={preventDefault} >Kleros</Link>
         </Typography>
 
