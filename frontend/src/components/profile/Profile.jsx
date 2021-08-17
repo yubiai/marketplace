@@ -6,14 +6,11 @@ import { ethers } from "ethers";
 import _products from "./fixtures/product.demo.json";
 import _reviews from "./fixtures/review.demo.json";
 import demoPicts from "./fixtures/profile.pictures";
-import NavBar from "../navbar/NavBar";
-import Footer from "../footer/Footer"
+
 import starEmptyIcon from "../../media/star-empty.svg";
 import starFullIcon from "../../media/star-full.svg";
-import backIcon from "../../media/play.svg";
+import back from "../../media/play.svg";
 import klerosIcon from "../../media/logo_kleros.png";
-//import { Card, Button } from "react-bootstrap";
-// import {Button} from 'react-bootstrap';
 
 const useStyles = makeStyles((theme) => ({
       profileView: {
@@ -23,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
       /*
         Header
       */
+        container: {
+          display: 'flex',
+        },
 
       profilHeader: {
         display: 'flex',
@@ -42,12 +42,7 @@ const useStyles = makeStyles((theme) => ({
         
       },
 
-      profilePhoto  : {
-        width: '100%',
-        borderRadius: '50%',
-        right: '2rem',
-      },
-
+      
       profileWallet: {
         marginLeft: 'auto',
       },
@@ -57,6 +52,16 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '4px',
         padding: '0.5rem',
         textAlign: 'center',
+      },
+
+      profileFullname: {
+        marginLeft: 'auto',
+      },
+      item: {
+        marginLeft: 'auto',
+      },
+      product: {
+        marginLeft: 'auto',
       },
 
       /*
@@ -92,6 +97,13 @@ const useStyles = makeStyles((theme) => ({
       profileProductActions: {
         color: '#000',
         margin: '1rem 0',
+      },
+
+     
+      profileReviewPict: {
+        borderRadius: '50%',
+        height: '50px',
+        width: '50px',
       },
     })); 
       /*
@@ -218,34 +230,34 @@ const ProfileView = () => {
     <div className={classes.profileView}>
       {/* <NavBar></NavBar>   */}
       <div className={classes.profileHeader}>
-        <div className="profileOverview">
-          <div className="profilePhoto">
-            <img src={demoPicts["a3"].default} alt="Profile" />
+        <div className={classes.profileOverview}>
+          <div>
+            <img className={classes.profilePhoto} src={demoPicts["a3"].default} alt="Profile" />
           </div>
-          <div className="profileName">
-            <div className="profile-fullname">{name}</div>
-            <div className="profile-bio">{bio}</div>
+          <div className={classes.profileName}>
+            <div className={classes.profileFullname}>{name}</div>
+            <div className={classes.profileBio}>{bio}</div>
           </div>
         </div>
-        <div className="profile-wallet">
-          <div className="profile-wallet-address">{walletAddress}</div>
-          <div className="profile-bio">{walletBalance} ETH</div>
+        <div className={classes.profileWallet}>
+          <div className={classes.profileWalletAddress}>{walletAddress}</div>
+          <div className={classes.profile-bio}>{walletBalance} ETH</div>
         </div>
       </div>
-      <div className="profile-back-action">
+      <div className={classes.profileBackAction}>
         {/* <Link to={"/"}>
           <img src={backIcon} alt="Back" />
           <span>Back</span>
         </Link> */}
       </div>
-      <div className="profile-body">
-        <div className="profile-product-list">
+      <div className={classes.profileBody}>
+        <div className={classes.profileProductlist}>
           <h3>Products</h3>
-          <div className="profile-product-container">
+          <div className={classes.profileProductContainer}>
             {products.slice(0, 3).map((product) => {
               return (
                 <div
-                  className="profile-product-item"
+                  className={classes.profileProductItem}
                   key={`product-${product.productId}`}
                 >
                   <div style={{ width: "18rem" }}>
@@ -270,15 +282,15 @@ const ProfileView = () => {
                 </div>
               );
             })}
-            <div className="profile-product-actions">
+            <div className={classes.profileProductActions}>
               <a href="#">See all products</a>
               <a href="#">Create new product</a>
             </div>
           </div>
         </div>
-        <div className="profile-review-list">
+        <div className={classes.profileReviewList}>
           <h3>Reviews</h3>
-          <div className="profile-review-container">
+          <div className={classes.profileReviewContainer}>
             {reviews.map((review) => {
               let stars = new Array(5);
               const profileImgSrc = demoPicts[review.img].default;
@@ -291,14 +303,14 @@ const ProfileView = () => {
 
               return (
                 <div
-                  className="profile-review-item"
+                  className={classes.profileReviewItem}
                   key={`review-${review.reviewId}`}
                 >
-                  <div className="profile-review-pict">
-                    <img src={profileImgSrc} alt={review.img} />
+                  <div >
+                    <img className={classes.profileReviewPict} src={profileImgSrc} alt={review.img} />
                   </div>
-                  <div className="profile-review-name">{review.user}</div>
-                  <div className="profile-review-stars">
+                  <div className={classes.profileReviewName}>{review.user}</div>
+                  <div className={classes.profileReviewStars}>
                     {stars.map((star, index) => {
                       if (star) {
                         return (
@@ -323,7 +335,7 @@ const ProfileView = () => {
                 </div>
               );
             })}
-            <div className="profile-review-actions">
+            <div className={classes.profileReviewActions}>
               <a href="#">See all reviews</a>
             </div>
           </div>
@@ -331,7 +343,7 @@ const ProfileView = () => {
         </div>
 
         <div
-          className="profile-dispute-action"
+          className={classes.profileDisputeAction}
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
