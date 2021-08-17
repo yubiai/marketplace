@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     // },
     root:{
         marginTop: '10px',
+        margin: '10px',
    },
 
     navbar:{
@@ -42,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: {
         width: '120px',
-        marginRight: '2.2rem',
+        
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        
     },
     title: {
         display: 'none',
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         color: '#fff',
         textDecorationColor: 'transparent',
-        marginRight: '1rem',
+        marginLeft: '1rem',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         '&:hover': {
@@ -76,8 +77,9 @@ const useStyles = makeStyles((theme) => ({
         
         fontSize: '14px',
         color: '#fff',
+        marginLeft: '7rem',
         textDecorationColor: 'transparent',
-        alignItems: 'center',
+        alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
@@ -85,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     notificon: {
+        
         marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
@@ -93,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
           }
     },
     accicon: {
-        marginLeft: theme.spacing(2),
+        marginLeft: theme.spacing(7),
         alignItems: 'center',
         
         '&:hover': {
@@ -118,12 +121,15 @@ const useStyles = makeStyles((theme) => ({
         background: 'white',
         borderRadius : 20,
         marginLeft: '1rem',
+        textAlign: 'center',
         '&:hover': {
             borderBottom: 'none',
             color: 'white',
             background: '#FCB877', 
           }
     },
+
+   
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -439,7 +445,7 @@ export default function NavBar() {
         <Grid item sm={3} xs={6}>
         <LocationOnIcon></LocationOnIcon>Send to Buenos Aires
         </Grid>
-        <Grid item sm={6} xs={6}>
+        <Grid item sm={7} xs={6}>
              
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
@@ -462,7 +468,7 @@ export default function NavBar() {
                                                              
                         </div>
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={2} xs={6}>
         
                 <AccountCircle className={classes.accicon} />                                 
                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
