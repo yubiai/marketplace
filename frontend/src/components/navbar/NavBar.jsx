@@ -25,6 +25,7 @@ import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutline
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Container from '@material-ui/core/Container';
 
+
 const useStyles = makeStyles((theme) => ({
     // container: {
     //     display: 'flex',
@@ -232,11 +233,6 @@ export default function NavBar() {
         setMobileMoreAnchorEl(null);
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     }; 
@@ -244,12 +240,8 @@ export default function NavBar() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+    const open = Boolean(anchorEl);
   
- 
-  
-  const open = Boolean(anchorEl);
-  
-
   const handleClose = () => {
     setAnchorEl(null);
     setCategoriesAnchorEl(null);
@@ -257,71 +249,67 @@ export default function NavBar() {
     setProfileAnchorEl(null);
   };
 
-    const menuId = 'primary-search-account-menu';
+    const profile = 'profile-menu';
     const renderMenu = (
         <Menu
+            id={profile}
             anchorEl={profileAnchorEl}
             getContentAnchorEl={null}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={menuId}
+            anchorOrigin={{vertical: "bottom", horizontal: "center", }}            
             keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={profileMenuOpen}
-            onClose={handleMenuClose}
+            transformOrigin={{ vertical: "top", horizontal: "center"}}
+            open={Boolean(profileMenuOpen)}
+            onClose={handleClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem component={Link} to='/profile' onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
             
         </Menu>
     );
 
     const categories = 'categories-menu';
     const renderMenuCategories = (
-                                <Menu
-                                        id={categories}
-                                        anchorEl={categoriesAnchorEl}
-                                        getContentAnchorEl={null}
-                                        anchorOrigin={{
-                                            vertical: "bottom", horizontal: "center",
-                                          }}
-                                          transformOrigin={{
-                                            vertical: "top", horizontal: "center"
-                                          }}
-                                          keepMounted={false}
-                                        open={Boolean(categoriesMenuOpen)}
-                                        onClose={handleClose}
-                                        >
-                                        <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
-                                        <MenuItem onClick={handleClose}>Atomotive</MenuItem>
-                                        <MenuItem onClick={handleClose}>Appliances</MenuItem>
-                                        <MenuItem onClick={handleClose}>VideoGames</MenuItem>
-                                </Menu>
+            <Menu
+            id={categories}
+            anchorEl={categoriesAnchorEl}
+            getContentAnchorEl={null}
+            anchorOrigin={{vertical: "bottom", horizontal: "center",}}
+            transformOrigin={{vertical: "top", horizontal: "center"}}
+            keepMounted
+            open={Boolean(categoriesMenuOpen)}
+            onClose={handleClose}
+            >
+            <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
+            <MenuItem onClick={handleClose}>Atomotive</MenuItem>
+            <MenuItem onClick={handleClose}>Appliances</MenuItem>
+            <MenuItem onClick={handleClose}>VideoGames</MenuItem>
+                    </Menu>
                                 );
 
-                const language = 'language-menu';
-                const renderMenuLanguage = (
-                    <Menu
-                            id={language}
-                            anchorEl={languageAnchorEl}
-                            getContentAnchorEl={null}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                                }}
-                                transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                                }}
-                            keepMounted
-                            open={Boolean(languageMenuOpen)}
-                            onClose={handleClose}
-                            >
-                            <MenuItem onClick={handleClose}>EN</MenuItem>
-                            <MenuItem onClick={handleClose}>ES</MenuItem>
-                            <MenuItem onClick={handleClose}>PT</MenuItem>
-                            <MenuItem onClick={handleClose}>FR</MenuItem>
-                    </Menu>
-                    );
+        const language = 'language-menu';
+        const renderMenuLanguage = (
+            <Menu
+            id={language}
+            anchorEl={languageAnchorEl}
+            getContentAnchorEl={null}
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+                }}
+            keepMounted
+            open={Boolean(languageMenuOpen)}
+            onClose={handleClose}
+            >
+            <MenuItem onClick={handleClose}>EN</MenuItem>
+            <MenuItem onClick={handleClose}>ES</MenuItem>
+            <MenuItem onClick={handleClose}>PT</MenuItem>
+            <MenuItem onClick={handleClose}>FR</MenuItem>
+            </Menu>
+            );
 
 
 
@@ -349,7 +337,7 @@ export default function NavBar() {
             <MenuItem onClick={OpenProfile}>
                 <IconButton
                     aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
+                    aria-controls="profile-menu"
                     aria-haspopup="true"
                     color="inherit"
                 >
@@ -434,7 +422,7 @@ export default function NavBar() {
      <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item  sm={3} xs={6}>
-        <div><img className={classes.logo} src={logoImage.default}></img></div>
+        <div><a href='/'><img className={classes.logo} src={logoImage.default} component={Link} to='/'></img></a></div>
         </Grid>
         <Grid item sm={6} xs={6}>
             {/* Caja de Busqueda */}
@@ -488,7 +476,12 @@ export default function NavBar() {
         </Grid>
         <Grid item sm={2} xs={6}>
         
-                <AccountCircle className={classes.accicon} />                                 
+                 <AccountCircle onClick={OpenProfile}
+                    aria-label="account of current user"
+                    aria-controls="profile-menu"
+                    aria-haspopup="true"
+                    color="inherit" />
+                                                
                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
                 <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
                                

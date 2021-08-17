@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '1rem 0',
       },
     })); 
-      
+      /*
         Product section
       
 
@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
         color: #000;
         text-decoration: none;
       }
-      
+      */
 
 
 
