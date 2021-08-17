@@ -74,13 +74,12 @@ const useStyles = makeStyles((theme) => ({
         margin: '1.2rem',
       },
 
-      profileProductItem,
+     
       profileReviewItem: {
         cursor: 'pointer',
         margin: '0 2rem',
       },
 
-      profileReviewActions,
       profileProductActions: {
         flexDirection: 'column',
         display: 'flex',
@@ -216,9 +215,9 @@ const ProfileView = () => {
   }, []);
 
   return (
-    <div className={clases.profileView}>
+    <div className={classes.profileView}>
       <NavBar></NavBar>  
-      <div className={profileHeader}>
+      <div className={classes.profileHeader}>
         <div className="profileOverview">
           <div className="profilePhoto">
             <img src={demoPicts["a3"].default} alt="Profile" />
