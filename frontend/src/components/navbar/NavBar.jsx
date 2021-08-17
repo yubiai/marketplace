@@ -8,7 +8,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Grid from '@material-ui/core/Grid';
@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     // },
     root:{
         marginTop: '10px',
+        margin: '10px',
    },
 
     navbar:{
@@ -42,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: {
         width: '120px',
-        marginRight: '2.2rem',
+        
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        
     },
     title: {
         display: 'none',
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         color: '#fff',
         textDecorationColor: 'transparent',
-        marginRight: '1rem',
+        marginLeft: '1rem',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         '&:hover': {
@@ -76,8 +77,9 @@ const useStyles = makeStyles((theme) => ({
         
         fontSize: '14px',
         color: '#fff',
+        marginLeft: '7rem',
         textDecorationColor: 'transparent',
-        alignItems: 'center',
+        alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
@@ -85,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     notificon: {
+        
         marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
@@ -93,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
           }
     },
     accicon: {
-        marginLeft: theme.spacing(2),
+        marginLeft: theme.spacing(7),
         alignItems: 'center',
         
         '&:hover': {
@@ -118,12 +121,15 @@ const useStyles = makeStyles((theme) => ({
         background: 'white',
         borderRadius : 20,
         marginLeft: '1rem',
+        textAlign: 'center',
         '&:hover': {
             borderBottom: 'none',
             color: 'white',
             background: '#FCB877', 
           }
     },
+
+   
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -197,14 +203,29 @@ export default function NavBar() {
     const logoImage = require("../../images/logo2.png");
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
+    const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
+    const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     
 
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const categoriesMenuOpen = Boolean(categoriesAnchorEl);
+    const languageMenuOpen = Boolean(languageAnchorEl);
+    const profileMenuOpen = Boolean(profileAnchorEl);
 
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+
+    const OpenCategories = (event) => {
+        setCategoriesAnchorEl(event.currentTarget);
+      };
+
+      const OpenLanguage = (event) => {
+        setLanguageAnchorEl(event.currentTarget);
+      };
+
+    const OpenProfile = (event) => {
+        setProfileAnchorEl(event.currentTarget);
     };
 
     const handleMobileMenuClose = () => {
@@ -218,35 +239,34 @@ export default function NavBar() {
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
-    };
-
-  
+    }; 
    
-  const OpenCategories = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const OpenLanguage = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
- 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   
+ 
   
   const open = Boolean(anchorEl);
   
 
   const handleClose = () => {
     setAnchorEl(null);
+    setCategoriesAnchorEl(null);
+    setLanguageAnchorEl(null);
+    setProfileAnchorEl(null);
   };
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
-            anchorEl={anchorEl}
+            anchorEl={profileAnchorEl}
+            getContentAnchorEl={null}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={menuId}
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMenuOpen}
+            open={profileMenuOpen}
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
@@ -259,18 +279,16 @@ export default function NavBar() {
     const renderMenuCategories = (
                                 <Menu
                                         id={categories}
-                                        anchorEl={anchorEl}
-                                        
+                                        anchorEl={categoriesAnchorEl}
+                                        getContentAnchorEl={null}
                                         anchorOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'left',
+                                            vertical: "bottom", horizontal: "center",
                                           }}
                                           transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'left',
+                                            vertical: "top", horizontal: "center"
                                           }}
-                                        keepMounted
-                                        open={Boolean(anchorEl)}
+                                          keepMounted={false}
+                                        open={Boolean(categoriesMenuOpen)}
                                         onClose={handleClose}
                                         >
                                         <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
@@ -284,8 +302,8 @@ export default function NavBar() {
                 const renderMenuLanguage = (
                     <Menu
                             id={language}
-                            anchorEl={anchorEl}
-                            
+                            anchorEl={languageAnchorEl}
+                            getContentAnchorEl={null}
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'left',
@@ -295,7 +313,7 @@ export default function NavBar() {
                                 horizontal: 'left',
                                 }}
                             keepMounted
-                            open={Boolean(anchorEl)}
+                            open={Boolean(languageMenuOpen)}
                             onClose={handleClose}
                             >
                             <MenuItem onClick={handleClose}>EN</MenuItem>
@@ -328,7 +346,7 @@ export default function NavBar() {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
+            <MenuItem onClick={OpenProfile}>
                 <IconButton
                     aria-label="account of current user"
                     aria-controls="primary-search-account-menu"
@@ -444,7 +462,7 @@ export default function NavBar() {
         <Grid item sm={3} xs={6}>
         <LocationOnIcon></LocationOnIcon>Send to Buenos Aires
         </Grid>
-        <Grid item sm={6} xs={6}>
+        <Grid item sm={7} xs={6}>
              
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
@@ -468,7 +486,7 @@ export default function NavBar() {
                                                              
                         </div>
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={2} xs={6}>
         
                 <AccountCircle className={classes.accicon} />                                 
                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>

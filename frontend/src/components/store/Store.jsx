@@ -16,7 +16,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Container from '@material-ui/core/Container';
-
+// import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+// import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 
 const API_URL = "http://localhost:4000";
@@ -85,6 +86,12 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       height: 0,
       paddingTop: '56.25%', // 16:9
     },
+    carrouselButton: {      
+      flex: 1, 
+      justifyContent: 'center', 
+      alignItems: 'center' ,
+      top: '45%', 
+    },
     
   }));
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -112,9 +119,11 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       <h4>Last items posted on the marketplace </h4>
       <Grid container spacing={2}>
         {/* Esta es para el spacing */}
-        <Grid item xs={12} sm={1}>
-          {/* <Paper className={classes.paper}>xs=6 sm=3</Paper> */}
-        </Grid>
+        {/* <Grid item xs={12} sm={1}>
+        <IconButton className={classes.carrouselButton} aria-label="Forward">
+         <ArrowBackIosIcon  />
+         </IconButton>
+        </Grid> */}
 
 
         <Grid item xs={6} sm={2}>
@@ -352,12 +361,67 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
            
           </Paper>
         </Grid>
+      
+
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>        
+            <CardHeader        
+            action={
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="long-menu">
+                <MoreVertIcon />
+              </IconButton>
+              
+            } />
+            
+            <Menu 
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+            <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Cool Shoes - Brown
+            </Typography>
+            <Typography variant="body2" color="textPrimary" component="p">
+              15.000 UBI
+            </Typography>
+          </CardContent>
+           
+          </Paper>
+        </Grid>
+        {/* <Grid item xs={12} sm={1}>
+        <IconButton className={classes.carrouselButton}  aria-label="Forward">
+         <ArrowForwardIosIcon   />
+         </IconButton>
+
+        </Grid> */}
        
       </Grid>
 
       <h4>Items on your watch list </h4>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
       
+   
 
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
@@ -552,6 +616,53 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Paper>
         </Grid>
 
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>        
+            <CardHeader        
+            action={
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
+                <MoreVertIcon />
+              </IconButton>
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+            <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Cool Shoes - Brown
+            </Typography>
+            <Typography variant="body2" color="textPrimary" component="p">
+              15.000 UBI
+            </Typography>
+          </CardContent>
+           
+          </Paper>
+        </Grid>
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        

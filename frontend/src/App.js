@@ -5,7 +5,8 @@ import Store from './components/store/Store';
 import Message from './components/message/Message';
 import  NavBar  from './components/navbar/NavBar';
 import  Footer  from './components/footer/Footer';
-/*import ProfileView from './components/profile/Profile';*/
+import  Carousel  from './components/carousel/Carousel';
+import ProfileView from './components/profile/Profile';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
       </header>
       <body>  
         <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
-        
+        <Carousel/>
       </body> 
 
       <Footer />
