@@ -12,6 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import CardHeader from '@material-ui/core/CardHeader';
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 
 
@@ -83,6 +86,18 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     },
     
   }));
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  
+   
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const open = Boolean(anchorEl);
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   
 
   const classes = useStyles();
@@ -103,10 +118,38 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -115,12 +158,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
@@ -128,10 +166,37 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="long-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -140,23 +205,45 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="long-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -165,23 +252,45 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="long-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -190,23 +299,45 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-           <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="long-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -215,12 +346,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
        
@@ -232,14 +358,43 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       <Grid item xs={6} sm={1}>
           {/* <Paper className={classes.paper}>xs=6 sm=3</Paper> */}
         </Grid>
+
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -248,23 +403,46 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -273,23 +451,47 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+
+       <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -298,23 +500,46 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -323,23 +548,46 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
 
-          <Grid item xs={6} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>        
             <CardHeader        
             action={
-              <IconButton aria-label="settings">
+              <IconButton aria-label="more" onClick={handleClick}
+              aria-haspopup="true"
+              aria-controls="more-menu">
                 <MoreVertIcon />
               </IconButton>
-            } /> <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
+              
+            } />
+            
+            <Menu 
+              id='more-menu'
+              anchorEl={anchorEl} 
+              keepMounted onClose={handleClose} 
+              open={Boolean(anchorEl)}> 
+            
+            <MenuItem onClick={handleClose}>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}> 
+            <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            </MenuItem>
+          </Menu>
+          
+          <img className={classes.productImage} src={logoImage.default} alt="Prdct1" />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               Cool Shoes - Brown
@@ -348,12 +596,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               15.000 UBI
             </Typography>
           </CardContent>
-            <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+           
           </Paper>
         </Grid>
         
