@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const ethers = require("ethers");
 const PaymentProcessor = require("../frontend/src/contracts/PaymentProcessor.json");
@@ -14,7 +15,7 @@ const config = require("./db");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/items", item);
 app.use("/api/profiles", profile);
 
