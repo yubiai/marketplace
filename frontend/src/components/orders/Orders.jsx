@@ -23,10 +23,17 @@ export default function AlignItemsList() {
   const classes = useStyles();
 
   return (
+    
+     
     <List className={classes.root}>
+          
+    <Divider variant="inset" component="li" />
+    <Typography><h3>Orders</h3></Typography>
+        
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="../media/Shoes-PNG-File.png" />
+          <Avatar alt="Remy Sharp" src="../../media/Shoes-PNG-File.png" />
+          <img src="../../media/Shoes-PNG-File.png" />
         </ListItemAvatar>
         <ListItemText
           primary="Brunch this weekend?"

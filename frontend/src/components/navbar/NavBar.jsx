@@ -40,7 +40,9 @@ const useStyles = makeStyles((theme) => ({
 
     navbar:{
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
-         height: '100px',
+         height: '105px',
+         minHeight:'105px',
+         maxHeight:'105px',
          zIndex: 99,
          
     },
@@ -263,8 +265,10 @@ export default function NavBar() {
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
         >
-            <MenuItem component={Link} to='/profile' onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
+            <MenuItem component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
             
         </Menu>
     );
