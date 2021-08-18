@@ -12,7 +12,8 @@ import NavBar  from './components/navbar/NavBar';
 import Footer  from './components/footer/Footer';
 import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
-import MenuBar from './components/sidebar/Sidebar';
+import SideBar from './components/sidebar/Sidebar';
+import OrdersView from './components/orders/Orders';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -49,14 +50,21 @@ function App() {
       <body>         
 
         <Switch>
-          <Route path="/cart">
-          
+          <Route path="/orders">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <OrdersView />
+            </Grid>
+          </Grid>
           </Route>
 
           <Route path="/profile">
           <Grid container spacing={3}>
               <Grid item xs={2}>
-              <MenuBar/>
+              <SideBar/>
             </Grid>
             <Grid item xs={10}>
               <ProfileView />
