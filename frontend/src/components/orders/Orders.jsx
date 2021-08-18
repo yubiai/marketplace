@@ -7,15 +7,24 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
+    
   },
   inline: {
-    display: 'inline',
+    
+    display: 'flex',
+  },
+  btnOrder: {
+    display: 'flex',
+    right: '1px',
+    justifyContent: 'space-between',
+    marginLeft: 'auto'
   },
 }));
 
@@ -29,14 +38,15 @@ export default function AlignItemsList() {
           
     <Divider variant="inset" component="li" />
     <Typography><h3>Orders</h3></Typography>
-        
+
+   
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="../../media/Shoes-PNG-File.png" />
-          <img src="../../media/Shoes-PNG-File.png" />
+          {/* <img src="../../media/Shoes-PNG-File.png" /> */}
         </ListItemAvatar>
         <ListItemText
-          primary="Brunch this weekend?"
+          primary="Delivered on 11th of august"
           secondary={
             <React.Fragment>
               <Typography
@@ -45,9 +55,16 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-                Ali Connors
+               Canon EOS Rebel T7 EF-S 18-55mm
               </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
+              {" 1 item"}
+              
+                <Button className={classes.btnOrder} variant="outlined" color="primary">
+                Primary
+                </Button>
+                <Button className={classes.btnOrder} variant="outlined" color="secondary">
+                Secondary
+                </Button>
             </React.Fragment>
           }
         />
@@ -58,7 +75,7 @@ export default function AlignItemsList() {
           <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Summer BBQ"
+          primary="Delivered on 11th of august"
           secondary={
             <React.Fragment>
               <Typography
@@ -67,9 +84,9 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-                to Scott, Alex, Jennifer
+               Canon EOS Rebel T7 EF-S 18-55mm
               </Typography>
-              {" — Wish I could come, but I'm out of town this…"}
+              {" 1 item"}
             </React.Fragment>
           }
         />
@@ -80,7 +97,7 @@ export default function AlignItemsList() {
           <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Oui Oui"
+          primary="Delivered on 11th of august"
           secondary={
             <React.Fragment>
               <Typography
@@ -89,9 +106,9 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-                Sandra Adams
+               Canon EOS Rebel T7 EF-S 18-55mm
               </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
+              {" 1 item"}
             </React.Fragment>
           }
         />
