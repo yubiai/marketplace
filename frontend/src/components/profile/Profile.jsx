@@ -343,12 +343,12 @@ const ProfileView = () => {
         </div>
 
         <div
-          className={classes.profileDisputeAction}
+          
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
           <a href={"https://resolve.kleros.io/create/"} target="_blank">
-            <img src={klerosIcon} alt="Create Dispute Kleros" />
+            <img className={classes.profileDisputeAction}src={klerosIcon} alt="Create Dispute Kleros" />
             {isShown && (
               <span style={{ fontWeight: "bold" }}>Create Dispute</span>
             )}

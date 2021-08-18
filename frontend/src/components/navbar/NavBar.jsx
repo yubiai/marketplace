@@ -22,7 +22,7 @@ import LoyaltyOutlinedIcon from '@material-ui/icons/LoyaltyOutlined';
 import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import AddToQueueOutlinedIcon from '@material-ui/icons/AddToQueueOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Container from '@material-ui/core/Container';
 
 
@@ -41,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
     navbar:{
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
          height: '100px',
+         zIndex: 99,
+         
     },
     logo: {
         width: '120px',
@@ -280,7 +282,7 @@ export default function NavBar() {
             onClose={handleClose}
             >
             <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
-            <MenuItem onClick={handleClose}>Atomotive</MenuItem>
+            <MenuItem onClick={handleClose}>Automotive</MenuItem>
             <MenuItem onClick={handleClose}>Appliances</MenuItem>
             <MenuItem onClick={handleClose}>VideoGames</MenuItem>
                     </Menu>
@@ -448,7 +450,7 @@ export default function NavBar() {
 
         {/* Second row */}
         <Grid item sm={3} xs={6}>
-        <LocationOnIcon></LocationOnIcon>Send to Buenos Aires
+        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to Buenos Aires
         </Grid>
         <Grid item sm={7} xs={6}>
              

@@ -8,10 +8,12 @@ import {
 } from "react-router-dom";
 import Store from './components/store/Store';
 import Message from './components/message/Message';
-import  NavBar  from './components/navbar/NavBar';
-import  Footer  from './components/footer/Footer';
-import  Carousel  from './components/carousel/Carousel';
+import NavBar  from './components/navbar/NavBar';
+import Footer  from './components/footer/Footer';
+import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
+import MenuBar from './components/sidebar/Sidebar';
+import Grid from '@material-ui/core/Grid';
 
 
 function App() {
@@ -50,9 +52,18 @@ function App() {
           <Route path="/cart">
           
           </Route>
+
           <Route path="/profile">
-          <ProfileView />
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <MenuBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <ProfileView />
+            </Grid>
+          </Grid>
           </Route>
+
           <Route path="/">
           <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
           <Carousel/>
