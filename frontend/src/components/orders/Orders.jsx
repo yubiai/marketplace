@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     
     display: 'flex',
   },
+  dividerFullWidth: {
+    margin: `5px 0 0 ${theme.spacing(2)}px`,
+  },
+
   btnOrder: {
     display: 'flex',
     right: '1px',
@@ -36,9 +40,9 @@ export default function AlignItemsList() {
      
     <List className={classes.root}>
           
-    <Divider variant="inset" component="li" />
-    <Typography><h3>Orders</h3></Typography>
-
+    
+    <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Orders</h3></Typography>
+    <Divider variant="fullWidth" component="li" />
    
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
