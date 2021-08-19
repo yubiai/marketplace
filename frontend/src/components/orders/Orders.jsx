@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
-    
+    padding: '20px',
   },
   inline: {
     
@@ -33,12 +33,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',  
+    minWidth: '140px', 
+    top: '-4rem', 
   },
   
   btnBuyAgain: {
     display: 'flex',
     right: '1px',
+    top: '-4rem',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginLeft: 'auto',

@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
         justifyContent: 'space-evenly',
-        alignItems: 'center',
+        alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
