@@ -23,18 +23,34 @@ const useStyles = makeStyles((theme) => ({
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
-
-  btnOrder: {
+  btnCheckOrder: {
     display: 'flex',
+    alignItems: 'center',
     right: '1px',
     justifyContent: 'space-between',
-    marginLeft: 'auto'
+    marginLeft: 'auto',
+    marginBottom: '5px',
+    borderRadius: '10px',
+    backgroundColor: '#FCB877',
+    color: '#fff',
+    minWidth: '140px',  
   },
-  btnCheckOrder: {
-    borderRadius: "10px",
-    backgroundColor: "#FCB877",
-    Color: "#fff",  
+  
+  btnBuyAgain: {
+    display: 'flex',
+    right: '1px',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginLeft: 'auto',
+    borderRadius: '10px',
+    minWidth: '140px',
+    backgroundColor: '#fef1e4',
+    color: '#FCB877',
+    '&:hover': {
+      textDecoloration: 'none',
+   }, 
   },
+  
 }));
 
 export default function AlignItemsList() {
@@ -68,11 +84,11 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               
-                <Button className={classes.btnOrder} variant="outlined" color="primary">
-                Primary
+                <Button className={classes.btnCheckOrder} variant="contained" >
+                Check Order
                 </Button>
-                <Button className={classes.btnOrder} variant="outlined" color="secondary">
-                Secondary
+                <Button className={classes.btnBuyAgain} variant="contained" >
+                Buy it again
                 </Button>
             </React.Fragment>
           }
@@ -96,6 +112,12 @@ export default function AlignItemsList() {
                Canon EOS Rebel T7 EF-S 18-55mm
               </Typography>
               {" 1 item"}
+              <Button className={classes.btnCheckOrder} variant="contained" >
+                Check Order
+                </Button>
+                <Button className={classes.btnBuyAgain} variant="contained" >
+                Buy it again
+                </Button>
             </React.Fragment>
           }
         />
@@ -118,6 +140,12 @@ export default function AlignItemsList() {
                Canon EOS Rebel T7 EF-S 18-55mm
               </Typography>
               {" 1 item"}
+              <Button className={classes.btnCheckOrder} variant="contained" >
+                Check Order
+                </Button>
+                <Button className={classes.btnBuyAgain} variant="contained" >
+                Buy it again
+                </Button>
             </React.Fragment>
           }
         />
