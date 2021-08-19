@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
+  listItem: {
+    borderRadius: '10px',
+    
+
+  },
   btnCheckOrder: {
     display: 'flex',
     alignItems: 'center',
@@ -52,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: '120px',
+    borderRadius: '10px',
 
   },
 }));
@@ -69,7 +75,7 @@ export default function AlignItemsList() {
     <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Orders</h3></Typography>
     <Divider variant="fullWidth" component="li" />
    
-      <ListItem alignItems="flex-start">
+      <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
            
