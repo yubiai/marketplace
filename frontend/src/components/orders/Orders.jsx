@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FCB877',
     color: '#fff',
     minWidth: '140px', 
+    width:'140px',
     top: '-4rem', 
   },
   
