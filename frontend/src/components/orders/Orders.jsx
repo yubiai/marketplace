@@ -50,11 +50,15 @@ const useStyles = makeStyles((theme) => ({
       textDecoloration: 'none',
    }, 
   },
-  
+  image: {
+    width: '120px',
+
+  },
 }));
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const shoeImage = require("../../media/Shoes-PNG-File.png");
 
   return (
     
@@ -67,8 +71,8 @@ export default function AlignItemsList() {
    
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="../../media/Shoes-PNG-File.png" />
-          {/* <img src="../../media/Shoes-PNG-File.png" /> */}
+          <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
+           
         </ListItemAvatar>
         <ListItemText
           primary="Delivered on 11th of august"
@@ -80,7 +84,7 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               Canon EOS Rebel T7 EF-S 18-55mm
+               Shoe Ricky Sarkany 400mm
               </Typography>
               {" 1 item"}
               
@@ -97,7 +101,7 @@ export default function AlignItemsList() {
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+          <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
         </ListItemAvatar>
         <ListItemText
           primary="Delivered on 11th of august"
@@ -109,7 +113,7 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               Canon EOS Rebel T7 EF-S 18-55mm
+               Shoe Ricky Sarkany 400mm
               </Typography>
               {" 1 item"}
               <Button className={classes.btnCheckOrder} variant="contained" >
@@ -125,7 +129,7 @@ export default function AlignItemsList() {
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+        <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
         </ListItemAvatar>
         <ListItemText
           primary="Delivered on 11th of august"
@@ -137,7 +141,7 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               Canon EOS Rebel T7 EF-S 18-55mm
+               Shoe Ricky Sarkany 400mm
               </Typography>
               {" 1 item"}
               <Button className={classes.btnCheckOrder} variant="contained" >
