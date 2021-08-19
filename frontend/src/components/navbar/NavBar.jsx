@@ -24,7 +24,13 @@ import AddToQueueOutlinedIcon from '@material-ui/icons/AddToQueueOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
+import Fade from '@material-ui/core/Fade';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 
+
+let name = "Manuel Rodríguez Roldán";
+  let ubisAmmount = "720.55 UBI dripped on address";
 
 const useStyles = makeStyles((theme) => ({
     // container: {
@@ -201,11 +207,38 @@ const useStyles = makeStyles((theme) => ({
             display: 'none',
         },
     },
+    menuProfile:{
+        width:'200px',
+        backgroundColor:'red',
+
+    },
+    avatar:{
+        marginLeft:'10px', 
+    },
+
+    nameMenu:{
+        display:'inline',
+        fontSize:'18px',
+        marginRight:'10px',
+    },
+
+    ubiAmmount:{
+        display:'block',
+        fontSize:'12px',
+        marginRight:'10px',
+    },
+
+    ubiIcon:{
+        width: '15px',
+        marginLeft:'70px', 
+        marginRight:'5px',
+    },
 }));
 
 export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
+    const ubiImage = require("../../media/ubi2.svg");
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
@@ -264,7 +297,21 @@ export default function NavBar() {
             transformOrigin={{ vertical: "top", horizontal: "center"}}
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
+            TransitionComponent={Fade}
+            
         >
+            
+
+            <ListItemIcon>
+            <Avatar className={classes.avatar} />
+            </ListItemIcon>
+            <Typography className={classes.nameMenu}>{name}</Typography>          
+            
+           
+            <Typography className={classes.ubiAmmount}>
+                <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
+            </Typography>
+
             <MenuItem component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
             <MenuItem component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
             <MenuItem component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
