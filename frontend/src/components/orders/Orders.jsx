@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     backgroundColor: "#FCB877",
     Color: "#fff",  
-  }
+  },
 }));
 
 export default function AlignItemsList() {
