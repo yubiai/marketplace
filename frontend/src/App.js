@@ -17,6 +17,7 @@ import OrdersView from './components/orders/Orders';
 import Grid from '@material-ui/core/Grid';
 import SalesActive from './components/sales/SalesActive';
 import SalesComplete from './components/sales/SalesComplete';
+import CheckOrders from './components/orders/CheckOrders'; 
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -58,6 +59,16 @@ function App() {
             </Grid>
             <Grid item xs={10}>
               <OrdersView />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/checkorders">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <CheckOrders />
             </Grid>
           </Grid>
           </Route>

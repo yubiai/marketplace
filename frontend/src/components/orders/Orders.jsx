@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
+import { Link }  from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',  
+    minWidth: '140px',
+    maxWidth: '140px',  
   },
   
   btnBuyAgain: {
@@ -94,7 +96,7 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               
-                <Button className={classes.btnCheckOrder} variant="contained" >
+                <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" primary="CheckOrders" >
                 Check Order
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
