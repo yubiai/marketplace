@@ -57,9 +57,19 @@ const useStyles = makeStyles((theme) => ({
       textDecoloration: 'none',
    }, 
   },
-  image: {
+  imageProfile: {
     width: '120px',
     borderRadius: '10px',
+
+  },
+  imageOrder: {
+    display: 'flex',
+    alignItems: 'center',
+    right: '1px',
+    justifyContent: 'space-between',
+    marginLeft: 'auto',
+    marginBottom: '5px',
+    width: '120px',
 
   },
 }));
@@ -86,9 +96,10 @@ export default function AlignItemsList() {
         <Typography color="textPrimary">Purchase status</Typography>
       </Breadcrumbs>
     <Divider variant="fullWidth" component="li" />
-   
+    
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemText
+        //en primary va nombre del order item}
           primary="Shoe Ricky Sarkany 400mm"
           secondary={
             <React.Fragment>
@@ -98,11 +109,11 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               Shoe Ricky Sarkany 400mm
+               
               </Typography>
               {" 1 item"}
               <ListItemAvatar>
-                  <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
+                  <img alt="{imgjson}" className={classes.imageOrder} src={shoeImage.default} />
               </ListItemAvatar>
                 
             </React.Fragment>
@@ -112,7 +123,7 @@ export default function AlignItemsList() {
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemText
-          primary="Delivered on 11th of august"
+          primary="Transaction Details"
           secondary={
             <React.Fragment>
               <Typography
@@ -121,7 +132,7 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               Transaction Details
+               
               </Typography>
               {" 1 item"}
               <span> Amount</span>
@@ -159,7 +170,7 @@ export default function AlignItemsList() {
           }
         />
         <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={profileImage.default} />
+          <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
            
         </ListItemAvatar>
       </ListItem>
