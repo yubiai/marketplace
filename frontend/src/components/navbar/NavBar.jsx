@@ -213,13 +213,14 @@ const useStyles = makeStyles((theme) => ({
 
     },
     avatar:{
-        marginLeft:'10px', 
+        marginLeft:'20px',
+        marginTop:'10px', 
     },
 
     nameMenu:{
         display:'inline',
-        fontSize:'18px',
-        marginRight:'10px',
+        fontSize:'15px',
+        padding:'15px', 
     },
 
     ubiAmmount:{
@@ -231,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
     ubiIcon:{
         width: '15px',
         marginLeft:'70px', 
-        marginRight:'5px',
+        paddingRight:'5px',
     },
 }));
 
@@ -239,6 +240,7 @@ export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
     const ubiImage = require("../../media/ubi2.svg");
+    const profileImage = require("../../media/harishan-kobalasingam.jpg");
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
@@ -303,7 +305,7 @@ export default function NavBar() {
             
 
             <ListItemIcon>
-            <Avatar className={classes.avatar} />
+            <Avatar src={profileImage.default}profileImage className={classes.avatar} />
             </ListItemIcon>
             <Typography className={classes.nameMenu}>{name}</Typography>          
             
