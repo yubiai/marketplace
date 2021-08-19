@@ -69,17 +69,17 @@ export default function NestedList() {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} component={Link} to="/salesactive">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Active" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
+            <ListItemText primary="Active"  />
+          </ListItem >
+          <ListItem button className={classes.nested} component={Link} to="/salescomplete">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Complete" />
+            <ListItemText primary="Complete"  />
           </ListItem>
         
       

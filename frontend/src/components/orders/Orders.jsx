@@ -73,7 +73,7 @@ export default function AlignItemsList() {
           }
         />
       </ListItem>
-      <Divider variant="inset" component="li" />
+      <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
@@ -95,7 +95,7 @@ export default function AlignItemsList() {
           }
         />
       </ListItem>
-      <Divider variant="inset" component="li" />
+      <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />

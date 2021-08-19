@@ -15,7 +15,8 @@ import ProfileView from './components/profile/Profile';
 import SideBar from './components/sidebar/Sidebar';
 import OrdersView from './components/orders/Orders';
 import Grid from '@material-ui/core/Grid';
-
+import SalesActive from './components/sales/SalesActive';
+import SalesComplete from './components/sales/SalesComplete';
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -60,7 +61,26 @@ function App() {
             </Grid>
           </Grid>
           </Route>
-
+          <Route path="/salesactive">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <SalesActive  />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/salescomplete">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <SalesComplete />
+            </Grid>
+          </Grid>
+          </Route>
           <Route path="/profile">
           <Grid container spacing={3}>
               <Grid item xs={2}>
