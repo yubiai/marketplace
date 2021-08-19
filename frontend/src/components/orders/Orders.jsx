@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
+import { Link }  from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
   },
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
+  },
+  listItem: {
+    borderRadius: '10px',
+    
+
   },
   btnCheckOrder: {
     display: 'flex',
@@ -54,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: '120px',
+    borderRadius: '10px',
 
   },
 }));
@@ -71,7 +78,7 @@ export default function AlignItemsList() {
     <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Orders</h3></Typography>
     <Divider variant="fullWidth" component="li" />
    
-      <ListItem alignItems="flex-start">
+      <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
            
@@ -90,7 +97,7 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               
-                <Button className={classes.btnCheckOrder} variant="contained" >
+                <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" primary="CheckOrders" >
                 Check Order
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
