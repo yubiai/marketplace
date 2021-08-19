@@ -36,11 +36,45 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'space-between',
       marginLeft: 'auto'
     },
+    image: {
+        width: '120px',
+        borderRadius: '10px',
+    
+      },
+    btnPreview: {
+        display: 'flex',
+        alignItems: 'center',
+        right: '1px',
+        justifyContent: 'space-between',
+        marginLeft: 'auto',
+        marginBottom: '5px',
+        borderRadius: '10px',
+        backgroundColor: '#FCB877',
+        color: '#fff',
+        minWidth: '140px',
+        maxWidth: '140px',  
+      },
+      
+      btnEdit: {
+        display: 'flex',
+        right: '1px',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginLeft: 'auto',
+        borderRadius: '10px',
+        minWidth: '140px',
+        backgroundColor: '#fef1e4',
+        color: '#FCB877',
+        '&:hover': {
+          textDecoloration: 'none',
+       }, 
+      },
   }));
   
   export default function AlignItemsList() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const activeImage = require("../../media/canoneos.jpg");
 
     const handleClick = () => {
     setOpen(!open);
@@ -61,8 +95,7 @@ const useStyles = makeStyles((theme) => ({
      
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="../../media/Shoes-PNG-File.png" />
-            {/* <img src="../../media/Shoes-PNG-File.png" /> */}
+              <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
           </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
@@ -78,11 +111,11 @@ const useStyles = makeStyles((theme) => ({
                 </Typography>
                 {" 1 item"}
                 
-                  <Button className={classes.btnOrder} variant="outlined" color="primary">
-                  Primary
+                  <Button className={classes.btnPreview} variant="contained">
+                  Preview
                   </Button>
-                  <Button className={classes.btnOrder} variant="outlined" color="secondary">
-                  Secondary
+                  <Button className={classes.btnEdit} variant="contained">
+                  Edit Item
                   </Button>
               </React.Fragment>
             }
@@ -90,9 +123,9 @@ const useStyles = makeStyles((theme) => ({
         </ListItem>
         <Divider variant="fullWidth" component="li" />
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-          </ListItemAvatar>
+            <ListItemAvatar>
+              <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
+            </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
             secondary={
@@ -106,15 +139,21 @@ const useStyles = makeStyles((theme) => ({
                  Canon EOS Rebel T7 EF-S 18-55mm
                 </Typography>
                 {" 1 item"}
+                <Button className={classes.btnPreview} variant="contained">
+                  Preview
+                  </Button>
+                  <Button className={classes.btnEdit} variant="contained">
+                  Edit Item
+                  </Button>
               </React.Fragment>
             }
           />
         </ListItem>
         <Divider variant="fullWidth" component="li" />
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-          </ListItemAvatar>
+            <ListItemAvatar>
+              <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
+            </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
             secondary={
@@ -128,6 +167,12 @@ const useStyles = makeStyles((theme) => ({
                  Canon EOS Rebel T7 EF-S 18-55mm
                 </Typography>
                 {" 1 item"}
+                <Button className={classes.btnPreview} variant="contained">
+                  Preview
+                  </Button>
+                  <Button className={classes.btnEdit} variant="contained">
+                  Edit Item
+                  </Button>
               </React.Fragment>
             }
           />

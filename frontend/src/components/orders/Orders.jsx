@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlignItemsList() {
   const classes = useStyles();
-  const shoeImage = require("../../media/Shoes-PNG-File.png");
+  const orderImage = require("../../media/Shoes-PNG-File.png");
 
   return (
     
@@ -81,7 +81,7 @@ export default function AlignItemsList() {
    
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
+          <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
            
         </ListItemAvatar>
         <ListItemText
@@ -111,7 +111,7 @@ export default function AlignItemsList() {
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
+          <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
           primary="Delivered on 11th of august"
@@ -139,7 +139,7 @@ export default function AlignItemsList() {
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-        <img alt="{imgjson}" className={classes.image} src={shoeImage.default} />
+        <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
           primary="Delivered on 11th of august"
