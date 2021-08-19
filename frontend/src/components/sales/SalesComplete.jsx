@@ -30,17 +30,30 @@ const useStyles = makeStyles((theme) => ({
       margin: `5px 0 0 ${theme.spacing(2)}px`,
     },
   
-    btnOrder: {
-      display: 'flex',
-      right: '1px',
-      justifyContent: 'space-between',
-      marginLeft: 'auto'
-    },
+    image: {
+        width: '120px',
+        borderRadius: '10px',
+    
+      },
+    btnDetails: {
+        display: 'flex',
+        alignItems: 'center',
+        right: '1px',
+        justifyContent: 'space-between',
+        marginLeft: 'auto',
+        marginBottom: '5px',
+        borderRadius: '10px',
+        backgroundColor: '#FCB877',
+        color: '#fff',
+        minWidth: '140px',
+        maxWidth: '140px',  
+      },
   }));
   
   export default function AlignItemsList() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const completeImage = require("../../media/canoneos.jpg");
 
     const handleClick = () => {
     setOpen(!open);
@@ -60,10 +73,9 @@ const useStyles = makeStyles((theme) => ({
       <Divider variant="fullWidth" component="li" />
      
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="../../media/Shoes-PNG-File.png" />
-            {/* <img src="../../media/Shoes-PNG-File.png" /> */}
-          </ListItemAvatar>
+            <ListItemAvatar>
+                <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
+            </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
             secondary={
@@ -78,21 +90,19 @@ const useStyles = makeStyles((theme) => ({
                 </Typography>
                 {" 1 item"}
                 
-                  <Button className={classes.btnOrder} variant="outlined" color="primary">
-                  Primary
+                  <Button className={classes.btnDetails} variant="contained">
+                  Details
                   </Button>
-                  <Button className={classes.btnOrder} variant="outlined" color="secondary">
-                  Secondary
-                  </Button>
+                  
               </React.Fragment>
             }
           />
         </ListItem>
         <Divider variant="fullWidth" component="li" />
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-          </ListItemAvatar>
+            <ListItemAvatar>
+                <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
+            </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
             secondary={
@@ -106,15 +116,19 @@ const useStyles = makeStyles((theme) => ({
                  Canon EOS Rebel T7 EF-S 18-55mm
                 </Typography>
                 {" 1 item"}
+
+                <Button className={classes.btnDetails} variant="contained">
+                  Details
+                  </Button>
               </React.Fragment>
             }
           />
         </ListItem>
         <Divider variant="fullWidth" component="li" />
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-          </ListItemAvatar>
+            <ListItemAvatar>
+                <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
+            </ListItemAvatar>
           <ListItemText
             primary="Delivered on 11th of august"
             secondary={
@@ -128,6 +142,9 @@ const useStyles = makeStyles((theme) => ({
                  Canon EOS Rebel T7 EF-S 18-55mm
                 </Typography>
                 {" 1 item"}
+                <Button className={classes.btnDetails} variant="contained">
+                  Details
+                  </Button>
               </React.Fragment>
             }
           />

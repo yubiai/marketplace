@@ -58,6 +58,12 @@ const useStyles = makeStyles((theme) => ({
    }, 
   },
   imageProfile: {
+    display: 'flex',
+    alignItems: 'center',
+    left: '1px',
+    justifyContent: 'space-between',
+    marginLeft: 'auto',
+    marginBottom: '5px',
     width: '120px',
     borderRadius: '10px',
 
@@ -147,9 +153,10 @@ export default function AlignItemsList() {
       </ListItem>
       <Divider variant="fullWidth" component="li" />
       <ListItem alignItems="flex-start">
-        
+              
         <ListItemText
           primary="Seller Information"
+          
           secondary={
             <React.Fragment>
               <Typography
@@ -160,8 +167,11 @@ export default function AlignItemsList() {
               >
                Vitalik Buterin
               </Typography>
-              /*insert json name*/
-              {" 1 item"}
+                           
+              <ListItemAvatar>
+                  <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
+           
+               </ListItemAvatar>
               <Button className={classes.btnCheckOrder} variant="contained" >
                 Send Message
                 </Button>
@@ -169,10 +179,7 @@ export default function AlignItemsList() {
             </React.Fragment>
           }
         />
-        <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
-           
-        </ListItemAvatar>
+        
       </ListItem>
     </List>
   );
