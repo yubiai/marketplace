@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
                 </Typography>
                 {" 1 item"}
                 
-                  <Button className={classes.btnDetails} variant="contained">
+                  <Button className={classes.btnDetails} variant="contained" component={Link} to="/salescompletedetails" primary="SalesCompleteDetails">
                   Details
                   </Button>
                   
@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
                 </Typography>
                 {" 1 item"}
 
-                <Button className={classes.btnDetails} variant="contained">
+                <Button className={classes.btnDetails} variant="contained" component={Link} to="/salescompletedetails" primary="SalesCompleteDetails">
                   Details
                   </Button>
               </React.Fragment>
@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
                  Canon EOS Rebel T7 EF-S 18-55mm
                 </Typography>
                 {" 1 item"}
-                <Button className={classes.btnDetails} variant="contained">
+                <Button className={classes.btnDetails} variant="contained" component={Link} to="/salescompletedetails" primary="SalesCompleteDetails">
                   Details
                   </Button>
               </React.Fragment>
