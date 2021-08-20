@@ -40,7 +40,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FCB877',
     color: '#fff',
     minWidth: '140px',
-    maxWidth: '140px',  
+    maxWidth: '140px',
+    '&:hover': {
+      borderBottom: 'none',
+      color: '#008968',
+      backgroundColor: 'transparent', 
+    }  
   },
   
   btnBuyAgain: {

@@ -35,6 +35,19 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px',
     
       },
+      link: {
+        display: 'flex',
+        fontSize: '14px',
+        color: '#000000',
+        textDecorationColor: 'transparent',
+        marginLeft: '0.1rem',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+    },
     btnDetails: {
         display: 'flex',
         alignItems: 'center',
@@ -65,10 +78,12 @@ const useStyles = makeStyles((theme) => ({
             
       
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" to="/sales" onClick={handleClick}>
+        <Link className={classes.link}  onClick={handleClick}>
           Sales
         </Link>
-        <Typography color="textPrimary">Complete</Typography>
+        <Link className={classes.link} to="/salescomplete" onClick={handleClick}>
+          Complete
+        </Link>
       </Breadcrumbs>
       <Divider variant="fullWidth" component="li" />
      

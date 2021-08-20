@@ -57,6 +57,19 @@ const useStyles = makeStyles((theme) => ({
       textDecoloration: 'none',
    }, 
   },
+  link: {
+    display: 'flex',
+    fontSize: '14px',
+    color: '#000000',
+    textDecorationColor: 'transparent',
+    marginLeft: '0.1rem',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    '&:hover': {
+        borderBottom: 'none',
+        color: '#008968', 
+      }
+},
   imageProfile: {
     display: 'flex',
     alignItems: 'center',
@@ -96,10 +109,12 @@ export default function AlignItemsList() {
           
     
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" to="/orders" onClick={handleClick}>
-          Orders
+        <Link className={classes.link} to="/orders"  onClick={handleClick}>
+          Sales
         </Link>
-        <Typography color="textPrimary">Purchase status</Typography>
+        <Link className={classes.link} to="/checkorders" onClick={handleClick}>
+          Purchase status
+        </Link>
       </Breadcrumbs>
     <Divider variant="fullWidth" component="li" />
     

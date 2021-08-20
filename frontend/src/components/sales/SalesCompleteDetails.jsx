@@ -25,6 +25,19 @@ const useStyles = makeStyles((theme) => ({
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
+  link: {
+    display: 'flex',
+    fontSize: '14px',
+    color: '#000000',
+    textDecorationColor: 'transparent',
+    marginLeft: '0.1rem',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    '&:hover': {
+        borderBottom: 'none',
+        color: '#008968', 
+      }
+},
   listItem: {
     borderRadius: '10px',
     
@@ -96,14 +109,14 @@ export default function AlignItemsList() {
           
     
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" to="/orders" onClick={handleClick}>
+        <Link className={classes.link} to="/orders" onClick={handleClick}>
           Sales
         </Link>
-        <Link color="inherit" to="/salescomplete" onClick={handleClick}>
+        <Link className={classes.link} to="/salescomplete" onClick={handleClick}>
           Complete
         </Link>
         <Link
-            color="textPrimary"
+            className={classes.link}
             to="/salescompletedetails"
             onClick={handleClick}
             aria-current="page"
