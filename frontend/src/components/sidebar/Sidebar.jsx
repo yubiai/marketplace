@@ -11,7 +11,6 @@ import DraftsOutlinedIcon from '@material-ui/icons/DraftsOutlined';
 import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import { Link }  from 'react-router-dom';
@@ -81,14 +80,12 @@ export default function NestedList() {
         <List component="div" disablePadding>
           <ListItem button className={classes.nested} component={Link} to="/salesactive">
             <ListItemIcon>
-              <StarBorder />
+              
             </ListItemIcon>
             <ListItemText className={classes.listItemText} primary="Active"  />
           </ListItem >
           <ListItem button className={classes.nested} component={Link} to="/salescomplete">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
+            <ListItemIcon></ListItemIcon>
             <ListItemText className={classes.listItemText} primary="Complete"  />
           </ListItem>
         
