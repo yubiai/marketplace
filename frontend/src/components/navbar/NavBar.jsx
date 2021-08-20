@@ -30,7 +30,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 
 
 let name = "Manuel Rodríguez Roldán";
-  let ubisAmmount = "720.55 UBI dripped on address";
+  let ubisAmmount = "720.55 dripped on address";
 
 const useStyles = makeStyles((theme) => ({
     // container: {
@@ -230,8 +230,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     ubiIcon:{
-        width: '15px',
-        marginLeft:'70px', 
+        width: '17px',
+        marginLeft:'75px', 
         paddingRight:'5px',
     },
 }));

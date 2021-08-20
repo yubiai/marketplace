@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     image: {
         width: '120px',
         borderRadius: '10px',
-    
+        marginRight: '15px',
       },
     btnDetails: {
         display: 'flex',
