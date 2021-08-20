@@ -27,7 +27,7 @@ import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import Fade from '@material-ui/core/Fade';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-
+import ListItemText from '@material-ui/core/ListItemText';
 
 let name = "Manuel Rodríguez Roldán";
   let ubisAmmount = "720.55 dripped on address";
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         display: 'flex',
-        fontSize: '14px',
+        fontSize: '15px',
         color: '#fff',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
@@ -83,6 +83,22 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#008968', 
           }
+    },
+    listItemText: {
+        display: 'flex',
+        fontSize: '12px',
+        color: '#fff',
+        textDecorationColor: 'transparent',
+        marginLeft: '1rem',
+        paddingTop: '1px',
+        marginTop: '-2.5px',
+        justifyContent: 'space-evenly',
+        alignItems: 'top',
+        '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+
     },
     lang: {
         
@@ -154,9 +170,9 @@ const useStyles = makeStyles((theme) => ({
         size: '18px',
         color: '#000000',
         textDecorationColor: 'transparent',
-        
+       
+    }, 
 
-    },    
     search: {
         position: 'relative',
         color: 'black',
@@ -513,10 +529,10 @@ export default function NavBar() {
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                            
                                 <Typography className={classes.link}  noWrap>  
-                                <Link className={classes.link} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                <ListItemText className={classes.listItemText} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                                  
-                                </Link>
+                                </ListItemText>
                                 <Link className={classes.link} to="/sell" >Sell  
                                 </Link>
                                 <Link className={classes.link} to="/browsinghistory" >Browsing history  
