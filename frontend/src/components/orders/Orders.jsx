@@ -39,9 +39,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px', 
-    width:'140px',
+    minWidth: '140px',
+    maxWidth: '140px',
     top: '-4rem', 
+    '&:hover': {
+      borderBottom: 'none',
+      color: '#008968',
+      backgroundColor: 'transparent', 
+    }  
   },
   
   btnBuyAgain: {
