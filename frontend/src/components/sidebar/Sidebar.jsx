@@ -29,6 +29,15 @@ const useStyles = makeStyles((theme) => ({
   HeaderList: {
     paddingLeft: theme.spacing(4),
   },
+  listItemText: {
+    color: '#000000',
+    textDecorationColor: 'transparent',
+    '&:hover': {
+            borderBottom: 'none',
+            color: '#008968', 
+          }
+
+  },
 }));
 
 export default function NestedList() {
@@ -59,7 +68,7 @@ export default function NestedList() {
         <ListItemIcon>
           <CardGiftcardOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Orders" />
+        <ListItemText className={classes.listItemText} primary="Orders" />
       </ListItem>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
@@ -74,13 +83,13 @@ export default function NestedList() {
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Active"  />
+            <ListItemText className={classes.listItemText} primary="Active"  />
           </ListItem >
           <ListItem button className={classes.nested} component={Link} to="/salescomplete">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Complete"  />
+            <ListItemText className={classes.listItemText} primary="Complete"  />
           </ListItem>
         
       
