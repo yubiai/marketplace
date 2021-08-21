@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const ethers = require("ethers");
-const PaymentProcessor = require("../frontend/src/contracts/PaymentProcessor.json");
+const PaymentProcessor = require("./../frontend/src/artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json");
 const { Payment } = require("./models/Payment");
 
 const app = express();
@@ -25,12 +25,13 @@ app.listen(4000, () => {
 
 const listenToEvents = () => {
   const provider = new ethers.providers.JsonRpcProvider(
-    "http://localhost:9545"
+    "http://localhost:8545"
   );
-  const networkId = "5777";
+  
+  const ppAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
 
   const paymentProcessor = new ethers.Contract(
-    PaymentProcessor.networks[networkId].address,
+    ppAddress,
     PaymentProcessor.abi,
     provider
   );

@@ -21,7 +21,7 @@ const ITEMS = [
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   const buy = async (item) => {
-    const response1 = await axios.get(`${API_URL}/api/getPaymentId/${item.id}`);
+    const response1 = await axios.get(`${API_URL}/api/items/getPaymentId/${item.id}`);
     
     const tx1 = await ubi.approve(paymentProcessor.address, item.price);
     await tx1.wait();
@@ -34,7 +34,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
     await new Promise((resolve) => setTimeout(resolve, 5000));
     const response2 = await axios.get(
-      `${API_URL}/api/getItemUrl/${response1.data.paymentId}`
+      `${API_URL}/api/items/getItemUrl/${response1.data.paymentId}`
     );
     console.log(response2);
   };
