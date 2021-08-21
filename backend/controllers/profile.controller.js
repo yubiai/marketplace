@@ -1,5 +1,6 @@
 const { Profile } = require("../models/Profile");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 const got = require("got");
 
 const POH_API_URL = 'https://api.poh.dev';
@@ -32,18 +33,33 @@ async function getProfile(req, res, _) {
     }
 }
 
-async function login(req, res, next) {
-    // FIXME: Replace hardcoded wallet with '{ ...req.body }';
-    const { walletAddress } = { walletAddress: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c' };
+async function login(_, res, next) {
+    const { walletAddress } = { ...req.body };
     try {
         const response = await checkProfileOnPOH(walletAddress);
         if (response) {
-            const token = signData({
-                walletAddress
-            });
-            res.status(200).json({
-                token: token
-            });
+            let profileResp;
+            Profile.findOne({ "walletAddress": walletAddress }).exec(async (_, profile) => {
+                if (!profile) {
+                    profileResp = await new Profile({
+                        id: mongoose.Types.ObjectId(),
+                        walletAddress: walletAddress,
+                        avatar: response.photo
+                    });
+                    profileResp.save();
+                } else {
+                    profileResp = profile;
+                }
+
+                const token = signData({
+                    walletAddress
+                });
+                res.status(200).json({
+                    token: token,
+                    profileResp
+                });
+                next();
+            });            
         }
     } catch (error) {
         console.log('ERROR: ', error);
