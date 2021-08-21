@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
             color: '#008968', 
           }
     },
-    listItemText: {
+    listItemTextc: {
         display: 'flex',
         fontSize: '12px',
         color: '#fff',
@@ -502,7 +502,7 @@ export default function NavBar() {
         <div className={classes.sectionDesktop}>
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
                                 <Typography className={classes.link}  noWrap>  
-                                <ListItemText className={classes.listItemText} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                <ListItemText className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                                 </ListItemText>
                                 <Link className={classes.link} to="/sell" >Sell  
