@@ -13,6 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "ethereum-waffle": "^3.4.0",
+    "hardhat": "^2.6.1",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@openzeppelin/contracts": "^4.1.0",

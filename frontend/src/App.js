@@ -34,7 +34,7 @@ function App() {
       setUbi(ubi);
       setSignerAddress(signerAddress)
     }
-    // init();
+    init();
   }, []);
 
   if(typeof window.ethereum === 'undefined') {
