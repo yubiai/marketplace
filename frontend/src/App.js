@@ -3,13 +3,24 @@ import { getBlockchain } from './ethereum.js';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import Store from './components/store/Store';
 import Message from './components/message/Message';
+import NavBar  from './components/navbar/NavBar';
+import Footer  from './components/footer/Footer';
+import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
+
 import Login from './components/login/login';
+import SideBar from './components/sidebar/Sidebar';
+import OrdersView from './components/orders/Orders';
+import Grid from '@material-ui/core/Grid';
+import SalesActive from './components/sales/SalesActive';
+import SalesComplete from './components/sales/SalesComplete';
+import CheckOrders from './components/orders/CheckOrders'; 
+import SalesCompleteDetails from './components/sales/SalesCompleteDetails';
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -33,22 +44,91 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <div className='col-sm-12'>
-        <h1>UBI Commerce de Proof Of Humanity</h1>
-        <Router>
-          <Switch>
-            <Route path="/login">
+    <Router>
+    <div className='App'>
+      <header className="App-header">
+        <NavBar />
+       
+
+        
+      </header>
+      <body>         
+
+        <Switch>
+          <Route path="/login">
               <Login />
             </Route>
-            <Route path="/">
-              <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
-            </Route>
-          </Switch>
-        </Router>
-        {/* <ProfileView /> */}
-      </div>
+          <Route path="/orders">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <OrdersView />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/checkorders">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <CheckOrders />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/salesactive">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <SalesActive  />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/salescomplete">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <SalesComplete />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/salescompletedetails">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <SalesCompleteDetails />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/profile">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <ProfileView />
+            </Grid>
+          </Grid>
+          </Route>
+
+          <Route path="/">
+          <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
+          <Carousel/>
+          </Route>
+        </Switch>
+      </body> 
+
+      <Footer />
     </div>
+    </Router>
   );
 }
 

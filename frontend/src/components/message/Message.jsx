@@ -4,7 +4,7 @@ const Message = () => {
   return (
     <div className="container">
       <div className="col-sm-1">
-        <h1>Stackly Commerce con Ethereum</h1>
+        <h1>Yubiai</h1>
         <p>Usted necesita instalar el plugin Metamask en su navegador</p>
         <ul>
           <li>
