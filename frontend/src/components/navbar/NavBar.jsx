@@ -115,19 +115,9 @@ const useStyles = makeStyles((theme) => ({
             color: '#008968', 
           }
     },
-    accicon: {
-        marginLeft: theme.spacing(7),
-        alignItems: 'center',
-        
-        '&:hover': {
-            borderBottom: 'none',
-            color: '#008968', 
-          }
-    },
     carticon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
-        
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
@@ -146,6 +136,15 @@ const useStyles = makeStyles((theme) => ({
             background: '#FCB877', 
           }
     },
+    listItemText: {
+        color: '#000000',
+        textDecorationColor: 'transparent',
+        '&:hover': {
+                borderBottom: 'none',
+                color: '#008968', 
+              }
+    
+      },
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -317,10 +316,10 @@ export default function NavBar() {
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-            <MenuItem component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
-            <MenuItem component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
-            <MenuItem component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
-            <MenuItem component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
+            <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem className={classes.listItemText} component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
+            <MenuItem className={classes.listItemText} component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
         </Menu>
     );
     const categories = 'categories-menu';
@@ -384,8 +383,8 @@ export default function NavBar() {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={OpenProfile}>
-                <IconButton
+            <MenuItem  onClick={OpenProfile}>
+                <IconButton 
                     aria-label="account of current user"
                     aria-controls="profile-menu"
                     aria-haspopup="true"
@@ -517,7 +516,7 @@ export default function NavBar() {
                         </div>
         </Grid>
         <Grid item sm={2} xs={6}>
-                 <AccountCircle onClick={OpenProfile}
+                 <AccountCircle className={classes.notificon} onClick={OpenProfile}
                     aria-label="account of current user"
                     aria-controls="profile-menu"
                     aria-haspopup="true"
