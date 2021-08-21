@@ -28,36 +28,33 @@ import Avatar from '@material-ui/core/Avatar';
 import Fade from '@material-ui/core/Fade';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import axios from 'axios';
+import { setupEthState } from '../../ethereum';
 
+const API_URL = 'http://localhost:4000';
 let name = "Manuel Rodríguez Roldán";
   let ubisAmmount = "720.55 dripped on address";
-
 const useStyles = makeStyles((theme) => ({
     // container: {
     //     display: 'flex',
     //     height: '100px',
     //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
-        
-    // },
+ // },
     root:{
         marginTop: '10px',
         margin: '10px',
    },
-
     navbar:{
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
          height: '105px',
          minHeight:'105px',
          maxHeight:'105px',
          zIndex: 99,
-         
     },
     logo: {
         width: '120px',
-        
     },
     menuButton: {
-        
     },
     title: {
         display: 'none',
@@ -98,10 +95,8 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#008968', 
           }
-
     },
     lang: {
-        
         fontSize: '14px',
         color: '#fff',
         marginLeft: '7rem',
@@ -112,9 +107,7 @@ const useStyles = makeStyles((theme) => ({
             color: '#008968', 
           }
     },
-
     notificon: {
-        
         marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
@@ -131,7 +124,6 @@ const useStyles = makeStyles((theme) => ({
             color: '#008968', 
           }
     },
-
     carticon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
@@ -141,7 +133,6 @@ const useStyles = makeStyles((theme) => ({
             color: '#008968', 
           }
     },
-
     connect: {
         fontSize: '14px',
         color: '#FCB877',
@@ -155,24 +146,19 @@ const useStyles = makeStyles((theme) => ({
             background: '#FCB877', 
           }
     },
-
-   
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
         color: '#000000',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
-
     },
     linkmenuicon: {
         display: 'flex',
         size: '18px',
         color: '#000000',
         textDecorationColor: 'transparent',
-       
     }, 
-
     search: {
         position: 'relative',
         color: 'black',
@@ -226,25 +212,21 @@ const useStyles = makeStyles((theme) => ({
     menuProfile:{
         width:'200px',
         backgroundColor:'red',
-
     },
     avatar:{
         marginLeft:'20px',
         marginTop:'10px', 
     },
-
     nameMenu:{
         display:'inline',
         fontSize:'15px',
         padding:'15px', 
     },
-
     ubiAmmount:{
         display:'block',
         fontSize:'12px',
         marginRight:'10px',
     },
-
     ubiIcon:{
         width: '17px',
         marginLeft:'75px', 
@@ -252,6 +234,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function _formatWalletAddress(address) {
+    return address.substr(0, 8);
+}
 export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
@@ -260,50 +245,58 @@ export default function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
+    const [token, setToken] = React.useState('');
+    const [profileInfo, setProfileInfo] = React.useState({});
+    const [walletAddress, setWalletAddress] = React.useState('');
     const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
     const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
-
     const isMenuOpen = Boolean(anchorEl);
-    
-
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const categoriesMenuOpen = Boolean(categoriesAnchorEl);
     const languageMenuOpen = Boolean(languageAnchorEl);
     const profileMenuOpen = Boolean(profileAnchorEl);
-
-
     const OpenCategories = (event) => {
         setCategoriesAnchorEl(event.currentTarget);
       };
-
       const OpenLanguage = (event) => {
         setLanguageAnchorEl(event.currentTarget);
       };
-
     const OpenProfile = (event) => {
         setProfileAnchorEl(event.currentTarget);
     };
-
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
-    }; 
-   
+    };
+    const connect = () => {
+        if (!token) {
+            setupEthState().then(r => {
+                const { signerAddress } = r;
+                axios.post(
+                    `${API_URL}/api/profiles/login`,
+                    {
+                        walletAddress: signerAddress
+                    }
+                ).then(resp => {
+                    setWalletAddress(resp.data.eth_address);
+                    setToken(resp.data.token);
+                    setProfileInfo({...resp.data});
+                });
+            });
+        }
+    };
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
     const open = Boolean(anchorEl);
-  
   const handleClose = () => {
     setAnchorEl(null);
     setCategoriesAnchorEl(null);
     setLanguageAnchorEl(null);
     setProfileAnchorEl(null);
   };
-
     const profile = 'profile-menu';
     const renderMenu = (
         <Menu
@@ -316,28 +309,20 @@ export default function NavBar() {
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
             TransitionComponent={Fade}
-            
         >
-            
-
             <ListItemIcon>
-            <Avatar src={profileImage.default}profileImage className={classes.avatar} />
+            <Avatar src={profileInfo.photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography className={classes.nameMenu}>{name}</Typography>          
-            
-           
+            <Typography className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-
             <MenuItem component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
             <MenuItem component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
             <MenuItem component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
             <MenuItem component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
-            
         </Menu>
     );
-
     const categories = 'categories-menu';
     const renderMenuCategories = (
             <Menu
@@ -356,7 +341,6 @@ export default function NavBar() {
             <MenuItem onClick={handleClose}>VideoGames</MenuItem>
                     </Menu>
                                 );
-
         const language = 'language-menu';
         const renderMenuLanguage = (
             <Menu
@@ -381,10 +365,6 @@ export default function NavBar() {
             <MenuItem onClick={handleClose}>FR</MenuItem>
             </Menu>
             );
-
-
-
-
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
@@ -396,7 +376,6 @@ export default function NavBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-
             <MenuItem>
                 <IconButton aria-label="show 11 new notifications" color="inherit">
                     <Badge badgeContent={11} color="secondary">
@@ -482,9 +461,7 @@ export default function NavBar() {
             </MenuItem>
         </Menu>
     );
-
     return (
-        
             <div className={classes.container}>
                 <Router>
                 <AppBar className={classes.navbar} position="static">
@@ -513,25 +490,21 @@ export default function NavBar() {
         </Grid>
         <Grid item sm={3} xs={6}>
         <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage} >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
-        <Button className={classes.connect} variant="contained" color="primary">Connect</Button>
-        
+        <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
+            { _formatWalletAddress(walletAddress) || 'Connect' }
+        </Button>
         </Grid>
-
         {/* Second row */}
         <Grid item sm={3} xs={6}>
         <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to Buenos Aires
         </Grid>
         <Grid item sm={7} xs={6}>
-             
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
-                            
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                           
                                 <Typography className={classes.link}  noWrap>  
                                 <ListItemText className={classes.listItemText} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                                 
                                 </ListItemText>
                                 <Link className={classes.link} to="/sell" >Sell  
                                 </Link>
@@ -541,34 +514,20 @@ export default function NavBar() {
                                 </Link>
                                 <Link className={classes.link} to="/helpdesk" >Help desk 
                                 </Link></Typography>  
-                                
-                                                             
                         </div>
         </Grid>
         <Grid item sm={2} xs={6}>
-        
                  <AccountCircle onClick={OpenProfile}
                     aria-label="account of current user"
                     aria-controls="profile-menu"
                     aria-haspopup="true"
                     color="inherit" />
-                                                
                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
                 <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
-                               
         </Grid>
-        
       </Grid>
-      
     </div>
     </Container>
-
-                        
-
-                     
-                        
-
-                        
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"
@@ -576,12 +535,9 @@ export default function NavBar() {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
-                                
                             >
-                                
                                 <MoreIcon />
                             </IconButton>
-                            
                         </div>
                     </Toolbar>
                 </AppBar>
@@ -590,8 +546,6 @@ export default function NavBar() {
                 {renderMenu}
                 {renderMenuCategories}
                 {renderMenuLanguage}
-                
             </div>
-        
     );
 }

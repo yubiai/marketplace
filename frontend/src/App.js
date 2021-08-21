@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import getBlockchain from './ethereum.js';
+import { getBlockchain } from './ethereum.js';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from "react-router-dom";
+} from 'react-router-dom';
+
 import Store from './components/store/Store';
 import Message from './components/message/Message';
 import NavBar  from './components/navbar/NavBar';
 import Footer  from './components/footer/Footer';
 import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
+
+import Login from './components/login/login';
 import SideBar from './components/sidebar/Sidebar';
 import OrdersView from './components/orders/Orders';
 import Grid from '@material-ui/core/Grid';
@@ -32,7 +34,7 @@ function App() {
       setUbi(ubi);
       setSignerAddress(signerAddress)
     }
-    init();
+    // init();
   }, []);
 
   if(typeof window.ethereum === 'undefined') {
@@ -53,6 +55,9 @@ function App() {
       <body>         
 
         <Switch>
+          <Route path="/login">
+              <Login />
+            </Route>
           <Route path="/orders">
           <Grid container spacing={3}>
               <Grid item xs={2}>
