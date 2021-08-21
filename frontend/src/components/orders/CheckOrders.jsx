@@ -11,6 +11,8 @@ import { Button } from '@material-ui/core';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { Link }  from 'react-router-dom';
 
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -156,11 +158,27 @@ export default function AlignItemsList() {
                
               </Typography>
               {" 1 item"}
-              <span> Amount</span>
-              <span> Transaction Fee</span>
-              <span> Gas price</span>
-              <span> Nonce</span> 
-              <span> Total</span>  
+              <ListItem >
+                <ListItemText secondary="Amount" />
+              </ListItem>
+              <Divider />
+              <ListItem >
+                <ListItemText secondary="Transaction Fee" />
+              </ListItem>
+              <Divider />
+              <ListItem >
+                <ListItemText secondary="Gas price" />
+              </ListItem>
+              <Divider />
+              <ListItem >
+                <ListItemText secondary="Nonce" />
+              </ListItem>
+              <Divider />
+              <ListItem >
+                <ListItemText secondary="Total" />
+              </ListItem>
+              <Divider />
+               
 
             </React.Fragment>
           }
