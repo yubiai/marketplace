@@ -1,4 +1,3 @@
-const { Profile } = require("../models/Profile");
 const jwt = require("jsonwebtoken");
 const got = require("got");
 
@@ -22,6 +21,7 @@ function signData(rawData={}) {
  * Endpoint methods
  */
 
+// TODO: Implement secure request with token
 async function getProfile(req, res, _) {
     const { walletAddress } = req;
     try {
@@ -33,8 +33,8 @@ async function getProfile(req, res, _) {
 }
 
 async function login(req, res, next) {
-    // FIXME: Replace hardcoded wallet with '{ ...req.body }';
-    const { walletAddress } = { walletAddress: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c' };
+    // FIXME: Replace to { ...req.body }; on const { walletAddress }
+    const walletAddress = '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c'
     try {
         const response = await checkProfileOnPOH(walletAddress);
         if (response) {
@@ -42,8 +42,10 @@ async function login(req, res, next) {
                 walletAddress
             });
             res.status(200).json({
-                token: token
+                token: token,
+                ...response
             });
+            next();
         }
     } catch (error) {
         console.log('ERROR: ', error);
