@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { Link }  from 'react-router-dom';
-
+import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
-    
+    borderRadius: '10px',
   },
   inline: {
     
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     borderRadius: '10px',
     
-
+    
   },
   btnCheckOrder: {
     display: 'flex',
@@ -109,17 +109,22 @@ export default function AlignItemsList() {
      
     <List className={classes.root}>
           
-    
+      
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link className={classes.link} to="/orders"  onClick={handleClick}>
-          Sales
+          Orders
         </Link>
         <Link className={classes.link} to="/checkorders" onClick={handleClick}>
           Purchase status
         </Link>
       </Breadcrumbs>
-    <Divider variant="fullWidth" component="li" />
     
+    <Grid container spacing={1}
+    variant="fullWidth"
+    direction="row"
+    justifyContent="space-between"
+    alignItems="left" style={{marginTop: '4px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'gray', borderRadius:'20px'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemText
         //en primary va nombre del order item}
@@ -143,77 +148,90 @@ export default function AlignItemsList() {
           }
         />
       </ListItem>
-      <Divider variant="fullWidth" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="Transaction Details"
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               
-              </Typography>
-              {" 1 item"}
-              <ListItem >
-                <ListItemText secondary="Amount" />
-              </ListItem>
-              <Divider />
-              <ListItem >
-                <ListItemText secondary="Transaction Fee" />
-              </ListItem>
-              <Divider />
-              <ListItem >
-                <ListItemText secondary="Gas price" />
-              </ListItem>
-              <Divider />
-              <ListItem >
-                <ListItemText secondary="Nonce" />
-              </ListItem>
-              <Divider />
-              <ListItem >
-                <ListItemText secondary="Total" />
-              </ListItem>
-              <Divider />
-               
-
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="fullWidth" component="li" />
-      <ListItem alignItems="flex-start">
-              
-        <ListItemText
-          primary="Seller Information"
-          
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               Vitalik Buterin
-              </Typography>
-                           
-              <ListItemAvatar>
-                  <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
-           
-               </ListItemAvatar>
-              <Button className={classes.btnCheckOrder} variant="contained" >
-                Send Message
-                </Button>
+      </Grid>
+    </Grid>  
+      
+    <Grid container spacing={0}
+    direction="row"  
+  justifyContent="space-evenly"
+  alignItems="left" style={{marginTop: '10px'}}>  
+      <Grid item xs={10} md={5} style={{backgroundColor: 'gray', borderRadius:'20px'}} >
+        <ListItem className={classes.listItem} alignItems="flex-start">
+          <ListItemText
+            primary="Transaction Details"
+            secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
                 
-            </React.Fragment>
-          }
-        />
-        
-      </ListItem>
+                </Typography>
+                {" 1 item"}
+                <ListItem >
+                  <ListItemText secondary="Amount" />
+                </ListItem>
+                <Divider />
+                <ListItem >
+                  <ListItemText secondary="Transaction Fee" />
+                </ListItem>
+                <Divider />
+                <ListItem >
+                  <ListItemText secondary="Gas price" />
+                </ListItem>
+                <Divider />
+                <ListItem >
+                  <ListItemText secondary="Nonce" />
+                </ListItem>
+                <Divider />
+                <ListItem >
+                  <ListItemText secondary="Total" />
+                </ListItem>
+                <Divider />
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Grid>
+      <Grid item xs={6} md={5} style={{backgroundColor: 'gray', borderRadius:'20px'}}>
+          <ListItem className={classes.listItem} alignItems="flex-start">
+              
+                  
+            <ListItemText
+              primary="Seller Information"
+              
+              secondary={
+                <React.Fragment>
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    className={classes.inline}
+                    color="textPrimary"
+                  >
+                  Vitalik Buterin
+                  </Typography>
+                              
+                  <ListItemAvatar>
+                      <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
+              
+                  </ListItemAvatar>
+                  <Button className={classes.btnCheckOrder} variant="contained" >
+                    Send Message
+                    </Button>
+                    
+                </React.Fragment>
+              }
+            />
+          
+          </ListItem>
+       </Grid>
+    </Grid>  
+      
+      
+      
+    
     </List>
   );
 }
