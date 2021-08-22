@@ -13,7 +13,6 @@ import Footer  from './components/footer/Footer';
 import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
 
-import Login from './components/login/login';
 import SideBar from './components/sidebar/Sidebar';
 import OrdersView from './components/orders/Orders';
 import Grid from '@material-ui/core/Grid';
@@ -55,9 +54,6 @@ function App() {
       <body>         
 
         <Switch>
-          <Route path="/login">
-              <Login />
-            </Route>
           <Route path="/orders">
           <Grid container spacing={3}>
               <Grid item xs={2}>
