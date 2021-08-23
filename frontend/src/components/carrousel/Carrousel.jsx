@@ -2,29 +2,16 @@ import React, { useState, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
 
-import Wrapper from "./CarrouselComponents";
+import Wrapper from "./Wrapper";
+import CarrouselContainer from "./CarrouselContainer";
+import CarrouselSlot from "./CarrouselSlot";
 
-const useStyles = makeStyles((props) => ({
+const useStyles = makeStyles({
   item: {
     textAlign: "center",
     padding: "100px",
     backgroundImage: "",
     backgroundSize: "cover",
-  },
-  carouselcontainer: {
-    display: "flex",
-    transition: props.sliding ? "none" : "transform 1s ease",
-    transform: `${(props) => {
-      if (!props.sliding) return "translateX(calc(-80% - 20px))";
-      if (props.dir === PREV) return "translateX(calc(2 * (-80% - 20px)))";
-      return "translateX(0%)";
-    }}`,
-  },
-  carouselslot: {
-    flex: "1 0 100%",
-    flexBasis: "80%",
-    marginRight: "20px",
-    order: props.order,
   },
 
   slidebutton: {
@@ -50,7 +37,7 @@ const useStyles = makeStyles((props) => ({
       outline: "0",
     },
   },
-}));
+});
 
 const NEXT = "NEXT";
 const PREV = "PREV";
@@ -108,21 +95,16 @@ const Carrousel = (props) => {
   return (
     <div {...handlers}>
       <Wrapper>
-        <div
-          className={classes.carouselcontainer}
-          dir={state.dir}
-          sliding={state.sliding}
-        >
+        <CarrouselContainer dir={state.dir} sliding={state.sliding}>
           {React.Children.map(props.children, (child, index) => (
-            <div
-              className={classes.carouselslot}
+            <CarrouselSlot
               key={index}
               order={getOrder({ index: index, pos: state.pos, numItems })}
             >
               {child}
-            </div>
+            </CarrouselSlot>
           ))}
-        </div>
+        </CarrouselContainer>
 
         <button
           className={classes.slidebutton}

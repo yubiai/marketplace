@@ -10,7 +10,6 @@ import Store from './components/store/Store';
 import Message from './components/message/Message';
 import NavBar  from './components/navbar/NavBar';
 import Footer  from './components/footer/Footer';
-import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
 
 import Login from './components/login/login';
@@ -121,7 +120,6 @@ function App() {
 
           <Route path="/">
           <Store paymentProcessor={paymentProcessor} ubi={ubi} signerAddress={signerAddress} />
-          <Carousel/>
           </Route>
         </Switch>
       </body> 
