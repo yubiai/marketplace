@@ -12,7 +12,6 @@ import NavBar  from './components/navbar/NavBar';
 import Footer  from './components/footer/Footer';
 import Carousel  from './components/carousel/Carousel';
 import ProfileView from './components/profile/Profile';
-
 import Login from './components/login/login';
 import SideBar from './components/sidebar/Sidebar';
 import OrdersView from './components/orders/Orders';
@@ -21,6 +20,7 @@ import SalesActive from './components/sales/SalesActive';
 import SalesComplete from './components/sales/SalesComplete';
 import CheckOrders from './components/orders/CheckOrders'; 
 import SalesCompleteDetails from './components/sales/SalesCompleteDetails';
+import MessagesBox from './components/orders/MessagesBox';
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -75,6 +75,16 @@ function App() {
             </Grid>
             <Grid item xs={10}>
               <CheckOrders />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/messagesbox">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <MessagesBox />
             </Grid>
           </Grid>
           </Route>

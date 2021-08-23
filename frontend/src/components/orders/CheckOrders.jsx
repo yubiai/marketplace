@@ -111,11 +111,16 @@ const useStyles = makeStyles((theme) => ({
     
   },
   profileName: {
-    marginTop: '-80px',
+    marginTop: '-60px',
     fontWeight: 'bold',
     marginLeft: '20px',
 
-  }
+  },
+  profileReputation: {
+    marginTop: '10px',
+    marginRight: '220px',
+    height: '17px',
+  },
 }));
 
 export default function AlignItemsList() {
@@ -227,10 +232,15 @@ export default function AlignItemsList() {
             <ListItemAvatar>
                       <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
             </ListItemAvatar>
+          
             <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
-            <Button className={classes.btnCheckOrder} variant="contained" >
+            
+            <ListItemText  className={classes.profileReputation} primary="Reputation"/>
+            
+            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
                     Send Message
              </Button>
+                   
           </ListItem>
        </Grid>
     </Grid>  
