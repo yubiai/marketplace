@@ -21,6 +21,7 @@ import SalesComplete from './components/sales/SalesComplete';
 import CheckOrders from './components/orders/CheckOrders'; 
 import SalesCompleteDetails from './components/sales/SalesCompleteDetails';
 import MessagesBox from './components/orders/MessagesBox';
+import Mailbox from './components/mailbox/Mailbox';
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined); 
@@ -115,6 +116,16 @@ function App() {
             </Grid>
             <Grid item xs={10}>
               <SalesCompleteDetails />
+            </Grid>
+          </Grid>
+          </Route>
+          <Route path="/mailbox">
+          <Grid container spacing={3}>
+              <Grid item xs={2}>
+              <SideBar/>
+            </Grid>
+            <Grid item xs={10}>
+              <Mailbox />
             </Grid>
           </Grid>
           </Route>

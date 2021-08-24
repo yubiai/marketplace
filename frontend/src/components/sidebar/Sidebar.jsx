@@ -93,11 +93,11 @@ export default function NestedList() {
       
         </List>
       </Collapse>
-      <ListItem button>
+      <ListItem button component={Link} to="/mailbox">
         <ListItemIcon>
           <DraftsOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Mailbox" />
+        <ListItemText className={classes.listItemText} primary="Mailbox" />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
