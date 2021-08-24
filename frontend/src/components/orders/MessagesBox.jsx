@@ -20,13 +20,14 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       width: "80vw",
       height: "80vh",
-      maxWidth: "500px",
-      maxHeight: "700px",
+      maxWidth: "1060px",
+      maxHeight: "500px",
       display: "flex",
       alignItems: "center",
       flexDirection: "column",
       position: "relative",
       marginLeft: '10px',
+      borderRadius: '20px',
     },
     link: {
       display: 'flex',
@@ -120,14 +121,14 @@ export default function MessagesBox() {
             message="Water striders "
             timestamp="MM/DD 00:00"
             photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName=""
+            displayName="Elon"
             avatarDisp={true}
           />
           <MessageLeft
             message="example2"
             timestamp="MM/DD 00:00"
             photoURL=""
-            displayName="Benja"
+            displayName="Elon"
             avatarDisp={false}
           />
           <MessageRight

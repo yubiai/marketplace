@@ -118,7 +118,7 @@ export const MessageLeft = (props) => {
   const message = props.message ? props.message : "no message";
   const timestamp = props.timestamp ? props.timestamp : "";
   const photoURL = props.photoURL ? props.photoURL : "dummy.js";
-  const displayName = props.displayName ? props.displayName : "名無しさん";
+  const displayName = props.displayName ? props.displayName : "Manu";
   const classes = useStyles();
   return (
     <>
