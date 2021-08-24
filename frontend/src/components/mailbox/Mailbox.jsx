@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import { Link }  from 'react-router-dom';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
+import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,6 +68,24 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
 
   },
+  itemStatusIconAvailable: {
+    color: '#1ED9A1',
+    height: '12px',
+  },
+  itemStatusIconPaused: {
+    color: '#FCB877',
+    height: '12px',
+  },
+  itemStatusIconSold: {
+    color: '#D9461E',
+    height: '12px',
+  },
+  moreIconDots:{
+    color: 'black',
+    marginLeft: '1000px',
+    marginTop: '-80px',
+
+  },
 }));
 
 export default function AlignItemsList() {
@@ -120,12 +139,14 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" 1 item"}
               
+              {" Available"}
+              <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
-                </Button>
                 
+                </Button>
+                <MoreHorizSharpIcon className={classes.moreIconDots} />
             </React.Fragment>
           }
         />
@@ -150,12 +171,12 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" 1 item"}
-              
+              {" Paused"}
+              <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 </Button>
-                
+                <MoreHorizSharpIcon className={classes.moreIconDots} />
             </React.Fragment>
           }
         />
@@ -180,12 +201,12 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" 1 item"}
-              
+              {" Sold"}
+              <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 </Button>
-                
+                <MoreHorizSharpIcon className={classes.moreIconDots} />
             </React.Fragment>
           }
         />
