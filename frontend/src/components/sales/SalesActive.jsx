@@ -115,8 +115,9 @@ export default function AlignItemsList() {
             aria-current="page"
         >
         Active
+        <AddCircleIcon className={classes.addItem} />
         </Link>
-      <AddCircleIcon className={classes.addItem} />
+      
       </Breadcrumbs>
     
     
