@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import { Link }  from 'react-router-dom';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -56,10 +57,13 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     borderRadius: '10px',
     minWidth: '140px',
+    maxWidth: '140px',
     backgroundColor: '#fef1e4',
     color: '#FCB877',
     '&:hover': {
-      textDecoloration: 'none',
+      borderBottom: 'none',
+      color: '#008968',
+      backgroundColor: 'transparent',
    }, 
   },
   image: {
