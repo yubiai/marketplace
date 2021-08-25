@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     
     
   },
-  btnCheckOrder: {
+  btnSendMsg: {
     display: 'flex',
     alignItems: 'center',
     right: '1px',
@@ -44,23 +44,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',  
+    minWidth: '140px',
+    '&:hover': {
+      borderBottom: 'none',
+      color: '#008968', 
+      textDecoloration: 'transparent',
+    }  
   },
   
-  btnBuyAgain: {
-    display: 'flex',
-    right: '1px',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginLeft: 'auto',
-    borderRadius: '10px',
-    minWidth: '140px',
-    backgroundColor: '#fef1e4',
-    color: '#FCB877',
-    '&:hover': {
-      textDecoloration: 'none',
-   }, 
-  },
+  
   link: {
     display: 'flex',
     fontSize: '14px',
@@ -120,6 +112,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '10px',
     marginRight: '220px',
     height: '17px',
+  },
+  txtReputation: {
+    color: 'gray',
+    fontSize: '12px',
+    marginTop: '10px',
+    marginRight: '220px',
+    
   },
 }));
 
@@ -236,8 +235,9 @@ export default function AlignItemsList() {
             <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
             
             <ListItemText  className={classes.profileReputation} primary="Reputation"/>
+            <ListItemText  className={classes.txtReputation} secondary=" 2 sales in the last 90 days"/>
             
-            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
+            <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
                     Send Message
              </Button>
                    
