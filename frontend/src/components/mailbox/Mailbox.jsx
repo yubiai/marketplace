@@ -100,20 +100,7 @@ export default function AlignItemsList() {
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link}  onClick={handleClick}>
-          Sales
-        </Link>
-        <Link
-            className={classes.link}
-            to="/mailbox"
-            onClick={handleClick}
-            aria-current="page"
-        >
-        Mailbox
-        </Link>
-      
-      </Breadcrumbs>
+          <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Mailbox</h3></Typography>
     
     
     <Grid container spacing={1}
