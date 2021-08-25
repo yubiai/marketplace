@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
 
   },
+  listItemText:{
+       
+    marginLeft: '20px',
+  },
   btnChat: {
     display: 'flex',
     alignItems: 'center',
@@ -115,6 +119,7 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          className={classes.listItemText}
           primary="Canon EOS Rebel T7 EF-S 18-55mm"
           secondary={
             <React.Fragment>
@@ -147,6 +152,7 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          className={classes.listItemText}
           primary="Canon EOS Rebel T7 EF-S 18-55mm"
           secondary={
             <React.Fragment>
@@ -177,6 +183,7 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          className={classes.listItemText}
           primary="Canon EOS Rebel T7 EF-S 18-55mm"
           secondary={
             <React.Fragment>
