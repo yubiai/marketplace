@@ -229,7 +229,7 @@ export default function AlignItemsList() {
       <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText primary="Seller Information"/>
-             
+            
           </ListItem>
           <ListItem >
             <ListItemAvatar>

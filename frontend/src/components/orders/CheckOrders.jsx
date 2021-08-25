@@ -38,13 +38,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     right: '1px',
+    fontSize: '13px',
+    fontWeight: '550',
     justifyContent: 'space-between',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',
+    minWidth: '150px',
     '&:hover': {
       borderBottom: 'none',
       color: '#008968', 
@@ -116,9 +118,8 @@ const useStyles = makeStyles((theme) => ({
   txtReputation: {
     color: 'gray',
     fontSize: '12px',
-    marginTop: '10px',
-    marginRight: '220px',
-    
+    justifyContent: 'space-between',
+    alignItems: 'left',
   },
 }));
 
@@ -229,16 +230,24 @@ export default function AlignItemsList() {
           </ListItem>
           <ListItem >
             <ListItemAvatar>
-                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
+                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-40px'}} src={profileImage.default} />
             </ListItemAvatar>
           
             <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
             
             <ListItemText  className={classes.profileReputation} primary="Reputation"/>
-            <ListItemText  className={classes.txtReputation} secondary=" 2 sales in the last 90 days"/>
             
+            <Typography
+                  component="span"
+                  variant="contained"
+                  className={classes.txtReputation}
+                  
+                >
+                2 sales in the last 90 days
+                </Typography>
+                
             <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
-                    Send Message
+                    Send message
              </Button>
                    
           </ListItem>
