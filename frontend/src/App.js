@@ -1,62 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import GlobalStyle from "./globalStyles";
+import React, { useState, useEffect } from "react";
+import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Store from './Store.js';
-import getBlockchain from './ethereum.js';
-import { Link } from 'react-router-dom';
-import { Navbar, Footer } from "./components"; 
-import Categories from "./pages/Categories/Categories";
-import Sell from "./pages/Sell/Sell";
-import ScrollToTop from "./components/ScrollToTop";
 
+import Layout from "./components/layout/Layout.jsx";
+import Store from "./components/store/Store";
+import Message from "./components/message/Message";
+import NavBar from "./components/navbar/NavBar";
+import Footer from "./components/footer/Footer";
+import ProfileView from "./components/profile/Profile";
 
+import Login from "./components/login/login";
+//import SideBar from './components/sidebar/Sidebar';
+import OrdersView from "./components/orders/Orders";
+// import Grid from '@material-ui/core/Grid';
+import SalesActive from "./components/sales/SalesActive";
+import SalesComplete from "./components/sales/SalesComplete";
+import CheckOrders from "./components/orders/CheckOrders";
+import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
   const [ubi, setUbi] = useState(undefined);
+  const [signerAddress, setSignerAddress] = useState(undefined);
 
   useEffect(() => {
     const init = async () => {
-      const { paymentProcessor, ubi } = await getBlockchain();
+      const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
       setPaymentProcessor(paymentProcessor);
       setUbi(ubi);
-    }
+      setSignerAddress(signerAddress);
+    };
     init();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if(typeof window.ethereum === 'undefined') {
-    return (
-      <div className='container'>
-        <div className='col-sm-1'>
-          <h1>Proof Of Humanity MarketPlace</h1>
-          <p>You need to install the latest version of Metamask to use this app. Metamask is an Ethereum wallet, available as a Google chrome extension.</p>
-          <ul>
-            <li>Go to the <a href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn'>Metamask page</a> on the chrome webstore and install it</li>  
-            <li>If you already have it installed, uninstall and re-install it</li>
-          </ul>
-        </div>
-      </div>
-    );
+  if (typeof window.ethereum === "undefined") {
+    return <Message />;
   }
 
   return (
-    <div className='container'>
-      <div className='col-sm-12'>
-        <Router>
-          <GlobalStyle />
-          <ScrollToTop />
-          <Navbar />
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <NavBar />
+        </header>
+        <body>
           <Switch>
-            <Route path="/"  />
-            <Route path="/categories" exact component={Categories} />
-            <Route path="/sell" exact component={Sell} />
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/orders">
+              <Layout>
+                <OrdersView />
+              </Layout>
+            </Route>
+            <Route path="/checkorders">
+              <Layout>
+                <CheckOrders />
+              </Layout>
+            </Route>
+            <Route path="/salesactive">
+              <Layout>
+                <SalesActive />
+              </Layout>
+            </Route>
+            <Route path="/salescomplete">
+              <Layout>
+                <SalesComplete />
+              </Layout>
+            </Route>
+            <Route path="/salescompletedetails">
+              <Layout>
+                <SalesCompleteDetails />
+              </Layout>
+            </Route>
+            <Route path="/profile">
+              <Layout>
+                <ProfileView />
+              </Layout>
+            </Route>
+
+            <Route path="/">
+              <Store
+                paymentProcessor={paymentProcessor}
+                ubi={ubi}
+                signerAddress={signerAddress}
+              />
+            </Route>
           </Switch>
-          {/* <Link to={'/profile'}>View profile</Link> esto fue cambiado en el navbar */} 
-          <Store paymentProcessor={paymentProcessor} ubi={ubi} />
-          <Footer />
-        </Router>
+        </body>
+
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 

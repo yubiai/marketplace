@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
@@ -13,7 +14,7 @@ contract PaymentProcessor {
         uint date
     );
 
-    constructor(address adminAddress, address ubiAddress) public{
+    constructor(address adminAddress, address ubiAddress) {
         admin = adminAddress;
         ubi = IERC20(ubiAddress);
     }
