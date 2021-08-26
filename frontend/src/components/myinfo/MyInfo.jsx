@@ -109,7 +109,7 @@ export default function AlignItemsList() {
               </Typography>
               <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
               <ListItemAvatar>
-          <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
+                <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
             
              </ListItemAvatar>
               {" UBI-s dripped"}

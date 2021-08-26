@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '13px',
     fontWeight: '550',
     justifyContent: 'space-between',
-    marginLeft: 'auto',
+    marginLeft: '-20px',
     marginBottom: '5px',
     borderRadius: '10px',
     backgroundColor: '#FCB877',
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
   txtReputation: {
     color: 'gray',
     fontSize: '12px',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'left',
   },
 }));
@@ -181,8 +181,8 @@ export default function AlignItemsList() {
       
     <Grid container spacing={0}
     direction="row"  
-  justifyContent="left"
-  alignItems="left" style={{marginTop: '10px', marginLeft: '7px'}}>  
+   justifyContent="left"
+  alignItems="center" style={{marginTop: '10px', marginLeft: '7px'}}>  
       <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '165px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
@@ -223,7 +223,7 @@ export default function AlignItemsList() {
           />
         </ListItem>
       </Grid>
-      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px'}}>
+      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText primary="Seller Information"/>
              
@@ -237,6 +237,7 @@ export default function AlignItemsList() {
             
             <ListItemText  className={classes.profileReputation} primary="Reputation"/>
             
+            
             <Typography
                   component="span"
                   variant="contained"
@@ -244,7 +245,7 @@ export default function AlignItemsList() {
                   
                 >
                 2 sales in the last 90 days
-                </Typography>
+            </Typography> 
                 
             <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
                     Send message
