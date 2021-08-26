@@ -183,7 +183,7 @@ export default function AlignItemsList() {
     direction="row"  
    justifyContent="left"
   alignItems="center" style={{marginTop: '10px', marginLeft: '7px'}}>  
-      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '165px'}} >
+      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
             primary="Transaction Details"
@@ -223,34 +223,56 @@ export default function AlignItemsList() {
           />
         </ListItem>
       </Grid>
-      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px', justifyContent:'space-around', width:'30vw'}}>
+      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText primary="Seller Information"/>
              
           </ListItem>
-          <ListItem >
-            <ListItemAvatar>
-                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-40px'}} src={profileImage.default} />
-            </ListItemAvatar>
-          
-            <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
-            
-            <ListItemText  className={classes.profileReputation} primary="Reputation"/>
-            
-            
-            <Typography
-                  component="span"
-                  variant="contained"
-                  className={classes.txtReputation}
-                  
-                >
+          <ListItem style={{justifyContent: 'space-around', height: '100px'}}>
+            <Grid xs={3} style={{height: '100%', flexBasis: 'auto'}}>
+              <ListItemAvatar style={{ margin: 0, width: '100%', height: '100%' }}>
+                <img alt="{imgjson}"
+                     className={classes.imageProfile}
+                     style={{
+                      marginTop: 0,
+                      width: 'auto',
+                      height: '100%',
+                      display: 'block'
+                    }}
+                     src={profileImage.default} />
+              </ListItemAvatar>
+            </Grid>
+            <Grid xs={9} style={{
+              height: '100%',
+              margin: '0 0.5rem',
+              justifyContent: 'center'
+            }}>
+              <ListItemText className={classes.profileName}
+                            style={{
+                              marginLeft: 0,
+                              marginTop: 0
+                            }}
+                            primary="Vitalik Buterin"/>
+              <ListItemText className={classes.profileReputation}
+                            style={{
+                              margin: '0 !important'
+                            }}
+                            primary="Reputation"/>
+              <Typography
+                    component="span"
+                    variant="contained"
+                    className={classes.txtReputation}>
                 2 sales in the last 90 days
-            </Typography> 
-                
-            <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
-                    Send message
-             </Button>
-                   
+              </Typography> 
+              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox"
+                      style={{
+                        minWidth: 0,
+                        width: '150px',
+                        margin: '0.5rem 0'
+                      }}>
+                Send message
+              </Button>
+            </Grid>                   
           </ListItem>
        </Grid>
     </Grid>  
