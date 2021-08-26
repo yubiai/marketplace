@@ -104,7 +104,16 @@ export default function AlignItemsList() {
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Mailbox</h3></Typography>
+      <Breadcrumbs separator="›" aria-label="breadcrumb">
+        <Link className={classes.link} to="/mailbox"  onClick={handleClick}>
+        Mailbox
+        </Link>
+        <span style={{color:'black', borderBottom: 'none'}}>
+          username
+        </span>
+         {/* backendconnect user aca   */}
+      </Breadcrumbs>
+          
     
     
     <Grid container spacing={1}

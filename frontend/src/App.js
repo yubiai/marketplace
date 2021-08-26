@@ -15,6 +15,7 @@ import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
+// import Chat from "./components/mailbox/Chat";
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -81,6 +82,11 @@ function App() {
               <Mailbox />
             </Layout>
             </Route>
+            {/* <Route path="chat">
+            <Layout>
+              <Chat />
+            </Layout>
+            </Route> */}
             <Route path="/profile">
               <Layout>
                 <ProfileView />
