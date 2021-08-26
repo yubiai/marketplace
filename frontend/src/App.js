@@ -93,11 +93,11 @@ function App() {
               <Chat />
             </Layout>
             </Route> */}
-            <Route path="/profile">
+            {/* <Route path="/profile">
               <Layout>
                 <ProfileView />
               </Layout>
-            </Route>
+            </Route> */}
 
             <Route path="/">
               <Store
