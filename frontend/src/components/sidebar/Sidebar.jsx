@@ -18,9 +18,10 @@ import { Link }  from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    height: '100%',
     maxWidth: 360,
     minWidth: 218,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#F5F5F5',
   },
   nested: {
     paddingLeft: theme.spacing(4),
@@ -92,11 +93,11 @@ export default function NestedList() {
       
         </List>
       </Collapse>
-      <ListItem button>
+      <ListItem button component={Link} to="/mailbox">
         <ListItemIcon>
           <DraftsOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Mailbox" />
+        <ListItemText className={classes.listItemText} primary="Mailbox" />
       </ListItem>
       <ListItem button>
         <ListItemIcon>

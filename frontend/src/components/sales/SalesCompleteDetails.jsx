@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { Link }  from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
+import CallMadeOutlinedIcon from '@material-ui/icons/CallMadeOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,29 +22,17 @@ const useStyles = makeStyles((theme) => ({
     
   },
   inline: {
-    
+    fontSize: '11px',
     display: 'flex',
   },
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
-  link: {
-    display: 'flex',
-    fontSize: '14px',
-    color: '#000000',
-    textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    '&:hover': {
-        borderBottom: 'none',
-        color: '#008968', 
-      }
-},
   listItem: {
     borderRadius: '10px',
-    
 
+    
+    
   },
   btnCheckOrder: {
     display: 'flex',
@@ -70,33 +61,72 @@ const useStyles = makeStyles((theme) => ({
       textDecoloration: 'none',
    }, 
   },
+  link: {
+    display: 'flex',
+    fontSize: '14px',
+    color: '#000000',
+    textDecorationColor: 'transparent',
+    marginLeft: '0.1rem',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    '&:hover': {
+        borderBottom: 'none',
+        color: '#008968', 
+      }
+},
   imageProfile: {
     display: 'flex',
-    alignItems: 'center',
-    left: '1px',
-    justifyContent: 'space-between',
-    marginLeft: 'auto',
-    marginBottom: '5px',
-    width: '120px',
-    borderRadius: '10px',
+    alignItems: 'left',
+    left: '10px',
+    justifyContent: 'left',
+    marginLeft: '1px',
+    marginBottom: '-10px',
+    width: '104px',
+    height: '104px',
+    
 
   },
   imageOrder: {
     display: 'flex',
     alignItems: 'center',
     right: '1px',
+    maxWidth: '70px',
     justifyContent: 'space-between',
     marginLeft: 'auto',
-    marginBottom: '5px',
-    width: '120px',
+    marginTop: '-65px',
+  },
+  listItemText:{
+    fontSize:'11px',//Insert your required size
+    color: 'black',
+    lineHeight: '17px',
+  },
+  listItemTextTotal:{
+    fontSize:'11px',//Insert your required size
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  listItemTextIcon:{
+    height:'15px',
+    color: '#FCB877',
+    
+  },
+  profileName: {
+    marginTop: '-60px',
+    fontWeight: 'bold',
+    marginLeft: '20px',
 
+  },
+  profileReputation: {
+    marginTop: '10px',
+    marginRight: '220px',
+    height: '17px',
   },
 }));
 
 export default function AlignItemsList() {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
-  const shoeImage = require("../../media/Shoes-PNG-File.png");
+  const shoeImage = require("../../media/canoneos.jpg");
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -105,31 +135,31 @@ export default function AlignItemsList() {
   return (
     
      
-    <List className={classes.root}>
+    <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-    
+      
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/orders" onClick={handleClick}>
+        <Link className={classes.link} to="/sales"  onClick={handleClick}>
           Sales
         </Link>
         <Link className={classes.link} to="/salescomplete" onClick={handleClick}>
           Complete
         </Link>
-        <Link
-            className={classes.link}
-            to="/salescompletedetails"
-            onClick={handleClick}
-            aria-current="page"
-        >
-        Details
+        <Link className={classes.link} >
+          Details
         </Link>
       </Breadcrumbs>
-    <Divider variant="fullWidth" component="li" />
     
+    <Grid container spacing={1}
+    variant="fullWidth"
+    direction="row"
+    justifyContent="space-between"
+    alignItems="left" style={{marginTop: '4px'}}>
+      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemText
         //en primary va nombre del order item}
-          primary="Shoe Ricky Sarkany 400mm"
+          primary="Canon EOS Rebel T7 EF-S 18-55mm"
           secondary={
             <React.Fragment>
               <Typography
@@ -142,68 +172,85 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               <ListItemAvatar>
-                  <img alt="{imgjson}" className={classes.imageOrder} src={shoeImage.default} />
+                  <img alt="{imgjson}" className={classes.imageOrder}  src={shoeImage.default} />
               </ListItemAvatar>
                 
             </React.Fragment>
           }
         />
       </ListItem>
-      <Divider variant="fullWidth" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary="Transaction Details"
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               
-              </Typography>
-              {" 1 item"}
-              <span> Amount</span>
-              <span> Transaction Fee</span>
-              <span> Gas price</span>
-              <span> Nonce</span> 
-              <span> Total</span>  
-
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="fullWidth" component="li" />
-      <ListItem alignItems="flex-start">
-              
-        <ListItemText
-          primary="Seller Information"
-          
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               Vitalik Buterin
-              </Typography>
-                           
-              <ListItemAvatar>
-                  <img alt="{imgjson}" className={classes.imageProfile} src={profileImage.default} />
-           
-               </ListItemAvatar>
-              <Button className={classes.btnCheckOrder} variant="contained" >
-                Send Message
-                </Button>
+      </Grid>
+    </Grid>  
+      
+    <Grid container spacing={0}
+    direction="row"  
+  justifyContent="left"
+  alignItems="left" style={{marginTop: '10px', marginLeft: '7px'}}>  
+      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '165px'}} >
+        <ListItem className={classes.listItem} alignItems="flex-start">
+          <ListItemText
+            primary="Transaction Details"
+            secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
                 
-            </React.Fragment>
-          }
-        />
-        
-      </ListItem>
+                </Typography>
+                {" Date"} <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Amount"   />
+                </ListItem>
+                <Divider style={{backgroundColor: 'black'}}/>
+                <ListItem  style={{height: '18px'}} >
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee" />
+                </ListItem>
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}} />
+                <ListItem   style={{height: '18px'}}>
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Gas price" />
+                </ListItem>
+                <Divider  style={{backgroundColor: 'black', height:'0.5px'}}/>
+                <ListItem   style={{height: '18px'}}>
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce" />
+                </ListItem>
+                <Divider style={{backgroundColor: 'black'}}/>
+                <ListItem   style={{height: '18px'}}>
+                  <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Total" />
+                </ListItem>
+                
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Grid>
+      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px'}}>
+          <ListItem className={classes.listItem} alignItems="flex-start">
+            <ListItemText primary="Seller Information"/>
+            
+          </ListItem>
+          <ListItem >
+            <ListItemAvatar>
+                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
+            </ListItemAvatar>
+          
+            <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
+            
+            <ListItemText  className={classes.profileReputation} primary="Reputation"/>
+            
+            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
+                    Send Message
+             </Button>
+                   
+          </ListItem>
+       </Grid>
+    </Grid>  
+      
+      
+      
+    
     </List>
   );
 }

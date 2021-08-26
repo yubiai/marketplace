@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Layout from "./components/layout/Layout.jsx";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import ProfileView from "./components/profile/Profile";
-
+import MessagesBox from './components/orders/MessagesBox';
+import Mailbox from './components/mailbox/Mailbox';
 import Login from "./components/login/login";
-//import SideBar from './components/sidebar/Sidebar';
 import OrdersView from "./components/orders/Orders";
-// import Grid from '@material-ui/core/Grid';
 import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
+
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
   const [ubi, setUbi] = useState(undefined);
@@ -57,6 +56,11 @@ function App() {
                 <CheckOrders />
               </Layout>
             </Route>
+            <Route path="/messagesbox">
+            <Layout>
+              <MessagesBox />
+            </Layout>
+            </Route>
             <Route path="/salesactive">
               <Layout>
                 <SalesActive />
@@ -71,6 +75,11 @@ function App() {
               <Layout>
                 <SalesCompleteDetails />
               </Layout>
+            </Route>
+            <Route path="/mailbox">
+            <Layout>
+              <Mailbox />
+            </Layout>
             </Route>
             <Route path="/profile">
               <Layout>
