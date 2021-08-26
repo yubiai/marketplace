@@ -99,7 +99,7 @@ export default function NestedList() {
         </ListItemIcon>
         <ListItemText className={classes.listItemText} primary="Mailbox" />
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/myinfo">
         <ListItemIcon>
           <PersonOutlineOutlinedIcon />
         </ListItemIcon>

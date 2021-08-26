@@ -110,7 +110,7 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               
-                <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" primary="CheckOrders" >
+                <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" secondary="CheckOrders" >
                 Check Order
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >

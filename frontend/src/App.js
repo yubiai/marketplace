@@ -15,6 +15,7 @@ import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
+import MyInfo from "./components/myinfo/MyInfo";
 // import Chat from "./components/mailbox/Chat";
 
 function App() {
@@ -80,6 +81,11 @@ function App() {
             <Route path="/mailbox">
             <Layout>
               <Mailbox />
+            </Layout>
+            </Route>
+            <Route path="/myinfo">
+            <Layout>
+              <MyInfo />
             </Layout>
             </Route>
             {/* <Route path="chat">
