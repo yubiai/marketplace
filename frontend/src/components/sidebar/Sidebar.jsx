@@ -103,7 +103,7 @@ export default function NestedList() {
         <ListItemIcon>
           <PersonOutlineOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="My info" />
+        <ListItemText className={classes.listItemText} primary="My info" />
       </ListItem>
     </List>
   );
