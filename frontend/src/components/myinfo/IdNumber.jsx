@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditName() {
+export default function IdNumber() {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const handleClickOpen = () => {
@@ -54,34 +54,25 @@ export default function EditName() {
     <div>
       <EditIcon variant="outlined" color="primary" onClick={handleClickOpen}>
         
-      </EditIcon>
+        </EditIcon>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogTitle id="form-dialog-title">Modify Id Number</DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="First Name"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Last Name"
-            type="text"
+            label="ID number"
+            type="numbers"
             fullWidth
           />
         </DialogContent>
         <DialogContentText>
-          Please note that in order to receive shipments you must use your real
-          name.
+          Please note that in order to receive shipments you must use a valid ID number.
         </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>

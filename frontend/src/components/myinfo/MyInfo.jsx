@@ -13,6 +13,11 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import CallMadeOutlinedIcon from '@material-ui/icons/CallMadeOutlined';
 import Divider from '@material-ui/core/Divider';
+import EditName from './EditName';
+import IdNumber from './IdNumber';
+import ShippAddress from './ShippAddress';
+import CellphoneNumber from './CellPhoneNumber';
+import TelegramHandl from './TelegramHandl';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,6 +80,14 @@ export default function AlignItemsList() {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
   const ubiImage = require("../../media/logoubi.png")
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     
@@ -146,23 +159,28 @@ export default function AlignItemsList() {
                 
                 <ListItem style={{height: '18px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
-                </ListItem> <EditIcon />
+                </ListItem> <EditIcon component={EditName} open={open}
+                    onClose={handleClose} />
                 <Divider style={{backgroundColor: 'black'}}/>
                 <ListItem  style={{height: '18px'}} >
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="ID Number" />
-                </ListItem><EditIcon />
+                </ListItem><EditIcon component={IdNumber} open={open}
+                    onClose={handleClose} />
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}} />
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Shipping address" />
-                </ListItem><EditIcon />
+                </ListItem><EditIcon component={ShippAddress} open={open}
+                    onClose={handleClose}/>
                 <Divider  style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Cellphone number" />
-                </ListItem><EditIcon />
+                </ListItem><EditIcon component={CellphoneNumber} open={open}
+                    onClose={handleClose}/>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Telegram handle" />
-                </ListItem><EditIcon />
+                </ListItem><EditIcon component={TelegramHandl} open={open}
+                    onClose={handleClose} />
                 
               </React.Fragment>
             }

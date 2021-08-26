@@ -6,7 +6,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { DialogContentText } from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditName() {
+export default function TelHandle() {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const handleClickOpen = () => {
@@ -54,35 +53,23 @@ export default function EditName() {
     <div>
       <EditIcon variant="outlined" color="primary" onClick={handleClickOpen}>
         
-      </EditIcon>
+        </EditIcon>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogTitle id="form-dialog-title">Modify Telegram handle</DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="First Name"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Last Name"
+            label="Telegram handle"
             type="text"
             fullWidth
           />
         </DialogContent>
-        <DialogContentText>
-          Please note that in order to receive shipments you must use your real
-          name.
-        </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
             Save

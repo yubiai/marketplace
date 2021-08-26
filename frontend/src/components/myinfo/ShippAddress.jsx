@@ -6,9 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { DialogContentText } from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
-
 const useStyles = makeStyles((theme) => ({
   inline: {
     display: "flex"
@@ -19,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     left: "-75px",
     justifyContent: "space-around",
     marginLeft: "auto",
-    marginTop: "-10px",
+    marginTop: "10px",
     marginBottom: "-5px",
     borderRadius: "10px",
     backgroundColor: "#FCB877",
@@ -39,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditName() {
+export default function ShipAddress() {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const handleClickOpen = () => {
@@ -54,19 +52,21 @@ export default function EditName() {
     <div>
       <EditIcon variant="outlined" color="primary" onClick={handleClickOpen}>
         
-      </EditIcon>
+        </EditIcon>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          Modify Shipping Address
+        </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="First Name"
+            label="Street"
             type="text"
             fullWidth
           />
@@ -74,15 +74,43 @@ export default function EditName() {
             autoFocus
             margin="dense"
             id="name"
-            label="Last Name"
+            label="Number"
+            type="numbers"
+            width="204px"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Apartment"
             type="text"
-            fullWidth
+            width="204px"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="City"
+            type="text"
+            width="204px"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Province/State"
+            type="province"
+            width="204px"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Country"
+            type="country"
+            width="204px"
           />
         </DialogContent>
-        <DialogContentText>
-          Please note that in order to receive shipments you must use your real
-          name.
-        </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
             Save
