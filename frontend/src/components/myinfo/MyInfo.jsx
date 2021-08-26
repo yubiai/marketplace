@@ -59,6 +59,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '-10px',
 
   },
+  imageUbi: {
+    width: '17px',
+    height: '17px',
+    
+
+  },
   listItemTextIcon:{
     height:'15px',
     color: '#FCB877',
@@ -68,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AlignItemsList() {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
+  const ubiImage = require("../../media/logoubi.png")
 
   return (
     
@@ -82,7 +89,7 @@ export default function AlignItemsList() {
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'8px', height:'117px' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={profileImage.default} />
@@ -100,6 +107,11 @@ export default function AlignItemsList() {
               >
                'address poh'
               </Typography>
+              <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+              <ListItemAvatar>
+          <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
+            
+             </ListItemAvatar>
               {" UBI-s dripped"}
               
                 <Button className={classes.btnMyProfile} variant="contained" component={Link} target="_blank" href="/https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
@@ -115,8 +127,8 @@ export default function AlignItemsList() {
       <Grid container spacing={0}
     direction="row"  
   justifyContent="left"
-  alignItems="left" style={{marginTop: '10px', marginLeft: '7px'}}>  
-      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px'}} >
+  alignItems="left" style={{marginTop: '10px', marginLeft: '2px'}}>  
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
             primary="Personal and shipping information"
@@ -131,7 +143,7 @@ export default function AlignItemsList() {
                 
                 </Typography>
                 <InfoOutlinedIcon />
-                <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+                
                 <ListItem style={{height: '18px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
                 </ListItem> <EditIcon />
