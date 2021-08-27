@@ -319,7 +319,7 @@ export default function NavBar() {
             <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
             <MenuItem className={classes.listItemText} component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
             <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
+            <MenuItem className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
         </Menu>
     );
     const categories = 'categories-menu';
