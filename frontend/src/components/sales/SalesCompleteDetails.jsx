@@ -34,33 +34,27 @@ const useStyles = makeStyles((theme) => ({
     
     
   },
-  btnCheckOrder: {
+  btnSendMsg: {
     display: 'flex',
     alignItems: 'center',
     right: '1px',
+    fontSize: '13px',
+    fontWeight: '550',
     justifyContent: 'space-between',
-    marginLeft: 'auto',
+    marginLeft: '-20px',
     marginBottom: '5px',
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',  
+    minWidth: '150px',
+    '&:hover': {
+      borderBottom: 'none',
+      color: '#008968', 
+      textDecoloration: 'transparent',
+    }  
   },
   
-  btnBuyAgain: {
-    display: 'flex',
-    right: '1px',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginLeft: 'auto',
-    borderRadius: '10px',
-    minWidth: '140px',
-    backgroundColor: '#fef1e4',
-    color: '#FCB877',
-    '&:hover': {
-      textDecoloration: 'none',
-   }, 
-  },
+  
   link: {
     display: 'flex',
     fontSize: '14px',
@@ -226,24 +220,51 @@ export default function AlignItemsList() {
           />
         </ListItem>
       </Grid>
-      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px'}}>
+      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText primary="Seller Information"/>
-            
+             
           </ListItem>
-          <ListItem >
-            <ListItemAvatar>
-                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
-            </ListItemAvatar>
-          
-            <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
-            
-            <ListItemText  className={classes.profileReputation} primary="Reputation"/>
-            
-            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox" >
-                    Send Message
-             </Button>
-                   
+          <ListItem style={{justifyContent: 'space-around', height: '100px'}}>
+            <Grid xs={3} style={{height: '100%', flexBasis: 'auto'}}>
+              <ListItemAvatar style={{ margin: 0, width: '100%', height: '100%' }}>
+                <img alt="{imgjson}"
+                     className={classes.imageProfile}
+                     style={{
+                      marginTop: 0,
+                      width: 'auto',
+                      height: '100%',
+                      display: 'block'
+                    }}
+                     src={profileImage.default} />
+              </ListItemAvatar>
+            </Grid>
+            <Grid xs={9} style={{
+              height: '100%',
+              margin: '0 0.5rem',
+              justifyContent: 'center'
+            }}>
+              <ListItemText className={classes.profileName}
+                            style={{
+                              marginLeft: 0,
+                              marginTop: 0
+                            }}
+                            primary="Vitalik Buterin"/>
+              <ListItemText className={classes.profileReputation}
+                            style={{
+                              margin: '0 !important'
+                            }}
+                            primary="Reputation"/>
+              
+              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox"
+                      style={{
+                        minWidth: 0,
+                        width: '150px',
+                        margin: '0.5rem 0'
+                      }}>
+                Send message
+              </Button>
+            </Grid>                   
           </ListItem>
        </Grid>
     </Grid>  
