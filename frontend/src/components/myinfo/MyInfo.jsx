@@ -6,8 +6,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
-import { Link }  from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
@@ -18,6 +16,8 @@ import IdNumber from './IdNumber';
 import ShippAddress from './ShippAddress';
 import CellphoneNumber from './CellPhoneNumber';
 import TelegramHandl from './TelegramHandl';
+import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,19 +41,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     right: '1px',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginLeft: 'auto',
-    marginBottom: '5px',
     borderRadius: '10px',
+    height: '30px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '180px',
-    maxWidth: '180px',
-    top: '-4rem', 
+    minWidth: '150px',
+    maxWidth: '150px',
+    top: '-2rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
-      backgroundColor: 'transparent', 
+      backgroundColor: 'transparent',
+      textDecoration: 'none', 
     }  
   },
   
@@ -67,8 +68,14 @@ const useStyles = makeStyles((theme) => ({
   imageUbi: {
     width: '17px',
     height: '17px',
-    
-
+ },
+  infoClass: {
+    '&:hover': {
+        borderBottom: 'none',
+        color: '#008968',
+        backgroundColor: 'transparent',
+        textDecoration: 'none',
+    }
   },
   listItemTextIcon:{
     height:'15px',
@@ -120,16 +127,17 @@ export default function AlignItemsList() {
               >
                'address poh'
               </Typography>
-              <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+              <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
               <ListItemAvatar>
                 <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
             
              </ListItemAvatar>
               {" UBI-s dripped"}
               
-                <Button className={classes.btnMyProfile} variant="contained" component={Link} target="_blank" href="/https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
+                <a className={classes.btnMyProfile} style={{marginTop:'-75px'}}
+                 variant="contained"  target="_blank" href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
                 My PoH Profile
-                </Button>
+                </a>
                
             </React.Fragment>
           }
@@ -155,8 +163,11 @@ export default function AlignItemsList() {
                 >
                 
                 </Typography>
-                <InfoOutlinedIcon />
-                
+                <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
+                    <IconButton aria-label="info">
+                    <InfoOutlinedIcon />
+                    </IconButton>
+                </Tooltip>
                 <ListItem style={{height: '18px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
                 </ListItem> <EditIcon component={EditName} open={open}
