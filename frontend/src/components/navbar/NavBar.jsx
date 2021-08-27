@@ -78,7 +78,8 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#008968',
+            textDecorationColor: 'transparent', 
           }
     },
     listItemTextc: {
@@ -104,7 +105,8 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#008968',
+            textDecorationColor: 'transparent', 
           }
     },
     notificon: {
@@ -151,6 +153,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#000000',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
+        
     },
     linkmenuicon: {
         display: 'flex',
