@@ -264,7 +264,7 @@ export default function AlignItemsList() {
                     className={classes.txtReputation}>
                 2 sales in the last 90 days
               </Typography> 
-              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox"
+              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/checkorders/messagesbox" primary="MessagesBox"
                       style={{
                         minWidth: 0,
                         width: '150px',

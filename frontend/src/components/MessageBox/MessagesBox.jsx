@@ -1,6 +1,5 @@
 import React from "react";
 import {  makeStyles } from "@material-ui/core/styles";
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -8,7 +7,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import { Paper } from "@material-ui/core";
 import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
-import { Link }  from 'react-router-dom';
+import BreadcrumbA from './BreadcrumbA';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   })
 );
 
-export default function MessagesBox() {
+export default function MessagesBox(props) {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
   const [open, setOpen] = React.useState(true);
@@ -96,19 +95,7 @@ export default function MessagesBox() {
 
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-          
-      
-      <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/orders"  onClick={handleClick}>
-          Orders
-        </Link>
-        <Link className={classes.link} to="/checkorders" onClick={handleClick}>
-          Purchase status
-        </Link>
-        <Link className={classes.link}  >
-          Messages of the order
-        </Link>
-      </Breadcrumbs>
+      <BreadcrumbA handleClick={handleClick} classes={classes} location={props.location} />
       <ListItem >
             <ListItemAvatar>
                       <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />

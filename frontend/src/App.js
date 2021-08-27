@@ -53,6 +53,12 @@ function App() {
                 <OrdersView />
               </Layout>
             </Route>
+            <Route path="/checkorders/messagesbox"
+                   render={(props) => (
+                    <Layout>
+                      <MessagesBox {...props}/>
+                    </Layout>
+                   )}/>
             <Route path="/checkorders">
               <Layout>
                 <CheckOrders />
@@ -73,6 +79,13 @@ function App() {
                 <SalesComplete />
               </Layout>
             </Route>
+            <Route path="/salescompletedetails/messagesbox"
+                   render={(props) => (
+                    <Layout>
+                      <MessagesBox {...props}/>
+                    </Layout>
+                   )}
+                   />
             <Route path="/salescompletedetails">
               <Layout>
                 <SalesCompleteDetails />

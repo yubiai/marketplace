@@ -240,7 +240,7 @@ export default function AlignItemsList() {
             
             <ListItemText  className={classes.profileReputation} primary="Reputation"/>
             
-            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
+            <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox" >
                     Send Message
              </Button>
                    
