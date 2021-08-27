@@ -11,6 +11,7 @@ import { Link }  from 'react-router-dom';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
+import LongMenu from './LongMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,12 +85,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#D9461E',
     height: '12px',
   },
-  moreIconDots:{
-    color: 'black',
-    marginLeft: '1000px',
-    marginTop: '-80px',
 
-  },
 }));
 
 export default function AlignItemsList() {
@@ -98,6 +94,13 @@ export default function AlignItemsList() {
   const mailboxImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
+  };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
   return (
     
@@ -143,11 +146,15 @@ export default function AlignItemsList() {
               
               {" Available"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
+                <div style={{display: 'flex', margin: '5px 1px 10px 10px',
+              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </div>    
             </React.Fragment>
           }
         />
@@ -175,10 +182,15 @@ export default function AlignItemsList() {
               </Typography>
               {" Paused"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
+              <div style={{display: 'flex', margin: '5px 1px 10px 10px',
+              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
+                
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </div>    
             </React.Fragment>
           }
         />
@@ -206,10 +218,15 @@ export default function AlignItemsList() {
               </Typography>
               {" Sold"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
+              <div style={{display: 'flex', margin: '5px 1px 10px 10px',
+              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
                 <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
+                
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </div>    
             </React.Fragment>
           }
         />
