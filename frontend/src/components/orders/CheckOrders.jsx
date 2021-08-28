@@ -5,7 +5,6 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -65,7 +64,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent', 
       }
 },
   imageProfile: {
@@ -143,7 +143,7 @@ export default function AlignItemsList() {
           Orders
         </Link>
         <Link className={classes.link} to="/checkorders" onClick={handleClick}>
-          Purchase status
+          Order details
         </Link>
       </Breadcrumbs>
     

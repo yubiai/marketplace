@@ -65,7 +65,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent', 
       }
 },
   imageProfile: {

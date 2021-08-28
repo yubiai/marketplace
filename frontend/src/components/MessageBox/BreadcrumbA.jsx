@@ -28,7 +28,7 @@ export default function BreadcrumbA (props) {
                     Orders
                 </Link>
                 <Link className={props.classes.link} to="/checkorders" onClick={props.handleClick}>
-                    Purchase status
+                    Order details
                 </Link>
                 <Link className={props.classes.link} to="/checkorders/messagesbox">
                     Messages of the order

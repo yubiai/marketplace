@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import { Link }  from 'react-router-dom';
-
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +28,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
 
   },
+  link: {
+    display: 'flex',
+    fontSize: '14px',
+    color: '#000000',
+    textDecorationColor: 'transparent',
+    marginLeft: '0.1rem',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    '&:hover': {
+        borderBottom: 'none',
+        color: '#008968',
+        textDecorationColor: 'transparent', 
+      }
+},
   btnCheckOrder: {
     display: 'flex',
     alignItems: 'center',
@@ -38,8 +52,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     backgroundColor: '#FCB877',
     color: '#fff',
-    minWidth: '140px',
-    maxWidth: '140px',
+    minWidth: '160px',
+    maxWidth: '160px',
     top: '-4rem', 
     '&:hover': {
       borderBottom: 'none',
@@ -76,14 +90,22 @@ const useStyles = makeStyles((theme) => ({
 export default function AlignItemsList() {
   const classes = useStyles();
   const orderImage = require("../../media/Shoes-PNG-File.png");
-
+  const [open, setOpen] = React.useState(true);
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
     
-    <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Orders</h3></Typography>
+      <Breadcrumbs separator="›" aria-label="breadcrumb">
+        <Link className={classes.link} to="/orders"  onClick={handleClick}>
+          Orders
+        </Link>
+        
+      </Breadcrumbs>
     
     <Grid container spacing={1}
           variant="fullWidth"
@@ -111,7 +133,7 @@ export default function AlignItemsList() {
               {" 1 item"}
               
                 <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" secondary="CheckOrders" >
-                Check Order
+                Order details
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
                 Buy it again
@@ -141,7 +163,7 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               <Button className={classes.btnCheckOrder} variant="contained" >
-                Check Order
+              Order details
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
                 Buy it again
@@ -171,7 +193,7 @@ export default function AlignItemsList() {
               </Typography>
               {" 1 item"}
               <Button className={classes.btnCheckOrder} variant="contained" >
-                Check Order
+                Order details
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
                 Buy it again
