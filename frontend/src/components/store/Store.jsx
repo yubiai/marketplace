@@ -62,7 +62,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     <Container maxWidth="lg">
       <div className="row">
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
-        <h4>Last items posted on the marketplace </h4>
+        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Last items posted on the marketplace. </span>
         <Grid container spacing={2}>
           {/* Esta es para el spacing */}
           {/* <Grid item xs={12} sm={1}>
@@ -81,7 +81,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
-        <h4>Items on your watch list </h4>
+        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Items on your watch list </span>
         <Grid container spacing={2}>
           
             <ItemCard title={"Producto 1"} price={"5000"} />
@@ -93,6 +93,17 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           
         </Grid>
 
+        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Last items you've watched on Health and household. </span>
+        <Grid container spacing={2}>
+          
+            <ItemCard title={"Producto 1"} price={"5000"} />
+            <ItemCard title={"Producto 2"} price={"2300"} />
+            <ItemCard title={"Producto 3"} price={"235"} />
+            <ItemCard title={"Producto 4"} price={"1400"} />
+            <ItemCard title={"Producto 5"} price={"65789"} />
+            <ItemCard title={"Producto 6"} price={"5"} />
+          
+        </Grid>  
         {/* <ul className="list-group">{newList}</ul> */}
       </div>
     </Container>
