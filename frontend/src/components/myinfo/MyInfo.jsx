@@ -102,8 +102,8 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
     
-    <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>My Info</h3></Typography>
-    
+    <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray"  }}>My Info</h4></Typography>
+    <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px" }}>Proof of humanity information</h4></Typography>
     <Grid container spacing={1}
           variant="fullWidth"
           direction="column"
@@ -119,6 +119,7 @@ export default function AlignItemsList() {
           primary="Vitalik Buterin"
           secondary={
             <React.Fragment>
+              <div style={{display:"inline-flex"}}>
               <Typography
                 component="span"
                 variant="body2"
@@ -128,11 +129,14 @@ export default function AlignItemsList() {
                'address poh'
               </Typography>
               <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+              </div>
+              
               <ListItemAvatar>
+              {" UBI-s dripped"}
                 <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
             
              </ListItemAvatar>
-              {" UBI-s dripped"}
+              
               
                 <a className={classes.btnMyProfile} style={{marginTop:'-75px'}}
                  variant="contained"  target="_blank" href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
@@ -144,7 +148,14 @@ export default function AlignItemsList() {
         />
       </ListItem>
       </Grid>
-      
+      <div style={{display:"inline-flex"}}>
+      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px" }}>Personal and shipping information</h4></Typography>
+      <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
+                    <IconButton aria-label="info">
+                    <InfoOutlinedIcon />
+                    </IconButton>
+                </Tooltip>
+      </div>          
       <Grid container spacing={0}
     direction="row"  
   justifyContent="left"
@@ -152,7 +163,6 @@ export default function AlignItemsList() {
       <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
-            primary="Personal and shipping information"
             secondary={
               <React.Fragment>
                 <Typography
@@ -163,11 +173,7 @@ export default function AlignItemsList() {
                 >
                 
                 </Typography>
-                <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
-                    <IconButton aria-label="info">
-                    <InfoOutlinedIcon />
-                    </IconButton>
-                </Tooltip>
+                
                 <ListItem style={{height: '18px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
                 </ListItem> <EditIcon component={EditName} open={open}
