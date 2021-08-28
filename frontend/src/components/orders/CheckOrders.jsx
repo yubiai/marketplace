@@ -155,8 +155,8 @@ export default function AlignItemsList() {
       <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemText
-        //en primary va nombre del order item}
-          primary="Shoe Ricky Sarkany 400mm"
+        
+          primary="Shoe Ricky Sarkany 400mm"//aca va nombre del order item}
           secondary={
             <React.Fragment>
               <Typography

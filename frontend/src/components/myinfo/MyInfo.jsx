@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme) => ({
     height:'15px',
     color: '#FCB877',
   },
+  listItemText:{
+    marginLeft: '20px',
+  },  
 }));
 
 export default function AlignItemsList() {
@@ -116,6 +119,7 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          className={classes.listItemText}
           primary="Vitalik Buterin"
           secondary={
             <React.Fragment>
@@ -127,6 +131,7 @@ export default function AlignItemsList() {
                 color="textPrimary"
               >
                'address poh'
+               {/* agregar call de poh al address */}
               </Typography>
               <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
               </div>
@@ -134,7 +139,7 @@ export default function AlignItemsList() {
               <ListItemAvatar>
               {" UBI-s dripped"}
                 <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
-            
+              {/* apuntar backend side ubi dripped */}
              </ListItemAvatar>
               
               
