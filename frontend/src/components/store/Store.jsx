@@ -83,14 +83,14 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
         <h4>Items on your watch list </h4>
         <Grid container spacing={2}>
-          <Carrousel>
+          
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />
             <ItemCard title={"Producto 4"} price={"1400"} />
             <ItemCard title={"Producto 5"} price={"65789"} />
             <ItemCard title={"Producto 6"} price={"5"} />
-          </Carrousel>
+          
         </Grid>
 
         {/* <ul className="list-group">{newList}</ul> */}

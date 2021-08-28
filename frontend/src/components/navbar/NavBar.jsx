@@ -320,7 +320,7 @@ export default function NavBar() {
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
             <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
             <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
             <MenuItem className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
         </Menu>
