@@ -1,6 +1,7 @@
 import React from "react";
 import { ethers } from "ethers";
 import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
@@ -23,7 +24,21 @@ const ITEMS = [
   },
 ];
 
+const useStyles = makeStyles({
+  gridTitle: {
+    padding: "30px 0 30px 0",
+    color: "#727272",
+    fontFamily: "Open Sans, Light",
+    fontWeight: "light",
+    fontSize: "19px",
+    marginTop: "5px",
+    marginBottom: "15px",
+  },
+});
+
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
+  const classes = useStyles();
+
   const buy = async (item) => {
     const response1 = await axios.get(
       `${API_URL}/api/items/getPaymentId/${item.id}`
@@ -62,7 +77,9 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     <Container maxWidth="lg">
       <div className="row">
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
-        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Last items posted on the marketplace. </span>
+        <span className={classes.gridTitle}>
+          Last items posted on the marketplace.{" "}
+        </span>
         <Grid container spacing={2}>
           {/* Esta es para el spacing */}
           {/* <Grid item xs={12} sm={1}>
@@ -81,29 +98,31 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
-        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Items on your watch list </span>
+        <span className={classes.gridTitle}>Items on your watch list </span>
         <Grid container spacing={2}>
-          
+          <Carrousel>
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />
             <ItemCard title={"Producto 4"} price={"1400"} />
             <ItemCard title={"Producto 5"} price={"65789"} />
             <ItemCard title={"Producto 6"} price={"5"} />
-          
+          </Carrousel>
         </Grid>
 
-        <span style={{color:'#727272', fontFamily:'Open Sans, Light', fontWeight:'light',fontSize:'19px', marginTop:'5px', marginBottom:'15px'}}>Last items you've watched on Health and household. </span>
+        <span className={classes.gridTitle}>
+          Last items you've watched on Health and household.{" "}
+        </span>
         <Grid container spacing={2}>
-          
+          <Carrousel>
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />
             <ItemCard title={"Producto 4"} price={"1400"} />
             <ItemCard title={"Producto 5"} price={"65789"} />
             <ItemCard title={"Producto 6"} price={"5"} />
-          
-        </Grid>  
+          </Carrousel>
+        </Grid>
         {/* <ul className="list-group">{newList}</ul> */}
       </div>
     </Container>

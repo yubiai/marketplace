@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   carouselslot: {
     flex: "1 0 100%",
-    flexBasis: "100%",
-    marginRight: "0px",
+    flexBasis: "0%",
+    marginRight: "15px",
     order: (props) => props.order,
   },
 });

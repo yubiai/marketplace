@@ -1,8 +1,8 @@
 import React, { useState, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Wrapper from "./Wrapper";
 import CarrouselContainer from "./CarrouselContainer";
 import CarrouselSlot from "./CarrouselSlot";
@@ -15,22 +15,43 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
   },
 
-  slidebutton: {
-
+  slidebuttonLeft: {
     color: "#FFB978",
     textDecoration: "none",
     display: "inline-block",
     cursor: "pointer",
     marginTop: "5px",
-    boxShadow: '0px 3px 6px #00000029',
-    opacity: '1',
-    width: '45px',
-    height: '45px',
+    boxShadow: "0px 3px 6px #00000029",
+    opacity: "1",
+    width: "45px",
+    height: "45px",
     textDecoration: "none",
-    background: '#FFFFFF 0% 0% no-repeat padding-box',
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
     borderRadius: "40px",
-    
-    //float: props.float,
+    float: "left",
+
+    "&:active": {
+      position: "relative",
+      top: "1px",
+    },
+    "&:focus": {
+      outline: "0",
+    },
+  },
+  slidebuttonRight: {
+    color: "#FFB978",
+    textDecoration: "none",
+    display: "inline-block",
+    cursor: "pointer",
+    marginTop: "5px",
+    boxShadow: "0px 3px 6px #00000029",
+    opacity: "1",
+    width: "45px",
+    height: "45px",
+    textDecoration: "none",
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
+    borderRadius: "40px",
+    float: "right",
 
     "&:active": {
       position: "relative",
@@ -108,23 +129,15 @@ const Carrousel = (props) => {
             </CarrouselSlot>
           ))}
         </CarrouselContainer>
-            
+
         <ArrowBackIosIcon
-          
-          className={classes.slidebutton}
+          className={classes.slidebuttonLeft}
           onClick={() => slide(PREV)}
-          float="left"
-        >
-          
-        </ArrowBackIosIcon>
+        ></ArrowBackIosIcon>
         <ArrowForwardIosIcon
-        
-          className={classes.slidebutton}
+          className={classes.slidebuttonRight}
           onClick={() => slide(NEXT)}
-          float="right"
         ></ArrowForwardIosIcon>
-          
-        
       </Wrapper>
     </div>
   );
