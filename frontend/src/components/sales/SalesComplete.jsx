@@ -104,7 +104,7 @@ export default function AlignItemsList() {
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
+          <Breadcrumbs style={{marginTop:'-10px'}}separator="›" aria-label="breadcrumb">
         <Link className={classes.link}  onClick={handleClick}>
           Sales
         </Link>
