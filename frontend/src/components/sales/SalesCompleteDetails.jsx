@@ -336,19 +336,13 @@ export default function AlignItemsList() {
                             }}
                             primary="Reputation" /> <StarBorderOutlinedIcon className={classes.starsReput}/><StarBorderOutlinedIcon className={classes.starsReput2}/><StarBorderOutlinedIcon className={classes.starsReput3}/><StarBorderOutlinedIcon className={classes.starsReput4}/><StarBorderOutlinedIcon className={classes.starsReput5}/>
             </ListItem>                
-              <ListItemText
-                    disableTypography
-                    component="span"
-                    display="inline-block"
-                    className={classes.txtReputation} style={{fontWeight: 'light',
-                    fontSize: '12px'}}>
-                2 sales in the last 90 days
-              </ListItemText> 
+              
               <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox"
                       style={{
                         minWidth: 0,
                         width: '150px',
                         margin: '0.5rem 0',
+                        marginTop: '-20px',
                         }}>
                 Send message
               </Button>
