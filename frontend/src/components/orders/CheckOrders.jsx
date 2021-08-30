@@ -97,11 +97,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize:'11px',//Insert your required size
     color: 'black',
     lineHeight: '17px',
+    marginLeft: '-13px',
   },
   listItemTextTotal:{
     fontSize:'11px',//Insert your required size
     color: 'black',
     fontWeight: 'bold',
+    marginLeft: '-13px',
+
   },
   listItemTextIcon:{
     height:'15px',
@@ -252,9 +255,15 @@ export default function AlignItemsList() {
       <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
-            disableTypography
-            style={{fontSize: '14px', fontWeight:'bold'}}
-            primary="Transaction Details"
+            primary={
+              <React.Fragment >
+                <ListItemText disableTypography style={{fontSize: '14px', fontWeight:'bold', display: 'inline-flex'}} primary="Transaction Details"/>
+                <Breadcrumbs separator="›" aria-label="breadcrumb" style={{display: 'inline-flex'}}>
+                <span style={{marginLeft: '160px', fontSize: '13px', fontWeight: 'light'}}>from</span>
+                <span style={{fontSize: '13px'}}> to (address)</span>
+                </Breadcrumbs>
+              </React.Fragment>}
+            
             secondary={
               <React.Fragment>
                 <div style={{fontSize:"11px", fontWeight:"100"}}>
@@ -310,13 +319,13 @@ export default function AlignItemsList() {
               margin: '0 0.5rem',
               justifyContent: 'center'
             }}>
-              <ListItemText className={classes.profileName}
-                            disableTypography
-                            style={{
-                              marginLeft: 0,
-                              marginTop: 0
-                            }}
-                            primary="Vitalik Buterin"/>
+              <ListItemText 
+            primary={
+              <React.Fragment >
+                <Breadcrumbs separator="›" aria-label="breadcrumb" style={{display: 'inline-flex'}}>
+                <ListItemText disableTypography style={{fontSize: '14px', fontWeight:'bold', display: 'inline-flex', color:'black'}} primary="Vitalik Buterin"/> <span style={{marginLeft: '1px',  fontSize: '13px', fontWeight: 'light' , display: 'inline-flex'}}>address</span>
+                </Breadcrumbs>
+              </React.Fragment>}/>
             <ListItem style={{display: 'inline-block',  marginLeft: '-15px'}}>                
               <ListItemText
                     disableTypography 
