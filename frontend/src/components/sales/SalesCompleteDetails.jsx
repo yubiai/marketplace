@@ -105,8 +105,13 @@ imageProfile: {
 
   },
   listItemTextIcon:{
-    height:'15px',
-    color: '#FCB877',
+    height:'14px',
+    width: '11px',
+    color: 'white',
+    backgroundColor: '#FCB877',
+    borderRadius: '2px',
+    marginRight: '9px',
+    boxShadow: '0px 3px 6px #00000029',
     
   },
   profileName: {
@@ -271,22 +276,27 @@ export default function AlignItemsList() {
                 </div>
                 <ListItem style={{height: '18px', marginTop: '15px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Amount"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'330px'}} secondary="0.039 ETH"/>
                 </ListItem>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
-                <ListItem  style={{height: '18px'}} >
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee" />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'290px'}} secondary="0.016 ETH"/>
                 </ListItem>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}} />
-                <ListItem   style={{height: '18px'}}>
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Gas price" />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Gas price"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'340px'}} secondary="26 GWEI"/>
                 </ListItem>
                 <Divider  style={{backgroundColor: 'black', height:'0.5px'}}/>
-                <ListItem   style={{height: '18px'}}>
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce" />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'350px'}} secondary="16"/>
                 </ListItem>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Total" />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'320px'}} secondary="0.040649 ETH"/>
                 </ListItem>
                 
               </React.Fragment>
@@ -337,7 +347,7 @@ export default function AlignItemsList() {
                             primary="Reputation" /> <StarBorderOutlinedIcon className={classes.starsReput}/><StarBorderOutlinedIcon className={classes.starsReput2}/><StarBorderOutlinedIcon className={classes.starsReput3}/><StarBorderOutlinedIcon className={classes.starsReput4}/><StarBorderOutlinedIcon className={classes.starsReput5}/>
             </ListItem>                
               
-              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox"
+              <Button   className={classes.btnSendMsg} variant="contained" component={Link} to="/salescompletedetails/messagesbox" primary="MessagesBox"
                       style={{
                         minWidth: 0,
                         width: '150px',
