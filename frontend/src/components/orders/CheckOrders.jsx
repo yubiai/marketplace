@@ -12,6 +12,7 @@ import { Link }  from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import CallMadeOutlinedIcon from '@material-ui/icons/CallMadeOutlined';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     borderRadius: '10px',
-
+    fontSize: '14px',
+    fontWeight:'bold',
     
     
   },
@@ -38,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     right: '1px',
     fontSize: '13px',
-    fontWeight: '550',
+    fontWeight: '400',
     justifyContent: 'space-between',
+    marginTop: '10px',
     marginLeft: '-20px',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -59,8 +62,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginLeft: '0.4rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
@@ -105,22 +109,82 @@ const useStyles = makeStyles((theme) => ({
     
   },
   profileName: {
+    fontSize: '16px',
+    height: '22px',
     marginTop: '-60px',
-    fontWeight: 'bold',
+    fontWeight: '700',
     marginLeft: '20px',
 
   },
   profileReputation: {
-    marginTop: '10px',
-    marginRight: '220px',
-    height: '17px',
+    fontSize: '14px',
+    height: '19px',
+    
   },
   txtReputation: {
-    color: 'gray',
+    color: 'black',
+    fontWeight: 'light',
     fontSize: '12px',
-    justifyContent: 'space-around',
+    justifyContent: 'left',
     alignItems: 'left',
+    marginTop: '-25px',
+    
   },
+  starsReput: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '85px',
+    color: '#FCB877',
+    
+  },
+  starsReput2: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput3: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput4: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput5: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  }
 }));
 
 export default function AlignItemsList() {
@@ -153,10 +217,11 @@ export default function AlignItemsList() {
     justifyContent="space-between"
     alignItems="left" style={{marginTop: '4px'}}>
       <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
+      <ListItem  className={classes.listItem} alignItems="flex-start">
         <ListItemText
-        
-          primary="Shoe Ricky Sarkany 400mm"//aca va nombre del order item}
+          disableTypography
+          
+          primary="Shoe Ricky Sarkany 400mm"//aca va nombre del order item
           secondary={
             <React.Fragment>
               <Typography
@@ -164,10 +229,11 @@ export default function AlignItemsList() {
                 variant="body2"
                 className={classes.inline}
                 color="textPrimary"
+                style={{fontSize:"13px"}}
               >
-               
+               {" 1 item"}
               </Typography>
-              {" 1 item"}
+              
               <ListItemAvatar>
                   <img alt="{imgjson}" className={classes.imageOrder}  src={shoeImage.default} />
               </ListItemAvatar>
@@ -186,22 +252,19 @@ export default function AlignItemsList() {
       <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
+            disableTypography
+            style={{fontSize: '14px', fontWeight:'bold'}}
             primary="Transaction Details"
             secondary={
               <React.Fragment>
-                <Typography
-                  component="span"
-                  variant="body2"
-                  className={classes.inline}
-                  color="textPrimary"
-                >
-                
-                </Typography>
-                {" Date"} <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
-                <ListItem style={{height: '18px'}}> 
+                <div style={{fontSize:"11px", fontWeight:"100"}}>
+                {/* change date to backend transaction json o como este conectado a la bd */}
+                {" Date  |"} <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+                </div>
+                <ListItem style={{height: '18px', marginTop: '15px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Amount"   />
                 </ListItem>
-                <Divider style={{backgroundColor: 'black'}}/>
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem  style={{height: '18px'}} >
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee" />
                 </ListItem>
@@ -213,7 +276,7 @@ export default function AlignItemsList() {
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce" />
                 </ListItem>
-                <Divider style={{backgroundColor: 'black'}}/>
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Total" />
                 </ListItem>
@@ -225,10 +288,10 @@ export default function AlignItemsList() {
       </Grid>
       <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
-            <ListItemText primary="Seller Information"/>
+            <ListItemText disableTypography primary="Seller Information"/>
              
           </ListItem>
-          <ListItem style={{justifyContent: 'space-around', height: '100px'}}>
+          <ListItem  style={{justifyContent: 'space-around', height: '100px'}}>
             <Grid xs={3} style={{height: '100%', flexBasis: 'auto'}}>
               <ListItemAvatar style={{ margin: 0, width: '100%', height: '100%' }}>
                 <img alt="{imgjson}"
@@ -248,28 +311,37 @@ export default function AlignItemsList() {
               justifyContent: 'center'
             }}>
               <ListItemText className={classes.profileName}
+                            disableTypography
                             style={{
                               marginLeft: 0,
                               marginTop: 0
                             }}
                             primary="Vitalik Buterin"/>
-              <ListItemText className={classes.profileReputation}
+            <ListItem style={{display: 'inline-block',  marginLeft: '-15px'}}>                
+              <ListItemText
+                    disableTypography 
+                    className={classes.profileReputation}
                             style={{
-                              margin: '0 !important'
+                              margin: '0 !important',
+                              marginTop: '-7px',
+
                             }}
-                            primary="Reputation"/>
-              <Typography
+                            primary="Reputation" /> <StarBorderOutlinedIcon className={classes.starsReput}/><StarBorderOutlinedIcon className={classes.starsReput2}/><StarBorderOutlinedIcon className={classes.starsReput3}/><StarBorderOutlinedIcon className={classes.starsReput4}/><StarBorderOutlinedIcon className={classes.starsReput5}/>
+            </ListItem>                
+              <ListItemText
+                    disableTypography
                     component="span"
-                    variant="contained"
-                    className={classes.txtReputation}>
+                    display="inline-block"
+                    className={classes.txtReputation} style={{fontWeight: 'light',
+                    fontSize: '12px'}}>
                 2 sales in the last 90 days
-              </Typography> 
+              </ListItemText> 
               <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/checkorders/messagesbox" primary="MessagesBox"
                       style={{
                         minWidth: 0,
                         width: '150px',
-                        margin: '0.5rem 0'
-                      }}>
+                        margin: '0.5rem 0',
+                        }}>
                 Send message
               </Button>
             </Grid>                   

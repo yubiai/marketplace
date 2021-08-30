@@ -74,14 +74,16 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     color: '#FCB877',
     marginLeft: '1000px',
+    marginTop: '-25px',
   },
   link: {
     display: 'flex',
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginLeft: '0.4rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
@@ -89,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
         textDecorationColor: 'transparent', 
       }
 },
+
   image: {
     width: '80px',
     height: '80px',
@@ -109,7 +112,7 @@ export default function AlignItemsList() {
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
+          <Breadcrumbs style={{marginTop: '-20px'}} separator="›" aria-label="breadcrumb" >
         <Link className={classes.link}  onClick={handleClick}>
           Sales
         </Link>
@@ -120,8 +123,8 @@ export default function AlignItemsList() {
             aria-current="page"
         >
         Active
-        <AddCircleIcon className={classes.addItem} />
-        </Link>
+        
+        </Link><AddCircleIcon className={classes.addItem} />
       
       </Breadcrumbs>
     
