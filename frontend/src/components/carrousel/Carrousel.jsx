@@ -1,8 +1,8 @@
 import React, { useState, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
+import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import Wrapper from "./Wrapper";
 import CarrouselContainer from "./CarrouselContainer";
 import CarrouselSlot from "./CarrouselSlot";
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   slidebuttonLeft: {
     color: "#FFB978",
     textDecoration: "none",
-    padding: "10px",
+    padding: "-10px",
     paddingLeft: "-10px",
     paddingRight: "1px",
     display: "inline-block",
@@ -50,9 +50,8 @@ const useStyles = makeStyles({
     background: "#FFFFFF",
     color: "#FFB978",
     textDecoration: "none",
-    padding: "10px",
-    paddingLeft: "-10px",
-    paddingRight: "1px",
+    padding: "-10px",
+    paddingRight: "-5px",
     display: "inline-block",
     cursor: "pointer",
     position: "relative",
@@ -143,14 +142,14 @@ const Carrousel = (props) => {
           ))}
         </CarrouselContainer>
 
-        <ArrowBackIosIcon
+        <KeyboardArrowLeftRoundedIcon
           className={classes.slidebuttonLeft}
           onClick={() => slide(PREV)}
-        ></ArrowBackIosIcon>
-        <ArrowForwardIosIcon
+        ></KeyboardArrowLeftRoundedIcon>
+        <KeyboardArrowRightRoundedIcon
           className={classes.slidebuttonRight}
           onClick={() => slide(NEXT)}
-        ></ArrowForwardIosIcon>
+        ></KeyboardArrowRightRoundedIcon>
       </Wrapper>
     </div>
   );

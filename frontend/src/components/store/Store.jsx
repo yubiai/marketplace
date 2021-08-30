@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     fontFamily: "Open Sans, Light",
     fontWeight: "light",
     fontSize: "19px",
-    marginTop: "5px",
-    marginBottom: "15px",
+    marginTop: "-20px",
+    marginBottom: "-10px",
   },
 });
 
@@ -98,7 +98,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
-        <span className={classes.gridTitle}>Items on your watch list </span>
+        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
         <Grid container spacing={2}>
           <Carrousel>
             <ItemCard title={"Producto 1"} price={"5000"} />
@@ -110,10 +110,10 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
-        <span className={classes.gridTitle}>
+        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>
           Last items you've watched on Health and household.{" "}
         </span>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{marginBottom: '-50px'}}>
           <Carrousel>
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
