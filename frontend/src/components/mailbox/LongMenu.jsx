@@ -6,12 +6,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 const useStyles = makeStyles((theme) => ({
     moreIconDots:{
-        display: "flex",
-        alignItems: "right",
+        display: "inherit",
+        alignItems: "inherit",
         justifyContent: "inherit",
-        marginLeft: "auto",
-        marginTop: "auto",
-        marginBottom: "auto",
+        marginLeft: "inherit",
+        marginTop: "inherit",
+        marginBottom: "inherit",
         color: "black",
         
     

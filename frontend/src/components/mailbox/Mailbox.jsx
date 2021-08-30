@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',  
-    top: '-4rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -146,15 +145,14 @@ export default function AlignItemsList() {
               
               {" Available"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
-                <div style={{display: 'flex', margin: '5px 1px 10px 10px',
-              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
                     onClose={handleClose} />
-                </div>    
+                </ListItem>       
             </React.Fragment>
           }
         />
@@ -182,15 +180,14 @@ export default function AlignItemsList() {
               </Typography>
               {" Paused"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
-              <div style={{display: 'flex', margin: '5px 1px 10px 10px',
-              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
                     onClose={handleClose} />
-                </div>    
+                </ListItem>    
             </React.Fragment>
           }
         />
@@ -218,15 +215,14 @@ export default function AlignItemsList() {
               </Typography>
               {" Sold"}
               <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
-              <div style={{display: 'flex', margin: '5px 1px 10px 10px',
-              justifyContent: 'space-evenly', alignItems: 'right', alignContent: 'right'}}>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon  component={LongMenu} open={open}
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
                     onClose={handleClose} />
-                </div>    
+                </ListItem>      
             </React.Fragment>
           }
         />
