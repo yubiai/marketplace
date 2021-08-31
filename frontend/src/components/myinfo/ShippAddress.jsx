@@ -51,7 +51,7 @@ export default function ShipAddress() {
 
   return (
     <div>
-      <EditIcon variant="outlined" color="primary" onClick={handleClickOpen}>
+      <EditIcon style={{color:'gray'}} variant="outlined" color="primary" onClick={handleClickOpen}>
         
         </EditIcon>
       <Dialog

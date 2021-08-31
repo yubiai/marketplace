@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   btnMyProfile: {
     display: 'flex',
     alignItems: 'center',
-    right: '1px',
+    marginRight: '2rem',
     justifyContent: 'space-around',
     marginLeft: 'auto',
     borderRadius: '10px',
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '150px',
     maxWidth: '150px',
-    top: '-2rem', 
+     
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -78,11 +78,25 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   listItemTextIcon:{
-    height:'15px',
-    color: '#FCB877',
+    height:'14px',
+    width: '11px',
+    color: 'white',
+    backgroundColor: '#FCB877',
+    borderRadius: '2px',
+    marginRight: '9px',
+    marginLeft: '4px',
+    boxShadow: '0px 3px 6px #00000029',
+  },
+  profName: {
+    marginLeft: '20px',
+    fontSize: '18px',
+    fontWeight: 'bold',
+
   },
   listItemText:{
     marginLeft: '20px',
+    fontSize: '18px',
+    marginTop: '2rem',
   },  
 }));
 
@@ -119,11 +133,12 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
-          className={classes.listItemText}
-          primary="Vitalik Buterin"
+          
+          
+          primary={<div className={classes.profName}>Vitalik Buterin</div>}
           secondary={
             <React.Fragment>
-              <div style={{display:"inline-flex"}}>
+              <div style={{display:"inline-flex", marginLeft: '20px'}}>
               <Typography
                 component="span"
                 variant="body2"
@@ -133,17 +148,18 @@ export default function AlignItemsList() {
                'address poh'
                {/* agregar call de poh al address */}
               </Typography>
-              <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+              {"|"}
+              <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon  className={classes.listItemTextIcon} />
               </div>
               
               <ListItemAvatar>
-              {" UBI-s dripped"}
+               <div style={{display:"inline-flex", marginLeft: '20px'}}>{" UBI-s dripped"} </div>
                 <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
               {/* apuntar backend side ubi dripped */}
              </ListItemAvatar>
               
               
-                <a className={classes.btnMyProfile} style={{marginTop:'-75px'}}
+                <a  className={classes.btnMyProfile} style={{marginTop: '-3rem'}}
                  variant="contained"  target="_blank" href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
                 My PoH Profile
                 </a>
@@ -181,9 +197,9 @@ export default function AlignItemsList() {
                 
                 <ListItem style={{height: '18px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
-                </ListItem> <EditIcon component={EditName} open={open}
+                </ListItem> <EditIcon  component={EditName} open={open}
                     onClose={handleClose} />
-                <Divider style={{backgroundColor: 'black'}}/>
+                <Divider style={{backgroundColor: 'black', height: '0.5px'}}/>
                 <ListItem  style={{height: '18px'}} >
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="ID Number" />
                 </ListItem><EditIcon component={IdNumber} open={open}
@@ -200,9 +216,10 @@ export default function AlignItemsList() {
                     onClose={handleClose}/>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
-                  <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Telegram handle" />
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Telegram handle" />
                 </ListItem><EditIcon component={TelegramHandl} open={open}
                     onClose={handleClose} />
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>    
                 
               </React.Fragment>
             }
