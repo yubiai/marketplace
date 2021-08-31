@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   btnDetails: {
     display: 'flex',
     alignItems: 'center',
-    right: '1px',
+    right: '2rem',
     justifyContent: 'space-between',
     marginLeft: 'auto',
     marginBottom: '5px',
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',  
-    top: '-4rem', 
+    top: '-2.5rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
