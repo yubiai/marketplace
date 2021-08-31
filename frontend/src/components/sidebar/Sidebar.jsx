@@ -24,13 +24,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#F5F5F5',
   },
   nested: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
+    marginTop: '0.5rem',
+    height: '22px',
   },
   HeaderList: {
-    paddingLeft: theme.spacing(4),
+    // paddingLeft: theme.spacing(2),
+    marginLeft: '0.5rem',
+    font: 'Open Sans',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    color: '#393939',
   },
   listItemText: {
-    color: '#000000',
+    color: '#6A6A6A',
+    marginLeft: '0.5rem',
+    font: 'Open Sans',
+    marginTop: '-1.2rem',
+    marginBottom: '-1rem',
+    fontWeight: '200',
+    fontSize: '16px',
     textDecorationColor: 'transparent',
     '&:hover': {
             borderBottom: 'none',
@@ -56,8 +69,8 @@ export default function NestedList() {
         
         <ListSubheader component="div" id="nested-list-subheader">
            <ListItemIcon>
-          <MenuOutlinedIcon/>
-          <ListItemText  className={classes.HeaderList} primary="My account" />
+          <MenuOutlinedIcon style={{color:"#393939", marginLeft:"2rem", marginTop:"1rem"}}/>
+          <ListItemText disableTypography className={classes.HeaderList} primary="My account" />
           </ListItemIcon>
           
         </ListSubheader>
@@ -66,15 +79,15 @@ export default function NestedList() {
     >
       <ListItem button component={Link} to="/orders">
         <ListItemIcon>
-          <CardGiftcardOutlinedIcon />
+          <CardGiftcardOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
         <ListItemText className={classes.listItemText} primary="Orders" />
       </ListItem>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          <StorefrontOutlinedIcon />
+          <StorefrontOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
-        <ListItemText primary="Sales" />
+        <ListItemText style={{marginLeft:"0.5rem", marginBottom: '-0.5rem', marginTop:'-0.7rem',color: '#6A6A6A'}} primary="Sales" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -95,13 +108,13 @@ export default function NestedList() {
       </Collapse>
       <ListItem button component={Link} to="/mailbox">
         <ListItemIcon>
-          <DraftsOutlinedIcon />
+          <DraftsOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
         <ListItemText className={classes.listItemText} primary="Mailbox" />
       </ListItem>
       <ListItem button component={Link} to="/myinfo">
         <ListItemIcon>
-          <PersonOutlineOutlinedIcon />
+          <PersonOutlineOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
         <ListItemText className={classes.listItemText} primary="My info" />
       </ListItem>
