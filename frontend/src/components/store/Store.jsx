@@ -2,7 +2,6 @@ import React from "react";
 import { ethers } from "ethers";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
 import Container from "@material-ui/core/Container";

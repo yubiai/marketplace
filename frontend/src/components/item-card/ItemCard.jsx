@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
@@ -40,6 +40,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     top: "45%",
   },
+  saveWatchilist: {
+    color: "#FFB978",
+    marginTop: "-11rem",
+    marginRight: "-1rem",
+    
+  },
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -72,8 +78,15 @@ const ItemCard = ({ title, price, image }) => {
               <MoreVertIcon />
             </IconButton>
           }
+          
         />
-
+        <VisibilityIcon className={classes.saveWatchilist}/>
+          
+              
+            
+          
+          
+        
         <Menu
           id="more-menu"
           anchorEl={anchorEl}
