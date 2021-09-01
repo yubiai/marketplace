@@ -120,7 +120,7 @@ function App() {
               />
             </Route>
           </Switch>
-        </body>
+        </body >
 
         <Footer />
       </div>

@@ -33,6 +33,7 @@ const useStyles = makeStyles({
     fontSize: "19px",
     marginTop: "-20px",
     marginBottom: "-10px",
+    marginLeft: "1.5rem",
   },
 });
 
@@ -75,20 +76,20 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
   return (
     <Container maxWidth="lg">
-      <div className="row">
+      <div className="row" >
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
         <Grid container spacing={2}>
-          {/* Esta es para el spacing */}
+          {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">
          <ArrowBackIosIcon  />
          </IconButton>
         </Grid> */}
 
-          <Carrousel>
+          <Carrousel >
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />

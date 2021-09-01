@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     backgroundImage: "",
     backgroundSize: "cover",
     position: "relative",
+    
   },
 
   slidebuttonLeft: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
     position: "relative",
     top: '-170px',
     marginTop: "5px",
-
+    left: '0.7rem',
     boxShadow: "0px 3px 6px #00000029",
     opacity: "1",
     width: "45px",
@@ -52,6 +53,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
     padding: "-10px",
     paddingRight: "-5px",
+    right: "3.7rem",
     display: "inline-block",
     cursor: "pointer",
     position: "relative",
