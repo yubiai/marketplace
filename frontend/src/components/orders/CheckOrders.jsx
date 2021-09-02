@@ -62,7 +62,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.4rem',
+    marginLeft: '1.5rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
     padding: theme.spacing(1),
     alignItems: 'center',
@@ -211,10 +212,10 @@ export default function AlignItemsList() {
           
       
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/orders"  onClick={handleClick}>
+        <Link className={classes.link} style={{color: '#808080'}} to="/orders"  onClick={handleClick}>
           Orders
         </Link>
-        <Link className={classes.link} to="/checkorders" onClick={handleClick}>
+        <Link className={classes.link} style={{marginLeft: '-0.2rem'}} to="/checkorders" onClick={handleClick}>
           Order details
         </Link>
       </Breadcrumbs>
@@ -224,7 +225,7 @@ export default function AlignItemsList() {
     direction="row"
     justifyContent="space-between"
     alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
+      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '2rem', height:'67px' }}>
       <ListItem  className={classes.listItem} alignItems="flex-start">
         <ListItemText
           disableTypography
@@ -256,7 +257,7 @@ export default function AlignItemsList() {
     <Grid container spacing={0}
     direction="row"  
    justifyContent="left"
-  alignItems="center" style={{marginTop: '10px', marginLeft: '7px'}}>  
+  alignItems="center" style={{marginTop: '10px', marginLeft: '1.8rem'}}>  
       <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText

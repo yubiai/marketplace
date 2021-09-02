@@ -33,7 +33,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginLeft: '0.75rem',
+    marginBottom: '0.5rem',
+    marginTop: '-0.25rem',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     '&:hover': {
@@ -45,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   btnCheckOrder: {
     display: 'flex',
     alignItems: 'center',
-    right: '1px',
+    right: '2rem',
     justifyContent: 'space-between',
     marginLeft: 'auto',
     marginBottom: '5px',
@@ -54,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '160px',
     maxWidth: '160px',
-    top: '-4rem', 
+    top: '-3.75rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -64,14 +66,14 @@ const useStyles = makeStyles((theme) => ({
   
   btnBuyAgain: {
     display: 'flex',
-    right: '1px',
-    top: '-4rem',
+    right: '2rem',
+    top: '-3.5rem',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginLeft: 'auto',
     borderRadius: '10px',
-    minWidth: '140px',
-    maxWidth: '140px',
+    minWidth: '160px',
+    maxWidth: '160px',
     backgroundColor: '#fef1e4',
     color: '#FCB877',
     '&:hover': {
@@ -112,7 +114,7 @@ export default function AlignItemsList() {
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
@@ -144,7 +146,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
       <ListItem alignItems="flex-start" className={classes.listItem}>
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
@@ -174,7 +176,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
         <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
