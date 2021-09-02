@@ -36,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
   btnPreview: {
     display: 'flex',
     alignItems: 'center',
-    right: '1px',
-    justifyContent: 'space-between',
+    fontWeight: 'bold',
+    right: '2rem',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',
-    top: '-4rem', 
+    top: '-3.75rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -54,10 +55,11 @@ const useStyles = makeStyles((theme) => ({
   },
   btnEdit: {
     display: 'flex',
-    right: '1px',
-    top: '-4rem',
+    fontWeight: 'bold',
+    right: '2rem',
+    top: '-3.5rem',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     borderRadius: '10px',
     minWidth: '140px',
@@ -71,25 +73,31 @@ const useStyles = makeStyles((theme) => ({
    }, 
   },
   addItem:{
-    display: 'flex',
+    display: 'inline-flex',
     color: '#FCB877',
-    marginLeft: '1000px',
-    marginTop: '-25px',
+    float: 'right',
+    justifyContent:"flex-end",
+    alignItems:"flex-start",
+    marginTop: '-2.2rem',
+    marginRight: '2rem',
   },
   link: {
     display: 'flex',
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
+    marginTop: '-0.03rem',
     marginLeft: '0.4rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
     padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
         color: '#008968',
-        textDecorationColor: 'transparent', 
+        textDecorationColor: 'transparent',  
       }
+     
 },
 
   image: {
@@ -112,8 +120,8 @@ export default function AlignItemsList() {
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Breadcrumbs style={{marginTop: '-20px'}} separator="›" aria-label="breadcrumb" >
-        <Link className={classes.link}  onClick={handleClick}>
+      <Breadcrumbs style={{marginTop:'-0.75rem'}}  separator="›" aria-label="breadcrumb" >
+        <Link className={classes.link} style={{color: '#808080'}} onClick={handleClick}>
           Sales
         </Link>
         <Link
@@ -121,20 +129,22 @@ export default function AlignItemsList() {
             to="/salesactive"
             onClick={handleClick}
             aria-current="page"
+            style={{marginLeft: '-0.2rem'}}
         >
         Active
         
-        </Link><AddCircleIcon className={classes.addItem} />
+        </Link>
+        
       
       </Breadcrumbs>
-    
+      <AddCircleIcon className={classes.addItem} />
     
     <Grid container spacing={1}
           variant="fullWidth"
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem', marginTop: '0.25rem', }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
@@ -167,7 +177,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
       <ListItem alignItems="flex-start" className={classes.listItem}>
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
@@ -200,7 +210,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={activeImage.default} />
