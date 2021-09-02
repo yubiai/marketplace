@@ -58,12 +58,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginTop: '-0.75rem',
+    marginLeft: '0.4rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent',  
       }
 },
   image: {
@@ -107,13 +111,10 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/mailbox"  onClick={handleClick}>
+        <Link className={classes.link}  to="/mailbox"  onClick={handleClick}>
         Mailbox
         </Link>
-        <span style={{color:'black', borderBottom: 'none'}}>
-          username
-        </span>
-         {/* backendconnect user aca   */}
+        
       </Breadcrumbs>
           
     
@@ -123,7 +124,7 @@ export default function AlignItemsList() {
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
@@ -159,7 +160,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
       <ListItem alignItems="flex-start" className={classes.listItem}>
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
@@ -194,7 +195,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
