@@ -119,14 +119,14 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
     
-    <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray"  }}>My Info</h4></Typography>
-    <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px" }}>Proof of humanity information</h4></Typography>
+    <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray", marginLeft:'0.75rem'  }}>My Info</h4></Typography>
+    <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginLeft:'0.75rem' }}>Proof of humanity information</h4></Typography>
     <Grid container spacing={1}
           variant="fullWidth"
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'8px', height:'117px', marginLeft:'0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={profileImage.default} />
@@ -170,7 +170,7 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       <div style={{display:"inline-flex"}}>
-      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px" }}>Personal and shipping information</h4></Typography>
+      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px", marginLeft:'0.75rem' }}>Personal and shipping information</h4></Typography>
       <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
                     <IconButton aria-label="info">
                     <InfoOutlinedIcon />
@@ -181,7 +181,7 @@ export default function AlignItemsList() {
     direction="row"  
   justifyContent="left"
   alignItems="left" style={{marginTop: '10px', marginLeft: '2px'}}>  
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px'}} >
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px', marginLeft:'0.75rem'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
             secondary={
