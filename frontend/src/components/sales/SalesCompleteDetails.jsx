@@ -30,9 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     borderRadius: '10px',
-
-    
-    
+    fontSize: '14px',
+    fontWeight:'bold',
   },
   btnSendMsg: {
     display: 'flex',
@@ -61,13 +60,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginTop: '0.25rem',
+    marginLeft: '1.6rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
         color: '#008968',
-        textDecorationColor: 'transparent', 
+        textDecorationColor: 'transparent',  
       }
 },
 imageProfile: {
@@ -208,14 +210,14 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
       
-      <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/sales"  onClick={handleClick}>
+      <Breadcrumbs style={{marginTop:'-0.25rem'}} separator="›" aria-label="breadcrumb">
+        <Link className={classes.link} to="/sales" style={{color: '#808080'}} onClick={handleClick}>
           Sales
         </Link>
-        <Link className={classes.link} to="/salescomplete" onClick={handleClick}>
+        <Link className={classes.link} to="/salescomplete" style={{color: '#808080', marginLeft: '-0.5rem'}} onClick={handleClick}>
           Complete
         </Link>
-        <Link className={classes.link} >
+        <Link className={classes.link} style={{marginLeft: '-0.2rem'}} >
           Details
         </Link>
       </Breadcrumbs>
@@ -225,9 +227,10 @@ export default function AlignItemsList() {
     direction="row"
     justifyContent="space-between"
     alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
+      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '2rem', height:'67px' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemText
+        disableTypography
         //en primary va nombre del order item}
           primary="Canon EOS Rebel T7 EF-S 18-55mm"
           secondary={
@@ -237,10 +240,11 @@ export default function AlignItemsList() {
                 variant="body2"
                 className={classes.inline}
                 color="textPrimary"
+                style={{fontSize:"13px"}}
               >
-               
+               {" 1 item"}
               </Typography>
-              {" 1 item"}
+              
               <ListItemAvatar>
                   <img alt="{imgjson}" className={classes.imageOrder}  src={shoeImage.default} />
               </ListItemAvatar>
@@ -255,8 +259,8 @@ export default function AlignItemsList() {
     <Grid container spacing={0}
     direction="row"  
    justifyContent="left"
-  alignItems="center" style={{marginTop: '10px', marginLeft: '7px'}}>  
-      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
+  alignItems="center" style={{marginTop: '10px'}}>  
+      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px', marginLeft: '1.8rem'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
             primary={
