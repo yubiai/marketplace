@@ -32,8 +32,8 @@ import axios from 'axios';
 import { setupEthState } from '../../ethereum';
 
 const API_URL = 'http://localhost:4000';
-let name = "Manuel Rodríguez Roldán";
-  let ubisAmmount = "720.55 dripped on address";
+let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
+  let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
 const useStyles = makeStyles((theme) => ({
     // container: {
     //     display: 'flex',
@@ -146,7 +146,8 @@ const useStyles = makeStyles((theme) => ({
                 color: '#008968', 
               }
     
-      },
+      
+    },
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -216,18 +217,32 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:'red',
     },
     avatar:{
-        marginLeft:'20px',
-        marginTop:'10px', 
+        
+        marginLeft:'15px',
+        marginTop:'-1.5rem',
+        marginBottom: '1rem',
+        width: '47px',
+        height: '47px',
+        top: '1.8rem',
+         
     },
     nameMenu:{
-        display:'inline',
-        fontSize:'15px',
-        padding:'15px', 
+        display:'inline-block',
+        fontSize:'14px',
+        padding: '-15px',
+        fontWeight: 'bold',
+        marginTop: '-2rem',
+        marginLeft: '0.5rem',
+        marginBottom: '-2rem',
     },
     ubiAmmount:{
         display:'block',
+        color: '#939292',
         fontSize:'12px',
+        marginTop: '-0.5rem',
+        marginLeft: '-0.2rem',
         marginRight:'10px',
+        marginBottom: '1rem'
     },
     ubiIcon:{
         width: '17px',
@@ -315,14 +330,16 @@ export default function NavBar() {
             <ListItemIcon>
             <Avatar src={profileInfo.photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
+            <Typography   className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-            <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component="a" href='https://resolve.kleros.io/' target="_blank">Kleros Dispute Resolver</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={handleClose}>Disconnect</MenuItem>
         </Menu>
     );
     const categories = 'categories-menu';
