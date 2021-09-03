@@ -39,7 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
   dialogContent: {
     fontFamily: 'Open Sans',
-    marginTop: "-1rem"
+    marginTop: "-1.5rem",
+    fontSize:'18px',
+    fontWeight:'light'
+
   },
 }));
 
@@ -64,8 +67,8 @@ export default function EditName() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle disableTypography style={{fontFamily: 'Open Sans'}} id="form-dialog-title">Modify Name</DialogTitle>
-        <DialogContent className={classes.dialogContent}>
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}} id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogContent disableTypography className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
@@ -83,7 +86,7 @@ export default function EditName() {
             fullWidth
           />
         </DialogContent>
-        <DialogContentText>
+        <DialogContentText disableTypography style={{fontSize:'12.3px', fontFamily: 'Open Sans', fontWeight:'regular', marginLeft:'1rem', marginRight:'1rem', paddingRight:'0.5rem',paddingLeft:'0.5rem'}}>
           Please note that in order to receive shipments you must use your real
           name.
         </DialogContentText>

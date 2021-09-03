@@ -10,7 +10,9 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
-    display: "flex"
+    display: "flex",
+    fontFamily: 'Open Sans',
+    
   },
   btnSave: {
     display: "flex",
@@ -20,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10px",
     marginBottom: "-5px",
     borderRadius: "10px",
+    fontFamily: 'Open Sans',
     backgroundColor: "#FCB877",
     color: "#fff",
     fontWeight: '500',
@@ -35,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   dialogContent: {
-    
+    fontFamily: 'Open Sans',
     marginTop: "-1rem"
   },
 }));
@@ -61,8 +64,8 @@ export default function ShipAddress() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">
-          Modify Shipping Address
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}}  id="form-dialog-title">
+          Modify shipping address
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
