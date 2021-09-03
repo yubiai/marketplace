@@ -76,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
        
     },
     listItemText: {
+      fontFamily: 'Open Sans',
       marginTop: '-5px',
       fontWeight: 'bold',
       marginLeft: '5px',
