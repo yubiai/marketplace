@@ -66,6 +66,7 @@ submit: {
   padding: 4,
   padding: '5px',
   fontSize: '10px',
+  textTransform: 'none',
   color: '#FCB877',
   background: 'white',
   marginLeft: '10px',

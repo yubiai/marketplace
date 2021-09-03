@@ -11,7 +11,8 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
-    display: "flex"
+    display: "flex",
+    fontFamily: 'Open Sans',
   },
   btnSave: {
     display: "flex",
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     backgroundColor: "#FCB877",
     color: "#fff",
-    
+    fontFamily: 'Open Sans',
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   dialogContent: {
-    
+    fontFamily: 'Open Sans',
     marginTop: "-1rem"
   },
 }));
@@ -63,7 +64,7 @@ export default function EditName() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans'}} id="form-dialog-title">Modify Name</DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus

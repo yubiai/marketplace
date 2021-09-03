@@ -11,6 +11,7 @@ import MessagesBox from './components/MessageBox/MessagesBox';
 import Mailbox from './components/mailbox/Mailbox';
 import Login from "./components/login/login";
 import OrdersView from "./components/orders/Orders";
+import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
@@ -39,7 +40,8 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <GlobalStyle />
+      <div style={{fontFamily: 'Open Sans'}} className="App">
         <header className="App-header">
           <NavBar />
         </header>

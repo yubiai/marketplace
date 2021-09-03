@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',
   },
   btnMyProfile: {
     display: 'flex',
@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#008968',
         backgroundColor: 'transparent',
         textDecoration: 'none',
+        fontFamily: 'Open Sans',
     }
   },
   listItemTextIcon:{
@@ -97,6 +98,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '20px',
     fontSize: '18px',
     marginTop: '2rem',
+    fontFamily: 'Open Sans',
+    color:'black',
   },  
 }));
 
@@ -171,7 +174,7 @@ export default function AlignItemsList() {
       </Grid>
       <div style={{display:"inline-flex"}}>
       <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px", marginLeft:'0.75rem' }}>Personal and shipping information</h4></Typography>
-      <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
+      <Tooltip disableTypography className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
                     <IconButton aria-label="info">
                     <InfoOutlinedIcon />
                     </IconButton>

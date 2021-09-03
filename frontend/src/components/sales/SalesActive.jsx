@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',
   },
   listItemText:{
-       
+    fontFamily: 'Open Sans',   
     marginLeft: '20px',
   },  
   btnPreview: {
@@ -153,8 +153,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -186,8 +187,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -219,8 +221,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
           secondary={
             <React.Fragment>
               <Typography

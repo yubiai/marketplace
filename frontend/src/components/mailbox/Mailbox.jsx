@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',  
   },
   listItemText:{
-       
+    fontFamily: 'Open Sans',   
     marginLeft: '20px',
   },
   btnChat: {
@@ -133,8 +133,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -146,7 +147,7 @@ export default function AlignItemsList() {
                10.000 UBI
               </Typography>
               
-              {" Available"}
+              <l style={{fontWeight:'200'}}>{" Available"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
               <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
                 <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
@@ -169,8 +170,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -181,7 +183,7 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" Paused"}
+              <l style={{fontWeight:'200'}}>{" Paused"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
               <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
                 <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
@@ -204,8 +206,9 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -216,7 +219,7 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" Sold"}
+              <l style={{fontWeight:'200'}}>{" Sold"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
               <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
                 <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >

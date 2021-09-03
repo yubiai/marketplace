@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    fontFamily: 'Open Sans',
   },
   productImage: {
     width: "150px",
@@ -117,10 +118,10 @@ const ItemCard = ({ title, price, image }) => {
           alt="Prdct1"
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textSecondary" component="p">
             {title}
           </Typography>
-          <Typography variant="body2" color="textPrimary" component="p">
+          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textPrimary" component="p">
             {price} UBI
           </Typography>
         </CardContent>

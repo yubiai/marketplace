@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
         fontSize: '15px',
+        font: 'Open Sans, sans serif, regular !important',
         color: '#fff',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
@@ -84,8 +85,9 @@ const useStyles = makeStyles((theme) => ({
     },
     listItemTextc: {
         display: 'flex',
-        fontSize: '12px',
+        fontSize: '16px',
         color: '#fff',
+        font: 'Open Sans, sans serif, regular !important',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
         paddingTop: '1px',
@@ -101,6 +103,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         color: '#fff',
         marginLeft: '7rem',
+        fontFamily: 'Open Sans',
+        fontWeight: 'bold',
         textDecorationColor: 'transparent',
         alignItems: 'right',
         '&:hover': {
@@ -143,6 +147,8 @@ const useStyles = makeStyles((theme) => ({
     },
     listItemText: {
         color: '#000000',
+        fontFamily: 'Open Sans',
+        fontSize: '13px',
         textDecorationColor: 'transparent',
         '&:hover': {
                 borderBottom: 'none',
@@ -233,6 +239,7 @@ const useStyles = makeStyles((theme) => ({
         display:'inline-block',
         fontSize:'14px',
         padding: '-15px',
+        fontFamily: 'Open Sans',
         fontWeight: 'bold',
         marginTop: '-2rem',
         marginLeft: '0.5rem',
@@ -242,6 +249,7 @@ const useStyles = makeStyles((theme) => ({
         display:'block',
         color: '#939292',
         fontSize:'12px',
+        fontFamily: 'Open Sans',
         marginTop: '-0.5rem',
         marginLeft: '-0.2rem',
         marginRight:'10px',
@@ -356,11 +364,12 @@ export default function NavBar() {
             keepMounted
             open={Boolean(categoriesMenuOpen)}
             onClose={handleClose}
+            
             >
-            <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
-            <MenuItem onClick={handleClose}>Automotive</MenuItem>
-            <MenuItem onClick={handleClose}>Appliances</MenuItem>
-            <MenuItem onClick={handleClose}>VideoGames</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Arts & Crafts</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Automotive</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Appliances</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>VideoGames</MenuItem>
                     </Menu>
                                 );
         const language = 'language-menu';
@@ -381,10 +390,11 @@ export default function NavBar() {
             open={Boolean(languageMenuOpen)}
             onClose={handleClose}
             >
-            <MenuItem onClick={handleClose}>EN</MenuItem>
-            <MenuItem onClick={handleClose}>ES</MenuItem>
-            <MenuItem onClick={handleClose}>PT</MenuItem>
-            <MenuItem onClick={handleClose}>FR</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>English</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Español</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Português</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Française</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Deutsche</MenuItem>
             </Menu>
             );
     const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -518,14 +528,14 @@ export default function NavBar() {
         </Grid>
         {/* Second row */}
         <Grid item sm={3} xs={6}>
-        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to Buenos Aires
+        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
         </Grid>
         <Grid item sm={7} xs={6}>
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                                <Typography className={classes.link}  noWrap>  
-                                <ListItemText className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                <Typography disableTypography className={classes.link}  noWrap>  
+                                <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                                 </ListItemText>
                                 <Link className={classes.link} to="/sell" >Sell  
