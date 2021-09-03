@@ -128,6 +128,9 @@ const useStyles = makeStyles((theme) => ({
     connect: {
         fontSize: '14px',
         color: '#FCB877',
+        fontWeight: '500',
+        textTransform: 'none',
+        justifyContent: "space-evenly",
         background: 'white',
         borderRadius : 20,
         marginLeft: '1rem',

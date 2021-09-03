@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
   btnPreview: {
     display: 'flex',
     alignItems: 'center',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     right: '2rem',
     justifyContent: 'space-evenly',
     marginLeft: 'auto',
@@ -55,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
   },
   btnEdit: {
     display: 'flex',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     right: '2rem',
     top: '-3.5rem',
     alignItems: 'center',

@@ -47,9 +47,10 @@ const useStyles = makeStyles((theme) => ({
   btnCheckOrder: {
     display: 'flex',
     alignItems: 'center',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     right: '2rem',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -68,7 +69,8 @@ const useStyles = makeStyles((theme) => ({
   btnBuyAgain: {
     display: 'flex',
     right: '2rem',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     top: '-3.5rem',
     alignItems: 'center',
     justifyContent: 'center',
