@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import VisibilityIcon from '@material-ui/icons/Visibility';
+// import VisibilityIcon from '@material-ui/icons/Visibility';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
@@ -81,7 +81,7 @@ const ItemCard = ({ title, price, image }) => {
           }
           
         />
-        <VisibilityIcon className={classes.saveWatchilist}/>
+        {/* <VisibilityIcon className={classes.saveWatchilist}/> */}
           
               
             
