@@ -139,11 +139,16 @@ const useStyles = makeStyles((theme) => ({
         borderRadius : 20,
         marginLeft: '1rem',
         textAlign: 'center',
+        outline: 'none',
         '&:hover': {
+            outline: 'none',
             borderBottom: 'none',
             color: 'white',
             background: '#FCB877', 
-          }
+          },
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+          },  
     },
     listItemText: {
         color: '#000000',
