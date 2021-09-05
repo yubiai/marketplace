@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
   imageUbi: {
     width: '17px',
     height: '17px',
+    marginLeft: '1.4rem',
+    marginRight:'-1rem',
+    paddingBottom: '3px',
  },
   infoClass: {
     outline: 'none !important',
@@ -108,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AlignItemsList() {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
-  const ubiImage = require("../../media/logoubi.png")
+  const ubiImage = require("../../media/ubi2.svg");
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -158,8 +161,9 @@ export default function AlignItemsList() {
               </div>
               
               <ListItemAvatar>
+               <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} /> 
                <div style={{display:"inline-flex", marginLeft: '20px'}}>{" UBI-s dripped"} </div>
-                <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
+                
               {/* apuntar backend side ubi dripped */}
              </ListItemAvatar>
               
