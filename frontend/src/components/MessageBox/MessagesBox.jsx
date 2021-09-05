@@ -9,6 +9,7 @@ import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
 import BreadcrumbA from './BreadcrumbA';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -19,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       width: "80vw",
       height: "80vh",
-      maxWidth: "1060px",
-      maxHeight: "500px",
+      maxWidth: "894px",
+      maxHeight: "392px",
       display: "flex",
       alignItems: "center",
       flexDirection: "column",
