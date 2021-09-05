@@ -187,27 +187,45 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
+        maxWidth: '530px',
+        minWidth:'530px',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
         },
     },
     searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
+        borderLeft: '1px solid #727272',
+        borderRadius: '0px',
+        marginTop: '-8.5px',
+        height: '20px',
+        marginRight: '-15px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+        color:'#727272',
+        backgroundColor: 'transparent',
+        paddingTop: '-0.65rem',
+        paddingLeft: '-2.5rem',
+        position: 'absolute',
+        right: -5,
+        top: '15px',
+        maxwidth: '13px',
+        minWidth: '13px',
+        outline: 'none',
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+            backgroundColor: 'transparent',
+        },
+        '&:hover': {
+            backgroundColor: 'transparent',
+        }
+},
     inputRoot: {
         color: 'inherit',
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        paddingLeft: `calc(-1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
@@ -513,7 +531,9 @@ export default function NavBar() {
             {/* Caja de Busqueda */}
             <div className={classes.search}>
                             <div className={classes.searchIcon}>
-                                <SearchIcon />
+                                <Button style={{outline:'none', backgroundColor:'transparent'}}>
+                                    <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
+                                </Button>    
                             </div>
                             <InputBase
                                 placeholder="Search for goods, services or anything you need..."
