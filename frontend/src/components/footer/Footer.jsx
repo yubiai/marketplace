@@ -90,8 +90,7 @@ form: {
   width:'100%',
   color: '#FCB877',
   height: '20px',
-  background: '#fff',
-  maxWidth: 280
+  background: '#fff'
 },
 button: {
   borderLeft: '1px solid #727272',
@@ -145,7 +144,7 @@ export default function StickyFooter() {
         </Grid>
         <Grid item xs={12} sm={4}>
         <div classes={classes.form}  >
-          <form style={{position: 'relative'}}   noValidate autoComplete="off">
+          <form style={{position: 'relative', maxWidth: 280}}   noValidate autoComplete="off">
 
             {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
             <InputBase
