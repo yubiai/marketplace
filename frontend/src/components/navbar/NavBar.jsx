@@ -179,6 +179,7 @@ const useStyles = makeStyles((theme) => ({
     search: {
         position: 'relative',
         color: 'black',
+        boxShadow: '0px 3px 6px #00000029',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 1),
         '&:hover': {
