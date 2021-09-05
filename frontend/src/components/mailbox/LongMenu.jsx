@@ -13,9 +13,16 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "inherit",
         marginBottom: "inherit",
         color: "black",
-        
-    
+        outline: 'none !important',
+        '&:hover, &:focus, &:active': {
+        outline: 'none !important',
+        },
+        '&:hover': {
+          outline: 'none !important',
+        }
   },
+    
+  
 
 }));
 
@@ -34,14 +41,15 @@ export default function LongMenu() {
   };
 
   return (
-    <div>
+    <div >
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        className={classes.moreIconDots}
       >
-        <MoreHorizSharpIcon className={classes.moreIconDots} />
+        <MoreHorizSharpIcon  className={classes.moreIconDots} />
       </IconButton>
       <Menu
         id="long-menu"

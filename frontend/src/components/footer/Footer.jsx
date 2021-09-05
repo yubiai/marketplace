@@ -74,7 +74,7 @@ submit: {
 
 },
 input:  {
-  marginTop: '10px',
+  marginTop: '13.5px',
   fontSize: '12px',
   color: '#000',
   width: '100%',
@@ -95,6 +95,7 @@ form: {
 button: {
   borderLeft: '1px solid #727272',
   borderRadius: '0px',
+  marginTop: '3.5px',
   height: '20px',
   marginRight: '5px',
   display: 'flex',

@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     backgroundColor: "#FCB877",
     fontFamily: 'Open Sans',
+    outline: 'none !important',
     color: "#fff",
     fontWeight: '500',
     textTransform: 'none',
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }

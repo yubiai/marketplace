@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "60px",
     justifyContent: "space-evenly",
     marginLeft: "auto",
+    outline: 'none !important',
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }

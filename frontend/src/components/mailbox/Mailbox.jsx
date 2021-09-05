@@ -90,7 +90,16 @@ const useStyles = makeStyles((theme) => ({
     color: '#D9461E',
     height: '12px',
   },
-
+  buttonThreeDots: {
+    outline: 'none',
+    display:'inline-flex',
+    '&:hover, &:focus, &:active': {
+    outline: 'none !important',
+    },
+    '&:hover': {
+      backgroundColor: 'white',
+    }
+  },
 }));
 
 export default function AlignItemsList() {
@@ -154,7 +163,7 @@ export default function AlignItemsList() {
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
+                <MoreHorizSharpIcon  className={classes.buttonThreeDots}   component={LongMenu} open={open}
                     onClose={handleClose} />
                 </ListItem>       
             </React.Fragment>

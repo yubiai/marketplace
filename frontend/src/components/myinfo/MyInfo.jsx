@@ -70,7 +70,9 @@ const useStyles = makeStyles((theme) => ({
     height: '17px',
  },
   infoClass: {
+    outline: 'none !important',
     '&:hover': {
+        outline: 'none !important',
         borderBottom: 'none',
         color: '#008968',
         backgroundColor: 'transparent',

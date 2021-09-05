@@ -21,6 +21,13 @@ const useStyles = makeStyles((theme) => ({
         height: '38px',
         margin: theme.spacing(1),
         borderRadius: '40px',
+        outline: 'none !important',
+        '&:hover, &:focus, &:active': {
+        outline: 'none !important',
+        },
+        '&:hover': {
+          outline: 'none !important',
+        }
     },
   })
 );

@@ -26,12 +26,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     fontWeight: '500',
     textTransform: 'none',
+    outline: 'none !important',
     minWidth: "60px",
     maxWidth: "60px",
     justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }
