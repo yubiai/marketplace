@@ -79,10 +79,10 @@ input:  {
   color: '#000',
   width: '100%',
   borderBottom: 'none',
-  height: '30px',
+  height: '35px',
   background: '#ffffff',
-  borderRadius : 10,
-  
+  borderRadius : 8,
+  paddingLeft: '1rem'
 },
 form: {
   display: 'flex',
@@ -91,20 +91,34 @@ form: {
   color: '#FCB877',
   height: '20px',
   background: '#fff',
+  maxWidth: 280
 },
 button: {
-  // padding: theme.spacing(0, 2),
   borderLeft: '1px solid #727272',
   borderRadius: '0px',
   height: '20px',
-  marginTop: '',
+  marginRight: '5px',
   display: 'flex',
   color:'#727272',
+  backgroundColor: 'white',
+  padding: '0 8px 0 8.5px',
   position: 'absolute',
-  right:'0',
-  top: '0.85rem',
-  width: '20px',
+  right: -5,
+  top: '17px',
+  width: '35px',
+  minWidth: '0',
+  outline: 'none',
+  '&:hover, &:focus, &:active': {
+    outline: 'none',
+  },
+  '&:hover': {
+    backgroundColor: 'white',
+  }
 },
+sendIcon: {
+  width: 14,
+  height: 14
+}
 
 }));
 
@@ -143,7 +157,7 @@ export default function StickyFooter() {
                              
              
             </InputBase>
-            <Button className={classes.button}><SendIcon   type="submit"></SendIcon>
+            <Button className={classes.button}><SendIcon className={classes.sendIcon} type="submit"></SendIcon>
              </Button>
             {/* <IconButton  color="inherit">
               <></>
