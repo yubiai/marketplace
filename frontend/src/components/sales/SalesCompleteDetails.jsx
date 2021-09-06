@@ -314,7 +314,7 @@ export default function AlignItemsList() {
       </Grid>
       <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
-            <ListItemText disableTypography primary="Seller Information"/>
+            <ListItemText disableTypography primary="Buyer Information"/>
              
           </ListItem>
           <ListItem  style={{justifyContent: 'space-around', height: '100px'}}>
