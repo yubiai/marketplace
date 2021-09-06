@@ -78,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
 
   },
+  
 }));
 
 export default function AlignItemsList() {
@@ -86,6 +87,9 @@ export default function AlignItemsList() {
   const completeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
   return (
     
@@ -123,7 +127,7 @@ export default function AlignItemsList() {
         <ListItemText
           disableTypography
           className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
+          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b> }
           secondary={
             <React.Fragment>
               <Typography

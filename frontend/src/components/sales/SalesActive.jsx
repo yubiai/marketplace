@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import { Link }  from 'react-router-dom';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
+import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
+import Menu from './Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   inline: {
     fontFamily: 'Open Sans',
     display: 'flex',
+    marginTop:'-0.5rem',
   },
   
   listItem: {
@@ -47,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',
-    top: '-3.75rem', 
+    top: '-4.75rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -59,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '500',
     textTransform: 'none',
     right: '2rem',
-    top: '-3.5rem',
+    top: '-4.5rem',
     alignItems: 'center',
     justifyContent: 'space-evenly',
     marginLeft: 'auto',
@@ -76,12 +79,16 @@ const useStyles = makeStyles((theme) => ({
   },
   addItem:{
     display: 'inline-flex',
-    color: '#FCB877',
+    color: '#FFFF',
     float: 'right',
     justifyContent:"flex-end",
     alignItems:"flex-start",
     marginTop: '-2.2rem',
     marginRight: '2rem',
+    backgroundColor: '#FCB877',
+    boxShadow: '0px 3px 6px #00000029',
+    borderRadius: '25px',
+    opacity: '1',
   },
   link: {
     display: 'flex',
@@ -108,6 +115,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
 
   },
+  buttonThreeDots: {
+    outline: 'none',
+    display:'flex',
+    maxBlockSize: '50px',
+    width:50, 
+    '&:hover, &:focus, &:active': {
+    outline: 'none !important',
+    },
+    '&:hover': {
+      backgroundColor: 'white',
+    }
+  },
 }));
 
 export default function AlignItemsList() {
@@ -116,6 +135,9 @@ export default function AlignItemsList() {
   const activeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
   return (
     
@@ -139,7 +161,7 @@ export default function AlignItemsList() {
         
       
       </Breadcrumbs>
-      <AddCircleIcon className={classes.addItem} />
+      <AddCircleOutlinedIcon className={classes.addItem} />
     
     <Grid container spacing={1}
           variant="fullWidth"
@@ -155,7 +177,8 @@ export default function AlignItemsList() {
         <ListItemText
           disableTypography
           className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
+          primary={<span style={{fontSize:'16px', fontWeight: 'bold'}}>Canon EOS Rebel T7 EF-S 18-55mm<MoreHorizSharpIcon className={classes.buttonThreeDots}   component={Menu} open={open}
+          onClose={handleClose} /></span>}
           secondary={
             <React.Fragment>
               <Typography
@@ -189,7 +212,8 @@ export default function AlignItemsList() {
         <ListItemText
           disableTypography
           className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
+          primary={<span style={{fontSize:'16px', fontWeight: 'bold'}}>Canon EOS Rebel T7 EF-S 18-55mm<MoreHorizSharpIcon className={classes.buttonThreeDots}   component={Menu} open={open}
+          onClose={handleClose} /></span>}
           secondary={
             <React.Fragment>
               <Typography
@@ -223,7 +247,8 @@ export default function AlignItemsList() {
         <ListItemText
           disableTypography
           className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm"</b>}
+          primary={<span style={{fontSize:'16px', fontWeight: 'bold'}}>Canon EOS Rebel T7 EF-S 18-55mm<MoreHorizSharpIcon className={classes.buttonThreeDots}   component={Menu} open={open}
+          onClose={handleClose} /></span>}
           secondary={
             <React.Fragment>
               <Typography
