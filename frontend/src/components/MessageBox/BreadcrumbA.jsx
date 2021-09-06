@@ -23,7 +23,7 @@ export default function BreadcrumbA (props) {
     console.log('Location is::: ', props.location)
     if (props.location.pathname === '/checkorders/messagesbox') {
         component = (
-            <Breadcrumbs separator="›" aria-label="breadcrumb">
+            <Breadcrumbs style={{marginLeft:'1.9rem', marginTop: '0.45rem', marginBottom:'0.5rem'}} separator="›" aria-label="breadcrumb">
                 <Link className={props.classes.link} to="/orders"  onClick={props.handleClick}>
                     Orders
                 </Link>

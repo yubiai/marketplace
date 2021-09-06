@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       position: "relative",
       marginLeft: '1.75rem',
-      borderRadius: '20px',
+      borderRadius: '0px 0px 10px 10px',
     },
     link: {
       display: 'flex',
@@ -84,6 +84,18 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '21px',
   
     },
+    profileBackground:{
+      width: '%100',
+      maxWidth: '894px',
+      minWidth:'894px',
+      height: '%100',
+      maxHeight: '67px',
+      minHeight: '67px',
+      marginLeft: '1.75rem',
+      background: '#F5F5F5 0% 0% no-repeat padding-box',
+      borderRadius: '10px 10px 0px 0px',
+      opacity: 1,
+    }
   })
 );
 
@@ -99,7 +111,7 @@ export default function MessagesBox(props) {
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
       <BreadcrumbA  handleClick={handleClick} classes={classes} location={props.location} />
-      <ListItem >
+      <ListItem className={classes.profileBackground} >
             <ListItemAvatar>
                       <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
             </ListItemAvatar>
