@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     fontFamily: 'Open Sans',
+    
   },
   productImage: {
     width: "150px",
@@ -47,6 +48,15 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "-1rem",
     
   },
+  moreVertIcon:{
+    outline: 'none',
+  '&:hover, &:focus, &:active': {
+    outline: 'none',
+  },
+  '&:hover': {
+    backgroundColor: 'white',
+  },
+  }
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -75,8 +85,9 @@ const ItemCard = ({ title, price, image }) => {
               onClick={handleClick}
               aria-haspopup="true"
               aria-controls="more-menu"
+              className={classes.moreVertIcon}
             >
-              <MoreVertIcon />
+              <MoreVertIcon  />
             </IconButton>
           }
           

@@ -222,8 +222,10 @@ const useStyles = makeStyles((theme) => ({
 },
     inputRoot: {
         color: 'inherit',
+        
     },
     inputInput: {
+        fontWeight: 'light !important',
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(-1em + ${theme.spacing(4)}px)`,
@@ -554,7 +556,7 @@ export default function NavBar() {
         </Grid>
         {/* Second row */}
         <Grid item sm={3} xs={6}>
-        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
+        <LocationOnOutlinedIcon style={{width: '21px', height: '30px',marginTop: '-3px'}}></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
         </Grid>
         <Grid item sm={7} xs={6}>
         <div className={classes.container} />
