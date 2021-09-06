@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
       flexDirection: "column",
       position: "relative",
-      marginLeft: '10px',
+      marginLeft: '1.75rem',
       borderRadius: '20px',
     },
     link: {
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'left',
       left: '10px',
       justifyContent: 'left',
-      marginLeft: '1px',
+      marginLeft: '1.25rem',
       marginBottom: '-10px',
       width: '43px',
       height: '43px',
@@ -98,7 +98,7 @@ export default function MessagesBox(props) {
 
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-      <BreadcrumbA handleClick={handleClick} classes={classes} location={props.location} />
+      <BreadcrumbA  handleClick={handleClick} classes={classes} location={props.location} />
       <ListItem >
             <ListItemAvatar>
                       <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
