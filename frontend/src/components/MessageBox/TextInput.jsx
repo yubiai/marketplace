@@ -93,7 +93,7 @@ export const TextInput = () => {
              disableTypography
              className={classes.input}
              
-             placeholder="Chat with the seller"
+             placeholder="Chat"
              inputProps={{ 'aria-label': 'contact' }}>
                              
              
