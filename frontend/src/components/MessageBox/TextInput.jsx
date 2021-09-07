@@ -5,6 +5,7 @@ import SendIcon from '@material-ui/icons/Send';
 import Button from '@material-ui/core/Button';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import { InputBase } from '@material-ui/core';
+import { Fab } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     wrapForm : {
@@ -86,9 +87,23 @@ export const TextInput = () => {
     return (
         <>
             <form className={classes.wrapForm}  noValidate autoComplete="off">
-            <Button variant="contained" className={classes.attachButton}>
-                <AttachFileIcon  />
-            </Button>    
+            <label htmlFor="upload-photo">
+                <input
+                    style={{ display: "none" }}
+                    id="upload-photo"
+                    name="upload-photo"
+                    type="file"
+                />          
+                <Fab
+                  className={classes.attachButton}
+                  component="span"
+                  aria-label="add"
+                  variant="extended"
+                >
+                 <AttachFileIcon />
+                 </Fab>    
+            
+            </label>    
             <InputBase
              disableTypography
              className={classes.input}
