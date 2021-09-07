@@ -4,12 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout.jsx";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
-import NavBar from "./components/Navbar/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import ProfileView from "./components/profile/Profile";
 import MessagesBox from './components/MessageBox/MessagesBox';
 import Mailbox from './components/mailbox/Mailbox';
-import Login from "./components/login/login";
 import OrdersView from "./components/orders/Orders";
 import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
@@ -18,6 +17,7 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 // import Chat from "./components/mailbox/Chat";
+
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -47,9 +47,6 @@ function App() {
         </header>
         <body>
           <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
             <Route path="/orders">
               <Layout>
                 <OrdersView />
@@ -113,7 +110,6 @@ function App() {
                 <ProfileView />
               </Layout>
             </Route> */}
-
             <Route path="/">
               <Store
                 paymentProcessor={paymentProcessor}

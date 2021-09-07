@@ -30,6 +30,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import axios from 'axios';
 import { setupEthState } from '../../ethereum';
+import { saveLoginInfo, getLoginInfo } from '../../utils/loginInfo';
 
 const API_URL = 'http://localhost:4000';
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
@@ -288,8 +289,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function _formatWalletAddress(address) {
-    return address.substr(0, 8);
+function _formatWalletAddress(address='') {
+    return address ? address.substr(0, 8) : '';
 }
 export default function NavBar() {
     const classes = useStyles();
@@ -337,6 +338,11 @@ export default function NavBar() {
                     setWalletAddress(resp.data.eth_address);
                     setToken(resp.data.token);
                     setProfileInfo({...resp.data});
+                    // Save token and wallet on sessionStorage
+                    saveLoginInfo(resp.data.token, resp.data.eth_address, {
+                        display_name: resp.data.display_name,
+                        photo: resp.data.photo
+                    });
                 });
             });
         }
@@ -350,6 +356,14 @@ export default function NavBar() {
     setCategoriesAnchorEl(null);
     setLanguageAnchorEl(null);
     setProfileAnchorEl(null);
+  };
+  const disconnect = () => {
+    setWalletAddress('');
+    setToken('');
+    setProfileInfo({});
+    // Save token and wallet on sessionStorage
+    saveLoginInfo('', '', {});
+    handleClose();
   };
     const profile = 'profile-menu';
     const renderMenu = (
@@ -365,9 +379,9 @@ export default function NavBar() {
             TransitionComponent={Fade}
         >
             <ListItemIcon>
-            <Avatar src={profileInfo.photo || profileImage.default} profileImage className={classes.avatar} />
+            <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography   className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
+            <Typography   className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>          
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
@@ -376,7 +390,10 @@ export default function NavBar() {
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component="a" href='https://resolve.kleros.io/' target="_blank">Kleros Dispute Resolver</MenuItem>
-            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={handleClose}>Disconnect</MenuItem>
+            {
+                token && 
+                <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
+            }
         </Menu>
     );
     const categories = 'categories-menu';
@@ -519,6 +536,19 @@ export default function NavBar() {
             </MenuItem>
         </Menu>
     );
+
+    const { jwtToken, savedWallet, profileData } = getLoginInfo();
+    useEffect(() => {
+        const init = async () => {
+            if (jwtToken && savedWallet) {
+                setToken(jwtToken);
+                setWalletAddress(savedWallet);
+                setProfileInfo(profileData);
+            }
+        }
+        init();
+      }, [])
+
     return (
             <div className={classes.container}>
                 <Router>
