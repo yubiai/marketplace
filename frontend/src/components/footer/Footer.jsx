@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-
-import InputBase from '@material-ui/core/InputBase';
-import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { InputBase } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -63,41 +63,62 @@ link: {
  
 },
 submit: {
-  padding: 4,
-  padding: '5px',
-  fontSize: '10px',
-  color: '#FCB877',
-  background: 'white',
+  textTransform: 'none',
+  color: '#727272',
   marginLeft: '10px',
-  borderRadius : 20,
-  width: '80px',
   '&:hover': {
     borderBottom: 'none',
-    color: 'white',
-    background: '#FCB877', 
+    color: '#008968', 
+    textDecorationColor: 'transparent', 
   }
 
 },
-input: {
-  padding: '10px',
-  marginTop: '15px',
+input:  {
+  marginTop: '13.5px',
   fontSize: '12px',
   color: '#000',
-  width: '215px',
-  height: '30px',
+  width: '100%',
+  borderBottom: 'none',
+  height: '35px',
   background: '#ffffff',
-  borderRadius : 10,
+  borderRadius : 8,
+  paddingLeft: '1rem'
 },
 form: {
   display: 'flex',
   marginTop: '30px',
- 
+  width:'100%',
   color: '#FCB877',
-  width: '230px',
   height: '20px',
-  background: '#fff',
+  background: '#fff'
 },
-
+button: {
+  borderLeft: '1px solid #727272',
+  borderRadius: '0px',
+  marginTop: '3.5px',
+  height: '20px',
+  marginRight: '5px',
+  display: 'flex',
+  color:'#727272',
+  backgroundColor: 'white',
+  padding: '0 8px 0 8.5px',
+  position: 'absolute',
+  right: -5,
+  top: '17px',
+  width: '35px',
+  minWidth: '0',
+  outline: 'none',
+  '&:hover, &:focus, &:active': {
+    outline: 'none',
+  },
+  '&:hover': {
+    backgroundColor: 'white',
+  }
+},
+sendIcon: {
+  width: 14,
+  height: 14
+}
 
 }));
 
@@ -123,18 +144,25 @@ export default function StickyFooter() {
           <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
         </Grid>
         <Grid item xs={12} sm={4}>
-        <div classes={classes.form} >
-          <form    noValidate autoComplete="off">
-            {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
+        <div classes={classes.form}  >
+          <form style={{position: 'relative', maxWidth: 280}}   noValidate autoComplete="off">
 
-            <InputBase  placeholder="Want to talk? Share us your ETHMail"
-                                className={classes.input}
-                                inputProps={{ 'aria-label': 'contact' }}
-                            />
+            {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
+            <InputBase
+             disableTypography
+             className={classes.input}
+             
+             placeholder="Contact me, Share us your ETHMail"
+             inputProps={{ 'aria-label': 'contact' }}>
+                             
+             
+            </InputBase>
+            <Button className={classes.button}><SendIcon className={classes.sendIcon} type="submit"></SendIcon>
+             </Button>
             {/* <IconButton  color="inherit">
-              <SendIcon></SendIcon>
+              <></>
            </IconButton> */}
-           <Button className={classes.submit} variant="contained" color="primary" type="submit">Contact Us</Button>
+           
           </form>
           
          
