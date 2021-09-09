@@ -6,11 +6,11 @@ const itemSchema = new Schema({
   price: Number,
   description: String,
   condition: String,
+  picture: String,
   categories: [{
       type: Schema.Types.Mixed,
       ref: "Categorie"
-  }],
-  picture: String,
+  }]
 });
 
 const Item = mongoose.model("Item", itemSchema);

@@ -1,9 +1,51 @@
+const { Item } = require("../models/Item");
 const { Payment } = require("../models/Payment");
 
 const items = {
   '1': {id: 1, url: 'http://UrlToDownloadItem1'},
   '2': {id: 2, url: 'http://UrlToDownloadItem2'},  
 };
+
+async function getItem(req, res) {
+  try {
+    const item = await Item.find({})
+
+    res.status(200).json({
+      status: "ok",
+      result: item
+    })
+
+  } catch (error) {
+    res.status(400).json({
+      message: "Ups Hubo un error!",
+      error: error
+    })
+  }
+}
+
+async function postItem(req, res) {
+  try {
+    const item = new Item({
+      title: req.body.title,
+      price: req.body.price,
+      description: req.body.description,
+      condition: req.body.condition,
+      picture: req.file.filename
+    })
+
+    await item.save()
+
+    res.status(200).json({
+      message: "Item agregado con éxito!"
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(400).json({
+      message: "Ups Hubo un error!",
+      error: error
+    })
+  }
+}
 
 async function getPaymendId(req, res, next) {
   try {
@@ -47,4 +89,6 @@ async function getItemUrl(req, res) {
 module.exports = {
   getPaymendId,
   getItemUrl,
+  getItem,
+  postItem
 };
