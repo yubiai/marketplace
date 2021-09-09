@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   listItemText: {
     color: '#6A6A6A',
     marginLeft: '0.5rem',
-    font: 'Open Sans',
+    fontFamily: 'Open Sans',
     marginTop: '-1.2rem',
     marginBottom: '-1rem',
     fontWeight: '200',
@@ -81,13 +81,13 @@ export default function NestedList() {
         <ListItemIcon>
           <CardGiftcardOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
-        <ListItemText className={classes.listItemText} primary="Orders" />
+        <ListItemText disableTypography className={classes.listItemText} primary="Orders" />
       </ListItem>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
           <StorefrontOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
-        <ListItemText style={{marginLeft:"0.5rem", marginBottom: '-0.5rem', marginTop:'-0.7rem',color: '#6A6A6A'}} primary="Sales" />
+        <ListItemText disableTypography style={{marginLeft:"0.5rem", marginBottom: '-0.5rem', marginTop:'-0.7rem',color: '#6A6A6A', fontSize:"16px", fontWeight:"200"}} primary="Sales" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -96,11 +96,11 @@ export default function NestedList() {
             <ListItemIcon>
               
             </ListItemIcon>
-            <ListItemText className={classes.listItemText} primary="Active"  />
+            <ListItemText disableTypography className={classes.listItemText} primary="Active"  />
           </ListItem >
           <ListItem button className={classes.nested} component={Link} to="/salescomplete">
             <ListItemIcon></ListItemIcon>
-            <ListItemText className={classes.listItemText} primary="Complete"  />
+            <ListItemText disableTypography className={classes.listItemText} primary="Complete"  />
           </ListItem>
         
       
@@ -110,13 +110,13 @@ export default function NestedList() {
         <ListItemIcon>
           <DraftsOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
-        <ListItemText className={classes.listItemText} primary="Mailbox" />
+        <ListItemText disableTypography className={classes.listItemText} primary="Mailbox" />
       </ListItem>
       <ListItem button component={Link} to="/myinfo">
         <ListItemIcon>
           <PersonOutlineOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
         </ListItemIcon>
-        <ListItemText className={classes.listItemText} primary="My info" />
+        <ListItemText disableTypography className={classes.listItemText} primary="My info" />
       </ListItem>
     </List>
   );

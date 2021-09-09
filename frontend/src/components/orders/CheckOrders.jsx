@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
-    
+    fontFamily: 'Open Sans',
   },
   inline: {
     fontSize: '11px',
     display: 'flex',
+    fontFamily: 'Open Sans',
   },
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     fontSize: '14px',
     fontWeight:'bold',
-    
+    fontFamily: 'Open Sans',
     
   },
   btnSendMsg: {
@@ -40,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     right: '1px',
     fontSize: '13px',
-    fontWeight: '400',
+    fontWeight: '500',
+    textTransform: 'none',
     justifyContent: 'space-between',
     marginTop: '10px',
     marginLeft: '-20px',
@@ -99,13 +101,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     lineHeight: '17px',
     marginLeft: '-13px',
+    fontFamily: 'Open Sans',
   },
   listItemTextTotal:{
     fontSize:'11px',//Insert your required size
     color: 'black',
     fontWeight: 'bold',
     marginLeft: '-13px',
-
+    fontFamily: 'Open Sans',
   },
   listItemTextIcon:{
     height:'14px',
@@ -123,12 +126,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '-60px',
     fontWeight: '700',
     marginLeft: '20px',
-
+    fontFamily: 'Open Sans',
   },
   profileReputation: {
     fontSize: '14px',
     height: '19px',
-    
+    fontFamily: 'Open Sans',
   },
   txtReputation: {
     color: 'black',
@@ -308,7 +311,7 @@ export default function AlignItemsList() {
       </Grid>
       <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
-            <ListItemText disableTypography primary="Seller Information"/>
+            <ListItemText disableTypography style={{marginTop:'0.65rem', marginBottom: '-0.3rem'}} primary="Seller Information"/>
              
           </ListItem>
           <ListItem  style={{justifyContent: 'space-around', height: '100px'}}>

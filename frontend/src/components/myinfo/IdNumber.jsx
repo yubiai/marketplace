@@ -11,31 +11,37 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
-    display: "flex"
+    display: "flex",
+    fontFamily: 'Open Sans',
   },
   btnSave: {
     display: "flex",
     alignItems: "center",
     left: "-75px",
-    justifyContent: "space-around",
     marginLeft: "auto",
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
     backgroundColor: "#FCB877",
+    fontFamily: 'Open Sans',
+    outline: 'none !important',
     color: "#fff",
-    minWidth: "50px",
-    maxWidth: "50px",
+    fontWeight: '500',
+    textTransform: 'none',
+    minWidth: "60px",
+    maxWidth: "60px",
+    justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }
   },
   dialogContent: {
-    
-    marginTop: "-1rem"
+    fontFamily: 'Open Sans',
+    marginTop: "-1.5rem"
   },
 }));
 
@@ -60,8 +66,8 @@ export default function IdNumber() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Id Number</DialogTitle>
-        <DialogContent className={classes.dialogContent}>
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}} id="form-dialog-title">Modify ID Number</DialogTitle>
+        <DialogContent  className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
@@ -71,7 +77,7 @@ export default function IdNumber() {
             fullWidth
           />
         </DialogContent>
-        <DialogContentText>
+        <DialogContentText disableTypography style={{fontSize:'12.3px', fontFamily: 'Open Sans', fontWeight:'regular', marginLeft:'1rem', marginRight:'1rem', paddingRight:'0.5rem',paddingLeft:'0.5rem'}}>
           Please note that in order to receive shipments you must use a valid ID number.
         </DialogContentText>
         <DialogActions>

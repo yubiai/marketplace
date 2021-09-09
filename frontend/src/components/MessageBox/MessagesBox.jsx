@@ -9,6 +9,7 @@ import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
 import BreadcrumbA from './BreadcrumbA';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -19,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       width: "80vw",
       height: "80vh",
-      maxWidth: "1060px",
-      maxHeight: "500px",
+      maxWidth: "894px",
+      maxHeight: "392px",
       display: "flex",
       alignItems: "center",
       flexDirection: "column",
       position: "relative",
-      marginLeft: '10px',
-      borderRadius: '20px',
+      marginLeft: '1.75rem',
+      borderRadius: '0px 0px 10px 10px',
     },
     link: {
       display: 'flex',
@@ -69,19 +70,32 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'left',
       left: '10px',
       justifyContent: 'left',
-      marginLeft: '1px',
+      marginLeft: '1.25rem',
       marginBottom: '-10px',
       width: '43px',
       height: '43px',
        
     },
     listItemText: {
+      fontFamily: 'Open Sans',
       marginTop: '-5px',
       fontWeight: 'bold',
       marginLeft: '5px',
       fontSize: '21px',
   
     },
+    profileBackground:{
+      width: '%100',
+      maxWidth: '894px',
+      minWidth:'894px',
+      height: '%100',
+      maxHeight: '67px',
+      minHeight: '67px',
+      marginLeft: '1.75rem',
+      background: '#F5F5F5 0% 0% no-repeat padding-box',
+      borderRadius: '10px 10px 0px 0px',
+      opacity: 1,
+    }
   })
 );
 
@@ -96,8 +110,8 @@ export default function MessagesBox(props) {
 
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-      <BreadcrumbA handleClick={handleClick} classes={classes} location={props.location} />
-      <ListItem >
+      <BreadcrumbA  handleClick={handleClick} classes={classes} location={props.location} />
+      <ListItem className={classes.profileBackground} >
             <ListItemAvatar>
                       <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-10px'}} src={profileImage.default} />
             </ListItemAvatar>

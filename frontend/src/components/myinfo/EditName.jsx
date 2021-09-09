@@ -11,31 +11,40 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
-    display: "flex"
+    display: "flex",
+    fontFamily: 'Open Sans',
   },
   btnSave: {
     display: "flex",
     alignItems: "center",
     left: "-75px",
-    justifyContent: "space-around",
+    fontWeight: '500',
+    textTransform: 'none',
+    minWidth: "60px",
+    maxWidth: "60px",
+    justifyContent: "space-evenly",
     marginLeft: "auto",
+    outline: 'none !important',
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
     backgroundColor: "#FCB877",
     color: "#fff",
-    minWidth: "50px",
-    maxWidth: "50px",
+    fontFamily: 'Open Sans',
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }
   },
   dialogContent: {
-    
-    marginTop: "-1rem"
+    fontFamily: 'Open Sans',
+    marginTop: "-1.5rem",
+    fontSize:'18px',
+    fontWeight:'light'
+
   },
 }));
 
@@ -60,8 +69,8 @@ export default function EditName() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Name</DialogTitle>
-        <DialogContent className={classes.dialogContent}>
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}} id="form-dialog-title">Modify Name</DialogTitle>
+        <DialogContent disableTypography className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
@@ -79,7 +88,7 @@ export default function EditName() {
             fullWidth
           />
         </DialogContent>
-        <DialogContentText>
+        <DialogContentText disableTypography style={{fontSize:'12.3px', fontFamily: 'Open Sans', fontWeight:'regular', marginLeft:'1rem', marginRight:'1rem', paddingRight:'0.5rem',paddingLeft:'0.5rem'}}>
           Please note that in order to receive shipments you must use your real
           name.
         </DialogContentText>

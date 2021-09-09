@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import VisibilityIcon from '@material-ui/icons/Visibility';
+// import VisibilityIcon from '@material-ui/icons/Visibility';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    fontFamily: 'Open Sans',
+    
   },
   productImage: {
     width: "150px",
@@ -46,6 +48,15 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "-1rem",
     
   },
+  moreVertIcon:{
+    outline: 'none',
+  '&:hover, &:focus, &:active': {
+    outline: 'none',
+  },
+  '&:hover': {
+    backgroundColor: 'white',
+  },
+  }
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -74,13 +85,14 @@ const ItemCard = ({ title, price, image }) => {
               onClick={handleClick}
               aria-haspopup="true"
               aria-controls="more-menu"
+              className={classes.moreVertIcon}
             >
-              <MoreVertIcon />
+              <MoreVertIcon  />
             </IconButton>
           }
           
         />
-        <VisibilityIcon className={classes.saveWatchilist}/>
+        {/* <VisibilityIcon className={classes.saveWatchilist}/> */}
           
               
             
@@ -117,10 +129,10 @@ const ItemCard = ({ title, price, image }) => {
           alt="Prdct1"
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textSecondary" component="p">
             {title}
           </Typography>
-          <Typography variant="body2" color="textPrimary" component="p">
+          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textPrimary" component="p">
             {price} UBI
           </Typography>
         </CardContent>

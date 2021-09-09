@@ -10,31 +10,37 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
-    display: "flex"
+    display: "flex",
+    fontFamily: 'Open Sans',
   },
   btnSave: {
     display: "flex",
     alignItems: "center",
     left: "-75px",
-    justifyContent: "space-around",
     marginLeft: "auto",
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
+    fontFamily: 'Open Sans',
     backgroundColor: "#FCB877",
     color: "#fff",
-    minWidth: "50px",
-    maxWidth: "50px",
+    fontWeight: '500',
+    textTransform: 'none',
+    outline: 'none !important',
+    minWidth: "60px",
+    maxWidth: "60px",
+    justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
+      outline: 'none !important',
       color: "#008968",
       backgroundColor: "transparent"
     }
   },
   dialogContent: {
-    
-    marginTop: "-1rem"
+    fontFamily: 'Open Sans',
+    marginTop: "-1.5rem"
   },
 }));
 
@@ -59,7 +65,7 @@ export default function TelHandle() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Modify Telegram handle</DialogTitle>
+        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}} id="form-dialog-title">Modify Telegram handle</DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus

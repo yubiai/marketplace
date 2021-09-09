@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 const useStyles = makeStyles((theme) => ({
     moreIconDots:{
-        display: "inherit",
+        display: "inline-flex",
         alignItems: "inherit",
         justifyContent: "inherit",
         marginLeft: "inherit",
@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function LongMenu() {
+export default function ShortMenu() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const options = ["Delete Chat", "Seller Information"];
+  const options = ["Pause Sell", "Sell a similar item"];
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -41,7 +41,7 @@ export default function LongMenu() {
   };
 
   return (
-    <div >
+    <div style={{width:50, maxBlockSize: '50px', display: 'inline-block', paddingRight: '20px'}} >
       <IconButton
         aria-label="more"
         aria-controls="long-menu"

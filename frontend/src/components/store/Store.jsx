@@ -27,8 +27,8 @@ const useStyles = makeStyles({
   gridTitle: {
     padding: "30px 0 30px 0",
     color: "#727272",
-    fontFamily: "Open Sans, Light",
-    fontWeight: "light",
+    fontFamily: "Open Sans",
+    fontWeight: "300",
     fontSize: "19px",
     marginTop: "-20px",
     marginBottom: "-10px",
@@ -77,7 +77,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     <Container maxWidth="lg">
       <div className="row" >
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
-        <span className={classes.gridTitle}>
+        <span  className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
         <Grid container spacing={2}>

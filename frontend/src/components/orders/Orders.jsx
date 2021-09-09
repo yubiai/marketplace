@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',
   },
   link: {
     display: 'flex',
     fontSize: '14px',
     color: '#000000',
+    fontFamily: 'Open Sans',
     textDecorationColor: 'transparent',
     marginLeft: '0.75rem',
     marginBottom: '0.5rem',
@@ -47,9 +48,10 @@ const useStyles = makeStyles((theme) => ({
   btnCheckOrder: {
     display: 'flex',
     alignItems: 'center',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     right: '2rem',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -68,7 +70,8 @@ const useStyles = makeStyles((theme) => ({
   btnBuyAgain: {
     display: 'flex',
     right: '2rem',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textTransform: 'none',
     top: '-3.5rem',
     alignItems: 'center',
     justifyContent: 'center',
@@ -123,7 +126,8 @@ export default function AlignItemsList() {
            
         </ListItemAvatar>
         <ListItemText
-          primary="Delivered on 11th of august"
+          disableTypography
+          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -154,7 +158,7 @@ export default function AlignItemsList() {
           <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary="Delivered on 11th of august"
+          primary={<b> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -184,7 +188,7 @@ export default function AlignItemsList() {
         <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary="Delivered on 11th of august"
+          primary={<b> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography

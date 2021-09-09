@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',
   },
   btnMyProfile: {
     display: 'flex',
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '150px',
     maxWidth: '150px',
-     
+    boxShadow: '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -68,13 +68,19 @@ const useStyles = makeStyles((theme) => ({
   imageUbi: {
     width: '17px',
     height: '17px',
+    marginLeft: '1.4rem',
+    marginRight:'-1rem',
+    paddingBottom: '3px',
  },
   infoClass: {
+    outline: 'none !important',
     '&:hover': {
+        outline: 'none !important',
         borderBottom: 'none',
         color: '#008968',
         backgroundColor: 'transparent',
         textDecoration: 'none',
+        fontFamily: 'Open Sans',
     }
   },
   listItemTextIcon:{
@@ -97,13 +103,15 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '20px',
     fontSize: '18px',
     marginTop: '2rem',
+    fontFamily: 'Open Sans',
+    color:'black',
   },  
 }));
 
 export default function AlignItemsList() {
   const classes = useStyles();
   const profileImage = require("../../media/vbuterin.png");
-  const ubiImage = require("../../media/logoubi.png")
+  const ubiImage = require("../../media/ubi2.svg");
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -119,14 +127,14 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
     
-    <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray"  }}>My Info</h4></Typography>
-    <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px" }}>Proof of humanity information</h4></Typography>
+    <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray", marginLeft:'0.75rem'  }}>My Info</h4></Typography>
+    <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginLeft:'0.75rem' }}>Proof of humanity information</h4></Typography>
     <Grid container spacing={1}
           variant="fullWidth"
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'8px', height:'117px', marginLeft:'0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={profileImage.default} />
@@ -153,8 +161,9 @@ export default function AlignItemsList() {
               </div>
               
               <ListItemAvatar>
+               <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} /> 
                <div style={{display:"inline-flex", marginLeft: '20px'}}>{" UBI-s dripped"} </div>
-                <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
+                
               {/* apuntar backend side ubi dripped */}
              </ListItemAvatar>
               
@@ -170,8 +179,8 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       <div style={{display:"inline-flex"}}>
-      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px" }}>Personal and shipping information</h4></Typography>
-      <Tooltip className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
+      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px", marginLeft:'0.75rem' }}>Personal and shipping information</h4></Typography>
+      <Tooltip disableTypography className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
                     <IconButton aria-label="info">
                     <InfoOutlinedIcon />
                     </IconButton>
@@ -181,7 +190,7 @@ export default function AlignItemsList() {
     direction="row"  
   justifyContent="left"
   alignItems="left" style={{marginTop: '10px', marginLeft: '2px'}}>  
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px'}} >
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px', marginLeft:'0.75rem'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
             secondary={
