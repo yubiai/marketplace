@@ -15,6 +15,7 @@ import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
+import DummyCheckout from "./components/checkout/DummyCheckout";
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -86,7 +87,11 @@ function App() {
                 <ProfileView />
               </Layout>
             </Route>
-
+            <Route path="/dummy-checkout">
+              <Layout>
+                <DummyCheckout />
+              </Layout>
+            </Route>
             <Route path="/">
               <Store
                 paymentProcessor={paymentProcessor}
