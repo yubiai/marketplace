@@ -86,6 +86,7 @@ export const TextInput = () => {
     const classes = useStyles();
     return (
         <>
+             {/* connect to backend endpoint db  */}
             <form className={classes.wrapForm}  noValidate autoComplete="off">
             <label htmlFor="upload-photo">
                 <input
