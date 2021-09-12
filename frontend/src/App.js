@@ -8,6 +8,7 @@ import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import ProfileView from "./components/profile/Profile";
 import MessagesBox from './components/MessageBox/MessagesBox';
+import Chat from './components/MessageBox/Chat.jsx'
 import Mailbox from './components/mailbox/Mailbox';
 import OrdersView from "./components/orders/Orders";
 import GlobalStyle from "./globalStyles";
@@ -88,6 +89,11 @@ function App() {
             <Route path="/salescompletedetails">
               <Layout>
                 <SalesCompleteDetails />
+              </Layout>
+            </Route>
+            <Route path="/chat">
+              <Layout>
+                <Chat />
               </Layout>
             </Route>
             <Route path="/mailbox">
