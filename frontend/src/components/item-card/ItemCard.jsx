@@ -55,8 +55,54 @@ const useStyles = makeStyles((theme) => ({
   },
   '&:hover': {
     backgroundColor: 'white',
+    },
   },
-  }
+  menuIcons: {
+    height: '40px',
+    width: '45px',
+    outline: 'none',
+    padding: 'fit-content',
+    margin: 'fit-content',
+  '&:hover, &:focus, &:active': {
+    outline: 'none',
+  },
+  '&:hover': {
+    backgroundColor: 'white',
+    },
+  },  
+  iconCart: {
+    marginTop:'0.5rem',
+    paddingTop: '0rem',
+    paddingBottom:'-1rem',
+    // marginBottom:'-3rem',
+    marginLeft:'-1rem',
+    backgroundColor: 'transparent',
+    outline: 'none',
+    '&:hover, &:focus, &:active': {
+      outline: 'none',
+    },
+  },
+  iconFav: {
+    marginTop:'-1.5rem',
+    paddingTop: '-1rem',
+    // marginBottom:'-2rem',
+    paddingBottom: '0rem',
+    marginLeft:'-1rem',
+    outline: 'none',
+    '&:hover, &:focus, &:active': {
+      outline: 'none',
+    },
+  },
+  iconShare: {
+    marginTop:'-3rem',
+    marginBottom:'-2.5rem',
+    marginLeft:'-1rem',
+    paddingBottom: '-2rem',
+    outline: 'none',
+    '&:hover, &:focus, &:active': {
+      outline: 'none',
+    },
+  },
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -93,31 +139,27 @@ const ItemCard = ({ title, price, image }) => {
           
         />
         {/* <VisibilityIcon className={classes.saveWatchilist}/> */}
-          
-              
-            
-          
-          
-        
         <Menu
           id="more-menu"
           anchorEl={anchorEl}
           keepMounted
           onClose={handleClose}
           open={Boolean(anchorEl)}
+          
         >
-          <MenuItem onClick={handleClose}>
-            <IconButton aria-label="add to cart">
+          <MenuItem onClick={handleClose} className={classes.menuIcons}  >
+            <IconButton aria-label="add to cart" className={classes.iconCart} >
               <AddShoppingCartIcon />
             </IconButton>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <IconButton aria-label="add to favorites">
+          <MenuItem onClick={handleClose} className={classes.menuIcons}>
+            <IconButton aria-label="add to favorites" className={classes.iconFav}
+            >
               <FavoriteIcon />
             </IconButton>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <IconButton aria-label="share">
+          <MenuItem onClick={handleClose} className={classes.menuIcons}>
+            <IconButton aria-label="share" className={classes.iconShare}>
               <ShareIcon />
             </IconButton>
           </MenuItem>
