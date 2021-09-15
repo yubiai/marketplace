@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set $(type .env | xargs) && env && cross-env NODE_ENV=production node server.js",
-    "dev": "export $(cat .env | xargs) && env && cross-env NODE_ENV=development nodemon server.js",
+    "start": "set $(type .env) && env && cross-env NODE_ENV=production node server.js",
+    "dev": "export $(cat .env) && env && cross-env NODE_ENV=development nodemon server.js",
+    "windows" : "set $(type .env) && cross-env NODE_ENV=development nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
