@@ -34,7 +34,7 @@ async function getProfile(req, res, _) {
 
 async function login(req, res, next) {
     // FIXME: Replace to { ...req.body }; on const { walletAddress }
-    const walletAddress = '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c'
+    const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4'
     try {
         const response = await checkProfileOnPOH(walletAddress);
         if (response) {

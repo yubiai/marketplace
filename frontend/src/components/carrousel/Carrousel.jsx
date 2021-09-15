@@ -1,7 +1,8 @@
 import React, { useState, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
-
+import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
+import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import Wrapper from "./Wrapper";
 import CarrouselContainer from "./CarrouselContainer";
 import CarrouselSlot from "./CarrouselSlot";
@@ -12,26 +13,63 @@ const useStyles = makeStyles({
     padding: "100px",
     backgroundImage: "",
     backgroundSize: "cover",
+    position: "relative",
+    
   },
 
-  slidebutton: {
-    color: "#ffffff",
-    fontFamily: "Open Sans",
-    fontSize: "16px",
-    fontWeight: "100",
-    padding: "10px",
-    backgroundColor: "#f66f3e",
-    border: "1px solid white",
+  slidebuttonLeft: {
+    color: "#FFB978",
     textDecoration: "none",
+    padding: "-10px",
+    paddingLeft: "-10px",
+    paddingRight: "1px",
     display: "inline-block",
     cursor: "pointer",
-    marginTop: "20px",
+    position: "relative",
+    top: '-170px',
+    marginTop: "5px",
+    left: '0.7rem',
+    boxShadow: "0px 3px 6px #00000029",
+    opacity: "1",
+    width: "45px",
+    height: "45px",
     textDecoration: "none",
-    //float: props.float,
+    background: "#FFFFFF",
+    borderRadius: "40px",
+    float: "left",
 
     "&:active": {
       position: "relative",
-      top: "1px",
+      top: "-169px",
+      
+    },
+    "&:focus": {
+      outline: "0",
+    },
+  },
+  slidebuttonRight: {
+    background: "#FFFFFF",
+    color: "#FFB978",
+    textDecoration: "none",
+    padding: "-10px",
+    paddingRight: "-5px",
+    right: "3.7rem",
+    display: "inline-block",
+    cursor: "pointer",
+    position: "relative",
+    top: '-170px',
+    marginTop: "5px",
+    boxShadow: "0px 3px 6px #00000029",
+    opacity: "1",
+    width: "45px",
+    height: "45px",
+    textDecoration: "none",
+    borderRadius: "40px",
+    float: "right",
+
+    "&:active": {
+      position: "relative",
+      top: '-169px',
     },
     "&:focus": {
       outline: "0",
@@ -106,20 +144,14 @@ const Carrousel = (props) => {
           ))}
         </CarrouselContainer>
 
-        <button
-          className={classes.slidebutton}
+        <KeyboardArrowLeftRoundedIcon
+          className={classes.slidebuttonLeft}
           onClick={() => slide(PREV)}
-          float="left"
-        >
-          Anterior
-        </button>
-        <button
-          className={classes.slidebutton}
+        ></KeyboardArrowLeftRoundedIcon>
+        <KeyboardArrowRightRoundedIcon
+          className={classes.slidebuttonRight}
           onClick={() => slide(NEXT)}
-          float="right"
-        >
-          Siguiente
-        </button>
+        ></KeyboardArrowRightRoundedIcon>
       </Wrapper>
     </div>
   );

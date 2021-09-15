@@ -1,7 +1,7 @@
 import React from "react";
 import { ethers } from "ethers";
 import axios from "axios";
-
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
 import Container from "@material-ui/core/Container";
@@ -23,7 +23,22 @@ const ITEMS = [
   },
 ];
 
+const useStyles = makeStyles({
+  gridTitle: {
+    padding: "30px 0 30px 0",
+    color: "#727272",
+    fontFamily: "Open Sans",
+    fontWeight: "300",
+    fontSize: "19px",
+    marginTop: "-20px",
+    marginBottom: "-10px",
+    marginLeft: "1.5rem",
+  },
+});
+
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
+  const classes = useStyles();
+
   const buy = async (item) => {
     const response1 = await axios.get(
       `${API_URL}/api/items/getPaymentId/${item.id}`
@@ -60,18 +75,20 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
   return (
     <Container maxWidth="lg">
-      <div className="row">
+      <div className="row" >
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
-        <h4>Last items posted on the marketplace </h4>
+        <span  className={classes.gridTitle}>
+          Last items posted on the marketplace.{" "}
+        </span>
         <Grid container spacing={2}>
-          {/* Esta es para el spacing */}
+          {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">
          <ArrowBackIosIcon  />
          </IconButton>
         </Grid> */}
 
-          <Carrousel>
+          <Carrousel >
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />
@@ -81,7 +98,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
-        <h4>Items on your watch list </h4>
+        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
         <Grid container spacing={2}>
           <Carrousel>
             <ItemCard title={"Producto 1"} price={"5000"} />
@@ -93,6 +110,19 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </Carrousel>
         </Grid>
 
+        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>
+          Last items you've watched on Health and household.{" "}
+        </span>
+        <Grid container spacing={2} style={{marginBottom: '-50px'}}>
+          <Carrousel>
+            <ItemCard title={"Producto 1"} price={"5000"} />
+            <ItemCard title={"Producto 2"} price={"2300"} />
+            <ItemCard title={"Producto 3"} price={"235"} />
+            <ItemCard title={"Producto 4"} price={"1400"} />
+            <ItemCard title={"Producto 5"} price={"65789"} />
+            <ItemCard title={"Producto 6"} price={"5"} />
+          </Carrousel>
+        </Grid>
         {/* <ul className="list-group">{newList}</ul> */}
       </div>
     </Container>

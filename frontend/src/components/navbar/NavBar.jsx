@@ -30,10 +30,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import axios from 'axios';
 import { setupEthState } from '../../ethereum';
+import { saveLoginInfo, getLoginInfo } from '../../utils/loginInfo';
 
 const API_URL = 'http://localhost:4000';
-let name = "Manuel Rodríguez Roldán";
-  let ubisAmmount = "720.55 dripped on address";
+let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
+  let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
 const useStyles = makeStyles((theme) => ({
     // container: {
     //     display: 'flex',
@@ -71,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
         fontSize: '15px',
+        font: 'Open Sans, sans serif, regular !important',
         color: '#fff',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
@@ -78,13 +80,15 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#008968',
+            textDecorationColor: 'transparent', 
           }
     },
     listItemTextc: {
         display: 'flex',
-        fontSize: '12px',
+        fontSize: '16px',
         color: '#fff',
+        font: 'Open Sans, sans serif, regular !important',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
         paddingTop: '1px',
@@ -100,11 +104,14 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         color: '#fff',
         marginLeft: '7rem',
+        fontFamily: 'Open Sans',
+        fontWeight: 'bold',
         textDecorationColor: 'transparent',
         alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#008968',
+            textDecorationColor: 'transparent', 
           }
     },
     notificon: {
@@ -126,31 +133,43 @@ const useStyles = makeStyles((theme) => ({
     connect: {
         fontSize: '14px',
         color: '#FCB877',
+        fontWeight: '500',
+        textTransform: 'none',
+        justifyContent: "space-evenly",
         background: 'white',
         borderRadius : 20,
         marginLeft: '1rem',
         textAlign: 'center',
+        outline: 'none',
         '&:hover': {
+            outline: 'none',
             borderBottom: 'none',
             color: 'white',
             background: '#FCB877', 
-          }
+          },
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+          },  
     },
     listItemText: {
         color: '#000000',
+        fontFamily: 'Open Sans',
+        fontSize: '13px',
         textDecorationColor: 'transparent',
         '&:hover': {
                 borderBottom: 'none',
                 color: '#008968', 
               }
     
-      },
+      
+    },
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
         color: '#000000',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
+        
     },
     linkmenuicon: {
         display: 'flex',
@@ -161,6 +180,7 @@ const useStyles = makeStyles((theme) => ({
     search: {
         position: 'relative',
         color: 'black',
+        boxShadow: '0px 3px 6px #00000029',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 1),
         '&:hover': {
@@ -169,27 +189,47 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
+        maxWidth: '530px',
+        minWidth:'530px',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
         },
     },
     searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
+        borderLeft: '1px solid #727272',
+        borderRadius: '0px',
+        marginTop: '-8.5px',
+        height: '20px',
+        marginRight: '-15px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+        color:'#727272',
+        backgroundColor: 'transparent',
+        paddingTop: '-0.65rem',
+        paddingLeft: '-2.5rem',
+        position: 'absolute',
+        right: -5,
+        top: '15px',
+        maxwidth: '13px',
+        minWidth: '13px',
+        outline: 'none',
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+            backgroundColor: 'transparent',
+        },
+        '&:hover': {
+            backgroundColor: 'transparent',
+        }
+},
     inputRoot: {
         color: 'inherit',
+        
     },
     inputInput: {
+        fontWeight: 'light !important',
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        paddingLeft: `calc(-1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
@@ -213,18 +253,34 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:'red',
     },
     avatar:{
-        marginLeft:'20px',
-        marginTop:'10px', 
+        
+        marginLeft:'15px',
+        marginTop:'-1.5rem',
+        marginBottom: '1rem',
+        width: '47px',
+        height: '47px',
+        top: '1.8rem',
+         
     },
     nameMenu:{
-        display:'inline',
-        fontSize:'15px',
-        padding:'15px', 
+        display:'inline-block',
+        fontSize:'14px',
+        padding: '-15px',
+        fontFamily: 'Open Sans',
+        fontWeight: 'bold',
+        marginTop: '-2rem',
+        marginLeft: '0.5rem',
+        marginBottom: '-2rem',
     },
     ubiAmmount:{
         display:'block',
+        color: '#939292',
         fontSize:'12px',
+        fontFamily: 'Open Sans',
+        marginTop: '-0.5rem',
+        marginLeft: '-0.2rem',
         marginRight:'10px',
+        marginBottom: '1rem'
     },
     ubiIcon:{
         width: '17px',
@@ -233,8 +289,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function _formatWalletAddress(address) {
-    return address.substr(0, 8);
+function _formatWalletAddress(address='') {
+    return address ? address.substr(0, 8) : '';
 }
 export default function NavBar() {
     const classes = useStyles();
@@ -282,6 +338,11 @@ export default function NavBar() {
                     setWalletAddress(resp.data.eth_address);
                     setToken(resp.data.token);
                     setProfileInfo({...resp.data});
+                    // Save token and wallet on sessionStorage
+                    saveLoginInfo(resp.data.token, resp.data.eth_address, {
+                        display_name: resp.data.display_name,
+                        photo: resp.data.photo
+                    });
                 });
             });
         }
@@ -295,6 +356,14 @@ export default function NavBar() {
     setCategoriesAnchorEl(null);
     setLanguageAnchorEl(null);
     setProfileAnchorEl(null);
+  };
+  const disconnect = () => {
+    setWalletAddress('');
+    setToken('');
+    setProfileInfo({});
+    // Save token and wallet on sessionStorage
+    saveLoginInfo('', '', {});
+    handleClose();
   };
     const profile = 'profile-menu';
     const renderMenu = (
@@ -310,16 +379,21 @@ export default function NavBar() {
             TransitionComponent={Fade}
         >
             <ListItemIcon>
-            <Avatar src={profileInfo.photo || profileImage.default} profileImage className={classes.avatar} />
+            <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
+            <Typography   className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>          
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-            <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component="a" href='https://resolve.kleros.io/' target="_blank">Kleros Dispute Resolver</MenuItem>
+            {
+                token && 
+                <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
+            }
         </Menu>
     );
     const categories = 'categories-menu';
@@ -333,11 +407,12 @@ export default function NavBar() {
             keepMounted
             open={Boolean(categoriesMenuOpen)}
             onClose={handleClose}
+            
             >
-            <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
-            <MenuItem onClick={handleClose}>Automotive</MenuItem>
-            <MenuItem onClick={handleClose}>Appliances</MenuItem>
-            <MenuItem onClick={handleClose}>VideoGames</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Arts & Crafts</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Automotive</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Appliances</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>VideoGames</MenuItem>
                     </Menu>
                                 );
         const language = 'language-menu';
@@ -358,10 +433,11 @@ export default function NavBar() {
             open={Boolean(languageMenuOpen)}
             onClose={handleClose}
             >
-            <MenuItem onClick={handleClose}>EN</MenuItem>
-            <MenuItem onClick={handleClose}>ES</MenuItem>
-            <MenuItem onClick={handleClose}>PT</MenuItem>
-            <MenuItem onClick={handleClose}>FR</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>English</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Español</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Português</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Française</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Deutsche</MenuItem>
             </Menu>
             );
     const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -460,6 +536,19 @@ export default function NavBar() {
             </MenuItem>
         </Menu>
     );
+
+    const { jwtToken, savedWallet, profileData } = getLoginInfo();
+    useEffect(() => {
+        const init = async () => {
+            if (jwtToken && savedWallet) {
+                setToken(jwtToken);
+                setWalletAddress(savedWallet);
+                setProfileInfo(profileData);
+            }
+        }
+        init();
+      }, [])
+
     return (
             <div className={classes.container}>
                 <Router>
@@ -475,7 +564,9 @@ export default function NavBar() {
             {/* Caja de Busqueda */}
             <div className={classes.search}>
                             <div className={classes.searchIcon}>
-                                <SearchIcon />
+                                <Button style={{outline:'none', backgroundColor:'transparent'}}>
+                                    <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
+                                </Button>    
                             </div>
                             <InputBase
                                 placeholder="Search for goods, services or anything you need..."
@@ -495,14 +586,14 @@ export default function NavBar() {
         </Grid>
         {/* Second row */}
         <Grid item sm={3} xs={6}>
-        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to Buenos Aires
+        <LocationOnOutlinedIcon style={{width: '21px', height: '30px',marginTop: '-3px'}}></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
         </Grid>
         <Grid item sm={7} xs={6}>
         <div className={classes.container} />
         <div className={classes.sectionDesktop}>
                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                                <Typography className={classes.link}  noWrap>  
-                                <ListItemText className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                <Typography disableTypography className={classes.link}  noWrap>  
+                                <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                                 </ListItemText>
                                 <Link className={classes.link} to="/sell" >Sell  

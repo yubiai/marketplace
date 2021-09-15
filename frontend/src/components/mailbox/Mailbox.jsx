@@ -11,6 +11,7 @@ import { Link }  from 'react-router-dom';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
+import LongMenu from './LongMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -28,17 +29,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',  
   },
   listItemText:{
-       
+    fontFamily: 'Open Sans',   
     marginLeft: '20px',
   },
   btnChat: {
     display: 'flex',
     alignItems: 'center',
     right: '1px',
-    justifyContent: 'space-between',
+    fontWeight: '500',
+    textTransform: 'none',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -46,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',  
-    top: '-4rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
@@ -58,12 +60,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginTop: '-0.75rem',
+    marginLeft: '0.4rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent',  
       }
 },
   image: {
@@ -84,11 +90,15 @@ const useStyles = makeStyles((theme) => ({
     color: '#D9461E',
     height: '12px',
   },
-  moreIconDots:{
-    color: 'black',
-    marginLeft: '1000px',
-    marginTop: '-80px',
-
+  buttonThreeDots: {
+    outline: 'none',
+    display:'inline-flex',
+    '&:hover, &:focus, &:active': {
+    outline: 'none !important',
+    },
+    '&:hover': {
+      backgroundColor: 'white',
+    }
   },
 }));
 
@@ -99,12 +109,25 @@ export default function AlignItemsList() {
   const handleClick = () => {
     setOpen(!open);
   };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Typography variant="h2"><h3 style={{ fontWeight: "bold", fontSize: "20px" }}>Mailbox</h3></Typography>
+      <Breadcrumbs separator="›" aria-label="breadcrumb">
+        <Link className={classes.link}  to="/mailbox"  onClick={handleClick}>
+        Mailbox
+        </Link>
+        
+      </Breadcrumbs>
+          
     
     
     <Grid container spacing={1}
@@ -112,15 +135,16 @@ export default function AlignItemsList() {
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -132,28 +156,32 @@ export default function AlignItemsList() {
                10.000 UBI
               </Typography>
               
-              {" Available"}
+              <l style={{fontWeight:'200'}}>{" Available"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
                 
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon  className={classes.buttonThreeDots}   component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </ListItem>       
             </React.Fragment>
           }
         />
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
       <ListItem alignItems="flex-start" className={classes.listItem}>
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -164,27 +192,32 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" Paused"}
+              <l style={{fontWeight:'200'}}>{" Paused"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
+                
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </ListItem>    
             </React.Fragment>
           }
         />
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Canon EOS Rebel T7 EF-S 18-55mm"
+          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -195,12 +228,16 @@ export default function AlignItemsList() {
               >
                10.000 UBI
               </Typography>
-              {" Sold"}
+              <l style={{fontWeight:'200'}}>{" Sold"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
-                <Button className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
                 Chat
+                
                 </Button>
-                <MoreHorizSharpIcon className={classes.moreIconDots} />
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
+                    onClose={handleClose} />
+                </ListItem>      
             </React.Fragment>
           }
         />

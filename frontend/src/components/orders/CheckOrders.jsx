@@ -5,7 +5,6 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -13,25 +12,28 @@ import { Link }  from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import CallMadeOutlinedIcon from '@material-ui/icons/CallMadeOutlined';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
-    
+    fontFamily: 'Open Sans',
   },
   inline: {
     fontSize: '11px',
     display: 'flex',
+    fontFamily: 'Open Sans',
   },
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
   listItem: {
     borderRadius: '10px',
-
-    
+    fontSize: '14px',
+    fontWeight:'bold',
+    fontFamily: 'Open Sans',
     
   },
   btnSendMsg: {
@@ -39,9 +41,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     right: '1px',
     fontSize: '13px',
-    fontWeight: '550',
+    fontWeight: '500',
+    textTransform: 'none',
     justifyContent: 'space-between',
-    marginLeft: 'auto',
+    marginTop: '10px',
+    marginLeft: '-20px',
     marginBottom: '5px',
     borderRadius: '10px',
     backgroundColor: '#FCB877',
@@ -60,12 +64,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginLeft: '1.5rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent', 
       }
 },
   imageProfile: {
@@ -93,34 +100,103 @@ const useStyles = makeStyles((theme) => ({
     fontSize:'11px',//Insert your required size
     color: 'black',
     lineHeight: '17px',
+    marginLeft: '-13px',
+    fontFamily: 'Open Sans',
   },
   listItemTextTotal:{
     fontSize:'11px',//Insert your required size
     color: 'black',
     fontWeight: 'bold',
+    marginLeft: '-13px',
+    fontFamily: 'Open Sans',
   },
   listItemTextIcon:{
-    height:'15px',
-    color: '#FCB877',
+    height:'14px',
+    width: '11px',
+    color: 'white',
+    backgroundColor: '#FCB877',
+    borderRadius: '2px',
+    marginRight: '9px',
+    boxShadow: '0px 3px 6px #00000029',
     
   },
   profileName: {
+    fontSize: '16px',
+    height: '22px',
     marginTop: '-60px',
-    fontWeight: 'bold',
+    fontWeight: '700',
     marginLeft: '20px',
-
+    fontFamily: 'Open Sans',
   },
   profileReputation: {
-    marginTop: '10px',
-    marginRight: '220px',
-    height: '17px',
+    fontSize: '14px',
+    height: '19px',
+    fontFamily: 'Open Sans',
   },
   txtReputation: {
-    color: 'gray',
+    color: 'black',
+    fontWeight: 'light',
     fontSize: '12px',
-    justifyContent: 'space-between',
+    justifyContent: 'left',
     alignItems: 'left',
+    marginTop: '-25px',
+    
   },
+  starsReput: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '85px',
+    color: '#FCB877',
+    
+  },
+  starsReput2: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput3: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput4: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  },
+  starsReput5: {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    marginTop: '-50px',
+    marginLeft: '5px',
+    color: '#FCB877',
+    
+  }
 }));
 
 export default function AlignItemsList() {
@@ -139,11 +215,11 @@ export default function AlignItemsList() {
           
       
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/orders"  onClick={handleClick}>
+        <Link className={classes.link} style={{color: '#808080'}} to="/orders"  onClick={handleClick}>
           Orders
         </Link>
-        <Link className={classes.link} to="/checkorders" onClick={handleClick}>
-          Purchase status
+        <Link className={classes.link} style={{marginLeft: '-0.2rem'}} to="/checkorders" onClick={handleClick}>
+          Order details
         </Link>
       </Breadcrumbs>
     
@@ -152,11 +228,12 @@ export default function AlignItemsList() {
     direction="row"
     justifyContent="space-between"
     alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '10px', height:'67px' }}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
+      <Grid item xs={10} md={10} style={{backgroundColor: 'white', borderRadius:'10px', marginBottom:'4px', marginLeft: '2rem', height:'67px' }}>
+      <ListItem  className={classes.listItem} alignItems="flex-start">
         <ListItemText
-        //en primary va nombre del order item}
-          primary="Shoe Ricky Sarkany 400mm"
+          disableTypography
+          
+          primary="Shoe Ricky Sarkany 400mm"//aca va nombre del order item
           secondary={
             <React.Fragment>
               <Typography
@@ -164,10 +241,11 @@ export default function AlignItemsList() {
                 variant="body2"
                 className={classes.inline}
                 color="textPrimary"
+                style={{fontSize:"13px"}}
               >
-               
+               {" 1 item"}
               </Typography>
-              {" 1 item"}
+              
               <ListItemAvatar>
                   <img alt="{imgjson}" className={classes.imageOrder}  src={shoeImage.default} />
               </ListItemAvatar>
@@ -181,41 +259,49 @@ export default function AlignItemsList() {
       
     <Grid container spacing={0}
     direction="row"  
-  justifyContent="left"
-  alignItems="left" style={{marginTop: '10px', marginLeft: '7px'}}>  
-      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '165px'}} >
+   justifyContent="left"
+  alignItems="center" style={{marginTop: '10px', marginLeft: '1.8rem'}}>  
+      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'10px', height: '190px'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
-            primary="Transaction Details"
+            primary={
+              <React.Fragment >
+                <ListItemText disableTypography style={{fontSize: '14px', fontWeight:'bold', display: 'inline-flex'}} primary="Transaction Details"/>
+                <Breadcrumbs separator="›" aria-label="breadcrumb" style={{display: 'inline-flex'}}>
+                <span style={{marginLeft: '160px', fontSize: '13px', fontWeight: 'light'}}>from</span>
+                <span style={{fontSize: '13px'}}> to (address)</span>
+                </Breadcrumbs>
+              </React.Fragment>}
+            
             secondary={
               <React.Fragment>
-                <Typography
-                  component="span"
-                  variant="body2"
-                  className={classes.inline}
-                  color="textPrimary"
-                >
-                
-                </Typography>
-                {" Date"} <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
-                <ListItem style={{height: '18px'}}> 
+                <div style={{fontSize:"11px", fontWeight:"100"}}>
+                {/* change date to backend transaction json o como este conectado a la bd */}
+                {" Date  |"} <FileCopyOutlinedIcon className={classes.listItemTextIcon} /><CallMadeOutlinedIcon className={classes.listItemTextIcon} />
+                </div>
+                <ListItem style={{height: '18px', marginTop: '15px'}}> 
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Amount"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'330px'}} secondary="0.039 ETH"/>
                 </ListItem>
-                <Divider style={{backgroundColor: 'black'}}/>
-                <ListItem  style={{height: '18px'}} >
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee" />
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Transaction Fee"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'290px'}} secondary="0.016 ETH"/>
                 </ListItem>
                 <Divider style={{backgroundColor: 'black', height:'0.5px'}} />
-                <ListItem   style={{height: '18px'}}>
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Gas price" />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Gas price"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'340px'}} secondary="26 GWEI"/>
                 </ListItem>
                 <Divider  style={{backgroundColor: 'black', height:'0.5px'}}/>
-                <ListItem   style={{height: '18px'}}>
-                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce" />
+                <ListItem style={{height: '18px'}}> 
+                  <ListItemText classes={{secondary:classes.listItemText}} secondary="Nonce"   />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'350px'}} secondary="16"/>
                 </ListItem>
-                <Divider style={{backgroundColor: 'black'}}/>
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
                 <ListItem   style={{height: '18px'}}>
                   <ListItemText classes={{primary:classes.listItemTextTotal}} primary="Total" />
+                  <ListItemText classes={{secondary:classes.listItemText}} style={{justifyContent:'flex-end', marginLeft:'320px'}} secondary="0.040649 ETH"/>
                 </ListItem>
                 
               </React.Fragment>
@@ -223,33 +309,65 @@ export default function AlignItemsList() {
           />
         </ListItem>
       </Grid>
-      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '165px'}}>
+      <Grid item xs={5} md={5} style={{backgroundColor: 'white', borderRadius:'10px', marginLeft: '7px', height: '190px', justifyContent:'space-around', width:'30vw'}}>
           <ListItem className={classes.listItem} alignItems="flex-start">
-            <ListItemText primary="Seller Information"/>
+            <ListItemText disableTypography style={{marginTop:'0.65rem', marginBottom: '-0.3rem'}} primary="Seller Information"/>
              
           </ListItem>
-          <ListItem >
-            <ListItemAvatar>
-                      <img alt="{imgjson}" className={classes.imageProfile} style={{ marginTop: '-40px'}} src={profileImage.default} />
-            </ListItemAvatar>
-          
-            <ListItemText className={classes.profileName} primary="Vitalik Buterin"/>
-            
-            <ListItemText  className={classes.profileReputation} primary="Reputation"/>
-            
-            <Typography
-                  component="span"
-                  variant="contained"
-                  className={classes.txtReputation}
-                  
-                >
+          <ListItem  style={{justifyContent: 'space-around', height: '100px'}}>
+            <Grid xs={3} style={{height: '100%', flexBasis: 'auto'}}>
+              <ListItemAvatar style={{ margin: 0, width: '100%', height: '100%' }}>
+                <img alt="{imgjson}"
+                     className={classes.imageProfile}
+                     style={{
+                      marginTop: 0,
+                      width: 'auto',
+                      height: '100%',
+                      display: 'block'
+                    }}
+                     src={profileImage.default} />
+              </ListItemAvatar>
+            </Grid>
+            <Grid xs={9} style={{
+              height: '100%',
+              margin: '0 0.5rem',
+              justifyContent: 'center'
+            }}>
+              <ListItemText 
+            primary={
+              <React.Fragment >
+                <Breadcrumbs separator="›" aria-label="breadcrumb" style={{display: 'inline-flex'}}>
+                <ListItemText disableTypography style={{fontSize: '14px', fontWeight:'bold', display: 'inline-flex', color:'black'}} primary="Vitalik Buterin"/> <span style={{marginLeft: '1px',  fontSize: '13px', fontWeight: 'light' , display: 'inline-flex'}}>address</span>
+                </Breadcrumbs>
+              </React.Fragment>}/>
+            <ListItem style={{display: 'inline-block',  marginLeft: '-15px'}}>                
+              <ListItemText
+                    disableTypography 
+                    className={classes.profileReputation}
+                            style={{
+                              margin: '0 !important',
+                              marginTop: '-7px',
+
+                            }}
+                            primary="Reputation" /> <StarBorderOutlinedIcon className={classes.starsReput}/><StarBorderOutlinedIcon className={classes.starsReput2}/><StarBorderOutlinedIcon className={classes.starsReput3}/><StarBorderOutlinedIcon className={classes.starsReput4}/><StarBorderOutlinedIcon className={classes.starsReput5}/>
+            </ListItem>                
+              <ListItemText
+                    disableTypography
+                    component="span"
+                    display="inline-block"
+                    className={classes.txtReputation} style={{fontWeight: 'light',
+                    fontSize: '12px'}}>
                 2 sales in the last 90 days
-                </Typography>
-                
-            <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/messagesbox" primary="MessagesBox" >
-                    Send message
-             </Button>
-                   
+              </ListItemText> 
+              <Button className={classes.btnSendMsg} variant="contained" component={Link} to="/checkorders/messagesbox" primary="MessagesBox"
+                      style={{
+                        minWidth: 0,
+                        width: '150px',
+                        margin: '0.5rem 0',
+                        }}>
+                Send message
+              </Button>
+            </Grid>                   
           </ListItem>
        </Grid>
     </Grid>  

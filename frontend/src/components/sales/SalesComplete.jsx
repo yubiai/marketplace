@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import { Link }  from 'react-router-dom';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   inline: {
-    
+    fontFamily: 'Open Sans',
     display: 'flex',
   },
   
@@ -27,17 +27,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-
+    fontFamily: 'Open Sans',
   },
   listItemText:{
-       
+    fontFamily: 'Open Sans',   
     marginLeft: '20px',
   },
   btnDetails: {
     display: 'flex',
     alignItems: 'center',
-    right: '1px',
-    justifyContent: 'space-between',
+    right: '2rem',
+    fontWeight: '500',
+    textTransform: 'none',
+    justifyContent: 'space-evenly',
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
@@ -45,42 +47,29 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',  
-    top: '-4rem', 
+    top: '-2.5rem', 
     '&:hover': {
       borderBottom: 'none',
       color: '#008968',
       backgroundColor: 'transparent', 
     }  
   },
-  btnEdit: {
-    display: 'flex',
-    right: '1px',
-    top: '-4rem',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginLeft: 'auto',
-    borderRadius: '10px',
-    minWidth: '140px',
-    maxWidth: '140px',
-    backgroundColor: '#fef1e4',
-    color: '#FCB877',
-    '&:hover': {
-      borderBottom: 'none',
-      color: '#008968',
-      backgroundColor: 'transparent', 
-   }, 
-  },
+  
   link: {
     display: 'flex',
     fontSize: '14px',
     color: '#000000',
     textDecorationColor: 'transparent',
-    marginLeft: '0.1rem',
+    marginTop: '-0.03rem',
+    marginLeft: '0.4rem',
+    marginRight: '-0.75rem',
     justifyContent: 'space-evenly',
+    padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968', 
+        color: '#008968',
+        textDecorationColor: 'transparent',  
       }
 },
   image: {
@@ -89,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
 
   },
+  
 }));
 
 export default function AlignItemsList() {
@@ -98,13 +88,16 @@ export default function AlignItemsList() {
   const handleClick = () => {
     setOpen(!open);
   };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     
      
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
           
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link}  onClick={handleClick}>
+          <Breadcrumbs style={{marginTop:'-0.75rem'}} separator="›" aria-label="breadcrumb">
+        <Link className={classes.link} style={{color: '#808080'}} onClick={handleClick}>
           Sales
         </Link>
         <Link
@@ -112,6 +105,7 @@ export default function AlignItemsList() {
             to="/salescomplete"
             onClick={handleClick}
             aria-current="page"
+            style={{marginLeft: '-0.2rem'}}
         >
         Complete
         </Link>
@@ -124,15 +118,16 @@ export default function AlignItemsList() {
           direction="column"
           justifyContent="space-around"
           alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px' }}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Delivered on 11th of august"
+          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b> }
           secondary={
             <React.Fragment>
               <Typography
@@ -155,15 +150,16 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
       <ListItem alignItems="flex-start" className={classes.listItem}>
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Delivered on 11th of august"
+          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -186,15 +182,16 @@ export default function AlignItemsList() {
       </ListItem>
       </Grid>
       
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px'}}>
+      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
       <ListItem className={classes.listItem} alignItems="flex-start">
       <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={completeImage.default} />
            
         </ListItemAvatar>
         <ListItemText
+          disableTypography
           className={classes.listItemText}
-          primary="Delivered on 11th of august"
+          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
