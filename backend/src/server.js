@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const ethers = require("ethers");
-const PaymentProcessor = require("./../frontend/src/artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json");
+const PaymentProcessor = require("./../../frontend/src/artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json");
 const { Payment } = require("./models/Payment");
 
 const app = express();
