@@ -287,6 +287,13 @@ const useStyles = makeStyles((theme) => ({
         marginLeft:'75px', 
         paddingRight:'5px',
     },
+    moreIcon: {
+        outline: 'none',
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+        },
+
+    },
 }));
 
 function _formatWalletAddress(address='') {
@@ -452,12 +459,9 @@ export default function NavBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton aria-label="show 11 new notifications" color="inherit">
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
+                <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
+                { _formatWalletAddress(walletAddress) || 'Connect' }
+                </Button> 
             </MenuItem>
             <MenuItem  onClick={OpenProfile}>
                 <IconButton 
@@ -469,6 +473,14 @@ export default function NavBar() {
                     <AccountCircle />
                 </IconButton>
                 <p>Profile</p>
+            </MenuItem>
+            <MenuItem>
+                <IconButton aria-label="show 11 new notifications" color="inherit">
+                    <Badge badgeContent={11} color="secondary">
+                        <NotificationsIcon />
+                    </Badge>
+                </IconButton>
+                <p>Notifications</p>
             </MenuItem>
             <MenuItem>
                 <IconButton  color="inherit">
@@ -625,8 +637,9 @@ export default function NavBar() {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
+                                className={classes.moreIcon}
                             >
-                                <MoreIcon />
+                                <MoreIcon  />
                             </IconButton>
                         </div>
                     </Toolbar>
