@@ -125,6 +125,8 @@ const useStyles = makeStyles((theme) => ({
     carticon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
+        display: 'inline-flex',
+        float:'right',
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
@@ -194,6 +196,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
+            // marginTop: '2rem',
         },
     },
     searchIcon: {
@@ -483,6 +486,14 @@ export default function NavBar() {
                 <p>Notifications</p>
             </MenuItem>
             <MenuItem>
+                <IconButton color="inherit">
+                    <Badge badgeContent={1} color="primary" >
+                        <ShoppingCartOutlinedIcon  /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                    </Badge>
+                </IconButton>
+                <p>Cart</p>
+            </MenuItem>    
+            <MenuItem>
                 <IconButton  color="inherit">
                     <Badge  >
                         <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
@@ -570,7 +581,9 @@ export default function NavBar() {
      <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item  sm={3} xs={6}>
+        <div className={classes.sectionDesktop}>    
         <div><a href='/'><img className={classes.logo} src={logoImage.default} component={Link} to='/'></img></a></div>
+        </div>
         </Grid>
         <Grid item sm={6} xs={6}>
             {/* Caja de Busqueda */}
@@ -619,13 +632,18 @@ export default function NavBar() {
                         </div>
         </Grid>
         <Grid item sm={2} xs={6}>
-                 <AccountCircle className={classes.notificon} onClick={OpenProfile}
-                    aria-label="account of current user"
-                    aria-controls="profile-menu"
-                    aria-haspopup="true"
-                    color="inherit" />
-                <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
+             <div style={{display:'inline-flex'}}>
+                 <span className={classes.sectionDesktop}>
+                        
+                    <AccountCircle className={classes.notificon} onClick={OpenProfile}
+                        aria-label="account of current user"
+                        aria-controls="profile-menu"
+                        aria-haspopup="true"
+                        color="inherit" />
+                    <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
+                </span>
                 <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
+                </div>        
         </Grid>
       </Grid>
     </div>
