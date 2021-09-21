@@ -11,7 +11,7 @@ export default class KlerosEscrow {
     web3,
     archon = new Archon(
       web3.currentProvider,
-      `${process.env.NEXT_PUBLIC_IPFS_GATEWAY}`
+      `${process.env.REACT_APP_NEXT_PUBLIC_IPFS_GATEWAY}`
     )
   ) {
     this.web3 = web3;
@@ -94,7 +94,7 @@ export default class KlerosEscrow {
     if (typeof bufferOrJSON !== "string" && !Buffer.isBuffer(bufferOrJSON))
       bufferOrJSON = JSON.stringify(bufferOrJSON);
 
-    return fetch(`${process.env.NEXT_PUBLIC_IPFS_GATEWAY}/add`, {
+    return fetch(`${process.env.REACT_APP_NEXT_PUBLIC_IPFS_GATEWAY}/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -143,27 +143,30 @@ export default class KlerosEscrow {
       delete metaEvidence.file;
     }
 
-    // const sender = await this.getAccount();
     /**
-     category: "Escrow",
-      question: "Which party abided by terms of the contract?",
-      rulingOptions: {
-        type: "single-select",
-        titles: ["Refund Sender", "Pay Receiver"],
-        descriptions: [
-          "Select to return funds to the Sender",
-          "Select to release funds to the Receiver",
-        ],
-      },
-      evidenceDisplayInterfaceURI:
-        "/ipfs/QmfPnVdcCjApHdiCC8wAmyg5iR246JvVuQGQjQYgtF8gZU/index.html",
-      aliases: {
-        [sender]: "sender",
-        [recipient]: "receiver",
-      },
-      receiver: recipient,
-      sender,
-      subCategory: "Cryptocurrency Transaction",
+     * Check later the utility of these lines:
+     * 
+     *  const sender = await this.getAccount();
+     * 
+     *  category: "Escrow",
+        question: "Which party abided by terms of the contract?",
+        rulingOptions: {
+          type: "single-select",
+          titles: ["Refund Sender", "Pay Receiver"],
+          descriptions: [
+            "Select to return funds to the Sender",
+            "Select to release funds to the Receiver",
+          ],
+        },
+        evidenceDisplayInterfaceURI:
+          "/ipfs/QmfPnVdcCjApHdiCC8wAmyg5iR246JvVuQGQjQYgtF8gZU/index.html",
+        aliases: {
+          [sender]: "sender",
+          [recipient]: "receiver",
+        },
+        receiver: recipient,
+        sender,
+        subCategory: "Cryptocurrency Transaction",
      */
     const metaEvidenceURI = await this.upload("metaEvidence.json", {
       ...metaEvidence,

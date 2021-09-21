@@ -24,6 +24,10 @@ async function main() {
 
   console.log("Shop Owner Address: ", admin.address);
   console.log("Buyer Address: ", payer.address);
+
+  const orderFactory = await ethers.getContractFactory("Order");
+  const order = await orderFactory.deploy();
+  console.log("Order Address: ", order.address);
 }
 
 main()

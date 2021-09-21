@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
-// import { checkWalletForUBIs, doSwap } from './swap-checkout';
+import { ethers, Contract } from 'ethers';
+import { checkWalletForUBIs, doSwap } from './swap-checkout';
+import Order from "../../artifacts/contracts/Order.sol/Order.json";
+
 import KlerosEscrow from '../transactions/kleros-escrow';
 import Web3 from 'web3';
 import crypto from 'crypto';
 import bs58 from 'bs58';
 
+const ENABLE_SWAP_ON_CHECKOUT = false;
+const AFTER_DUE = 14;
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+const order = new Contract(
+    '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
+    Order.abi,
+    signer
+);
 
 /**
  * IPFS uses the SHA256 algorithm. Use Sum with the byte content of given file.
@@ -24,8 +36,8 @@ function hashData (rawData) {
 }
 
 async function setupEscrow() {
+    // TODO: Use process.env.REACT_APP_NEXT_PUBLIC_INFURA_ENDPOINT || 'mainnet'
     const web3 = new Web3(
-        process.env.NEXT_PUBLIC_INFURA_ENDPOINT ||
         new Web3.providers.HttpProvider('http://localhost:8545')
     );
 
@@ -65,7 +77,6 @@ function getDummyDataForTransaction() {
                 quantity: 1
             }
         ],
-        date: '2021-11-19T14:02:11Z',
         walletOrigin: '0x2546BcD3c84621e976D8185a91A922aE77ECEc30',
         walletDestination: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c'
     };
@@ -110,23 +121,21 @@ export default function DummyCheckout(props) {
     const [escrowInstance, setEscrowInstance] = useState(null);
     const [fixtureData, setFixtureData] = useState({});
 
-    useEffect(async () => {
-        const escrow = await setupEscrow();
-        setEscrowInstance(escrow);
-        setFixtureData({...getDummyDataForTransaction()});
+    useEffect(() => {
+        async function init() {
+            const escrow = await setupEscrow();
+            setEscrowInstance(escrow);
+            const fData = getDummyDataForTransaction();
+            setFixtureData({...fData});
+        }
+        init();
     }, []);
 
     const startCheckout = async (_amount, _recipient, _timeout, _metaEvidence) => {
-        /*
-            if (!checkWalletForUBIs()) {
-                doSwap();
-            }
-            createEscrowTransaction();
-        */
-
+        if (ENABLE_SWAP_ON_CHECKOUT && !checkWalletForUBIs()) {
+            doSwap();
+        }
         const hash = hashData(_metaEvidence);
-        // Check: https://stackoverflow.com/questions/66236701/multihash-must-be-a-buffer-error-while-trying-to-upload-files-to-ipfs-using-ip
-        // To send file to createTransaction, check contract methods and where to find it
         const _transactionId = escrowInstance.createTransaction(
             _amount, _recipient, _timeout, {
                ..._metaEvidence,
@@ -135,30 +144,32 @@ export default function DummyCheckout(props) {
         ).then(async (response) => {
             setTransactionId(response._transactionId);
             if (response._transactionId) {
-                await fetch.post('/api/transactions/create', {
-                    body: {
-                        transactionId: _transactionId,
-                        walletOrigin: fixtureData.sampleCheckoutInfo.walletOrigin,
-                        walletDestination: fixtureData.sampleCheckoutInfo.walletDestination
-                    }
-                });
-                await fetch.post('/api/orders/create', {
-                    body: {
-                        transactionId: _transactionId,
-                        products: [
-                            ...fixtureData.sampleCheckoutInfo.products.map(product => ({
-                                product: {
-                                    name: product.name,
-                                    price: {
-                                        value: product.unitPrice.value,
-                                        currency: product.unitPrice.currency
-                                    }
-                                },
-                                quantity: product.quantity
-                            }))
-                        ]
-                    }
-                });
+                const today = new Date();
+                const products = [
+                    ...fixtureData.sampleCheckoutInfo.products.map(product => ({
+                        product: {
+                            name: product.name,
+                            price: {
+                                value: product.unitPrice.value,
+                                currency: product.unitPrice.currency
+                            }
+                        },
+                        quantity: product.quantity
+                    }))
+                ];
+                
+                products.forEach(
+                    product => order.addProduct(product));
+                order.setOrderInfo(
+                    1234,
+                    today.getTime(),
+                    new Date(
+                        today.getFullYear(),
+                        today.getMonth(),
+                        today.getDate() + AFTER_DUE).getTime(),
+                    _transactionId,
+                    products.length
+                );
             }
         });
     }

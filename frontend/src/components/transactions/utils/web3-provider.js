@@ -112,7 +112,7 @@ export default function Web3Provider({
         if (onNetworkChange) onNetworkChange(web3.ETHNet);
       }
 
-      if (networkIdToName[ETHNetID] !== process.env.NEXT_PUBLIC_NETWORK) return;
+      if (networkIdToName[ETHNetID] !== process.env.REACT_APP_NEXT_PUBLIC_NETWORK) return;
 
       if (contracts !== web3._contracts) {
         const [account] = await web3.eth.getAccounts();

@@ -22,14 +22,15 @@ const ProductOrder = mongoose.model("ProductOrder", productOrderSchema);
 /* Order */
 const orderSchema = new Schema({
   id: String,
-  products: Array(ProductOrder),
+  products: Array,
   orderDate: Date,
   deliveryDate: Date,
-  transaction: Transaction
+  transaction: Object
 });
 const Order = mongoose.model("Order", orderSchema);
 
 module.exports = {
     Order,
-    ProductOrder
+    ProductOrder,
+    Transaction
 };
