@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     root:{
         marginTop: '10px',
         margin: '10px',
+        
    },
     navbar:{
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
@@ -112,7 +113,28 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#008968',
             textDecorationColor: 'transparent', 
-          }
+          },
+          [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            float: 'left',
+            left: '-38rem',
+            marginBottom: '-1.5rem',
+            top: '3.5rem',
+            
+            
+          },  
+        [theme.breakpoints.down('xs')]: {
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            top: '2rem',
+            left: '-8rem',
+            float: ' left',
+            
+                        
+            
+          },    
     },
     notificon: {
         marginLeft: theme.spacing(2),
@@ -130,7 +152,25 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             borderBottom: 'none',
             color: '#008968', 
-          }
+          },
+          [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            float: 'right',
+            left: '-3.5rem',
+            // marginBottom: '-1.5rem',
+            top: '-1.5rem',
+            
+            
+          },  
+          [theme.breakpoints.down('xs')]: {
+            position: 'relative',
+            // marginLeft: '11rem',
+            top: '-2.5rem',
+            left: '9.25rem',
+            // marginBottom: '-6rem',
+            
+            
+          },  
     },
     connect: {
         fontSize: '14px',
@@ -151,8 +191,47 @@ const useStyles = makeStyles((theme) => ({
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
+          },
+          [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            float: 'left',
+            left: '-33rem',
+            top: '-0.75rem',
+            
+            
           },  
+        [theme.breakpoints.down('xs')]: {  
+        // marginTop:'-2rem',
+        // marginBottom: '1rem',
+        // marginLeft: '-0.5rem',
+        top: '-2.5rem',
+        left: '-2rem',
+        maxWidth: '75px',
+        minWidth:'75px',
+        width: '100%',
+        
+        },    
     },
+    connectMobile: {
+        fontSize: '14px',
+        color: '#FCB877',
+        fontWeight: '500',
+        textTransform: 'none',
+        justifyContent: "space-evenly",
+        background: 'white',
+        borderRadius : 20,
+        marginLeft: '1rem',
+        textAlign: 'center',
+        outline: 'none',
+        '&:hover': {
+            outline: 'none',
+            borderBottom: 'none',
+            color: 'white',
+            background: '#FCB877', 
+          },
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+          },
     listItemText: {
         color: '#000000',
         fontFamily: 'Open Sans',
@@ -164,6 +243,7 @@ const useStyles = makeStyles((theme) => ({
               }
     
       
+        },
     },
     linkmenu: {
         display: 'flex',
@@ -193,11 +273,38 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         maxWidth: '530px',
         minWidth:'530px',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-            // marginTop: '2rem',
+        [theme.breakpoints.down('md')]: {
+            // backgroundColor: 'blue',
+            marginTop: '0.5rem',
+            position: 'relative',
+          },
+        [theme.breakpoints.down('sm')]: {
+            // backgroundColor: 'black',
+            marginTop: '0.5rem',
+            position: 'relative',
+            marginLeft: '-4rem',
+            maxWidth: '400px',
+            minWidth:'400px',
+            width: '100%',
+            
+          },
+        [theme.breakpoints.down('xs')]: {
+            top: '1.8rem',
+            right: '-0.5rem',
+            position: 'relative',
+            marginLeft: '-4rem',
+            maxWidth: '200px',
+            minWidth:'200px',
+            width: '100%',
+            backgroundColor: alpha(theme.palette.common.white, 1),
+            '&:hover': {
+            backgroundColor: alpha(theme.palette.common.white, 0.75),
         },
+            
+          },
+          
+          
+          
     },
     searchIcon: {
         borderLeft: '1px solid #727272',
@@ -292,10 +399,49 @@ const useStyles = makeStyles((theme) => ({
     },
     moreIcon: {
         outline: 'none',
+        marginTop: '-3rem',
         '&:hover, &:focus, &:active': {
             outline: 'none',
         },
-
+        [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            float: 'left',
+            left: '-11.5rem',
+            top: '-0.1rem',
+            
+            
+          },  
+          [theme.breakpoints.down('xs')]: {
+            position: 'relative',
+            // marginLeft: '11rem',
+            top: '0.05rem',
+            left: '0.35rem',
+            // marginBottom: '-6rem',
+            
+            
+          },    
+    },
+    location: {
+        width: '21px',
+        height: '30px',
+        marginTop: '-3px',
+        [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            float: 'left',
+            left: '7rem',
+            top: '-1rem',
+            
+            
+          },
+        [theme.breakpoints.down('xs')]: {
+            top: '2rem',
+            bottom: '-2rem',
+            left: '-2rem',
+            position: 'relative',
+            // marginLeft: '-4rem',
+            size: '75%',
+            
+          },
     },
 }));
 
@@ -462,7 +608,7 @@ export default function NavBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
+                <Button className={classes.connectMobile} onClick={connect} variant="contained" color="primary">
                 { _formatWalletAddress(walletAddress) || 'Connect' }
                 </Button> 
             </MenuItem>
@@ -610,8 +756,8 @@ export default function NavBar() {
         </Button>
         </Grid>
         {/* Second row */}
-        <Grid item sm={3} xs={6}>
-        <LocationOnOutlinedIcon style={{width: '21px', height: '30px',marginTop: '-3px'}}></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
+        <Grid item sm={3} xs={6} className={classes.location}>
+        <LocationOnOutlinedIcon ></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
         </Grid>
         <Grid item sm={7} xs={6}>
         <div className={classes.container} />
@@ -642,7 +788,7 @@ export default function NavBar() {
                         color="inherit" />
                     <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
                 </span>
-                <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
+                <Badge  color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
                 </div>        
         </Grid>
       </Grid>
