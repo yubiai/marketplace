@@ -23,7 +23,36 @@ const ITEMS = [
   },
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  root:{
+    [theme.breakpoints.down('md')]: {
+      backgroundColor: 'blue',
+      marginTop: '0.5rem',
+      position: 'relative',
+    },
+    [theme.breakpoints.down('sm')]: {
+      backgroundColor: 'black',
+      marginTop: '0.5rem',
+      position: 'relative',
+      marginLeft: '-2rem',
+      maxWidth: '400px',
+      minWidth:'400px',
+      width: '100%',
+      
+    },
+    [theme.breakpoints.down('xs')]: {
+      backgroundColor: 'yellow',
+      top: '0rem',
+      right: '-1.5rem',
+      position: 'relative',
+      // marginLeft: '-4rem',
+      maxWidth: '200px',
+      minWidth:'200px',
+      width: '100%',
+      boxSizing: 'border-box',
+  },
+
+  },
   gridTitle: {
     padding: "30px 0 30px 0",
     color: "#727272",
@@ -34,7 +63,9 @@ const useStyles = makeStyles({
     marginBottom: "-10px",
     marginLeft: "1.5rem",
   },
-});
+
+  
+}));
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   const classes = useStyles();
@@ -74,13 +105,13 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   });
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" >
       <div className="row" >
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span  className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={classes.root}>
           {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">
@@ -88,7 +119,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
          </IconButton>
         </Grid> */}
 
-          <Carrousel >
+          <Carrousel  >
             <ItemCard title={"Producto 1"} price={"5000"} />
             <ItemCard title={"Producto 2"} price={"2300"} />
             <ItemCard title={"Producto 3"} price={"235"} />

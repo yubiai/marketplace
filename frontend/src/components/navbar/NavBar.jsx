@@ -306,12 +306,10 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '200px',
             minWidth:'200px',
             width: '100%',
-            backgroundColor: alpha(theme.palette.common.white, 1),
-            '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.75),
+            
         },
             
-          },
+         
           
           
           
