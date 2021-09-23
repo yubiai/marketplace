@@ -26,28 +26,21 @@ const ITEMS = [
 const useStyles = makeStyles((theme) => ({
   root:{
     [theme.breakpoints.down('md')]: {
-      backgroundColor: 'blue',
       marginTop: '0.5rem',
       position: 'relative',
     },
     [theme.breakpoints.down('sm')]: {
-      backgroundColor: 'black',
       marginTop: '0.5rem',
       position: 'relative',
       marginLeft: '-2rem',
-      maxWidth: '400px',
-      minWidth:'400px',
       width: '100%',
       
     },
     [theme.breakpoints.down('xs')]: {
-      backgroundColor: 'yellow',
       top: '0rem',
       right: '-1.5rem',
       position: 'relative',
       // marginLeft: '-4rem',
-      maxWidth: '200px',
-      minWidth:'200px',
       width: '100%',
       boxSizing: 'border-box',
   },
@@ -115,7 +108,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
-        <Grid container style={{width: '100%', margin: 0}} className={classes.root} spacing={2}>
+        <Grid container style={{width: '100%'}} className={classes.root} spacing={2}>
           {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">

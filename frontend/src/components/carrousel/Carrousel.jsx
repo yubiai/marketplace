@@ -109,7 +109,6 @@ const Carrousel = (props) => {
   const numItems = React.Children.count(props.children);
 
   const slide = (dir) => {
-    console.log('Dir::', dir)
     dispatch({ type: dir, numItems });
     setTimeout(() => {
       dispatch({ type: "stopSliding" });
