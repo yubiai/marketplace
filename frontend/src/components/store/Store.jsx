@@ -62,6 +62,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-20px",
     marginBottom: "-10px",
     marginLeft: "1.5rem",
+
+    "&:first-child": {
+      marginTop: 0
+    },
   },
 
   
@@ -105,13 +109,13 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   });
 
   return (
-    <Container maxWidth="lg" >
-      <div className="row" >
+    <Container maxWidth="lg">
+      <div className="row" style={{overflow: 'hidden'}}>
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
-        <span  className={classes.gridTitle}>
+        <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
-        <Grid container spacing={2} className={classes.root}>
+        <Grid container style={{width: '100%', margin: 0}} className={classes.root} spacing={2}>
           {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">
@@ -119,40 +123,46 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
          </IconButton>
         </Grid> */}
 
-          <Carrousel  >
-            <ItemCard title={"Producto 1"} price={"5000"} />
-            <ItemCard title={"Producto 2"} price={"2300"} />
-            <ItemCard title={"Producto 3"} price={"235"} />
-            <ItemCard title={"Producto 4"} price={"1400"} />
-            <ItemCard title={"Producto 5"} price={"65789"} />
-            <ItemCard title={"Producto 6"} price={"5"} />
-          </Carrousel>
+          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
+            <Carrousel style={{ width: '100%' }}>
+              <ItemCard title={"Producto 1"} price={"5000"} />
+              <ItemCard title={"Producto 2"} price={"2300"} />
+              <ItemCard title={"Producto 3"} price={"235"} />
+              <ItemCard title={"Producto 4"} price={"1400"} />
+              <ItemCard title={"Producto 5"} price={"65789"} />
+              <ItemCard title={"Producto 6"} price={"5"} />
+            </Carrousel>
+          </div>
         </Grid>
 
         <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
         <Grid container spacing={2}>
-          <Carrousel>
-            <ItemCard title={"Producto 1"} price={"5000"} />
-            <ItemCard title={"Producto 2"} price={"2300"} />
-            <ItemCard title={"Producto 3"} price={"235"} />
-            <ItemCard title={"Producto 4"} price={"1400"} />
-            <ItemCard title={"Producto 5"} price={"65789"} />
-            <ItemCard title={"Producto 6"} price={"5"} />
-          </Carrousel>
+          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
+            <Carrousel style={{ width: '100%' }}>
+              <ItemCard title={"Producto 1"} price={"5000"} />
+              <ItemCard title={"Producto 2"} price={"2300"} />
+              <ItemCard title={"Producto 3"} price={"235"} />
+              <ItemCard title={"Producto 4"} price={"1400"} />
+              <ItemCard title={"Producto 5"} price={"65789"} />
+              <ItemCard title={"Producto 6"} price={"5"} />
+            </Carrousel>
+          </div>
         </Grid>
 
         <span className={classes.gridTitle} style={{marginTop: '-50px'}}>
           Last items you've watched on Health and household.{" "}
         </span>
         <Grid container spacing={2} style={{marginBottom: '-50px'}}>
-          <Carrousel>
-            <ItemCard title={"Producto 1"} price={"5000"} />
-            <ItemCard title={"Producto 2"} price={"2300"} />
-            <ItemCard title={"Producto 3"} price={"235"} />
-            <ItemCard title={"Producto 4"} price={"1400"} />
-            <ItemCard title={"Producto 5"} price={"65789"} />
-            <ItemCard title={"Producto 6"} price={"5"} />
-          </Carrousel>
+          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
+            <Carrousel style={{ width: '100%' }}>
+              <ItemCard title={"Producto 1"} price={"5000"} />
+              <ItemCard title={"Producto 2"} price={"2300"} />
+              <ItemCard title={"Producto 3"} price={"235"} />
+              <ItemCard title={"Producto 4"} price={"1400"} />
+              <ItemCard title={"Producto 5"} price={"65789"} />
+              <ItemCard title={"Producto 6"} price={"5"} />
+            </Carrousel>
+          </div>
         </Grid>
         {/* <ul className="list-group">{newList}</ul> */}
       </div>

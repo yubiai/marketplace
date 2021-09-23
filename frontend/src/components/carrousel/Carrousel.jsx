@@ -6,6 +6,7 @@ import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRo
 import Wrapper from "./Wrapper";
 import CarrouselContainer from "./CarrouselContainer";
 import CarrouselSlot from "./CarrouselSlot";
+import './Carrousel.css';
 
 const useStyles = makeStyles({
   item: {
@@ -25,8 +26,8 @@ const useStyles = makeStyles({
     paddingRight: "1px",
     display: "inline-block",
     cursor: "pointer",
-    position: "relative",
-    top: '-170px',
+    //position: "absolute",
+    //top: '50%',
     marginTop: "5px",
     left: '0.7rem',
     boxShadow: "0px 3px 6px #00000029",
@@ -36,13 +37,8 @@ const useStyles = makeStyles({
     textDecoration: "none",
     background: "#FFFFFF",
     borderRadius: "40px",
-    float: "left",
+    //transform: "translateY(-50%)",
 
-    "&:active": {
-      position: "relative",
-      top: "-169px",
-      
-    },
     "&:focus": {
       outline: "0",
     },
@@ -53,11 +49,11 @@ const useStyles = makeStyles({
     textDecoration: "none",
     padding: "-10px",
     paddingRight: "-5px",
-    right: "3.7rem",
+    //right: "0.7rem",
     display: "inline-block",
     cursor: "pointer",
-    position: "relative",
-    top: '-170px',
+    //position: "absolute",
+    //top: '50%',
     marginTop: "5px",
     boxShadow: "0px 3px 6px #00000029",
     opacity: "1",
@@ -65,12 +61,8 @@ const useStyles = makeStyles({
     height: "45px",
     textDecoration: "none",
     borderRadius: "40px",
-    float: "right",
+    //transform: "translateY(-50%)",
 
-    "&:active": {
-      position: "relative",
-      top: '-169px',
-    },
     "&:focus": {
       outline: "0",
     },
@@ -117,6 +109,7 @@ const Carrousel = (props) => {
   const numItems = React.Children.count(props.children);
 
   const slide = (dir) => {
+    console.log('Dir::', dir)
     dispatch({ type: dir, numItems });
     setTimeout(() => {
       dispatch({ type: "stopSliding" });
@@ -144,14 +137,25 @@ const Carrousel = (props) => {
           ))}
         </CarrouselContainer>
 
-        <KeyboardArrowLeftRoundedIcon
-          className={classes.slidebuttonLeft}
-          onClick={() => slide(PREV)}
-        ></KeyboardArrowLeftRoundedIcon>
-        <KeyboardArrowRightRoundedIcon
-          className={classes.slidebuttonRight}
-          onClick={() => slide(NEXT)}
-        ></KeyboardArrowRightRoundedIcon>
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-between',
+          zIndex: 1000,
+          padding: '0 1rem'
+        }}>
+          <KeyboardArrowLeftRoundedIcon
+            className={classes.slidebuttonLeft}
+            onClick={() => slide(PREV)}
+          ></KeyboardArrowLeftRoundedIcon>
+          <KeyboardArrowRightRoundedIcon
+            className={classes.slidebuttonRight}
+            onClick={() => slide(NEXT)}
+          ></KeyboardArrowRightRoundedIcon>
+        </div>
       </Wrapper>
     </div>
   );
