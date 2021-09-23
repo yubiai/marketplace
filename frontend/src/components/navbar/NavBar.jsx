@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
           [theme.breakpoints.down('sm')]: {
             position: 'relative',
             float: 'left',
-            left: '-38rem',
+            left: '-34rem',
             marginBottom: '-1.5rem',
             top: '3.5rem',
             
@@ -153,10 +153,15 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#008968', 
           },
+          [theme.breakpoints.down('md')]: {
+            left: '-7.5rem',
+            // marginTop: '0.5rem',
+            position: 'relative',
+          },
           [theme.breakpoints.down('sm')]: {
             position: 'relative',
             float: 'right',
-            left: '-3.5rem',
+            left: '1rem',
             // marginBottom: '-1.5rem',
             top: '-1.5rem',
             
@@ -192,10 +197,15 @@ const useStyles = makeStyles((theme) => ({
         '&:hover, &:focus, &:active': {
             outline: 'none',
           },
+          [theme.breakpoints.down('md')]: {
+            left: '4rem',
+            // marginTop: '0.5rem',
+            position: 'relative',
+          },
           [theme.breakpoints.down('sm')]: {
             position: 'relative',
             float: 'left',
-            left: '-33rem',
+            left: '-30rem',
             top: '-0.75rem',
             
             
@@ -282,7 +292,7 @@ const useStyles = makeStyles((theme) => ({
             // backgroundColor: 'black',
             marginTop: '0.5rem',
             position: 'relative',
-            marginLeft: '-4rem',
+            marginLeft: '-2rem',
             maxWidth: '400px',
             minWidth:'400px',
             width: '100%',
@@ -406,7 +416,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('sm')]: {
             position: 'relative',
             float: 'left',
-            left: '-11.5rem',
+            left: '-6.5rem',
             top: '-0.1rem',
             
             
