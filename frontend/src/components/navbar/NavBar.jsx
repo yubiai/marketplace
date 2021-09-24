@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '10px',
         
    },
-    navbar:{
+    navbar: {
          background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
          height: '105px',
          minHeight:'105px',
@@ -242,18 +242,22 @@ const useStyles = makeStyles((theme) => ({
         '&:hover, &:focus, &:active': {
             outline: 'none',
           },
+    },      
     listItemText: {
-        color: '#000000',
-        fontFamily: 'Open Sans',
+        display: 'flex',
         fontSize: '13px',
+        fontFamily: 'Open Sans, sans serif, regular !important',
+        color: 'black',
         textDecorationColor: 'transparent',
+        // marginLeft: '1rem',
+        // justifyContent: 'space-evenly',
+        // alignItems: 'left',
         '&:hover': {
-                borderBottom: 'none',
-                color: '#008968', 
-              }
-    
-      
-        },
+            borderBottom: 'none',
+            color: '#008968',
+            textDecorationColor: 'transparent', 
+          }
+       
     },
     linkmenu: {
         display: 'flex',
@@ -549,7 +553,7 @@ export default function NavBar() {
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem style={{fontSize:"13px", fontFamily:'Open Sans' }} className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
