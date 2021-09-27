@@ -36,17 +36,22 @@ function hashData (rawData) {
 }
 
 async function setupEscrow() {
-    // TODO: Use process.env.REACT_APP_NEXT_PUBLIC_INFURA_ENDPOINT || 'mainnet'
-    const web3 = new Web3(
-        new Web3.providers.HttpProvider('http://localhost:8545')
-    );
+    let web3;
+    if (process.env.REACT_APP_ENV === 'local') {
+        web3 = new Web3(
+            new Web3.providers.HttpProvider('http://localhost:8545')
+        );
+    } else {
+        web3 = new Web3(process.env.REACT_APP_NEXT_PUBLIC_INFURA_ENDPOINT);
+    }
 
     const klerosEscrow = new KlerosEscrow(web3);
     await klerosEscrow.setCourtAndCurrency();
     return klerosEscrow;
 }
 
-function getDummyDataForTransaction() {
+async function getDummyDataForTransaction() {
+    const signerAddress = await signer.getAddress();
     const sampleCheckoutInfo = {
         products: [
             {
@@ -77,7 +82,7 @@ function getDummyDataForTransaction() {
                 quantity: 1
             }
         ],
-        walletOrigin: '0x2546BcD3c84621e976D8185a91A922aE77ECEc30',
+        walletOrigin: signerAddress || '0x2546BcD3c84621e976D8185a91A922aE77ECEc30',
         walletDestination: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c'
     };
     const amount = 100;
@@ -116,7 +121,7 @@ function getDummyDataForTransaction() {
  *      [Backend] => startDispute(transactionId, walletOrigin)
  *                   startDispute(transactionId, walletDestination) // This will be executed on backend
  */
-export default function DummyCheckout(props) {
+export default function DummyCheckout() {
     const [transactionId, setTransactionId] = useState('');
     const [escrowInstance, setEscrowInstance] = useState(null);
     const [fixtureData, setFixtureData] = useState({});
@@ -125,7 +130,7 @@ export default function DummyCheckout(props) {
         async function init() {
             const escrow = await setupEscrow();
             setEscrowInstance(escrow);
-            const fData = getDummyDataForTransaction();
+            const fData = await getDummyDataForTransaction();
             setFixtureData({...fData});
         }
         init();
@@ -136,14 +141,16 @@ export default function DummyCheckout(props) {
             doSwap();
         }
         const hash = hashData(_metaEvidence);
-        const _transactionId = escrowInstance.createTransaction(
+        escrowInstance.createTransaction(
             _amount, _recipient, _timeout, {
                ..._metaEvidence,
                fileHash: hash
             }
         ).then(async (response) => {
-            setTransactionId(response._transactionId);
-            if (response._transactionId) {
+            let args = (response || {}).arguments;
+            const _transactionIdResult = (args && args.length && args[1]) ? args[1]: '';
+            if (_transactionIdResult) {
+                setTransactionId(_transactionIdResult);
                 const today = new Date();
                 const products = [
                     ...fixtureData.sampleCheckoutInfo.products.map(product => ({
@@ -167,7 +174,7 @@ export default function DummyCheckout(props) {
                         today.getFullYear(),
                         today.getMonth(),
                         today.getDate() + AFTER_DUE).getTime(),
-                    _transactionId,
+                    _transactionIdResult,
                     products.length
                 );
             }
@@ -216,23 +223,30 @@ export default function DummyCheckout(props) {
                     Do Checkout
                 </button>
             </div>
-            <div style={{marginTop: '3rem'}}>
-                <p style={{fontWeight: '500', fontSize: '1.5rem'}}>Emulate scenarios</p>
-                <div style={{display: 'flex'}}>
-                    <div style={{marginRight: '1rem'}}>
-                        <div>
-                            <p>Finish transaction</p>
-                            <button onClick={finishTransaction}>Execute</button>
+            {
+                transactionId && (
+                    <div>
+                        <div>Transaction linked: { transactionId }</div>
+                        <div style={{marginTop: '3rem'}}>
+                            <p style={{fontWeight: '500', fontSize: '1.5rem'}}>Emulate scenarios</p>
+                            <div style={{display: 'flex'}}>
+                                <div style={{marginRight: '1rem'}}>
+                                    <div>
+                                        <p>Finish transaction</p>
+                                        <button onClick={finishTransaction}>Execute</button>
+                                    </div>
+                                </div>
+                                <div style={{marginRight: '1rem'}}>
+                                    <div>
+                                        <p>Start dispute</p>
+                                        <button onClick={startDispute}>Start</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div style={{marginRight: '1rem'}}>
-                        <div>
-                            <p>Start dispute</p>
-                            <button onClick={startDispute}>Start</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                )
+            }
         </div>
     )
 }

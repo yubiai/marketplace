@@ -22,7 +22,7 @@ export default class KlerosEscrow {
     let [account] = await this.web3.eth.getAccounts();
 
     if (!account) {
-      const web3 = createWeb3(this.web3.currentProvider.url);
+      const web3 = createWeb3(this.web3.currentProvider.host);
       this.web3 = await createWeb3FromModal(web3.modal, web3.infuraURL);
     }
     [account] = await this.web3.eth.getAccounts();
@@ -143,31 +143,6 @@ export default class KlerosEscrow {
       delete metaEvidence.file;
     }
 
-    /**
-     * Check later the utility of these lines:
-     * 
-     *  const sender = await this.getAccount();
-     * 
-     *  category: "Escrow",
-        question: "Which party abided by terms of the contract?",
-        rulingOptions: {
-          type: "single-select",
-          titles: ["Refund Sender", "Pay Receiver"],
-          descriptions: [
-            "Select to return funds to the Sender",
-            "Select to release funds to the Receiver",
-          ],
-        },
-        evidenceDisplayInterfaceURI:
-          "/ipfs/QmfPnVdcCjApHdiCC8wAmyg5iR246JvVuQGQjQYgtF8gZU/index.html",
-        aliases: {
-          [sender]: "sender",
-          [recipient]: "receiver",
-        },
-        receiver: recipient,
-        sender,
-        subCategory: "Cryptocurrency Transaction",
-     */
     const metaEvidenceURI = await this.upload("metaEvidence.json", {
       ...metaEvidence,
 
@@ -179,7 +154,7 @@ export default class KlerosEscrow {
         address: this.tokenContract.options.address,
       },
     });
-    const x = this.contract.methods
+    const createTransactionDefinition = this.contract.methods
       .createTransaction(
         ...(this.tokenContract
           ? [
@@ -191,9 +166,8 @@ export default class KlerosEscrow {
             ]
           : [timeout, recipient, metaEvidenceURI])
       );
-    x.send(!this.tokenContract && { value: amount });
-    console.log('--------------', x);
-    return x;
+    createTransactionDefinition.send(!this.tokenContract && { value: amount });
+    return createTransactionDefinition;
   }
 
   pay(transactionID, amount) {
