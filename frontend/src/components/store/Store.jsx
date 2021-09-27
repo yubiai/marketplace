@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: '0.5rem',
       position: 'relative',
-      marginLeft: '-2rem',
       width: '100%',
       
     },

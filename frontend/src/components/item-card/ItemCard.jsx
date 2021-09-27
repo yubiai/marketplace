@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    width: "197px",
+    //width: "197px",
     padding: theme.spacing(0),
     textAlign: "center",
     color: theme.palette.text.secondary,
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   productImage: {
     width: "150px",
-    padding: theme.spacing(0),
+    padding: `${theme.spacing(0)} 12.5px`,
   },
   media: {
     height: 0,
@@ -122,7 +122,7 @@ const ItemCard = ({ title, price, image }) => {
   const logoImage = require("../../media/Shoes-PNG-File.png");
 
   return (
-    <Grid item xs={6} sm={2}>
+    <Grid style={{display: 'grid', width: '100%', maxWidth: '100%'}} item xs={6} sm={2}>
       <Paper className={classes.paper}>
         <CardHeader
           action={
