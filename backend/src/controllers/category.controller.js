@@ -1,7 +1,7 @@
-const { Category } = require('../models/Categories');
+const { Category } = require('../models/Category');
 const { Item }=require('../models/Item');
 
-async function getCategorie(req, res) {
+async function getCategory(req, res) {
   try {
     const categories = await Category.find({}).populate('items')
 
@@ -17,7 +17,7 @@ async function getCategorie(req, res) {
   }
 }
 
-async function postCategorie(req, res) {
+async function postCategory(req, res) {
   try {
     const item = new Category({
       categoryId: req.body.categoryId,
@@ -40,7 +40,7 @@ async function postCategorie(req, res) {
   }
 }
 
-async function getCategorieId(req, res) {
+async function getCategoryId(req, res) {
   try {
     const categories = await Category.findById({_id: req.params.id}).populate("items")
     res.status(200).json({
@@ -56,7 +56,7 @@ async function getCategorieId(req, res) {
 }
 
 module.exports = {
-  getCategorie,
-  postCategorie,
-  getCategorieId,
+  getCategory,
+  postCategory,
+  getCategoryId,
 }

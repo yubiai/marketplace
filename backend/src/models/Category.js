@@ -4,7 +4,7 @@ const slug = require('mongoose-slug-updater')
 
 mongoose.plugin(slug)
 
-const categorieSchema = new Schema({
+const categorySchema = new Schema({
   title: String,
   description: String,
   permalink: String,
@@ -20,7 +20,7 @@ const categorieSchema = new Schema({
   }]
 })
 
-const Category = mongoose.model('Category', categorieSchema)
+const Category = mongoose.model('Category', categorySchema)
 
 module.exports = {
   Category,

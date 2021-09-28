@@ -1,4 +1,4 @@
-const { Category }=require("../models/Categories");
+const { Category }=require("../models/Category");
 const { Item } = require("../models/Item");
 const { Payment } = require("../models/Payment");
 

@@ -25,7 +25,7 @@ $ npm run dev
 
 ### Postman
 
-Categories
+Category
 
 ```sh
 /api/categories (GET)
@@ -42,7 +42,7 @@ categoryId: Number (default: 0)
 
 ```
 
-Categories _id
+Category _id
 
 ```sh
 /api/categories/:id (GET)
