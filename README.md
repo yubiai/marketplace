@@ -25,7 +25,7 @@ $ npm run dev
 
 ### Postman
 
-Category
+All Category
 
 ```sh
 /api/categories (GET)
@@ -48,7 +48,7 @@ Category _id
 /api/categories/:id (GET)
 ```
 
-Item
+All Items
 
 ```sh
 /api/items/item (GET)
@@ -68,4 +68,10 @@ price: String
 description: String
 condition: String
 picture: file
+```
+
+Item By Slug
+
+```sh
+/api/items/item/:slug (GET)
 ```
