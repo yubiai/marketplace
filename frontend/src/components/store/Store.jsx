@@ -9,6 +9,7 @@ import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
 
 const API_URL = "http://localhost:4000";
+const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [
   {
@@ -59,24 +60,6 @@ const useStyles = makeStyles((theme) => ({
     "&:first-child": {
       marginTop: 0
     },
-  //   [theme.breakpoints.down('md')]: {
-  //     padding: "30px 0 5px 0",
-  //     position: 'relative',
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     padding: "30px 0 5px 0",
-  //     position: 'relative',
-  //     width: '100%',
-      
-  //   },
-  //   [theme.breakpoints.down('xs')]: {
-  //     padding: "30px 0 5px 0",
-  //     position: 'relative',
-  //     // marginLeft: '-4rem',
-  //     width: '100%',
-  //     boxSizing: 'border-box',
-  // },
-
 }, 
 }));
 
@@ -133,7 +116,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         </Grid> */}
 
           <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }}>
+            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />
@@ -147,7 +130,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
         <Grid container spacing={2} style={{width: '100%'}} className={classes.root}>
           <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }}>
+            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />
@@ -163,7 +146,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         </span>
         <Grid container spacing={2} style={{marginBottom: '-50px', width: '100%'}}className={classes.root}>
           <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }}>
+            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />

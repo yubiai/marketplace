@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
 import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
@@ -93,6 +93,11 @@ const useStyles = makeStyles({
 
 const NEXT = "NEXT";
 const PREV = "PREV";
+const SCREEN_WIDTH_LG = 1100; // 5 slides
+const SCREEN_WIDTH_G = 900; // 4 slides
+const SCREEN_WIDTH_M = 767; // 3 slides
+const SCREEN_WIDTH_S = 600; // 2 slides
+const SCREEN_WIDTH_XS = 400; // 1 slide
 
 const getOrder = ({ index, pos, numItems }) => {
   return index - pos < 0 ? numItems - Math.abs(index - pos) : index - pos;
@@ -127,8 +132,37 @@ function reducer(state, { type, numItems }) {
 
 const Carrousel = (props) => {
   const classes = useStyles();
+  const [visibleSlides, setVisibleSlides] = useState(6);
   const [state, dispatch] = useReducer(reducer, initialState);
   const numItems = React.Children.count(props.children);
+
+  useEffect(() => {
+    function setSlideVisibilityResize () {
+      const innerWidth = window.innerWidth;
+      switch (true) {
+        case innerWidth > SCREEN_WIDTH_G && innerWidth <= SCREEN_WIDTH_LG:
+          setVisibleSlides(5);
+          break;
+        case innerWidth > SCREEN_WIDTH_M && innerWidth <= SCREEN_WIDTH_G:
+          setVisibleSlides(4);
+          break;
+        case innerWidth > SCREEN_WIDTH_S && innerWidth <= SCREEN_WIDTH_M:
+          setVisibleSlides(3);
+          break;
+        case innerWidth > SCREEN_WIDTH_XS && innerWidth <= SCREEN_WIDTH_S:
+          setVisibleSlides(2);
+          break;
+        case innerWidth <= SCREEN_WIDTH_XS:
+          setVisibleSlides(1);
+          break;
+        default:
+          setVisibleSlides(props.slideVisibleDefault || 6);
+          break;
+      }
+    }
+    setSlideVisibilityResize();
+    window.addEventListener('resize', setSlideVisibilityResize);
+  }, []);
 
   const slide = (dir) => {
     dispatch({ type: dir, numItems });
@@ -148,14 +182,27 @@ const Carrousel = (props) => {
     <div {...handlers}>
       <Wrapper>
         <CarrouselContainer dir={state.dir} sliding={state.sliding}>
-          {React.Children.map(props.children, (child, index) => (
-            <CarrouselSlot
-              key={index}
-              order={getOrder({ index: index, pos: state.pos, numItems })}
-            >
-              {child}
-            </CarrouselSlot>
-          ))}
+          {React.Children.map(props.children, (child, index) => {
+            let missingSlidesToShow;
+
+            if (state.pos + visibleSlides > props.children.length) {
+              missingSlidesToShow = (state.pos + visibleSlides) - props.children.length;
+            }
+            const indexInRange = index >= state.pos && index < (state.pos + visibleSlides);
+            const slideOutRangeFromZero = missingSlidesToShow ?
+              index < state.pos && index <= missingSlidesToShow -1 : false;
+
+            if (indexInRange || slideOutRangeFromZero) {
+              return (
+                <CarrouselSlot
+                  key={index}
+                  order={getOrder({ index: index, pos: state.pos, numItems })}
+                >
+                  {child}
+                </CarrouselSlot>
+              );
+            }
+          })}
         </CarrouselContainer>
 
         <div className={classes.parent}
