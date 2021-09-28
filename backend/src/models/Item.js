@@ -7,9 +7,9 @@ const itemSchema = new Schema({
   description: String,
   condition: String,
   picture: String,
-  categories: [{
+  category: [{
       type: Schema.Types.Mixed,
-      ref: "Categorie"
+      ref: "category"
   }]
 });
 

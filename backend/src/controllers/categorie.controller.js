@@ -1,8 +1,13 @@
-const { Categorie } = require('../models/Categories')
+const { Category } = require('../models/Categories');
+const { Item }=require('../models/Item');
+
+const getTutorialsInCategory = function(categoryId) {
+  return Item.find({ categoryId: categoryId })
+};
 
 async function getCategorie(req, res) {
   try {
-    const categories = await Categorie.find({})
+    const categories = await Category.find({}).populate('items')
 
     res.status(200).json({
       status: 'ok',
@@ -18,7 +23,8 @@ async function getCategorie(req, res) {
 
 async function postCategorie(req, res) {
   try {
-    const item = new Categorie({
+    const item = new Category({
+      categoryId: req.body.categoryId,
       title: req.body.title,
       description: req.body.description,
       permalink: req.body.permalink,
@@ -40,8 +46,10 @@ async function postCategorie(req, res) {
 
 async function getCategorieId(req, res) {
   try {
+    const categories = await Category.findById({_id: req.params.id}).populate("items")
     res.status(200).json({
       status: 'ok',
+      response: categories
     })
   } catch (error) {
     res.status(400).json({

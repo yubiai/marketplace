@@ -1,3 +1,4 @@
+const { Category }=require("../models/Categories");
 const { Item } = require("../models/Item");
 const { Payment } = require("../models/Payment");
 
@@ -25,15 +26,24 @@ async function getItem(req, res) {
 
 async function postItem(req, res) {
   try {
+
+    const searchCategory = await Category.find({categoryId: req.query.categoryId})
+
     const item = new Item({
       title: req.body.title,
       price: req.body.price,
       description: req.body.description,
       condition: req.body.condition,
-      picture: req.file.filename
+      picture: req.file.filename,
     })
 
-    await item.save()
+    searchCategory.map( async (e) => {
+      item.category.push(e._id)
+      const pepe = await Category.findById(e._id)
+      pepe.items.push(item)
+      await pepe.save()
+      await item.save()
+    })
 
     res.status(200).json({
       message: "Item agregado con éxito!"

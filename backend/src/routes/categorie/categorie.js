@@ -7,7 +7,7 @@ router.route("/")
     .get(categorieController.getCategorie)
     .post(categorieController.postCategorie)
 
-router.route("/:categorieId")
+router.route("/:id")
     .get(categorieController.getCategorieId)
 
 module.exports = router;
