@@ -49,7 +49,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
     padding: "-10px",
     paddingRight: "-5px",
-    //right: "0.7rem",
+    //left: "0.7rem",
     display: "inline-block",
     cursor: "pointer",
     //position: "absolute",
@@ -66,6 +66,28 @@ const useStyles = makeStyles({
     "&:focus": {
       outline: "0",
     },
+  },
+  parent:{
+     position: 'absolute',
+     borderWidth: '0 2rem 0',
+     borderStyle: 'solid',
+     borderColor: '#fafafa',
+     width: '100%',
+     height: '100%',
+     top: 0,
+     zIndex: 1000,
+     
+  },
+  child: {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    zIndex: 10000,
+    padding: '0 1rem',
+    
   },
 });
 
@@ -136,29 +158,33 @@ const Carrousel = (props) => {
           ))}
         </CarrouselContainer>
 
-        <div style={{
-          position: 'absolute',
-          borderWidth: '0 2rem 0',
-          borderStyle: 'solid',
-          borderColor: '#fafafa',
-          width: '100%',
-          height: '100%',
-          top: 0,
-          zIndex: 1000,
-        }}>
+        <div className={classes.parent}
+        // style={{
+        //   position: 'absolute',
+        //   borderWidth: '0 2rem 0',
+        //   borderStyle: 'solid',
+        //   borderColor: '#fafafa',
+        //   width: '100%',
+        //   height: '100%',
+        //   top: 0,
+        //   zIndex: 1000,
+        // }}
+        >
 
         </div>
 
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-          zIndex: 10000,
-          padding: '0 1rem'
-        }}>
+        <span className={classes.child}
+        // style={{
+        //   position: 'absolute',
+        //   top: '50%',
+        //   transform: 'translateY(-50%)',
+        //   width: '100%',
+        //   display: 'flex',
+        //   justifyContent: 'space-between',
+        //   zIndex: 10000,
+        //   padding: '0 1rem'
+        // }}
+        >
           <KeyboardArrowLeftRoundedIcon
             className={classes.slidebuttonLeft}
             onClick={() => slide(PREV)}
@@ -167,7 +193,7 @@ const Carrousel = (props) => {
             className={classes.slidebuttonRight}
             onClick={() => slide(NEXT)}
           ></KeyboardArrowRightRoundedIcon>
-        </div>
+        </span>
       </Wrapper>
     </div>
   );

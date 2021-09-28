@@ -25,6 +25,7 @@ const ITEMS = [
 
 const useStyles = makeStyles((theme) => ({
   root:{
+    
     [theme.breakpoints.down('md')]: {
       marginTop: '0.5rem',
       position: 'relative',
@@ -46,21 +47,37 @@ const useStyles = makeStyles((theme) => ({
 
   },
   gridTitle: {
-    padding: "30px 0 30px 0",
+    padding: "30px 0 5px 0",
     color: "#727272",
     fontFamily: "Open Sans",
     fontWeight: "300",
     fontSize: "19px",
     marginTop: "-20px",
-    marginBottom: "-10px",
+    // marginBottom: "-10px",
     marginLeft: "1.5rem",
 
     "&:first-child": {
       marginTop: 0
     },
-  },
+  //   [theme.breakpoints.down('md')]: {
+  //     padding: "30px 0 5px 0",
+  //     position: 'relative',
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     padding: "30px 0 5px 0",
+  //     position: 'relative',
+  //     width: '100%',
+      
+  //   },
+  //   [theme.breakpoints.down('xs')]: {
+  //     padding: "30px 0 5px 0",
+  //     position: 'relative',
+  //     // marginLeft: '-4rem',
+  //     width: '100%',
+  //     boxSizing: 'border-box',
+  // },
 
-  
+}, 
 }));
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
@@ -128,7 +145,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         </Grid>
 
         <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{width: '100%'}} className={classes.root}>
           <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
             <Carrousel style={{ width: '100%' }}>
               <ItemCard title={"Producto 1"} price={"5000"} />
@@ -144,7 +161,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         <span className={classes.gridTitle} style={{marginTop: '-50px'}}>
           Last items you've watched on Health and household.{" "}
         </span>
-        <Grid container spacing={2} style={{marginBottom: '-50px'}}>
+        <Grid container spacing={2} style={{marginBottom: '-50px', width: '100%'}}className={classes.root}>
           <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
             <Carrousel style={{ width: '100%' }}>
               <ItemCard title={"Producto 1"} price={"5000"} />
