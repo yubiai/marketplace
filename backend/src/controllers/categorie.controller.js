@@ -1,10 +1,6 @@
 const { Category } = require('../models/Categories');
 const { Item }=require('../models/Item');
 
-const getTutorialsInCategory = function(categoryId) {
-  return Item.find({ categoryId: categoryId })
-};
-
 async function getCategorie(req, res) {
   try {
     const categories = await Category.find({}).populate('items')
