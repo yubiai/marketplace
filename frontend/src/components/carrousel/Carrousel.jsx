@@ -205,33 +205,11 @@ const Carrousel = (props) => {
           })}
         </CarrouselContainer>
 
-        <div className={classes.parent}
-        // style={{
-        //   position: 'absolute',
-        //   borderWidth: '0 2rem 0',
-        //   borderStyle: 'solid',
-        //   borderColor: '#fafafa',
-        //   width: '100%',
-        //   height: '100%',
-        //   top: 0,
-        //   zIndex: 1000,
-        // }}
-        >
+        <div className={classes.parent}>
 
         </div>
 
-        <span className={classes.child}
-        // style={{
-        //   position: 'absolute',
-        //   top: '50%',
-        //   transform: 'translateY(-50%)',
-        //   width: '100%',
-        //   display: 'flex',
-        //   justifyContent: 'space-between',
-        //   zIndex: 10000,
-        //   padding: '0 1rem'
-        // }}
-        >
+        <span className={classes.child}>
           <KeyboardArrowLeftRoundedIcon
             className={classes.slidebuttonLeft}
             onClick={() => slide(PREV)}
