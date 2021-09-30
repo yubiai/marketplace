@@ -31,12 +31,18 @@ async function postItem(req, res) {
       categoryId: req.query.categoryId,
     })
 
+    const reqFiles = [];
+
+    for (let index = 0; index < req.files.length; index++) {
+      reqFiles.push(req.files[index].filename)
+    }
+
     const item = new Item({
       title: req.body.title,
       price: req.body.price,
       description: req.body.description,
       condition: req.body.condition,
-      picture: req.file.filename,
+      picture: reqFiles,
     })
 
     searchCategory.map(async (e) => {

@@ -67,7 +67,7 @@ title: String
 price: String
 description: String
 condition: String
-picture: file
+picture: Array
 ```
 
 Item By Slug
