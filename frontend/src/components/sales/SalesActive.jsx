@@ -161,7 +161,9 @@ export default function AlignItemsList() {
         
       
       </Breadcrumbs>
-      <AddCircleOutlinedIcon className={classes.addItem} />
+
+      
+      <AddCircleOutlinedIcon className={classes.addItem} component={Link} to="/additem" primary="AddItem" />
     
     <Grid container spacing={1}
           variant="fullWidth"
