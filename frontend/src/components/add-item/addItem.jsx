@@ -142,7 +142,7 @@ const currencies = [
   },
 ];
 
-export default function MultilineTextFields() {
+export default function AddItem() {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState('');
   const [condition, setCondition] = React.useState('');
