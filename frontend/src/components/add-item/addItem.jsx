@@ -161,9 +161,10 @@ export default function AddItem() {
 return (
 
   <form noValidate autoComplete="off">
-  <TextField id="outlined-basic" label="Outlined" variant="Title" type="text" name="title" />
-  <TextField id="outlined-basic" label="Outlined" variant="Price" type="number" name="price" />
   
+  
+  <TextField id="outlined-basic" label="Title"  type="text" name="title" />
+  <TextField id="outlined-basic1" label="Price" type="number" name="price" />
 
   <TextField
           id="standard-select-currency"
