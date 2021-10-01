@@ -28,6 +28,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     fontFamily: 'Open Sans',
   },
+  prodTitle: {
+    fontSize: '16px',
+  //   [theme.breakpoints.down('xs')]: {
+  //     height: '80px',
+  //     width: '80px',
+ 
+  // },
+  },
   link: {
     display: 'flex',
     fontSize: '14px',
@@ -43,7 +51,12 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: 'none',
         color: '#008968',
         textDecorationColor: 'transparent', 
-      }
+      },
+    //   [theme.breakpoints.down('xs')]: {
+    //     height: '80px',
+    //     width: '80px',
+   
+    // },  
 },
   btnCheckOrder: {
     display: 'flex',
@@ -90,8 +103,12 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: '120px',
     borderRadius: '10px',
-
+    [theme.breakpoints.down('xs')]: {
+      height: '80px',
+      width: '80px',
+ 
   },
+},
 }));
 
 export default function AlignItemsList() {
@@ -127,7 +144,7 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           disableTypography
-          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -158,7 +175,7 @@ export default function AlignItemsList() {
           <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary={<b> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -188,7 +205,7 @@ export default function AlignItemsList() {
         <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary={<b> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
