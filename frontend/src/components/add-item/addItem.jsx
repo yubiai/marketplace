@@ -144,9 +144,9 @@ const currencies = [
 
 export default function AddItem() {
   const classes = useStyles();
-  const [currency, setCurrency] = React.useState('');
-  const [condition, setCondition] = React.useState('');
-  const [category, setCategory] = React.useState('');
+  const [currency, setCurrency] = React.useState(true);
+  const [condition, setCondition] = React.useState(true);
+  const [category, setCategory] = React.useState(true);
 
   const handleChange1 = (event) => {
     setCurrency(event.target.value);
