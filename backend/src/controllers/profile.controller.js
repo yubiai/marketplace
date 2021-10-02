@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const got = require("got");
+const { Profile } = require("../models/Profile");
 
 const POH_API_URL = 'https://api.poh.dev';
 const JWT_PRIVATE_KEY = process.env.JWT_PRIVATE_KEY || '';
@@ -23,9 +24,10 @@ function signData(rawData={}) {
 
 // TODO: Implement secure request with token
 async function getProfile(req, res, _) {
-    const { walletAddress } = req;
+    const { walletAddress } = req.params;
     try {
-        const profile = Profile.findOne({ "walletAddress": walletAddress });
+        const profile = await Profile.findOne({ "eth_address": walletAddress });
+        console.log(profile)
         res.status(200).json(profile);
     } catch (error) {
         res.status(404);
@@ -33,11 +35,23 @@ async function getProfile(req, res, _) {
 }
 
 async function login(req, res, next) {
-    // FIXME: Replace to { ...req.body }; on const { walletAddress }
-    const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4'
+
+    const { walletAddress } =  { ...req.body }
+    //const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
+
     try {
         const response = await checkProfileOnPOH(walletAddress);
         if (response) {
+            let verify = await Profile.exists({
+                eth_address: response.eth_address
+              });
+            
+            // If it does not exist, save it as a new user
+            if(!verify){
+                let newUser = new Profile(response);
+                await newUser.save();
+            }
+
             const token = signData({
                 walletAddress
             });
