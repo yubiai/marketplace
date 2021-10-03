@@ -9,6 +9,7 @@ import crypto from 'crypto';
 import bs58 from 'bs58';
 
 const ENABLE_SWAP_ON_CHECKOUT = false;
+const TESTING_ORDER_SMART_CONTRACT = true;
 const AFTER_DUE = 14;
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
@@ -37,6 +38,7 @@ function hashData (rawData) {
 
 async function setupEscrow() {
     let web3;
+    console.log(process.env.REACT_APP_ENV);
     if (process.env.REACT_APP_ENV === 'local') {
         web3 = new Web3(
             new Web3.providers.HttpProvider('http://localhost:8545')
@@ -85,7 +87,7 @@ async function getDummyDataForTransaction() {
         walletOrigin: signerAddress || '0x2546BcD3c84621e976D8185a91A922aE77ECEc30',
         walletDestination: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c'
     };
-    const amount = 100;
+    const amount = 0.001;
     const recipient = sampleCheckoutInfo.walletDestination;
     const timeout = 30 * 60;
     const metaEvidence = {
@@ -108,6 +110,35 @@ async function getDummyDataForTransaction() {
         }
     };
     return { sampleCheckoutInfo, amount, recipient, timeout, metaEvidence };
+}
+
+function sendTransactionIntoOrder(transactionId, fData) {
+    const today = new Date();
+    const products = [
+        ...fData.sampleCheckoutInfo.products.map(product => ({
+            product: {
+                name: product.name,
+                price: {
+                    value: product.unitPrice.value,
+                    currency: product.unitPrice.currency
+                }
+            },
+            quantity: product.quantity
+        }))
+    ];
+    
+    products.forEach(
+        product => order.addProduct(product));
+    order.setOrderInfo(
+        1234,
+        today.getTime(),
+        new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate() + AFTER_DUE).getTime(),
+        transactionId,
+        products.length
+    );
 }
 
 /**
@@ -140,45 +171,24 @@ export default function DummyCheckout() {
         if (ENABLE_SWAP_ON_CHECKOUT && !checkWalletForUBIs()) {
             doSwap();
         }
-        const hash = hashData(_metaEvidence);
-        escrowInstance.createTransaction(
-            _amount, _recipient, _timeout, {
-               ..._metaEvidence,
-               fileHash: hash
-            }
-        ).then(async (response) => {
-            let args = (response || {}).arguments;
-            const _transactionIdResult = (args && args.length && args[1]) ? args[1]: '';
-            if (_transactionIdResult) {
-                setTransactionId(_transactionIdResult);
-                const today = new Date();
-                const products = [
-                    ...fixtureData.sampleCheckoutInfo.products.map(product => ({
-                        product: {
-                            name: product.name,
-                            price: {
-                                value: product.unitPrice.value,
-                                currency: product.unitPrice.currency
-                            }
-                        },
-                        quantity: product.quantity
-                    }))
-                ];
-                
-                products.forEach(
-                    product => order.addProduct(product));
-                order.setOrderInfo(
-                    1234,
-                    today.getTime(),
-                    new Date(
-                        today.getFullYear(),
-                        today.getMonth(),
-                        today.getDate() + AFTER_DUE).getTime(),
-                    _transactionIdResult,
-                    products.length
-                );
-            }
-        });
+        if (TESTING_ORDER_SMART_CONTRACT) {
+            sendTransactionIntoOrder('b203950328120305f8mb01293', fixtureData);
+        } else {
+            const hash = hashData(_metaEvidence);
+            escrowInstance.createTransaction(
+                _amount, _recipient, _timeout, {
+                   ..._metaEvidence,
+                   fileHash: hash
+                }
+            ).then(async (response) => {
+                let args = (response || {}).arguments;
+                const _transactionIdResult = (args && args.length && args[1]) ? args[1]: '';
+                if (_transactionIdResult) {
+                    setTransactionId(_transactionIdResult);
+                    sendTransactionIntoOrder(_transactionIdResult, fixtureData);
+                }
+            });
+        }
     }
 
     /**

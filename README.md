@@ -3,6 +3,10 @@
 $ npx hardhat node
 $ npx hardhat run --network localhost scripts/deploy.js
 ```
+To deploy contracts in Kovan
+```sh
+$ npx hardhat run --network kovan scripts/deploy.js // Deploy into Kovan
+```
 
 ### Frontend
 ```sh
