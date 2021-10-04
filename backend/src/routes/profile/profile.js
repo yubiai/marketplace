@@ -10,4 +10,10 @@ router.route("/:walletAddress")
 router.route("/login")
     .post(profileController.login);
 
+router.route("/:userID")
+    .put(profileController.updateProfile);
+
+router.route("/:userID")
+    .delete(profileController.deleteProfile);
+
 module.exports = router;
