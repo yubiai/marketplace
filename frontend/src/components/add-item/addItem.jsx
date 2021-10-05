@@ -276,7 +276,7 @@ export default function AddItem() {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
-  const [category, setCategory] = React.useState('Celulares y Teléfonos');
+  const [category, setCategory] = React.useState('YUBI1648');
 
   const handleChange1 = (event1) => {
     setCurrency(event1.target.value1);
