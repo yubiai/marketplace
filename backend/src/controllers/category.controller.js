@@ -1,8 +1,9 @@
-const { Categorie } = require('../models/Categories')
+const { Category } = require('../models/Category');
+const { Item }=require('../models/Item');
 
-async function getCategorie(req, res) {
+async function getCategory(req, res) {
   try {
-    const categories = await Categorie.find({})
+    const categories = await Category.find({}).populate('items')
 
     res.status(200).json({
       status: 'ok',
@@ -16,9 +17,10 @@ async function getCategorie(req, res) {
   }
 }
 
-async function postCategorie(req, res) {
+async function postCategory(req, res) {
   try {
-    const item = new Categorie({
+    const item = new Category({
+      categoryId: req.body.categoryId,
       title: req.body.title,
       description: req.body.description,
       permalink: req.body.permalink,
@@ -38,10 +40,12 @@ async function postCategorie(req, res) {
   }
 }
 
-async function getCategorieId(req, res) {
+async function getCategoryId(req, res) {
   try {
+    const categories = await Category.findById({_id: req.params.id}).populate("items")
     res.status(200).json({
       status: 'ok',
+      response: categories
     })
   } catch (error) {
     res.status(400).json({
@@ -52,7 +56,7 @@ async function getCategorieId(req, res) {
 }
 
 module.exports = {
-  getCategorie,
-  postCategorie,
-  getCategorieId,
+  getCategory,
+  postCategory,
+  getCategoryId,
 }

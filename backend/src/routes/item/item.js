@@ -8,6 +8,9 @@ router.route("/item")
     .get(itemController.getItem)
     .post(upload, itemController.postItem)
 
+router.route("/item/:slug")
+    .get(itemController.getItemSlug)
+
 router.route("/getPaymentId/:itemId")
     .get(itemController.getPaymendId)
 

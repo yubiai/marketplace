@@ -22,3 +22,56 @@ $ crear archivo .env y setear la variable MONGODB_URl con la url de la base de d
 $ npm run dev
 
 ```
+
+### Postman
+
+All Category
+
+```sh
+/api/categories (GET)
+```
+
+```sh
+/api/categories (POST)
+
+Body:
+
+title: String
+description: String
+categoryId: Number (default: 0)
+
+```
+
+Category _id
+
+```sh
+/api/categories/:id (GET)
+```
+
+All Items
+
+```sh
+/api/items/item (GET)
+```
+
+```sh
+/api/items/item (POST)
+
+Params POST:
+
+categoryId: Number (ej: 0)
+
+Body:
+
+title: String
+price: String
+description: String
+condition: String
+picture: Array
+```
+
+Item By Slug
+
+```sh
+/api/items/item/:slug (GET)
+```

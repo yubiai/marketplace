@@ -9,7 +9,7 @@ const PaymentProcessor = require("./../../frontend/src/artifacts/contracts/Payme
 const { Payment } = require("./models/Payment");
 
 const app = express();
-const categorie = require("./routes/categorie/categorie");
+const category = require("./routes/category/category");
 const item = require("./routes/item/item");
 const profile = require("./routes/profile/profile");
 const config = require("./db");
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/api/categories", categorie)
+app.use("/api/categories", category)
 app.use("/api/items", item);
 app.use("/api/profiles", profile);
 
