@@ -67,17 +67,6 @@ const useStyles = makeStyles({
       outline: "0",
     },
   },
-  parent:{
-     position: 'absolute',
-     borderWidth: '0 2rem 0',
-     borderStyle: 'solid',
-     borderColor: '#fafafa',
-     width: '100%',
-     height: '100%',
-     top: 0,
-     zIndex: 1000,
-     
-  },
   child: {
     position: 'absolute',
     top: '50%',
@@ -204,10 +193,6 @@ const Carrousel = (props) => {
             }
           })}
         </CarrouselContainer>
-
-        <div className={classes.parent}>
-
-        </div>
 
         <span className={classes.child}>
           <KeyboardArrowLeftRoundedIcon
