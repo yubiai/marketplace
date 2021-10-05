@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
-    backgroundColor: "#FCB877",
+    backgroundColor: "#00ABD1",
     fontFamily: 'Open Sans',
     outline: 'none !important',
     color: "#fff",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       borderBottom: "none",
       outline: 'none !important',
-      color: "#008968",
+      color: "#00ABD1",
       backgroundColor: "transparent"
     }
   },

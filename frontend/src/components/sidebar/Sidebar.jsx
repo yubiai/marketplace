@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     textDecorationColor: 'transparent',
     '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#00ABD1', 
           }
 
   },

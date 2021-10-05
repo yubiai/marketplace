@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',  
     top: '-2.5rem', 
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968',
+      color: '#00ABD1',
       backgroundColor: 'transparent', 
     }  
   },
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968',
+        color: '#00ABD1',
         textDecorationColor: 'transparent',  
       }
 },

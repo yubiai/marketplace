@@ -48,12 +48,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '-20px',
     marginBottom: '5px',
     borderRadius: '10px',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     color: '#fff',
     minWidth: '150px',
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968', 
+      color: '#00ABD1', 
       textDecoloration: 'transparent',
     }  
   },
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968',
+        color: '#00ABD1',
         textDecorationColor: 'transparent', 
       }
 },
@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     height:'14px',
     width: '11px',
     color: 'white',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     borderRadius: '2px',
     marginRight: '9px',
     boxShadow: '0px 3px 6px #00000029',
@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     marginTop: '-50px',
     marginLeft: '85px',
-    color: '#FCB877',
+    color: '#00ABD1',
     
   },
   starsReput2: {
@@ -161,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     marginTop: '-50px',
     marginLeft: '5px',
-    color: '#FCB877',
+    color: '#00ABD1',
     
   },
   starsReput3: {
@@ -172,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     marginTop: '-50px',
     marginLeft: '5px',
-    color: '#FCB877',
+    color: '#00ABD1',
     
   },
   starsReput4: {
@@ -183,7 +183,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     marginTop: '-50px',
     marginLeft: '5px',
-    color: '#FCB877',
+    color: '#00ABD1',
     
   },
   starsReput5: {
@@ -194,7 +194,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     marginTop: '-50px',
     marginLeft: '5px',
-    color: '#FCB877',
+    color: '#00ABD1',
     
   }
 }));

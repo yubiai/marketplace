@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px', 
     },
     button: {
-        color: '#FCB877',
+        color: '#00ABD1',
         top: '0.2rem',
         paddingTop: '-0.5rem',
         maxWidth: '32px',
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     attachButton: {
-        color: '#FCB877',
+        color: '#00ABD1',
         marginTop: '0.75rem',
         marginRight: '3rem',
         marginLeft: '-2rem',

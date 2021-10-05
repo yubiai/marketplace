@@ -46,14 +46,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     color: '#fff',
     minWidth: '140px',
     maxWidth: '140px',
     top: '-4.75rem', 
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968',
+      color: '#00ABD1',
       backgroundColor: 'transparent', 
     }  
   },
@@ -69,11 +69,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     minWidth: '140px',
     maxWidth: '140px',
-    backgroundColor: '#fef1e4',
-    color: '#FCB877',
+    backgroundColor: '#d4ecf1',
+    color: '#00ABD1',
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968',
+      color: '#00ABD1',
       backgroundColor: 'transparent', 
    }, 
   },
@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems:"flex-start",
     marginTop: '-2.2rem',
     marginRight: '2rem',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     boxShadow: '0px 3px 6px #00000029',
     borderRadius: '25px',
     opacity: '1',
@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968',
+        color: '#00ABD1',
         textDecorationColor: 'transparent',  
       }
      
