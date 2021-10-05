@@ -28,6 +28,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     fontFamily: 'Open Sans',
   },
+  prodTitle: {
+    fontSize: '16px',
+  //   [theme.breakpoints.down('xs')]: {
+  //     height: '80px',
+  //     width: '80px',
+ 
+  // },
+  },
   link: {
     display: 'flex',
     fontSize: '14px',
@@ -43,7 +51,12 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: 'none',
         color: '#008968',
         textDecorationColor: 'transparent', 
-      }
+      },
+    //   [theme.breakpoints.down('xs')]: {
+    //     height: '80px',
+    //     width: '80px',
+   
+    // },  
 },
   btnCheckOrder: {
     display: 'flex',
@@ -55,14 +68,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     marginBottom: '5px',
     borderRadius: '10px',
-    backgroundColor: '#FCB877',
+    backgroundColor: '#00ABD1',
     color: '#fff',
     minWidth: '160px',
     maxWidth: '160px',
     top: '-3.75rem', 
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968',
+      color: '#00ABD1',
       backgroundColor: 'transparent', 
     }  
   },
@@ -79,19 +92,23 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     minWidth: '160px',
     maxWidth: '160px',
-    backgroundColor: '#fef1e4',
-    color: '#FCB877',
+    backgroundColor: '#d4ecf1',
+    color: '#00ABD1',
     '&:hover': {
       borderBottom: 'none',
-      color: '#008968',
+      color: '#00ABD1',
       backgroundColor: 'transparent',
    }, 
   },
   image: {
     width: '120px',
     borderRadius: '10px',
-
+    [theme.breakpoints.down('xs')]: {
+      height: '80px',
+      width: '80px',
+ 
   },
+},
 }));
 
 export default function AlignItemsList() {
@@ -127,7 +144,7 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           disableTypography
-          primary={<b style={{fontSize:'16px'}}> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -158,7 +175,7 @@ export default function AlignItemsList() {
           <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary={<b> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography
@@ -188,7 +205,7 @@ export default function AlignItemsList() {
         <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
         </ListItemAvatar>
         <ListItemText
-          primary={<b> Delivered on 11th of august</b>}
+          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
           secondary={
             <React.Fragment>
               <Typography

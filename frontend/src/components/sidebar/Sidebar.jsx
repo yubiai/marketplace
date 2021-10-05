@@ -35,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '18px',
     fontWeight: 'bold',
     color: '#393939',
+    paddingLeft: '-16px',
+    [theme.breakpoints.down('xs')]: {
+      font: 'Open Sans',
+      fontSize: '15px',
+      fontWeight: 'bold',
+      display:'none',
+  },
   },
   listItemText: {
     color: '#6A6A6A',
@@ -47,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     textDecorationColor: 'transparent',
     '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#00ABD1', 
           }
 
   },
@@ -67,7 +74,7 @@ export default function NestedList() {
       aria-labelledby="nested-list-subheader"
       subheader={
         
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader component="span" id="nested-list-subheader">
            <ListItemIcon>
           <MenuOutlinedIcon style={{color:"#393939", marginLeft:"2rem", marginTop:"1rem"}}/>
           <ListItemText disableTypography className={classes.HeaderList} primary="My account" />

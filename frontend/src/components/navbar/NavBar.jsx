@@ -47,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
         
    },
     navbar: {
-         background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+         background: 'linear-gradient(90deg, rgb(0, 171, 209) 0%, #1C538A 100%) !important',
          height: '105px',
          minHeight:'105px',
          maxHeight:'105px',
          zIndex: 99,
     },
     logo: {
-        width: '120px',
+        width: '100px',
     },
     menuButton: {
     },
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968',
+            color: '#a9a9a9',
             textDecorationColor: 'transparent', 
           }
     },
@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#a9a9a9', 
           }
     },
     lang: {
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968',
+            color: '#a9a9a9',
             textDecorationColor: 'transparent', 
           },
           [theme.breakpoints.down('sm')]: {
@@ -141,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#a9a9a9', 
           }
     },
     carticon: {
@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
         float:'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#a9a9a9', 
           },
           [theme.breakpoints.down('md')]: {
             left: '-7.5rem',
@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
     },
     connect: {
         fontSize: '14px',
-        color: '#FCB877',
+        color: '#00ABD1',
         fontWeight: '500',
         textTransform: 'none',
         justifyContent: "space-evenly",
@@ -192,7 +192,7 @@ const useStyles = makeStyles((theme) => ({
             outline: 'none',
             borderBottom: 'none',
             color: 'white',
-            background: '#FCB877', 
+            background: '#00ABD1', 
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
@@ -224,7 +224,7 @@ const useStyles = makeStyles((theme) => ({
     },
     connectMobile: {
         fontSize: '14px',
-        color: '#FCB877',
+        color: '#00ABD1',
         fontWeight: '500',
         textTransform: 'none',
         justifyContent: "space-evenly",
@@ -237,7 +237,7 @@ const useStyles = makeStyles((theme) => ({
             outline: 'none',
             borderBottom: 'none',
             color: 'white',
-            background: '#FCB877', 
+            background: '#00ABD1', 
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
@@ -254,7 +254,7 @@ const useStyles = makeStyles((theme) => ({
         // alignItems: 'left',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968',
+            color: '#00ABD1',
             textDecorationColor: 'transparent', 
           }
        
