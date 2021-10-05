@@ -8,6 +8,11 @@ const profileSchema = new Schema(
       required: true,
       trim: true,
     },
+    registered_time: {
+      type: String,
+      required: true,
+      trim: true
+    },
     first_name: {
       type: String,
       trim: true,
