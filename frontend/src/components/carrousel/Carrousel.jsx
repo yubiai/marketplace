@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 
   slidebuttonLeft: {
-    color: "#FFB978",
+    color: "#00ABD1",
     textDecoration: "none",
     padding: "-10px",
     paddingLeft: "-10px",
@@ -45,7 +45,7 @@ const useStyles = makeStyles({
   },
   slidebuttonRight: {
     background: "#FFFFFF",
-    color: "#FFB978",
+    color: "#00ABD1",
     textDecoration: "none",
     padding: "-10px",
     paddingRight: "-5px",

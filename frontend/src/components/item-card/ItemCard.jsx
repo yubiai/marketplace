@@ -108,9 +108,10 @@ const ItemCard = ({ title, price, image }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
+    console.log(event)
     setAnchorEl(event.currentTarget);
   };
-
+ 
   const open = Boolean(anchorEl);
 
   const handleClose = () => {

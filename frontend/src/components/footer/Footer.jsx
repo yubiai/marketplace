@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0),
     marginTop: 'auto',
    // backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],  
-   background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+   background: 'linear-gradient(90deg, rgb(0, 171, 209) 0%, #1C538A 100%) !important',
    fontSize: '14px',
   }, 
   logo: {
@@ -50,7 +50,7 @@ socialMedia: {
 },
 link: { 
   fontSize: '13px',
-  color: 'black',
+  color: '#fff',
   flexDirection: 'row',
   textDecorationColor: 'transparent',
   padding: 5,
