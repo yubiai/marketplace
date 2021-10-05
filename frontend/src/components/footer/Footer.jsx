@@ -57,7 +57,7 @@ link: {
  
   '&:hover': {
       borderBottom: 'none',
-      color: '#008968', 
+      color: '#a9a9a9', 
       textDecorationColor: 'transparent',
     }
  
@@ -68,7 +68,7 @@ submit: {
   marginLeft: '10px',
   '&:hover': {
     borderBottom: 'none',
-    color: '#008968', 
+    color: '#a9a9a9', 
     textDecorationColor: 'transparent', 
   }
 
