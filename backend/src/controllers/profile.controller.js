@@ -1,4 +1,5 @@
-const { checkProfileOnPOH, signData } = require("../utils/utils")
+const { Profile } = require("../models/Profile");
+const { checkProfileOnPOH, signData } = require("../utils/utils");
 
 /**
  *
@@ -41,7 +42,7 @@ async function deleteProfile(req, res) {
   const { userID } = req.params;
 
   let verify = await Profile.exists({
-    _id: userID
+    _id: userID,
   });
 
   if (!verify) {
@@ -105,9 +106,57 @@ async function login(req, res, next) {
   }
 }
 
+// Update Favorite Profile
+async function favoriteProfile(req, res) {
+  const { userID } = req.params;
+
+  let userExists = await Profile.findOne({
+    _id: userID,
+  });
+
+  if (!userExists) {
+    return res.status(404).json({ error: "User id not exists" });
+  }
+
+  const { product, action } = { ...req.body };
+
+  if(!product){
+    return res.status(404).json({ error: "Not Product" });
+  }
+
+  let newFavorites = userExists.favorites;
+  let i
+
+  switch (action) {
+    case "add":
+      i = newFavorites.indexOf(product);
+      if(i !== -1){
+        return res.status(404).json({ error: "Product already added as a favorite." });
+      }
+      newFavorites.push(product);
+      break;
+    case "remove":
+      i = newFavorites.indexOf(product);
+      newFavorites.splice(i, 1);
+      break;
+    default:
+      return res.status(404).json({ error: "Not Action" });
+  }
+
+  try {
+    await Profile.findByIdAndUpdate(userID, {
+      favorites: newFavorites,
+    });
+    return res.status(200).json({ message: "Successfully updated favorites" });
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
 module.exports = {
   getProfile,
   login,
   updateProfile,
   deleteProfile,
+  favoriteProfile,
 };
