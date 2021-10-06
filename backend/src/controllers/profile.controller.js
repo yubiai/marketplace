@@ -106,8 +106,30 @@ async function login(req, res, next) {
   }
 }
 
+// FAVORITES
+// Get Favorites
+async function getFavorites(req, res) {
+  const { userID } = req.params;
+
+  let userExists = await Profile.findOne({
+    _id: userID,
+  });
+
+  if (!userExists) {
+    return res.status(404).json({ error: "User id not exists" });
+  }
+
+  let favorites = userExists.favorites;
+
+  if (favorites && favorites.length > 0){
+    return res.status(200).json(favorites);
+  } 
+
+  return res.status(404).json({ error: "Favorites not found"})
+}
+
 // Update Favorite Profile
-async function favoriteProfile(req, res) {
+async function updateFavorites(req, res) {
   const { userID } = req.params;
 
   let userExists = await Profile.findOne({
@@ -137,6 +159,9 @@ async function favoriteProfile(req, res) {
       break;
     case "remove":
       i = newFavorites.indexOf(product);
+      if(i == -1){
+        return res.status(404).json({ error: "Product not found in favorites." });
+      }
       newFavorites.splice(i, 1);
       break;
     default:
@@ -158,5 +183,6 @@ module.exports = {
   login,
   updateProfile,
   deleteProfile,
-  favoriteProfile,
+  getFavorites,
+  updateFavorites
 };

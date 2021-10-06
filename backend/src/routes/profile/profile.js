@@ -12,6 +12,8 @@ router.route("/:userID").put(profileController.updateProfile);
 
 router.route("/:userID").delete(profileController.deleteProfile);
 
-router.route("/favorite/:userID").put(profileController.favoriteProfile);
+router.route("/favorites/:userID").get(profileController.getFavorites);
+
+router.route("/favorites/:userID").put(profileController.updateFavorites);
 
 module.exports = router;
