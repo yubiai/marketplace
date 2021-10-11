@@ -1,0 +1,315 @@
+swagger: "2.0"
+info:
+  title: Yubiai API
+  description: API description in Markdown.
+  version: 1.0.0
+host: localhost:8545
+basePath: /
+schemes:
+  - https
+  
+definitions:
+      
+  Category:
+    properties:
+      categoryId:
+        type: integer
+      title:
+        type: string
+      description:
+        type: string
+      permalink:
+        type: string
+    required:
+      - categoryId
+      - title
+      - description
+      - permalink
+      
+  Categories:
+    type: array
+    items:
+      $ref: '#/definitions/Category'
+
+  Pictures:
+    type: array
+    items:  
+        type: string
+        format: binary
+  
+  Item:
+    properties:
+      title:
+        type: string
+      price:
+        type: number
+      description:
+        type: string
+      condition:
+        type: string
+      picture:
+        $ref: '#/definitions/Pictures'
+      slug:
+        type: string
+      category:
+        type: number
+    required:  
+      - title
+      - price
+      - description
+      - condition
+      - picture
+      - slug
+      - category
+      
+  ItemUpload:
+    properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        condition:
+          type: string
+    required:  
+      - title
+      - price
+      - description
+      - condition
+      
+  Items:
+    type: array
+    items:
+      $ref: '#/definitions/Item'
+      
+  Profile:
+    properties:
+      eth_address:
+        type: string
+      registered_time:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      dni:
+        type: string
+      address:
+        type: string
+      country:
+        type: string
+      city:
+        type: string
+      telephone:
+        type: string
+      email:
+        type: string
+      permission:
+        type: string
+      photo:
+        type: string
+      products:
+        type: array
+        items:
+          type: string
+      favorites:
+        type: array
+        items:
+          type: string
+          
+  LoginResponse:
+    properties:
+      token:
+        type: string
+  
+paths:
+  
+  # categories
+  
+  /categories/:
+    get:
+      summary: Returns all categories.
+      responses:
+        200:
+          description: ok
+          schema:
+            $ref: '#/definitions/Categories'
+        400:
+          description: Ups Hubo un error!
+    post:
+      summary: Creates a new category.
+      parameters:
+        - in: query
+          name: categoryId
+          required: true
+          type: string
+        - in: body
+          name: category
+          required: true
+          schema:
+            $ref: '#/definitions/Category'
+      responses:
+        200:
+          description: Categoria agregado con éxito!
+        400:
+          description: Ups Hubo un error!
+  
+  /categories/{id}:
+    get:
+      summary: Returns a category.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      responses:
+        200:
+          description: ok
+        400:
+          description: Ups Hubo un error!
+      
+  # # items
+  
+  /items/item:
+    get:
+      summary: Returns all items.
+      responses:
+        200:
+          description: ok
+          schema:
+            $ref: '#/definitions/Items'
+        400:
+          description: Ups Hubo un error!
+    post:
+      summary: Creates a new item.
+      parameters:
+        - in: query
+          name: categoryId
+          required: true
+          type: string
+        - in: body
+          name: item
+          required: true
+          schema:
+            $ref: '#/definitions/ItemUpload'
+      responses:
+        200:
+          description: Item agregado con éxito!
+        400:
+          description: Ups Hubo un error!
+      
+  /items/item/{slug}:
+    get:
+      summary: Returns a category.
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          type: string
+      responses:
+        200:
+          description: ok
+          schema:
+            $ref: '#/definitions/Item'
+        400:
+          description: Ups Hubo un error!
+  
+  /items/getPaymentId/{itemId}:
+    get:
+      summary: Returns a payment id.
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          type: number
+      responses:
+        200:
+          description: ok
+          schema:
+            type: number
+  
+  /items/getItemUrl/{paymentId}:
+    get:
+      summary: Returns an item's url.
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          type: number
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+        400:
+          description: Ups hubo un error!
+  
+  # profiles
+  
+  /profiles/{walletAddress}:
+    get:
+      summary: Returns a profile.
+      parameters:
+        - in: path
+          name: walletAddress
+          required: true
+          type: string
+      responses:
+        200:
+          description: ok
+          schema:
+            $ref: '#/definitions/Profile'
+        404:
+          description: Ups hubo un error!
+  
+  /profiles/login:
+    post:
+      summary: Logs in.
+      parameters:
+        - in: body
+          name: item
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        404:
+          description: User not validated in Poh
+        401:
+          description: Unauthorized
+  
+  /profiles/{userId}:
+    put:
+      summary: Update profile.
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: string
+        - in: body
+          name: profile
+          required: true
+          schema:
+            $ref: '#/definitions/Profile'
+      responses:
+        200:
+          description: Successfully updated
+        404:
+          description: User id not exists
+    delete:
+      summary: Delete profile.
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: string
+      responses:
+        200:
+          description: Successfully removed
+        404:
+          description: User id not exists
+  
