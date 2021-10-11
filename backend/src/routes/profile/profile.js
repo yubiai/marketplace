@@ -16,4 +16,9 @@ router.route("/favorites/:userID").get(profileController.getFavorites);
 
 router.route("/favorites/:userID").put(profileController.updateFavorites);
 
+router.route("/my_purchases/:userID").get(profileController.getMyPurchases);
+
+router.route("/my_sales/:userID").get(profileController.getMySales);
+
+
 module.exports = router;

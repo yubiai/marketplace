@@ -1,3 +1,4 @@
+const { Item } = require("../models/Item");
 const { Profile } = require("../models/Profile");
 const { checkProfileOnPOH, signData } = require("../utils/utils");
 
@@ -121,11 +122,11 @@ async function getFavorites(req, res) {
 
   let favorites = userExists.favorites;
 
-  if (favorites && favorites.length > 0){
+  if (favorites && favorites.length > 0) {
     return res.status(200).json(favorites);
-  } 
+  }
 
-  return res.status(404).json({ error: "Favorites not found"})
+  return res.status(404).json({ error: "Favorites not found" });
 }
 
 // Update Favorite Profile
@@ -142,25 +143,29 @@ async function updateFavorites(req, res) {
 
   const { product, action } = { ...req.body };
 
-  if(!product){
+  if (!product) {
     return res.status(404).json({ error: "Not Product" });
   }
 
   let newFavorites = userExists.favorites;
-  let i
+  let i;
 
   switch (action) {
     case "add":
       i = newFavorites.indexOf(product);
-      if(i !== -1){
-        return res.status(404).json({ error: "Product already added as a favorite." });
+      if (i !== -1) {
+        return res
+          .status(404)
+          .json({ error: "Product already added as a favorite." });
       }
       newFavorites.push(product);
       break;
     case "remove":
       i = newFavorites.indexOf(product);
-      if(i == -1){
-        return res.status(404).json({ error: "Product not found in favorites." });
+      if (i == -1) {
+        return res
+          .status(404)
+          .json({ error: "Product not found in favorites." });
       }
       newFavorites.splice(i, 1);
       break;
@@ -178,11 +183,58 @@ async function updateFavorites(req, res) {
   }
 }
 
+// My Purchases
+async function getMyPurchases(req, res) {
+  const { userID } = req.params;
+
+  let userExists = await Profile.findOne({
+    _id: userID,
+  });
+
+  if (!userExists) {
+    return res.status(404).json({ error: "User id not exists" });
+  }
+
+  try {
+
+    // no finish
+    let items = [];
+    return res.status(200).json(items);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
+// My Sales
+async function getMySales(req, res) {
+  const { userID } = req.params;
+
+  let userExists = await Profile.findOne({
+    _id: userID,
+  });
+
+  if (!userExists) {
+    return res.status(404).json({ error: "User id not exists" });
+  }
+
+  try {
+    const items = await Item.find({ 
+      seller: userID,
+      status: "finish"
+    });
+    return res.status(200).json(items);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
 module.exports = {
   getProfile,
   login,
   updateProfile,
   deleteProfile,
   getFavorites,
-  updateFavorites
+  updateFavorites,
+  getMyPurchases,
+  getMySales
 };
