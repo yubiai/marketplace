@@ -10,6 +10,8 @@ const itemSchema = new Schema({
   description: String,
   condition: String,
   picture: Array,
+  seller: String,
+  status: String,
   slug: {
     type: String,
     unique: true,
