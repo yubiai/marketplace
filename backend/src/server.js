@@ -12,6 +12,8 @@ const app = express();
 const category = require("./routes/category/category");
 const item = require("./routes/item/item");
 const profile = require("./routes/profile/profile");
+const question = require("./routes/question/question");
+
 const config = require("./db");
 
 app.use(cors());
@@ -21,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/categories", category)
 app.use("/api/items", item);
 app.use("/api/profiles", profile);
+app.use("/api/questions", question);
+
 
 app.listen(4000, () => {
   console.log("Server running on port 4000");
