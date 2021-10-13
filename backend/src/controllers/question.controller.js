@@ -9,6 +9,11 @@ const { Question } = require("../models/Question");
 // Get Question for id
 async function getQuestion(req, res) {
   const { questionID } = req.params;
+
+  if (!ObjectId.isValid(questionID)) {
+    return res.status(404).json({ error: "Not Object ID" });
+  }
+  
   try {
     const question = await Question.findById(questionID);
     return res.status(200).json(question);
@@ -20,8 +25,6 @@ async function getQuestion(req, res) {
 // Get Question for product id
 async function getQuestionsByProduct(req, res) {
   const { productID } = req.params;
-
-  console.log(productID);
 
   try {
     const questions = await Question.find({
@@ -36,7 +39,6 @@ async function getQuestionsByProduct(req, res) {
 // New Question
 async function newQuestion(req, res) {
   const data = req.body;
-  console.log(data);
 
   if (!data.seller) {
     return res.status(404).json("No seller");
@@ -58,7 +60,7 @@ async function deleteQuestion(req, res) {
 
   if (!ObjectId.isValid(questionID)) {
     return res.status(404).json({ error: "Not Object ID" });
-  } 
+  }
 
   let verify = await Question.exists({
     _id: questionID,
@@ -76,9 +78,46 @@ async function deleteQuestion(req, res) {
   }
 }
 
+// Adding answer to the question
+async function addAnswerByIdQuestion(req, res) {
+  const { questionID } = req.params;
+  const data = req.body;
+
+  if (!ObjectId.isValid(questionID)) {
+    return res.status(404).json({ error: "Not Object ID" });
+  }
+
+  if (!data.text) {
+    return res.status(404).json("There is no answer");
+  }
+
+  let question = await Question.findById(questionID);
+
+  if (!question) {
+    return res.status(404).json("Question does not exist");
+  }
+
+  question = {
+    ...question._doc,
+    answer: {
+      text: data.text,
+      status: "Active",
+      date_created: new Date(),
+    },
+  };
+
+  try {
+    await Question.findByIdAndUpdate(questionID, question);
+    return res.status(200).json({ message: "Successfully updated" });
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
 module.exports = {
   getQuestion,
   getQuestionsByProduct,
   newQuestion,
   deleteQuestion,
+  addAnswerByIdQuestion,
 };
