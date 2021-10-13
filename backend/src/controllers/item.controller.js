@@ -47,6 +47,7 @@ async function postItem(req, res) {
 
     searchCategory.map(async (e) => {
       item.category.push(e._id)
+      // Hardcode?
       const pepe = await Category.findById(e._id)
       pepe.items.push(item)
       await pepe.save()
