@@ -4,8 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-
-
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import { Fab } from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,12 +93,35 @@ const useStyles = makeStyles((theme) => ({
     width: '102.5ch',
     margin:'10px'
   },
-
+  addPhotoButton: {
+    color: 'gray',
+    marginTop: '0.75rem',
+    height: '38px',
+    left: '23rem',
+    boxShadow: 'none',
+    margin: theme.spacing(1),
+    backgroundColor: 'transparent',
+    outline: 'none !important',
+    '&:hover, &:focus, &:active': {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+        outline: 'none !important',
+    },
+    '&:hover': {
+      outline: 'none !important',
+    }
+},
   submit: {
     width: '100px',
     margin:'10px',
-    marginLeft: "92.5ch"
- 
+    marginLeft: "92.5ch",
+    backgroundColor: '#00ABD1',
+    '&:hover, &:focus, &:active': {
+      outline: 'none !important',
+      },
+      '&:hover': {
+        backgroundColor: 'transparent',
+      }
     
   },
 }));
@@ -351,16 +374,27 @@ return (
            
         </Select>
       </div>    
-        <TextField id="description" aria-label="minimum height" minRows={4} multiline defaultValue="Default Value" className={classes.description} variant="outlined" />
+        <TextField id="description" aria-label="minimum height" minRows={4} multiline defaultValue="Description" className={classes.description} variant="outlined" />
 
-        <TextField
-          name="upload-photo"
-          type="file"
-          className={classes.imguploader}
-          variant="outlined"
-          minRows={4}
+        <label className={classes.imguploader} htmlFor="upload-photo">
+                <input
+                    style={{ display: "none" }}
+                    
+                    id="upload-photo"
+                    name="upload-photo"
+                    type="file"
+                />          
+                <Fab
+                  className={classes.addPhotoButton}
+                  component="span"
+                  aria-label="add"
+                  variant="extended"
+                >
+                 <AddAPhotoIcon />
+                 </Fab>
+         </label>   
           
-        />
+        
        <div style={{ display: "flex" }}>
 
         <Button type="submit" value="Submit" variant="contained" className={classes.submit}>Submit</Button>
