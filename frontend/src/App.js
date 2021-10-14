@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 import Layout from "./components/layout/Layout.jsx";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
@@ -20,11 +21,25 @@ import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
 // import Chat from "./components/mailbox/Chat";
 
+const useStyles = makeStyles(() => ({
+  header: {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    zIndex: 10
+  },
+  body: {
+    marginTop: '118px',
+    height: '100%',
+    overflowY: 'auto'
+  }
+}))
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
   const [ubi, setUbi] = useState(undefined);
   const [signerAddress, setSignerAddress] = useState(undefined);
+  const classes = useStyles();
 
   useEffect(() => {
     const init = async () => {
@@ -43,11 +58,15 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      <div style={{fontFamily: 'Open Sans'}} className="App">
-        <header className="App-header">
+      <div style={{
+        fontFamily: 'Open Sans',
+        height: '100%',
+        overflow: 'hidden'
+      }} className="App">
+        <header className={classes.header}>
           <NavBar />
         </header>
-        <body>
+        <div className={classes.body}>
           <Switch>
             <Route path="/orders">
               <Layout>
@@ -130,7 +149,7 @@ function App() {
               />
             </Route>
           </Switch>
-        </body >
+        </div>
 
         <Footer />
       </div>
