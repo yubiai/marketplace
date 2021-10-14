@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968',
+        color: '#00ABD1',
         textDecorationColor: 'transparent', 
       },
     //   [theme.breakpoints.down('xs')]: {
