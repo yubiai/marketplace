@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const passport = require('passport')
+require('./utils/passport')(passport)
 
 const ethers = require("ethers");
 const PaymentProcessor = require("./../../frontend/src/artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json");
@@ -17,11 +19,12 @@ const question = require("./routes/question/question");
 const config = require("./db");
 
 app.use(cors());
+app.use(passport.initialize())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/categories", category)
-app.use("/api/items", item);
+app.use("/api/items", passport.authenticate('jwt', {session: false}), item);
 app.use("/api/profiles", profile);
 app.use("/api/questions", question);
 
