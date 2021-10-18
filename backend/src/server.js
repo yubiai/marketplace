@@ -15,6 +15,7 @@ const category = require("./routes/category/category");
 const item = require("./routes/item/item");
 const profile = require("./routes/profile/profile");
 const question = require("./routes/question/question");
+const cart = require("./routes/cart/cart");
 
 const config = require("./db");
 
@@ -27,6 +28,7 @@ app.use("/api/categories", category)
 app.use("/api/items", passport.authenticate('jwt', {session: false}), item);
 app.use("/api/profiles", profile);
 app.use("/api/questions", question);
+app.use("/api/carts", cart);
 
 
 app.listen(4000, () => {
