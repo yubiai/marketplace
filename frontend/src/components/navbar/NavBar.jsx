@@ -64,6 +64,12 @@ const useStyles = makeStyles((theme) => ({
         //     maxHeight:'105px',
         //     zIndex: 99,
         //   },
+        [theme.breakpoints.down(900)]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,
+        },
         [theme.breakpoints.down('xs')]: {
             height: '70px',
             minHeight:'70px',
@@ -73,6 +79,16 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: {
         width: '100px',
+        [theme.breakpoints.down(960)]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+          },
         [theme.breakpoints.down('xs')]: {
             display: 'none',
             position: 'relative',
@@ -87,9 +103,20 @@ const useStyles = makeStyles((theme) => ({
     isoLogo: {
         
         width: '29px',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up(960)]: {
             display: 'none',
-        },    
+        }, 
+        [theme.breakpoints.down(960)]: {
+            
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-2.5rem',
+            top: '1.5rem',
+            float: ' left'
+          },   
         [theme.breakpoints.down('xs')]: {
             
             position: 'relative',
@@ -346,6 +373,7 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '400px',
             minWidth:'400px',
             width: '100%',
+            top: '-1.5rem',
           },
         [theme.breakpoints.down('xs')]: {
             top: '-1.5rem',
