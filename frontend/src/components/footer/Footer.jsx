@@ -41,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
   }, 
   logo: {
     width: '90px',
-   
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+      
+  },     
 },
 paper: {
   padding: theme.spacing(2),

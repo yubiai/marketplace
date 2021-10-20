@@ -47,10 +47,62 @@ const useStyles = makeStyles((theme) => ({
          minHeight:'105px',
          maxHeight:'105px',
          zIndex: 99,
+        //  [theme.breakpoints.down('lg')]: {
+        //     marginLeft: '0 !important',
+        //     marginTop: '0.5rem !important',
+        //     maxWidth: 'initial !important',
+        //     minWidth: 'initial !important',
+        //     position: 'relative',
+        // },
+        // [theme.breakpoints.between(901, 959)]: {
+        //     flexBasis: '100%',
+        //     maxWidth: '60vw'
+        // },
+        // [theme.breakpoints.down(960)]: {
+        //     height: '105px',
+        //     minHeight:'105px',
+        //     maxHeight:'105px',
+        //     zIndex: 99,
+        //   },
+        [theme.breakpoints.down('xs')]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,  
+        },
     },
     logo: {
         width: '100px',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+        },    
     },
+    isoLogo: {
+        
+        width: '29px',
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },    
+        [theme.breakpoints.down('xs')]: {
+            
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-1.5rem',
+            top: '1.5rem',
+            float: ' left'
+
+    },
+},
     menuButton: {
     },
     title: {
@@ -296,8 +348,8 @@ const useStyles = makeStyles((theme) => ({
             width: '100%',
           },
         [theme.breakpoints.down('xs')]: {
-            top: 0,
-            right: 0,
+            top: '-1.5rem',
+            right: '-1rem',
             position: 'relative',
             marginLeft: '-4rem',
             maxWidth: '200px',
@@ -335,6 +387,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down(959)]: {
             width: '100%'
         },
+        
     },
     inputInput: {
         fontWeight: 'light !important',
@@ -346,6 +399,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '40ch',
         },
+        
     },
     sectionDesktop: {
         display: 'none',
@@ -408,9 +462,10 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down(900)]: {
             position: 'relative',
-            top: '-24px',
+            top: '-10px',
             left: 0,
-            marginTop: 0
+            marginTop: 0,
+            width: '20px',
         }
     },
     location: {
@@ -452,6 +507,7 @@ function _formatWalletAddress(address='') {
 export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
+    const IsologoImage = require("../../images/isologoyubiaiwhite.png")
     const ubiImage = require("../../media/ubi2.svg");
     const profileImage = require("../../media/harishan-kobalasingam.jpg");
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -740,6 +796,7 @@ export default function NavBar() {
                                         <div>
                                             <a href='/'>
                                                 <img className={classes.logo} src={logoImage.default} component={Link} to='/' />
+                                                <img className={classes.isoLogo} src={IsologoImage.default} component={Link} to='/' />
                                             </a>
                                         </div>
                                     </div>
@@ -753,7 +810,7 @@ export default function NavBar() {
                                                 </Button>    
                                             </div>
                                             <InputBase
-                                                placeholder="Search for goods, services or anything you need..."
+                                                placeholder="Search for goods"
                                                 classes={{
                                                     root: classes.inputRoot,
                                                     input: classes.inputInput,
