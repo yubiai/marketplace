@@ -635,14 +635,14 @@ export default function NavBar() {
                 token && 
                 <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
             }
-            <MenuItem>
-                <IconButton color="inherit">
+             {/* <MenuItem> */}
+                {/* <IconButton color="inherit">
                     <Badge badgeContent={1} color="primary" >
                         <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
-                    </Badge>
-                </IconButton>
-                <p>Cart</p>
-            </MenuItem>
+                   {/* </Badge>*/}
+               {/* </IconButton> */}
+               {/* <p>Cart</p> */}
+            {/* </MenuItem> */}
         </Menu>
     );
     const categories = 'categories-menu';
