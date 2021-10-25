@@ -16,6 +16,7 @@ const item = require("./routes/item/item");
 const profile = require("./routes/profile/profile");
 const question = require("./routes/question/question");
 const cart = require("./routes/cart/cart");
+const shipping = require("./routes/shipping/shipping");
 
 const config = require("./db");
 
@@ -29,6 +30,7 @@ app.use("/api/items", passport.authenticate('jwt', {session: false}), item);
 app.use("/api/profiles", profile);
 app.use("/api/questions", question);
 app.use("/api/carts", cart);
+app.use("/api/shipping", shipping);
 
 
 app.listen(4000, () => {
