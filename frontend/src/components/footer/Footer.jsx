@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '17vh',
     flexGrow: 1,
     fontSize: '14px',
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    zIndex: 10000
   },
   main: {
     marginTop: theme.spacing(3),
@@ -37,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
   }, 
   logo: {
     width: '90px',
-   
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+      
+  },     
 },
 paper: {
   padding: theme.spacing(2),
@@ -84,13 +91,9 @@ input:  {
   borderRadius : 8,
   paddingLeft: '1rem'
 },
-form: {
-  display: 'flex',
-  marginTop: '30px',
-  width:'100%',
+formContainer: {
   color: '#FCB877',
-  height: '20px',
-  background: '#fff'
+  position: 'relative',
 },
 button: {
   borderLeft: '1px solid #727272',
@@ -137,58 +140,45 @@ export default function StickyFooter() {
       <CssBaseline />
       
       <footer className={classes.footer}>
-      
         <Container maxWidth="lg">
-        <Grid container spacing={0}>
-        <Grid item xs={12} sm={2}>
-          <div className={classes.paper}><img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" ></img></div>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-        <div classes={classes.form}  >
-          <form style={{position: 'relative', maxWidth: 280}}   noValidate autoComplete="off">
-
-            {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
-            <InputBase
-             disableTypography
-             className={classes.input}
-             
-             placeholder="Contact me, Share us your ETHMail"
-             inputProps={{ 'aria-label': 'contact' }}>
-                             
-             
-            </InputBase>
-            <Button className={classes.button}><SendIcon className={classes.sendIcon} type="submit"></SendIcon>
-             </Button>
-            {/* <IconButton  color="inherit">
-              <></>
-           </IconButton> */}
-           
-          </form>
-          
-         
-
-        
-        </div>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-        <div className={classes.paper}>
-        <Typography>
-        <Link className={classes.link} href="https://gov.proofofhumanity.id/"  onClick={preventDefault} target="_blank" >Governance Forum </Link>
-        <Link className={classes.link} href="https://snapshot.org/#/" onClick={preventDefault} target="_blank" >Snapshot  </Link>
-        <Link className={classes.link} href="https://democracy.earth/#/" onClick={preventDefault} target="_blank" >UBI Vaults </Link>
-        <Link className={classes.link} href="https://court.kleros.io/" onClick={preventDefault} target="_blank" >Kleros</Link>
-        </Typography>
-
-        </div>
-        </Grid> 
-        <Grid item xs={12} sm={2}>
-        <div className={classes.paper}>
-        <Link className={classes.link} href="https://www.youtube.com/channel/UCXHJbgCm5M-Zbg8PuJCioMA/" target="_blank"> <YouTubeIcon className={classes.socialMedia}  /></Link>
-        <Link className={classes.link} href="https://twitter.com/proofofhumanity" target="_blank"> <TwitterIcon className={classes.socialMedia}  /></Link>
-        </div>
-        </Grid>
-      </Grid>
-        
+          <Grid container spacing={0}>
+            <Grid item xs={12} sm={4} md={2}>
+              <div className={classes.paper}>
+                <img className={classes.logo} src={logoImage.default} alt="Logo YUBIAI" />
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={4} md={2}>
+              <div className={classes.formContainer}>
+                <form className={classes.form} noValidate autoComplete="off">
+                  {/* <TextField className={classes.paper} id="name-input" name="name" label="Name" variant="outlined" type="text" placeholder='Want to talk? Share us your ETHMail' /> */}
+                  <InputBase disableTypography
+                             className={classes.input}
+                             placeholder="Contact me, Share us your ETHMail"
+                             inputProps={{ 'aria-label': 'contact' }}>
+                  </InputBase>
+                  <Button className={classes.button}>
+                    <SendIcon className={classes.sendIcon} type="submit"></SendIcon>
+                  </Button>                
+                </form>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={8} md={4}>
+              <div className={classes.paper}>
+                <Typography>
+                  <Link className={classes.link} href="https://gov.proofofhumanity.id/"  onClick={preventDefault} target="_blank" >Governance Forum </Link>
+                  <Link className={classes.link} href="https://snapshot.org/#/" onClick={preventDefault} target="_blank" >Snapshot  </Link>
+                  <Link className={classes.link} href="https://democracy.earth/#/" onClick={preventDefault} target="_blank" >UBI Vaults </Link>
+                  <Link className={classes.link} href="https://court.kleros.io/" onClick={preventDefault} target="_blank" >Kleros</Link>
+                </Typography>
+              </div>
+            </Grid> 
+            <Grid item xs={12} sm={4} md={2}>
+              <div className={classes.paper}>
+                <Link className={classes.link} href="https://www.youtube.com/channel/UCXHJbgCm5M-Zbg8PuJCioMA/" target="_blank"> <YouTubeIcon className={classes.socialMedia}  /></Link>
+                <Link className={classes.link} href="https://twitter.com/proofofhumanity" target="_blank"> <TwitterIcon className={classes.socialMedia}  /></Link>
+              </div>
+            </Grid>
+          </Grid>
         </Container>
       </footer>
     </div>
