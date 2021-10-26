@@ -30,11 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
   prodTitle: {
     fontSize: '16px',
-  //   [theme.breakpoints.down('xs')]: {
-  //     height: '80px',
-  //     width: '80px',
- 
-  // },
   },
   link: {
     display: 'flex',
@@ -49,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '&:hover': {
         borderBottom: 'none',
-        color: '#008968',
+        color: '#00ABD1',
         textDecorationColor: 'transparent', 
       },
     //   [theme.breakpoints.down('xs')]: {
@@ -79,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'transparent', 
     }  
   },
-  
   btnBuyAgain: {
     display: 'flex',
     right: '2rem',
@@ -119,116 +113,101 @@ export default function AlignItemsList() {
     setOpen(!open);
   };
   return (
-    
-     
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-          
-    
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link className={classes.link} to="/orders"  onClick={handleClick}>
           Orders
         </Link>
-        
       </Breadcrumbs>
-    
-    <Grid container spacing={1}
-          variant="fullWidth"
-          direction="column"
-          justifyContent="space-around"
-          alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
-        <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
-           
-        </ListItemAvatar>
-        <ListItemText
-          disableTypography
-          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               Shoe Ricky Sarkany 400mm
-              </Typography>
-              {" 1 item"}
-              
+      <Grid container spacing={1}
+            variant="fullWidth"
+            direction="column"
+            justifyContent="space-around"
+            alignItems="left" style={{marginTop: '4px'}}>
+        <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
+        <ListItem className={classes.listItem} alignItems="flex-start">
+          <ListItemAvatar>
+            <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
+          </ListItemAvatar>
+          <ListItemText
+            disableTypography
+            primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
+            secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  Shoe Ricky Sarkany 400mm
+                </Typography>
+                {" 1 item"}
                 <Button className={classes.btnCheckOrder} variant="contained" component={Link} to="/checkorders" secondary="CheckOrders" >
-                Order details
+                  Order details
                 </Button>
                 <Button className={classes.btnBuyAgain} variant="contained" >
-                Buy it again
+                  Buy it again
                 </Button>
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+              </React.Fragment>
+            } />
+          </ListItem>
+        </Grid>
+        <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
+          <ListItem alignItems="flex-start" className={classes.listItem}>
+            <ListItemAvatar>
+              <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
+            </ListItemAvatar>
+            <ListItemText primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
+              secondary={
+                <React.Fragment>
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    className={classes.inline}
+                    color="textPrimary"
+                  >
+                    Shoe Ricky Sarkany 400mm
+                  </Typography>
+                  {" 1 item"}
+                  <Button className={classes.btnCheckOrder} variant="contained" >
+                    Order details
+                  </Button>
+                  <Button className={classes.btnBuyAgain} variant="contained" >
+                    Buy it again
+                  </Button>
+                </React.Fragment>
+              } />
+            </ListItem>
+          </Grid>
+          <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
+            <ListItem className={classes.listItem} alignItems="flex-start">
+              <ListItemAvatar>
+                <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
+              </ListItemAvatar>
+              <ListItemText primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                    Shoe Ricky Sarkany 400mm
+                    </Typography>
+                    {" 1 item"}
+                    <Button className={classes.btnCheckOrder} variant="contained" >
+                      Order details
+                      </Button>
+                      <Button className={classes.btnBuyAgain} variant="contained" >
+                      Buy it again
+                      </Button>
+                  </React.Fragment>
+                } />
+          </ListItem>
+        </Grid>
       </Grid>
-      
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
-      <ListItem alignItems="flex-start" className={classes.listItem}>
-        <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
-        </ListItemAvatar>
-        <ListItemText
-          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               Shoe Ricky Sarkany 400mm
-              </Typography>
-              {" 1 item"}
-              <Button className={classes.btnCheckOrder} variant="contained" >
-              Order details
-                </Button>
-                <Button className={classes.btnBuyAgain} variant="contained" >
-                Buy it again
-                </Button>
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      </Grid>
-      
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
-        <ListItemAvatar>
-        <img alt="{imgjson}" className={classes.image} src={orderImage.default} />
-        </ListItemAvatar>
-        <ListItemText
-          primary={<b className={classes.prodTitle}> Delivered on 11th of august</b>}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               Shoe Ricky Sarkany 400mm
-              </Typography>
-              {" 1 item"}
-              <Button className={classes.btnCheckOrder} variant="contained" >
-                Order details
-                </Button>
-                <Button className={classes.btnBuyAgain} variant="contained" >
-                Buy it again
-                </Button>
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      </Grid>
-    </Grid>  
     </List>
   );
 }

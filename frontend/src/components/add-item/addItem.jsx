@@ -151,7 +151,7 @@ const currencies = [
   },
   {
     value: 'ETH',
-    label: '€',
+    label: 'eth',
   },
   {
     value: 'BTC',
