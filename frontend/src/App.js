@@ -18,7 +18,7 @@ import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
-import AddItem from "./components/add-item/addItem";
+import AddItem from "./components/add-item/AddItem";
 // import Chat from "./components/mailbox/Chat";
 
 const useStyles = makeStyles(() => ({
