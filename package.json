@@ -1,6 +1,5 @@
 {
   "name": "Yubiai",
-  "homepage": ".",
   "version": "1.0.1",
   "description": "The new generation of dCommerce",
   "main": "hardhat.config.js",
