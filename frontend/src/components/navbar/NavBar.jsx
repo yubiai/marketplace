@@ -29,7 +29,7 @@ import Fade from '@material-ui/core/Fade';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import axios from 'axios';
-import { setupEthState } from '../../ethereum';
+import { setupEthState, getBlockchain } from '../../ethereum';
 import { saveLoginInfo, getLoginInfo } from '../../utils/loginInfo';
 
 const API_URL = 'http://localhost:4000';
@@ -465,6 +465,11 @@ export default function NavBar() {
     const logoImage = require("../../images/logo2.png");
     const ubiImage = require("../../media/ubi2.svg");
     const profileImage = require("../../media/harishan-kobalasingam.jpg");
+
+    const [paymentProcessor, setPaymentProcessor] = useState(undefined);
+    const [ubi, setUbi] = useState(undefined);
+    const [signerAddress, setSignerAddress] = useState(undefined);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [categoriesAnchorEl, setCategoriesAnchorEl] = React.useState(null);
@@ -495,6 +500,16 @@ export default function NavBar() {
     };
     const connect = () => {
         if (!token) {
+            // conexion con metamask
+            const init = async () => {
+                const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
+                setPaymentProcessor(paymentProcessor);
+                setUbi(ubi);
+                setSignerAddress(signerAddress);
+            };
+            
+            init();
+
             setupEthState().then(r => {
                 const { signerAddress } = r;
                 axios.post(

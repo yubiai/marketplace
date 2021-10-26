@@ -27,13 +27,13 @@ function App() {
   const [signerAddress, setSignerAddress] = useState(undefined);
 
   useEffect(() => {
-    const init = async () => {
-      const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
-      setPaymentProcessor(paymentProcessor);
-      setUbi(ubi);
-      setSignerAddress(signerAddress);
-    };
-    init();
+    // const init = async () => {
+    //   const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
+    //   setPaymentProcessor(paymentProcessor);
+    //   setUbi(ubi);
+    //   setSignerAddress(signerAddress);
+    // };
+    // init();
   }, []);
 
   if (typeof window.ethereum === "undefined") {
