@@ -18,10 +18,10 @@ import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
-import AddItem from "./components/add-item/AddItem";
+import AddItem from "./components/add-item/addItem";
 // import Chat from "./components/mailbox/Chat";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   header: {
     position: 'fixed',
     top: 0,
@@ -31,9 +31,12 @@ const useStyles = makeStyles(() => ({
   body: {
     marginTop: '118px',
     height: '100%',
-    overflowY: 'auto'
-  }
-}))
+    overflowY: 'auto',
+    [theme.breakpoints.down(900)]: {
+      marginTop: '74px',
+    },
+  },
+}));
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);

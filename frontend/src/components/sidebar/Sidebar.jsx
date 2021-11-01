@@ -31,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       position: 'absolute',
       zIndex: 1,
+      maxHeight: 80
     }
+  },
+  rootExpanded: {
+    maxHeight: 'initial'
   },
   subheader: {
     [theme.breakpoints.down(900)]: {
@@ -134,7 +138,7 @@ export default function NestedList() {
           </ListItemIcon>
         </ListSubheader>
       }
-      className={classes.root}
+      className={`${classes.root} ${(window.innerWidth <= 900 && expanded) ? classes.rootExpanded : ''}`}
     >
       {
         expanded && (
