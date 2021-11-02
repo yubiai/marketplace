@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
         borderBottom: 'none',
         color: '#00ABD1',
-        textDecorationColor: 'transparent', 
+        textDecorationColor: 'transparent',
       },
   },
   btnCheckOrder: {
@@ -65,11 +65,11 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '160px',
     maxWidth: '160px',
-    top: '-3.75rem', 
+    top: '-3.75rem',
     '&:hover': {
       borderBottom: 'none',
       color: '#00ABD1',
-      backgroundColor: 'transparent', 
+      backgroundColor: 'transparent',
     },
     [theme.breakpoints.down('xs')]: {
       display: 'none'
@@ -106,6 +106,14 @@ const useStyles = makeStyles((theme) => ({
       display: 'block'
     },
   },
+  menuIconLink: {
+    color: '#000',
+    textDecoration: 'none',
+    '&:hover, &:active, &:focus': {
+      color: '#000',
+      textDecoration: 'none',
+    }
+  },
   image: {
     width: '120px',
     borderRadius: '10px',
@@ -129,6 +137,14 @@ export default function AlignItemsList() {
   const handleClick = () => {
     setOpen(!open);
   };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openMobileMenuOpt = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const closeMobileMenuOpt = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
@@ -169,6 +185,7 @@ export default function AlignItemsList() {
                 </React.Fragment>
               } />
             <IconButton
+              onClick={openMobileMenuOpt}
               aria-label="more"
               aria-haspopup="true"
               aria-controls="more-menu"
@@ -177,9 +194,14 @@ export default function AlignItemsList() {
               <MoreVertIcon />
             </IconButton>
             <Menu id="more-menu"
-                  keepMounted>
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={closeMobileMenuOpt}
+                  open={Boolean(anchorEl)}>
               <MenuItem className={classes.menuIcons}>
-                Order details
+                <Link to="/checkorders" className={classes.menuIconLink}>
+                  Order details
+                </Link>
               </MenuItem>
               <MenuItem className={classes.menuIcons}>
                 Buy it again
@@ -213,6 +235,7 @@ export default function AlignItemsList() {
                 </React.Fragment>
               } />
             <IconButton
+              onClick={openMobileMenuOpt}
               aria-label="more"
               aria-haspopup="true"
               aria-controls="more-menu"
@@ -221,9 +244,14 @@ export default function AlignItemsList() {
               <MoreVertIcon />
             </IconButton>
             <Menu id="more-menu"
-                  keepMounted>
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={closeMobileMenuOpt}
+                  open={Boolean(anchorEl)}>
               <MenuItem className={classes.menuIcons}>
-                Order details
+                <Link to="/checkorders" className={classes.menuIconLink}>
+                  Order details
+                </Link>
               </MenuItem>
               <MenuItem className={classes.menuIcons}>
                 Buy it again
@@ -257,6 +285,7 @@ export default function AlignItemsList() {
                 </React.Fragment>
               } />
             <IconButton
+              onClick={openMobileMenuOpt}
               aria-label="more"
               aria-haspopup="true"
               aria-controls="more-menu"
@@ -265,9 +294,14 @@ export default function AlignItemsList() {
               <MoreVertIcon />
             </IconButton>
             <Menu id="more-menu"
-                  keepMounted>
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={closeMobileMenuOpt}
+                  open={Boolean(anchorEl)}>
               <MenuItem className={classes.menuIcons}>
-                Order details
+                <Link className={classes.menuIconLink} to="/checkorders">
+                  Order details
+                </Link>
               </MenuItem>
               <MenuItem className={classes.menuIcons}>
                 Buy it again
