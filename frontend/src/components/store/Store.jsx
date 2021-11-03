@@ -102,7 +102,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
   return (
     <Container maxWidth="lg">
-      <div className="row" style={{overflow: 'hidden'}}>
+      <div className="row" style={{marginBottom: '380px'}}>
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}

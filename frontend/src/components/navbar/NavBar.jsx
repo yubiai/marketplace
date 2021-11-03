@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -36,11 +36,6 @@ const API_URL = 'http://localhost:4000';
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
   let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
 const useStyles = makeStyles((theme) => ({
-    // container: {
-    //     display: 'flex',
-    //     height: '100px',
-    //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
- // },
     root:{
         marginTop: '10px',
         margin: '10px',
@@ -52,10 +47,89 @@ const useStyles = makeStyles((theme) => ({
          minHeight:'105px',
          maxHeight:'105px',
          zIndex: 99,
+        //  [theme.breakpoints.down('lg')]: {
+        //     marginLeft: '0 !important',
+        //     marginTop: '0.5rem !important',
+        //     maxWidth: 'initial !important',
+        //     minWidth: 'initial !important',
+        //     position: 'relative',
+        // },
+        // [theme.breakpoints.between(901, 959)]: {
+        //     flexBasis: '100%',
+        //     maxWidth: '60vw'
+        // },
+        // [theme.breakpoints.down(960)]: {
+        //     height: '105px',
+        //     minHeight:'105px',
+        //     maxHeight:'105px',
+        //     zIndex: 99,
+        //   },
+        [theme.breakpoints.down(900)]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,  
+        },
     },
     logo: {
         width: '100px',
+        [theme.breakpoints.down(960)]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+          },
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+        },    
     },
+    isoLogo: {
+        
+        width: '29px',
+        [theme.breakpoints.up(960)]: {
+            display: 'none',
+        }, 
+        [theme.breakpoints.down(960)]: {
+            
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-2.5rem',
+            top: '1.5rem',
+            float: ' left'
+          },   
+        [theme.breakpoints.down('xs')]: {
+            
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-1.5rem',
+            top: '1.5rem',
+            float: ' left'
+
+    },
+},
     menuButton: {
     },
     title: {
@@ -99,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             borderBottom: 'none',
             color: '#a9a9a9', 
-          }
+        }
     },
     lang: {
         fontSize: '14px',
@@ -113,16 +187,18 @@ const useStyles = makeStyles((theme) => ({
             borderBottom: 'none',
             color: '#a9a9a9',
             textDecorationColor: 'transparent', 
-          },
-          [theme.breakpoints.down('sm')]: {
+        },
+        [theme.breakpoints.between(960, 1230)]: {
+            marginLeft: 0
+        },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none', // remove
             position: 'relative',
             float: 'left',
             left: '-34rem',
             marginBottom: '-1.5rem',
             top: '3.5rem',
-            
-            
-          },  
+        },
         [theme.breakpoints.down('xs')]: {
             position: 'relative',
             // marginLeft: '1rem',
@@ -130,11 +206,8 @@ const useStyles = makeStyles((theme) => ({
             // marginBottom: '-3rem',
             top: '2rem',
             left: '-8rem',
-            float: ' left',
-            
-                        
-            
-          },    
+            float: ' left'
+        },    
     },
     notificon: {
         marginLeft: theme.spacing(2),
@@ -159,6 +232,7 @@ const useStyles = makeStyles((theme) => ({
             position: 'relative',
           },
           [theme.breakpoints.down('sm')]: {
+            display: 'none',
             position: 'relative',
             float: 'right',
             left: '1rem',
@@ -196,24 +270,15 @@ const useStyles = makeStyles((theme) => ({
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
-          },
-          [theme.breakpoints.down('md')]: {
+        },
+        [theme.breakpoints.down(900)]: {
             left: '4rem',
-            // marginTop: '0.5rem',
             position: 'relative',
-          },
-          [theme.breakpoints.down('sm')]: {
-            position: 'relative',
-            float: 'left',
-            left: '-30rem',
-            top: '-0.75rem',
-            
-            
-          },  
+        },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },  
         [theme.breakpoints.down('xs')]: {  
-        // marginTop:'-2rem',
-        // marginBottom: '1rem',
-        // marginLeft: '-0.5rem',
         top: '-2.5rem',
         left: '-2rem',
         maxWidth: '75px',
@@ -249,9 +314,6 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Open Sans, sans serif, regular !important',
         color: 'black',
         textDecorationColor: 'transparent',
-        // marginLeft: '1rem',
-        // justifyContent: 'space-evenly',
-        // alignItems: 'left',
         '&:hover': {
             borderBottom: 'none',
             color: '#00ABD1',
@@ -272,7 +334,13 @@ const useStyles = makeStyles((theme) => ({
         size: '18px',
         color: '#000000',
         textDecorationColor: 'transparent',
-    }, 
+    },
+    searchContainer: {
+        [theme.breakpoints.down(900)]: {
+            maxWidth: '100%',
+            flexBasis: '100%' 
+        }  
+    },
     search: {
         position: 'relative',
         color: 'black',
@@ -287,36 +355,35 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         maxWidth: '530px',
         minWidth:'530px',
-        [theme.breakpoints.down('md')]: {
-            // backgroundColor: 'blue',
-            marginTop: '0.5rem',
+        [theme.breakpoints.down('lg')]: {
+            marginLeft: '0 !important',
+            marginTop: '0.5rem !important',
+            maxWidth: 'initial !important',
+            minWidth: 'initial !important',
             position: 'relative',
-          },
-        [theme.breakpoints.down('sm')]: {
-            // backgroundColor: 'black',
-            marginTop: '0.5rem',
+        },
+        [theme.breakpoints.between(901, 959)]: {
+            flexBasis: '100%',
+            maxWidth: '60vw'
+        },
+        [theme.breakpoints.down(960)]: {
+            marginTop: '0 !important',
             position: 'relative',
             marginLeft: '-2rem',
             maxWidth: '400px',
             minWidth:'400px',
             width: '100%',
-            
+            top: '-1.5rem',
           },
         [theme.breakpoints.down('xs')]: {
-            top: '1.8rem',
-            right: '-0.5rem',
+            top: '-1.5rem',
+            right: '-1rem',
             position: 'relative',
             marginLeft: '-4rem',
             maxWidth: '200px',
             minWidth:'200px',
-            width: '100%',
-            
+            width: '100%',  
         },
-            
-         
-          
-          
-          
     },
     searchIcon: {
         borderLeft: '1px solid #727272',
@@ -342,9 +409,12 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: 'transparent',
         }
-},
+    },
     inputRoot: {
         color: 'inherit',
+        [theme.breakpoints.down(959)]: {
+            width: '100%'
+        },
         
     },
     inputInput: {
@@ -357,6 +427,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '40ch',
         },
+        
     },
     sectionDesktop: {
         display: 'none',
@@ -375,7 +446,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:'red',
     },
     avatar:{
-        
         marginLeft:'15px',
         marginTop:'-1.5rem',
         marginBottom: '1rem',
@@ -415,36 +485,28 @@ const useStyles = makeStyles((theme) => ({
         '&:hover, &:focus, &:active': {
             outline: 'none',
         },
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.between(901, 959)]: {
+            marginTop: 0
+        },
+        [theme.breakpoints.down(900)]: {
             position: 'relative',
-            float: 'left',
-            left: '-6.5rem',
-            top: '-0.1rem',
-            
-            
-          },  
-          [theme.breakpoints.down('xs')]: {
-            position: 'relative',
-            // marginLeft: '11rem',
-            top: '0.05rem',
-            left: '0.35rem',
-            // marginBottom: '-6rem',
-            
-            
-          },    
+            top: '-10px',
+            left: 0,
+            marginTop: 0,
+            width: '20px',
+        }
     },
     location: {
         width: '21px',
         height: '30px',
         marginTop: '-3px',
         [theme.breakpoints.down('sm')]: {
+            display: 'none', // remove
             position: 'relative',
             float: 'left',
             left: '7rem',
             top: '-1rem',
-            
-            
-          },
+        },
         [theme.breakpoints.down('xs')]: {
             top: '2rem',
             bottom: '-2rem',
@@ -455,6 +517,16 @@ const useStyles = makeStyles((theme) => ({
             
           },
     },
+    listItemsMenu: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+    },
+    quickActionsMenu: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+    }
 }));
 
 function _formatWalletAddress(address='') {
@@ -463,6 +535,7 @@ function _formatWalletAddress(address='') {
 export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
+    const IsologoImage = require("../../images/isologoyubiaiwhite.png")
     const ubiImage = require("../../media/ubi2.svg");
     const profileImage = require("../../media/harishan-kobalasingam.jpg");
 
@@ -485,10 +558,10 @@ export default function NavBar() {
     const profileMenuOpen = Boolean(profileAnchorEl);
     const OpenCategories = (event) => {
         setCategoriesAnchorEl(event.currentTarget);
-      };
-      const OpenLanguage = (event) => {
+    };
+    const OpenLanguage = (event) => {
         setLanguageAnchorEl(event.currentTarget);
-      };
+    };
     const OpenProfile = (event) => {
         setProfileAnchorEl(event.currentTarget);
     };
@@ -562,9 +635,9 @@ export default function NavBar() {
             TransitionComponent={Fade}
         >
             <ListItemIcon>
-            <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
+                <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography   className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>          
+            <Typography className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>          
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
@@ -577,6 +650,14 @@ export default function NavBar() {
                 token && 
                 <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
             }
+             {/* <MenuItem> */}
+                {/* <IconButton color="inherit">
+                    <Badge badgeContent={1} color="primary" >
+                        <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                   {/* </Badge>*/}
+               {/* </IconButton> */}
+               {/* <p>Cart</p> */}
+            {/* </MenuItem> */}
         </Menu>
     );
     const categories = 'categories-menu';
@@ -746,81 +827,88 @@ export default function NavBar() {
       }, [])
 
     return (
-            <div className={classes.container}>
-                <Router>
+        <div className={classes.container}>
+            <Router>
                 <AppBar className={classes.navbar} position="static">
                     <Toolbar>
-                    <Container maxWidth="lg">
-     <div className={classes.root}>
-      <Grid container spacing={2}>
-        <Grid item  sm={3} xs={6}>
-        <div className={classes.sectionDesktop}>    
-        <div><a href='/'><img className={classes.logo} src={logoImage.default} component={Link} to='/'></img></a></div>
-        </div>
-        </Grid>
-        <Grid item sm={6} xs={6}>
-            {/* Caja de Busqueda */}
-            <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <Button style={{outline:'none', backgroundColor:'transparent'}}>
-                                    <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
-                                </Button>    
+                        <Container maxWidth="lg">
+                            <div className={classes.root}>
+                                <Grid container spacing={2}>
+                                    <Grid item  sm={3} xs={6}>
+                                    <div className={classes.sectionDesktopIcon}>    
+                                        <div>
+                                            <a href='/'>
+                                                <img className={classes.logo} src={logoImage.default} component={Link} to='/' />
+                                                <img className={classes.isoLogo} src={IsologoImage.default} component={Link} to='/' />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </Grid>
+                                    <Grid item sm={6} xs={6} className={classes.searchContainer}>
+                                        {/* Caja de Busqueda */}
+                                        <div className={classes.search}>
+                                            <div className={classes.searchIcon}>
+                                                <Button style={{outline:'none', backgroundColor:'transparent'}}>
+                                                    <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
+                                                </Button>    
+                                            </div>
+                                            <InputBase
+                                                placeholder="Search for goods"
+                                                classes={{
+                                                    root: classes.inputRoot,
+                                                    input: classes.inputInput,
+                                                }}
+                                                inputProps={{ 'aria-label': 'search' }}
+                                            />
+                                        </div>
+                                    </Grid>
+                                    <Grid item sm={3} xs={6}>
+                <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage}>
+                    EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> 
+                </Link>
+                <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
+                    { _formatWalletAddress(walletAddress) || 'Connect' }
+                </Button>
+            </Grid>
+                                    {/* Second row */}
+                                    <Grid item sm={3} xs={6} className={classes.location}>
+                                        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
+                                    </Grid>
+                                    <Grid item sm={7} xs={6} className={classes.listItemsMenu}>
+                                        <div className={classes.container} />
+                                        <div className={classes.sectionDesktop}>
+                                            {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
+                                            <Typography disableTypography className={classes.link}  noWrap>  
+                                            <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                                            </ListItemText>
+                                            <Link className={classes.link} to="/sell" >Sell</Link>
+                                            <Link className={classes.link} to="/browsinghistory" >Browsing history  
+                                            </Link>
+                                            <Link className={classes.link} to="/watchlist" >Watch list  
+                                            </Link>
+                                            <Link className={classes.link} to="/helpdesk" >Help desk 
+                                            </Link>
+                                        </Typography>  
+                                    </div>
+                                </Grid>
+                                    <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
+                                        <div style={{display:'inline-flex'}}>
+                                            <span className={classes.sectionDesktop}>
+                                                    
+                                                <AccountCircle className={classes.notificon} onClick={OpenProfile}
+                                                    aria-label="account of current user"
+                                                    aria-controls="profile-menu"
+                                                    aria-haspopup="true"
+                                                    color="inherit" />
+                                                <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
+                                            </span>
+                                            <Badge  color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
+                                            </div>        
+                                    </Grid>
+                                </Grid>
                             </div>
-                            <InputBase
-                                placeholder="Search for goods, services or anything you need..."
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-            </div>
-        </Grid>
-        <Grid item sm={3} xs={6}>
-        <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage} >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
-        <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
-            { _formatWalletAddress(walletAddress) || 'Connect' }
-        </Button>
-        </Grid>
-        {/* Second row */}
-        <Grid item sm={3} xs={6} className={classes.location}>
-        <LocationOnOutlinedIcon ></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
-        </Grid>
-        <Grid item sm={7} xs={6}>
-        <div className={classes.container} />
-        <div className={classes.sectionDesktop}>
-                            {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                                <Typography disableTypography className={classes.link}  noWrap>  
-                                <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
-                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                                </ListItemText>
-                                <Link className={classes.link} to="/sell" >Sell  
-                                </Link>
-                                <Link className={classes.link} to="/browsinghistory" >Browsing history  
-                                </Link>
-                                <Link className={classes.link} to="/watchlist" >Watch list  
-                                </Link>
-                                <Link className={classes.link} to="/helpdesk" >Help desk 
-                                </Link></Typography>  
-                        </div>
-        </Grid>
-        <Grid item sm={2} xs={6}>
-             <div style={{display:'inline-flex'}}>
-                 <span className={classes.sectionDesktop}>
-                        
-                    <AccountCircle className={classes.notificon} onClick={OpenProfile}
-                        aria-label="account of current user"
-                        aria-controls="profile-menu"
-                        aria-haspopup="true"
-                        color="inherit" />
-                    <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
-                </span>
-                <Badge  color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
-                </div>        
-        </Grid>
-      </Grid>
-    </div>
-    </Container>
+                        </Container>
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"
@@ -833,13 +921,13 @@ export default function NavBar() {
                                 <MoreIcon  />
                             </IconButton>
                         </div>
-                    </Toolbar>
-                </AppBar>
-                </Router>
-                {renderMobileMenu}
-                {renderMenu}
-                {renderMenuCategories}
-                {renderMenuLanguage}
-            </div>
+                </Toolbar>
+            </AppBar>
+        </Router>
+        {renderMobileMenu}
+        {renderMenu}
+        {renderMenuCategories}
+        {renderMenuLanguage}
+        </div>
     );
 }
