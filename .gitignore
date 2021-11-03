@@ -2,7 +2,7 @@
 /backend/src/public
 /backend/.env
 /frontend/node_modules
-/frontend/src/artifacts
+# /frontend/src/artifacts
 /node_modules
 .env
 cache/

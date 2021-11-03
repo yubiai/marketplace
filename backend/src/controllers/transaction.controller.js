@@ -1,4 +1,4 @@
-const { KlerosEscrow } = require('../utils/kleros-escrow')
+const { KlerosEscrow } = require('../utils/kleros-escrow/kleros-escrow')
 const { saveOrder } = require('../services/transaction.service')
 const KlerosEscrowInstance = KlerosEscrow(new Web3())
 
