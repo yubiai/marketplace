@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(900)]: {
       display: 'block',
       backgroundColor: '#F5F5F5',
+      paddingTop: '70px'
     }
   },
   mobileOverlay: {
@@ -132,7 +133,7 @@ export default function NestedList() {
            <ListItemIcon>
             <MenuOutlinedIcon className={classes.outlinedIcon} onClick={toggleMenu} />
             {
-              expanded && 
+              expanded &&
               <ListItemText disableTypography className={classes.HeaderList} primary="My account" />
             }
           </ListItemIcon>
@@ -154,7 +155,7 @@ export default function NestedList() {
                 <StorefrontOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
               </ListItemIcon>
               <ListItemText disableTypography style={{marginLeft:"0.5rem", marginBottom: '-0.5rem', marginTop:'-0.7rem',color: '#6A6A6A', fontSize:"16px", fontWeight:"200"}} primary="Sales" />
-              { 
+              {
                 open ? <ExpandLess /> : <ExpandMore />
               }
             </ListItem>
