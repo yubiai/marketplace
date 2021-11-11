@@ -44,6 +44,11 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '70px'
     }
   },
+  subheaderExpanded: {
+    [theme.breakpoints.down(900)]: {
+      paddingTop: 0
+    }
+  },
   mobileOverlay: {
     cursor: 'pointer',
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -67,6 +72,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#F5F5F5',
     [theme.breakpoints.down(900)]: {
       padding: '1rem 0'
+    }
+  },
+  listItemContainerExpanded: {
+    [theme.breakpoints.down(900)]: {
+      paddingTop: '75px'
     }
   },
   HeaderList: {
@@ -129,7 +139,8 @@ export default function NestedList() {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader className={classes.subheader} component="span" id="nested-list-subheader">
+        <ListSubheader className={`${classes.subheader} ${(window.innerWidth <= 900 && expanded) ? classes.subheaderExpanded : ''}`}
+            component="span" id="nested-list-subheader">
            <ListItemIcon>
             <MenuOutlinedIcon className={classes.outlinedIcon} onClick={toggleMenu} />
             {
@@ -143,7 +154,7 @@ export default function NestedList() {
     >
       {
         expanded && (
-          <div className={classes.listItemContainer}>
+          <div className={`${classes.listItemContainer} ${(window.innerWidth <= 900 && expanded) ? classes.listItemContainerExpanded : ''}`}>
             <ListItem button component={Link} to="/orders">
               <ListItemIcon>
                 <CardGiftcardOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
