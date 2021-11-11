@@ -17,6 +17,9 @@ import ShippAddress from './ShippAddress';
 import CellphoneNumber from './CellPhoneNumber';
 import TelegramHandl from './TelegramHandl';
 import Tooltip from '@material-ui/core/Tooltip';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Open Sans',
     display: 'flex',
   },
-  
   listItem: {
     borderRadius: '20px',
     height:'117px',
@@ -49,21 +51,22 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     minWidth: '150px',
     maxWidth: '150px',
-    boxShadow: '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)', 
+    boxShadow: '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)',
     '&:hover': {
       borderBottom: 'none',
       color: '#00ABD1',
       backgroundColor: 'transparent',
-      textDecoration: 'none', 
-    }  
+      textDecoration: 'none',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    },
   },
-  
   image: {
     width: '100px',
     height: '100px',
     borderRadius: '10px',
     marginTop: '-10px',
-
   },
   imageUbi: {
     width: '17px',
@@ -97,7 +100,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '20px',
     fontSize: '18px',
     fontWeight: 'bold',
-
   },
   listItemText:{
     marginLeft: '20px',
@@ -105,7 +107,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2rem',
     fontFamily: 'Open Sans',
     color:'black',
-  },  
+  },
+  menuMobileIcon: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    [theme.breakpoints.up(600)]: {
+      display: 'none'
+    },
+  },
+  menuIconLink: {
+    color: '#000',
+    textDecoration: 'none',
+    '&:hover, &:active, &:focus': {
+      color: '#000',
+      textDecoration: 'none',
+    }
+  }
 }));
 
 export default function AlignItemsList() {
@@ -113,20 +131,21 @@ export default function AlignItemsList() {
   const profileImage = require("../../media/vbuterin.png");
   const ubiImage = require("../../media/ubi2.svg");
   const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClose = () => {
     setOpen(false);
   };
 
+  const openMobileMenuOpt = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const closeMobileMenuOpt = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    
-     
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-          
-    
     <Typography variant="h2"><h4 style={{ fontWeight: "light", fontSize: "12px", color: "gray", marginLeft:'0.75rem'  }}>My Info</h4></Typography>
     <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginLeft:'0.75rem' }}>Proof of humanity information</h4></Typography>
     <Grid container spacing={1}
@@ -138,58 +157,68 @@ export default function AlignItemsList() {
       <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <img alt="{imgjson}" className={classes.image} src={profileImage.default} />
-           
         </ListItemAvatar>
         <ListItemText
-          
-          
           primary={<div className={classes.profName}>Vitalik Buterin</div>}
           secondary={
             <React.Fragment>
               <div style={{display:"inline-flex", marginLeft: '20px'}}>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               'address poh'
-               {/* agregar call de poh al address */}
-              </Typography>
-              {"|"}
-              <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon  className={classes.listItemTextIcon} />
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  'address poh'
+                  {/* agregar call de poh al address */}
+                </Typography>
+                {"|"}
+                <FileCopyOutlinedIcon className={classes.listItemTextIcon}  /><CallMadeOutlinedIcon  className={classes.listItemTextIcon} />
               </div>
-              
               <ListItemAvatar>
-               <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} /> 
-               <div style={{display:"inline-flex", marginLeft: '20px'}}>{" UBI-s dripped"} </div>
-                
-              {/* apuntar backend side ubi dripped */}
-             </ListItemAvatar>
-              
-              
-                <a  className={classes.btnMyProfile} style={{marginTop: '-3rem'}}
-                 variant="contained"  target="_blank" href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
+                <img alt="{ubilog}" className={classes.imageUbi} src={ubiImage.default} />
+                <div style={{display:"inline-flex", marginLeft: '20px'}}>{" UBI-s dripped"} </div>
+                {/* apuntar backend side ubi dripped */}
+              </ListItemAvatar>
+              <a className={classes.btnMyProfile} style={{marginTop: '-3rem'}}
+                 variant="contained" target="_blank" href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/" secondary="MyProfile" >
                 My PoH Profile
-                </a>
-               
+              </a>
+              <IconButton onClick={openMobileMenuOpt}
+                          aria-label="more"
+                          aria-haspopup="true"
+                          aria-controls="more-menu"
+                          className={classes.menuMobileIcon}>
+                  <MoreVertIcon />
+              </IconButton>
+              <Menu id="more-menu"
+                    keepMounted
+                    anchorEl={anchorEl}
+                    onClose={closeMobileMenuOpt}
+                    open={Boolean(anchorEl)}>
+                <MenuItem className={classes.menuIcons}>
+                  <a className={classes.menuIconLink} target="_blank"
+                     rel="noreferrer"
+                     href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6">
+                    My PoH Profile
+                  </a>
+                </MenuItem>
+              </Menu>
             </React.Fragment>
           }
         />
       </ListItem>
       </Grid>
       <div style={{display:"inline-flex"}}>
-      <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px", marginLeft:'0.75rem' }}>Personal and shipping information</h4></Typography>
-      <Tooltip disableTypography className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
-                    <IconButton aria-label="info">
-                    <InfoOutlinedIcon />
-                    </IconButton>
-                </Tooltip>
-      </div>          
-      <Grid container spacing={0}
-    direction="row"  
-  justifyContent="left"
-  alignItems="left" style={{marginTop: '10px', marginLeft: '2px'}}>  
+        <Typography variant="h2"><h4 style={{ fontWeight: "bold", fontSize: "20px", marginTop:"10px", marginLeft:'0.75rem' }}>Personal and shipping information</h4></Typography>
+        <Tooltip disableTypography className={classes.infoClass} title="This info will only be shared when you make a purchase of an item that needs to be shipped.">
+          <IconButton aria-label="info">
+            <InfoOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
+      <Grid container spacing={0} direction="row" justifyContent="left"
+            alignItems="left" style={{marginTop: '10px', marginLeft: '2px'}}>
       <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'10px', height: '300px', marginLeft:'0.75rem'}} >
         <ListItem className={classes.listItem} alignItems="flex-start">
           <ListItemText
@@ -201,10 +230,10 @@ export default function AlignItemsList() {
                   className={classes.inline}
                   color="textPrimary"
                 >
-                
+
                 </Typography>
-                
-                <ListItem style={{height: '18px'}}> 
+
+                <ListItem style={{height: '18px'}}>
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Full name"   />
                 </ListItem> <EditIcon  component={EditName} open={open}
                     onClose={handleClose} />
@@ -228,15 +257,15 @@ export default function AlignItemsList() {
                   <ListItemText classes={{secondary:classes.listItemText}} secondary="Telegram handle" />
                 </ListItem><EditIcon component={TelegramHandl} open={open}
                     onClose={handleClose} />
-                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>    
-                
+                <Divider style={{backgroundColor: 'black', height:'0.5px'}}/>
+
               </React.Fragment>
             }
           />
         </ListItem>
       </Grid>
     </Grid>
-    </Grid>  
+    </Grid>
     </List>
   );
 }
