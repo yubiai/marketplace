@@ -1,4 +1,4 @@
-### Raíz
+### Root
 ```sh
 $ npx hardhat node
 $ npx hardhat run --network localhost scripts/deploy.js
@@ -16,9 +16,9 @@ $ npm start
 
 ```sh
 $ cd /backend
-$ crear directorio public/uploads dentro de /src (NO SE OLVIDEN DE CREAR EL DIRECTORIO)
+$ create directory public/uploads inside /src (dont forget to create directory)
 $ npm install
-$ crear archivo .env y setear la variable MONGODB_URl con la url de la base de datos de mongo, y JWT_PRIVATE_KEY con una clave privada para realizar el hashing del token
+$ Create file .env and set the variable MONGODB_URl with the url of the database in mongoDB, and JWT_PRIVATE_KEY with a private key for do the  hashing of the token
 $ npm run dev
 
 ```
