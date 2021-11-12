@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '17vh',
     flexGrow: 1,
     fontSize: '14px',
-    // position: 'fixed',
     bottom: 0,
     width: '100%',
     zIndex: 10000
