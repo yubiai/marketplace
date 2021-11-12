@@ -26,12 +26,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     top: 0,
     width: '100%',
-    zIndex: 10
+    zIndex: 100000
   },
   body: {
     marginTop: '118px',
-    height: '100%',
-    overflowY: 'auto',
     [theme.breakpoints.down(900)]: {
       marginTop: '74px',
     },
@@ -64,7 +62,6 @@ function App() {
       <div style={{
         fontFamily: 'Open Sans',
         height: '100%',
-        overflow: 'hidden'
       }} className="App">
         <header className={classes.header}>
           <NavBar />

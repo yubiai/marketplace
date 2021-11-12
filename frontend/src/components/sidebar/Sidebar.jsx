@@ -28,25 +28,31 @@ const useStyles = makeStyles((theme) => ({
       minWidth: 0,
       width: '100%',
       margin: 0,
+      overflow: 'hidden',
       padding: 0,
       position: 'absolute',
       zIndex: 1,
-      maxHeight: 80
+      maxHeight: 80,
+      top: '40px'
     }
   },
   rootExpanded: {
-    maxHeight: 'initial'
+    maxHeight: 'initial',
+    [theme.breakpoints.down(900)]: {
+      top: '21px'
+    }
   },
   subheader: {
     [theme.breakpoints.down(900)]: {
       display: 'block',
       backgroundColor: '#F5F5F5',
-      paddingTop: '70px'
+      paddingTop: '25px',
+      top: '40px'
     }
   },
   subheaderExpanded: {
     [theme.breakpoints.down(900)]: {
-      paddingTop: 0
+      paddingTop: 4
     }
   },
   mobileOverlay: {
@@ -76,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemContainerExpanded: {
     [theme.breakpoints.down(900)]: {
-      paddingTop: '75px'
+      paddingTop: '40px'
     }
   },
   HeaderList: {
