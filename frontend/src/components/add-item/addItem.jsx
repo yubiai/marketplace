@@ -1,11 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import { Fab } from "@material-ui/core";
+import { Box, Fab, withTheme } from "@material-ui/core";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
   listItemText:{
     fontFamily: 'Open Sans',   
     marginLeft: '20px',
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      justifyContent: 'space-around'
+    },
   },  
   
   
@@ -54,44 +62,43 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    width: '50ch',
-    margin:'10px'
-    
+    width: '100%',
+    margin:'5px',
+    color:'black'
     
   },
   price: {
-    width: '37.5ch',
-    margin:'10px'
+    width: '100%',
+    margin:'5px'
     },
   currency: {
-    width: '80px',
-    margin:'10px' 
+    width: '100%',
+    margin:'5px' 
   },
 
   condition: {     
     m: 1, 
-    width: '44.5ch',
+    width: '100%',
     color: 'black',
-    margin:'10px'
-    
+    margin:'5px' 
 
   },
   category: {
     
     m: 1, 
-    width: '44.5ch',
-    margin:'10px'
+    width: '100%',
+    margin:'5px'
    
   },
 
   description: {
-    width: '102.5ch',
-    margin:'10px'
+    width: '100%',
+    margin:'5px'
   },
 
   imguploader: {
-    width: '102.5ch',
-    margin:'10px'
+    width: '100%',
+    margin:'5px'
   },
   addPhotoButton: {
     color: 'gray',
@@ -112,15 +119,16 @@ const useStyles = makeStyles((theme) => ({
     }
 },
   submit: {
-    width: '100px',
+    width: '200px',
     margin:'10px',
-    marginLeft: "92.5ch",
+    color: 'white',
+    // marginLeft: "92.5ch",
     backgroundColor: '#00ABD1',
     '&:hover, &:focus, &:active': {
       outline: 'none !important',
       },
       '&:hover': {
-        backgroundColor: 'transparent',
+        backgroundColor: 'Blue',
       }
     
   },
@@ -315,12 +323,65 @@ export default function AddItem() {
 
 return (
 
-  <form noValidate autoComplete="off">
+
+
+
+  <Grid container spacing={2}
+            variant="fullWidth"
+           
+            alignItems="left" style={{marginTop: '4px' ,  marginLeft: '1rem'}}>
   
-  <div>
-  <TextField id="title" label="Title"  type="text" name="title" className={classes.title} variant="outlined"  />
-  <TextField id="price" label="Price" type="number" name="price" className={classes.price} variant="outlined" />
-  
+
+
+    {/* <form noValidate autoComplete="off"> */}
+    
+  <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'20px' }}>  
+   {/* <InputLabel id="condition">Condition</InputLabel> */}
+    <Select
+          labelId="demo-simple-select-label"
+          id="condition"
+          value={condition}
+          onChange={handleChange2}
+          className={classes.condition}
+          label="Condition"
+          variant="outlined"
+          helperText="Please select your condition"
+        >{conditions.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+         
+    </Select>
+    </Grid>
+
+    <Grid item xs={10} md={5} > 
+    {/* <InputLabel id="category">Category</InputLabel> */}
+    <Select
+          labelId="demo-simple-select-label"
+          id="category"
+          value={category}
+          onChange={handleChange3}
+          className={classes.category}
+          label="Category"
+          variant="outlined"
+        >{categories.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+           
+        </Select>
+    </Grid>
+
+<Grid item xs={10} md={10} > 
+  <TextField id="title" label="enter item name, model & manufacturer"  type="text" name="title" className={classes.title} variant="outlined" defaultValue="Title"  />
+  </Grid>
+  <Grid item xs={10} md={10}> 
+        <TextField id="description" aria-label="minimum height" minRows={4} multiline defaultValue="Description" className={classes.description} variant="outlined" />
+     </Grid>
+
+  <Grid item xs={10} md={3} > 
   <TextField
           id="standard-select-currency"
           select
@@ -336,47 +397,19 @@ return (
           </MenuItem>
         ))}
     </TextField>
-    </div>
-    
-  <div>   
-    {/* <InputLabel id="condition">Condition</InputLabel> */}
-    <Select
-          labelId="demo-simple-select-label"
-          id="condition"
-          value={condition}
-          onChange={handleChange2}
-          className={classes.condition}
-          label="Condition"
-          variant="outlined"
-          helperText="Please select your currency"
-        >{conditions.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-         
-    </Select>
-    
-        {/* <InputLabel id="category">Category</InputLabel> */}
-        <Select
-          labelId="demo-simple-select-label"
-          id="category"
-          value={category}
-          onChange={handleChange3}
-          className={classes.category}
-          label="Condition"
-          variant="outlined"
-        >{categories.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-           
-        </Select>
-      </div>    
-        <TextField id="description" aria-label="minimum height" minRows={4} multiline defaultValue="Description" className={classes.description} variant="outlined" />
+    </Grid>
 
-        <label className={classes.imguploader} htmlFor="upload-photo">
+    <Grid item xs={10} md={3} > 
+    <TextField id="price" label="0.00" type="number" name="price" className={classes.price} variant="outlined" defaultValue="Price" />
+    </Grid>
+
+
+     <Grid item xs={10} md={10} > 
+     
+          <h3>Item Images</h3>
+          <p>Get noticed by the right buyers with visual examples of your services. Images must have a minimum width of 375px, height of 375px and must not be more than 10mb each</p>
+          </Grid> 
+        {/* <label className={classes.imguploader} htmlFor="upload-photo">
                 <input
                     style={{ display: "none" }}
                     
@@ -392,13 +425,26 @@ return (
                 >
                  <AddAPhotoIcon />
                  </Fab>
-         </label>   
-          
-        
-       <div style={{ display: "flex" }}>
+         </label>    */}
 
-        <Button type="submit" value="Submit" variant="contained" className={classes.submit}>Submit</Button>
-        </div>
-</form>
+
+          <Grid item xs={10} md={3} > 
+          <Box component="div" sx={{ p: 3, border: '1px dashed grey',   height:'150px', paddingTop:'60px', paddingLeft:'60px' }}><Button>Drag & drop a photo or </Button></Box>
+          </Grid> 
+          <Grid item xs={10} md={3} > 
+          <Box component="div" sx={{ p: 3, border: '1px dashed grey',  height:'150px', paddingTop:'60px', paddingLeft:'60px' }}><Button>Drag & drop a photo or </Button></Box>
+          </Grid> 
+          <Grid item xs={10} md={3} > 
+          <Box component="div" sx={{ p: 3, border: '1px dashed grey',   height:'150px', paddingTop:'60px', paddingLeft:'60px' }}><Button>Drag & drop a photo or </Button></Box>
+          </Grid> 
+            
+         <Grid item xs={10} md={10}>
+
+        <Button type="submit" value="Submit" variant="contained" className={classes.submit}>Preview & Submit for review</Button>
+        </Grid>
+{/* </form> */}
+<div sx={{ marginBottom: '200ch'}}>&nbsp;<br></br></div>
+</Grid>
+
 );
 }
