@@ -8,18 +8,21 @@ import { InputBase } from '@material-ui/core';
 import { Fab } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-    wrapForm : {
+    wrapForm: {
         display: "flex",
         justifyContent: "center",
         width: "95%",
-        margin: `${theme.spacing(0)} auto`
+        margin: `${theme.spacing(0)} auto`,
+        [theme.breakpoints.down(900)]: {
+            justifyContent: 'space-around'
+        }
     },
-    wrapText  : {
+    wrapText: {
         width: "100%",
         height: '33px',
         border: '1px solid #727272',
         top: '1.5rem',
-        borderRadius: '10px', 
+        borderRadius: '10px',
     },
     button: {
         color: '#00ABD1',
@@ -77,6 +80,9 @@ const useStyles = makeStyles((theme) => ({
         background: 'transparent',
         borderRadius : 8,
         paddingLeft: '1rem',
+        [theme.breakpoints.down(900)]: {
+            maxWidth: '75%'
+        }
       },
   })
 );
@@ -88,35 +94,30 @@ export const TextInput = () => {
         <>
              {/* connect to backend endpoint db  */}
             <form className={classes.wrapForm}  noValidate autoComplete="off">
-            <label htmlFor="upload-photo">
-                <input
-                    style={{ display: "none" }}
-                    id="upload-photo"
-                    name="upload-photo"
-                    type="file"
-                />          
-                <Fab
-                  className={classes.attachButton}
-                  component="span"
-                  aria-label="add"
-                  variant="extended"
-                >
-                 <AttachFileIcon />
-                 </Fab>    
-            
-            </label>    
-            <InputBase
-             disableTypography
-             className={classes.input}
-             
-             placeholder="Chat"
-             inputProps={{ 'aria-label': 'contact' }}>
-                             
-             
-            </InputBase>
-            <Button variant="contained"  className={classes.button}>
-                <SendIcon />
-            </Button>
+                <label htmlFor="upload-photo">
+                    <input
+                        style={{ display: "none" }}
+                        id="upload-photo"
+                        name="upload-photo"
+                        type="file"
+                    />
+                    <Fab
+                    className={classes.attachButton}
+                    component="span"
+                    aria-label="add"
+                    variant="extended"
+                    >
+                    <AttachFileIcon />
+                    </Fab>
+                </label>
+                <InputBase disableTypography
+                           className={classes.input}
+                           placeholder="Chat"
+                           inputProps={{ 'aria-label': 'contact' }}>
+                </InputBase>
+                <Button variant="contained"  className={classes.button}>
+                    <SendIcon />
+                </Button>
             </form>
         </>
     )

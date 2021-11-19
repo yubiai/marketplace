@@ -94,7 +94,11 @@ const useStyles = makeStyles((theme) => ({
       bottom: "-3px",
       right: "5px",
     },
-
+    messageRowContent: {
+      [theme.breakpoints.down(900)]: {
+        width: '100%'
+      }
+    },
     orange: {
       color: theme.palette.getContrastText(deepOrange[500]),
       backgroundColor: deepOrange[500],
@@ -128,7 +132,7 @@ export const MessageLeft = (props) => {
           className={classes.orange}
           src={photoURL}
         ></Avatar>
-        <div>
+        <div className={classes.messageRowContent}>
           <div className={classes.displayName}>{displayName}</div>
           <div className={classes.messageBlue}>
             <div>
