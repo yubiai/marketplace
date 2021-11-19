@@ -37,6 +37,10 @@
         height: 100%;
         overflow-x: hidden;
       }
+
+      .base-root-content {
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -52,5 +56,32 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      (function () {
+        const baseRootDOM = document.querySelector(".base-root");
+
+        function isNotHomeAndDesktop () {
+          return window.location.pathname !== "/" && window.innerWidth > 900;
+        }
+
+        function setBaseRootContentClassName () {
+          if (isNotHomeAndDesktop()) {
+            baseRootDOM.classList.add('base-root-content');
+          } else {
+            baseRootDOM.classList.remove('base-root-content')
+          }
+        }
+
+        window.addEventListener('popstate', function () {
+          setBaseRootContentClassName();
+        });
+
+        window.addEventListener('resize', function () {
+          setBaseRootContentClassName();
+        });
+
+        setBaseRootContentClassName();
+      })();
+    </script>
   </body>
 </html>

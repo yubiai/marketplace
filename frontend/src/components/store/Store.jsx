@@ -26,7 +26,7 @@ const ITEMS = [
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    
+
     [theme.breakpoints.down('md')]: {
       marginTop: '0.5rem',
       position: 'relative',
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '0.5rem',
       position: 'relative',
       width: '100%',
-      
+
     },
     [theme.breakpoints.down('xs')]: {
       top: '0rem',
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     "&:first-child": {
       marginTop: 0
     },
-}, 
+},
 }));
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
@@ -102,7 +102,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
   return (
     <Container maxWidth="lg">
-      <div className="row" style={{marginBottom: '380px'}}>
+      <div className="row" style={{marginBottom: '100px'}}>
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}

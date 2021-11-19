@@ -11,9 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import SendIcon from '@material-ui/icons/Send';
-import IconButton from '@material-ui/core/IconButton';
-
-
+import { useLocation } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +23,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     bottom: 0,
     width: '100%',
-    zIndex: 10000
+    zIndex: 10000,
+    position: 'absolute',
+  },
+  rootHome: {
+    minHeight: 0,
+    position: 'static'
   },
   main: {
     marginTop: theme.spacing(3),
@@ -126,18 +129,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function StickyFooter() {
+export default function StickyFooter(props) {
   const classes = useStyles();
   const logoImage = require("../../images/logo2.png");
   const [name, setName] = useState("");
+  const [isHomePage, setIsHomePage] = useState("");
+
+  let location = useLocation();
+
+  React.useEffect(() => {
+    setIsHomePage(location.pathname === "/");
+  }, [location]);
 
   const preventDefault = (event) => {
     console.log(name);
   };
 
-
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} ${isHomePage ? classes.rootHome : ''}`}>
       <CssBaseline />
 
       <footer className={classes.footer}>
