@@ -41,10 +41,13 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: '16px',
         outline: 'none !important',
         '&:hover, &:focus, &:active': {
-        outline: 'none !important',
+            outline: 'none !important',
         },
         '&:hover': {
           outline: 'none !important',
+        },
+        [theme.breakpoints.down(768)]: {
+            marginRight: 0
         }
     },
     attachButton: {
@@ -65,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
         },
         '&:hover': {
           outline: 'none !important',
+        },
+        [theme.breakpoints.down(768)]: {
+            marginLeft: 0
         }
     },
     input:  {

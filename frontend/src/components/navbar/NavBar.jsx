@@ -628,6 +628,7 @@ export default function NavBar() {
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
             TransitionComponent={Fade}
+            style={{top: '15px', zIndex: 1000}}
         >
             <ListItemIcon>
                 <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
