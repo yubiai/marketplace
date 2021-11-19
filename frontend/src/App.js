@@ -7,7 +7,6 @@ import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
-import ProfileView from "./components/profile/Profile";
 import MessagesBox from './components/MessageBox/MessagesBox';
 import Chat from './components/MessageBox/Chat.jsx'
 import Mailbox from './components/mailbox/Mailbox';
@@ -19,7 +18,6 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
-// import Chat from "./components/mailbox/Chat";
 
 const useStyles = makeStyles((theme) => ({
   header: {
