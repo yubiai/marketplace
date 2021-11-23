@@ -7,7 +7,6 @@ import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
-import ProfileView from "./components/profile/Profile";
 import MessagesBox from './components/MessageBox/MessagesBox';
 import Chat from './components/MessageBox/Chat.jsx'
 import Mailbox from './components/mailbox/Mailbox';
@@ -18,22 +17,22 @@ import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
-import AddItem from "./components/add-item/AddItem";
-// import Chat from "./components/mailbox/Chat";
+import AddItem from "./components/add-item/addItem";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   header: {
     position: 'fixed',
     top: 0,
     width: '100%',
-    zIndex: 10
+    zIndex: 100000
   },
   body: {
     marginTop: '118px',
-    height: '100%',
-    overflowY: 'auto'
-  }
-}))
+    [theme.breakpoints.down(900)]: {
+      marginTop: '74px',
+    },
+  },
+}));
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
@@ -61,7 +60,6 @@ function App() {
       <div style={{
         fontFamily: 'Open Sans',
         height: '100%',
-        overflow: 'hidden'
       }} className="App">
         <header className={classes.header}>
           <NavBar />
