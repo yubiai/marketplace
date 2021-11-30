@@ -17,6 +17,7 @@ const profile = require("./routes/profile/profile");
 const question = require("./routes/question/question");
 const cart = require("./routes/cart/cart");
 const shipping = require("./routes/shipping/shipping");
+const message = require("./routes/message/message");
 
 const config = require("./db");
 
@@ -31,6 +32,7 @@ app.use("/api/profiles", profile);
 app.use("/api/questions", question);
 app.use("/api/carts", cart);
 app.use("/api/shipping", shipping);
+app.use("/api/messages", message);
 
 
 app.listen(4000, () => {
