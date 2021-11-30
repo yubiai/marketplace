@@ -28,15 +28,31 @@ const useStyles = makeStyles((theme) => ({
       minWidth: 0,
       width: '100%',
       margin: 0,
+      overflow: 'hidden',
       padding: 0,
       position: 'absolute',
-      zIndex: 1,
+      zIndex: 10,
+      maxHeight: 80,
+      top: '40px'
+    }
+  },
+  rootExpanded: {
+    maxHeight: 'initial',
+    [theme.breakpoints.down(900)]: {
+      top: '21px'
     }
   },
   subheader: {
     [theme.breakpoints.down(900)]: {
       display: 'block',
       backgroundColor: '#F5F5F5',
+      paddingTop: '25px',
+      top: '40px'
+    }
+  },
+  subheaderExpanded: {
+    [theme.breakpoints.down(900)]: {
+      paddingTop: 4
     }
   },
   mobileOverlay: {
@@ -62,6 +78,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#F5F5F5',
     [theme.breakpoints.down(900)]: {
       padding: '1rem 0'
+    }
+  },
+  listItemContainerExpanded: {
+    [theme.breakpoints.down(900)]: {
+      paddingTop: '40px'
     }
   },
   HeaderList: {
@@ -124,21 +145,22 @@ export default function NestedList() {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader className={classes.subheader} component="span" id="nested-list-subheader">
+        <ListSubheader className={`${classes.subheader} ${(window.innerWidth <= 900 && expanded) ? classes.subheaderExpanded : ''}`}
+            component="span" id="nested-list-subheader">
            <ListItemIcon>
             <MenuOutlinedIcon className={classes.outlinedIcon} onClick={toggleMenu} />
             {
-              expanded && 
+              expanded &&
               <ListItemText disableTypography className={classes.HeaderList} primary="My account" />
             }
           </ListItemIcon>
         </ListSubheader>
       }
-      className={classes.root}
+      className={`${classes.root} ${(window.innerWidth <= 900 && expanded) ? classes.rootExpanded : ''}`}
     >
       {
         expanded && (
-          <div className={classes.listItemContainer}>
+          <div className={`${classes.listItemContainer} ${(window.innerWidth <= 900 && expanded) ? classes.listItemContainerExpanded : ''}`}>
             <ListItem button component={Link} to="/orders">
               <ListItemIcon>
                 <CardGiftcardOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
@@ -150,7 +172,7 @@ export default function NestedList() {
                 <StorefrontOutlinedIcon style={{color:"#6A6A6A", marginLeft:"2rem", marginTop:"-0.3rem", width:"20px", height:"19px"}} />
               </ListItemIcon>
               <ListItemText disableTypography style={{marginLeft:"0.5rem", marginBottom: '-0.5rem', marginTop:'-0.7rem',color: '#6A6A6A', fontSize:"16px", fontWeight:"200"}} primary="Sales" />
-              { 
+              {
                 open ? <ExpandLess /> : <ExpandMore />
               }
             </ListItem>
