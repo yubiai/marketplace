@@ -1,0 +1,3 @@
+div[class^="makeStyles-wrapper-"] > div {
+    padding: 1.25rem 0;
+}

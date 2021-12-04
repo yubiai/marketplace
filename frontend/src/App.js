@@ -1,26 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 import Layout from "./components/layout/Layout.jsx";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
-import ProfileView from "./components/profile/Profile";
-import MessagesBox from './components/orders/MessagesBox';
+import MessagesBox from './components/MessageBox/MessagesBox';
+import Chat from './components/MessageBox/Chat.jsx'
 import Mailbox from './components/mailbox/Mailbox';
-import Login from "./components/login/login";
 import OrdersView from "./components/orders/Orders";
+import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import DummyCheckout from "./components/checkout/DummyCheckout";
+import MyInfo from "./components/myinfo/MyInfo";
+import AddItem from "./components/add-item/addItem";
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    zIndex: 100000
+  },
+  body: {
+    marginTop: '118px',
+    [theme.breakpoints.down(900)]: {
+      marginTop: '74px',
+    },
+  },
+}));
 
 function App() {
   const [paymentProcessor, setPaymentProcessor] = useState(undefined);
   const [ubi, setUbi] = useState(undefined);
   const [signerAddress, setSignerAddress] = useState(undefined);
+  const classes = useStyles();
 
   useEffect(() => {
     const init = async () => {
@@ -38,20 +57,27 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
+      <GlobalStyle />
+      <div style={{
+        fontFamily: 'Open Sans',
+        height: '100%',
+      }} className="App">
+        <header className={classes.header}>
           <NavBar />
         </header>
-        <body>
+        <div className={classes.body}>
           <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
             <Route path="/orders">
               <Layout>
                 <OrdersView />
               </Layout>
             </Route>
+            <Route path="/checkorders/messagesbox"
+                   render={(props) => (
+                    <Layout>
+                      <MessagesBox {...props}/>
+                    </Layout>
+                   )}/>
             <Route path="/checkorders">
               <Layout>
                 <CheckOrders />
@@ -67,14 +93,31 @@ function App() {
                 <SalesActive />
               </Layout>
             </Route>
+            <Route path="/additem">
+              <Layout>
+                <AddItem />
+              </Layout>
+            </Route>
             <Route path="/salescomplete">
               <Layout>
                 <SalesComplete />
               </Layout>
             </Route>
+            <Route path="/salescompletedetails/messagesbox"
+                   render={(props) => (
+                    <Layout>
+                      <MessagesBox {...props}/>
+                    </Layout>
+                   )}
+                   />
             <Route path="/salescompletedetails">
               <Layout>
                 <SalesCompleteDetails />
+              </Layout>
+            </Route>
+            <Route path="/chat">
+              <Layout>
+                <Chat />
               </Layout>
             </Route>
             <Route path="/mailbox">
@@ -82,11 +125,21 @@ function App() {
               <Mailbox />
             </Layout>
             </Route>
-            <Route path="/profile">
+            <Route path="/myinfo">
+            <Layout>
+              <MyInfo />
+            </Layout>
+            </Route>
+            {/* <Route path="chat">
+            <Layout>
+              <Chat />
+            </Layout>
+            </Route> */}
+            {/* <Route path="/profile">
               <Layout>
                 <ProfileView />
               </Layout>
-            </Route>
+            </Route>*/}
             <Route path="/dummy-checkout">
               <Layout>
                 <DummyCheckout />
@@ -100,7 +153,7 @@ function App() {
               />
             </Route>
           </Switch>
-        </body>
+        </div>
 
         <Footer />
       </div>

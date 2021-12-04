@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -30,30 +30,105 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import axios from 'axios';
 import { setupEthState } from '../../ethereum';
+import { saveLoginInfo, getLoginInfo } from '../../utils/loginInfo';
 
 const API_URL = 'http://localhost:4000';
-let name = "Manuel Rodríguez Roldán";
-  let ubisAmmount = "720.55 dripped on address";
+let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
+  let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
 const useStyles = makeStyles((theme) => ({
-    // container: {
-    //     display: 'flex',
-    //     height: '100px',
-    //      // background: 'linear-gradient(90deg, rgba(55,186,121,1) 29%, rgba(253,202,0,1) 100%)',
- // },
     root:{
         marginTop: '10px',
         margin: '10px',
    },
-    navbar:{
-         background: 'linear-gradient(90deg, rgba(255,186,121,1) 29%, rgba(253,202,211,1) 100%)',
+    navbar: {
+         background: 'linear-gradient(90deg, rgb(0, 171, 209) 0%, #1C538A 100%) !important',
          height: '105px',
          minHeight:'105px',
          maxHeight:'105px',
          zIndex: 99,
+        //  [theme.breakpoints.down('lg')]: {
+        //     marginLeft: '0 !important',
+        //     marginTop: '0.5rem !important',
+        //     maxWidth: 'initial !important',
+        //     minWidth: 'initial !important',
+        //     position: 'relative',
+        // },
+        // [theme.breakpoints.between(901, 959)]: {
+        //     flexBasis: '100%',
+        //     maxWidth: '60vw'
+        // },
+        // [theme.breakpoints.down(960)]: {
+        //     height: '105px',
+        //     minHeight:'105px',
+        //     maxHeight:'105px',
+        //     zIndex: 99,
+        //   },
+        [theme.breakpoints.down(900)]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: '70px',
+            minHeight:'70px',
+            maxHeight:'70px',
+            zIndex: 99,
+        },
     },
     logo: {
-        width: '120px',
+        width: '100px',
+        [theme.breakpoints.down(960)]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+          },
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '6rem',
+            float: ' left'
+        },
     },
+    isoLogo: {
+
+        width: '29px',
+        [theme.breakpoints.up(960)]: {
+            display: 'none',
+        },
+        [theme.breakpoints.down(960)]: {
+
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-2.5rem',
+            top: '1.5rem',
+            float: ' left'
+          },
+        [theme.breakpoints.down('xs')]: {
+
+            position: 'relative',
+            // marginLeft: '1rem',
+            // marginTop: '7rem',
+            // marginBottom: '-3rem',
+            // top: '2rem',
+            left: '-1.5rem',
+            top: '1.5rem',
+            float: ' left'
+
+    },
+},
     menuButton: {
     },
     title: {
@@ -64,13 +139,14 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
             '&:hover': {
                 borderBottom: 'none',
-                color: '#008968', 
+                color: '#008968',
               }
         },
     },
     link: {
         display: 'flex',
         fontSize: '15px',
+        font: 'Open Sans, sans serif, regular !important',
         color: '#fff',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
@@ -78,13 +154,15 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#a9a9a9',
+            textDecorationColor: 'transparent',
           }
     },
     listItemTextc: {
         display: 'flex',
-        fontSize: '12px',
+        fontSize: '16px',
         color: '#fff',
+        font: 'Open Sans, sans serif, regular !important',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
         paddingTop: '1px',
@@ -93,58 +171,157 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
-          }
+            color: '#a9a9a9',
+        }
     },
     lang: {
         fontSize: '14px',
         color: '#fff',
         marginLeft: '7rem',
+        fontFamily: 'Open Sans',
+        fontWeight: 'bold',
         textDecorationColor: 'transparent',
         alignItems: 'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
-          }
+            color: '#a9a9a9',
+            textDecorationColor: 'transparent',
+        },
+        [theme.breakpoints.between(960, 1230)]: {
+            marginLeft: 0
+        },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none', // remove
+            position: 'relative',
+            float: 'left',
+            left: '-34rem',
+            marginBottom: '-1.5rem',
+            top: '3.5rem',
+        },
+        [theme.breakpoints.down('xs')]: {
+            position: 'relative',
+            top: '2rem',
+            left: '-8rem',
+            float: ' left',
+        },
+    },
+    langContainer: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
     },
     notificon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
+            color: '#a9a9a9',
           }
     },
     carticon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
+        display: 'inline-flex',
+        float:'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#008968', 
-          }
+            color: '#a9a9a9',
+          },
+          [theme.breakpoints.down('md')]: {
+            left: '-7.5rem',
+            // marginTop: '0.5rem',
+            position: 'relative',
+          },
+          [theme.breakpoints.down('sm')]: {
+            display: 'none',
+            position: 'relative',
+            float: 'right',
+            left: '1rem',
+            // marginBottom: '-1.5rem',
+            top: '-1.5rem',
+
+
+          },
+          [theme.breakpoints.down('xs')]: {
+            position: 'relative',
+            // marginLeft: '11rem',
+            top: '-2.5rem',
+            left: '9.25rem',
+            // marginBottom: '-6rem',
+
+
+          },
     },
     connect: {
         fontSize: '14px',
-        color: '#FCB877',
+        color: '#00ABD1',
+        fontWeight: '500',
+        textTransform: 'none',
+        justifyContent: "space-evenly",
         background: 'white',
         borderRadius : 20,
         marginLeft: '1rem',
         textAlign: 'center',
+        outline: 'none',
         '&:hover': {
+            outline: 'none',
             borderBottom: 'none',
             color: 'white',
-            background: '#FCB877', 
-          }
+            background: '#00ABD1',
+          },
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+        },
+        [theme.breakpoints.down(900)]: {
+            left: '4rem',
+            position: 'relative',
+        },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+        [theme.breakpoints.down('xs')]: {
+        top: '-2.5rem',
+        left: '-2rem',
+        maxWidth: '75px',
+        minWidth:'75px',
+        width: '100%',
+
+        },
+    },
+    connectMobile: {
+        fontSize: '14px',
+        color: '#00ABD1',
+        fontWeight: '500',
+        textTransform: 'none',
+        justifyContent: "space-evenly",
+        background: 'white',
+        borderRadius : 20,
+        marginLeft: '1rem',
+        textAlign: 'center',
+        outline: 'none',
+        '&:hover': {
+            outline: 'none',
+            borderBottom: 'none',
+            color: 'white',
+            background: '#00ABD1',
+          },
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+          },
     },
     listItemText: {
-        color: '#000000',
+        display: 'flex',
+        fontSize: '13px',
+        fontFamily: 'Open Sans, sans serif, regular !important',
+        color: 'black',
         textDecorationColor: 'transparent',
         '&:hover': {
-                borderBottom: 'none',
-                color: '#008968', 
-              }
-    
-      },
+            borderBottom: 'none',
+            color: '#00ABD1',
+            textDecorationColor: 'transparent',
+          }
+
+    },
     linkmenu: {
         display: 'flex',
         fontSize: '14px',
@@ -157,10 +334,17 @@ const useStyles = makeStyles((theme) => ({
         size: '18px',
         color: '#000000',
         textDecorationColor: 'transparent',
-    }, 
+    },
+    searchContainer: {
+        [theme.breakpoints.down(900)]: {
+            maxWidth: '100%',
+            flexBasis: '100%'
+        }
+    },
     search: {
         position: 'relative',
         color: 'black',
+        boxShadow: '0px 3px 6px #00000029',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 1),
         '&:hover': {
@@ -169,32 +353,80 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
+        maxWidth: '530px',
+        minWidth:'530px',
+        [theme.breakpoints.down('lg')]: {
+            marginLeft: '0 !important',
+            marginTop: '0.5rem !important',
+            maxWidth: 'initial !important',
+            minWidth: 'initial !important',
+            position: 'relative',
+        },
+        [theme.breakpoints.between(901, 959)]: {
+            flexBasis: '100%',
+            maxWidth: '60vw'
+        },
+        [theme.breakpoints.down(960)]: {
+            marginTop: '0 !important',
+            position: 'relative',
+            marginLeft: '-2rem',
+            maxWidth: '400px',
+            minWidth:'400px',
+            width: '100%',
+            top: '-1.5rem',
+          },
+        [theme.breakpoints.down('xs')]: {
+            top: '-1.5rem',
+            right: '-1rem',
+            position: 'relative',
+            marginLeft: '-4rem',
+            maxWidth: '200px',
+            minWidth:'200px',
+            width: '100%',
         },
     },
     searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
+        borderLeft: '1px solid #727272',
+        borderRadius: '0px',
+        marginTop: '-8.5px',
+        height: '20px',
+        marginRight: '-15px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        color:'#727272',
+        backgroundColor: 'transparent',
+        paddingTop: '-0.65rem',
+        paddingLeft: '-2.5rem',
+        position: 'absolute',
+        right: -5,
+        top: '15px',
+        maxwidth: '13px',
+        minWidth: '13px',
+        outline: 'none',
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+            backgroundColor: 'transparent',
+        },
+        '&:hover': {
+            backgroundColor: 'transparent',
+        }
     },
     inputRoot: {
         color: 'inherit',
+        [theme.breakpoints.down(959)]: {
+            width: '100%'
+        },
     },
     inputInput: {
+        fontWeight: 'light !important',
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        paddingLeft: `calc(-1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
             width: '40ch',
         },
+
     },
     sectionDesktop: {
         display: 'none',
@@ -213,32 +445,109 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:'red',
     },
     avatar:{
-        marginLeft:'20px',
-        marginTop:'10px', 
+        marginLeft:'15px',
+        marginTop:'-1.5rem',
+        marginBottom: '1rem',
+        width: '47px',
+        height: '47px',
+        top: '1.8rem',
     },
     nameMenu:{
-        display:'inline',
-        fontSize:'15px',
-        padding:'15px', 
+        display:'inline-block',
+        fontSize:'14px',
+        padding: '-15px',
+        fontFamily: 'Open Sans',
+        fontWeight: 'bold',
+        marginTop: '-2rem',
+        marginLeft: '0.5rem',
+        marginBottom: '-2rem',
     },
     ubiAmmount:{
         display:'block',
+        color: '#939292',
         fontSize:'12px',
+        fontFamily: 'Open Sans',
+        marginTop: '-0.5rem',
+        marginLeft: '-0.2rem',
         marginRight:'10px',
+        marginBottom: '1rem'
     },
     ubiIcon:{
         width: '17px',
-        marginLeft:'75px', 
+        marginLeft:'75px',
         paddingRight:'5px',
     },
+    menuMobileItemLabel: {
+        marginBottom: 0
+    },
+    menuMobileItemLink: {
+        color: '#000',
+        textDecoration: 'none',
+        '&:hover, &:focus, &:active': {
+            color: '#000',
+            textDecoration: 'none',
+        },
+    },
+    moreIcon: {
+        outline: 'none',
+        marginTop: '-3rem',
+        '&:hover, &:focus, &:active': {
+            outline: 'none',
+        },
+        [theme.breakpoints.between(901, 959)]: {
+            marginTop: 0
+        },
+        [theme.breakpoints.down(900)]: {
+            position: 'relative',
+            top: '-10px',
+            left: 0,
+            marginTop: 0,
+            width: '20px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            top: 0
+        }
+    },
+    location: {
+        width: '21px',
+        height: '30px',
+        marginTop: '-3px',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none', // remove
+            position: 'relative',
+            float: 'left',
+            left: '7rem',
+            top: '-1rem',
+        },
+        [theme.breakpoints.down('xs')]: {
+            top: '2rem',
+            bottom: '-2rem',
+            left: '-2rem',
+            position: 'relative',
+            // marginLeft: '-4rem',
+            size: '75%',
+
+          },
+    },
+    listItemsMenu: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+    },
+    quickActionsMenu: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+    }
 }));
 
-function _formatWalletAddress(address) {
-    return address.substr(0, 8);
+function _formatWalletAddress(address='') {
+    return address ? address.substr(0, 8) : '';
 }
 export default function NavBar() {
     const classes = useStyles();
     const logoImage = require("../../images/logo2.png");
+    const IsologoImage = require("../../images/isologoyubiaiwhite.png")
     const ubiImage = require("../../media/ubi2.svg");
     const profileImage = require("../../media/harishan-kobalasingam.jpg");
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -249,17 +558,16 @@ export default function NavBar() {
     const [walletAddress, setWalletAddress] = React.useState('');
     const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
     const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
-    const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const categoriesMenuOpen = Boolean(categoriesAnchorEl);
     const languageMenuOpen = Boolean(languageAnchorEl);
     const profileMenuOpen = Boolean(profileAnchorEl);
     const OpenCategories = (event) => {
         setCategoriesAnchorEl(event.currentTarget);
-      };
-      const OpenLanguage = (event) => {
+    };
+    const OpenLanguage = (event) => {
         setLanguageAnchorEl(event.currentTarget);
-      };
+    };
     const OpenProfile = (event) => {
         setProfileAnchorEl(event.currentTarget);
     };
@@ -282,44 +590,70 @@ export default function NavBar() {
                     setWalletAddress(resp.data.eth_address);
                     setToken(resp.data.token);
                     setProfileInfo({...resp.data});
+                    // Save token and wallet on sessionStorage
+                    saveLoginInfo(resp.data.token, resp.data.eth_address, {
+                        display_name: resp.data.display_name,
+                        photo: resp.data.photo
+                    });
                 });
             });
         }
     };
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-    const open = Boolean(anchorEl);
-  const handleClose = () => {
-    setAnchorEl(null);
-    setCategoriesAnchorEl(null);
-    setLanguageAnchorEl(null);
-    setProfileAnchorEl(null);
-  };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+        setCategoriesAnchorEl(null);
+        setLanguageAnchorEl(null);
+        setProfileAnchorEl(null);
+    };
+
+    const disconnect = () => {
+        setWalletAddress('');
+        setToken('');
+        setProfileInfo({});
+        // Save token and wallet on sessionStorage
+        saveLoginInfo('', '', {});
+        handleClose();
+    };
+
     const profile = 'profile-menu';
     const renderMenu = (
         <Menu
             id={profile}
             anchorEl={profileAnchorEl}
             getContentAnchorEl={null}
-            anchorOrigin={{vertical: "bottom", horizontal: "center", }}            
+            anchorOrigin={{vertical: "bottom", horizontal: "center", }}
             keepMounted
             transformOrigin={{ vertical: "top", horizontal: "center"}}
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
             TransitionComponent={Fade}
+            style={{top: '15px', zIndex: 1000}}
         >
             <ListItemIcon>
-            <Avatar src={profileInfo.photo || profileImage.default} profileImage className={classes.avatar} />
+                <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography className={classes.nameMenu}>{profileInfo.display_name || name}</Typography>          
+            <Typography className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
-            <MenuItem  className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/sales' onClick={handleClose}>Sales</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
-            <MenuItem className={classes.listItemText} component={Link} to='/profile' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px", fontFamily:'Open Sans' }} className={classes.listItemText}  component={Link} to='/orders' onClick={handleClose}>Orders</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/salesactive' onClick={handleClose}>Sales</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/mailbox' onClick={handleClose}>Mailbox</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
+            <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component="a" href='https://resolve.kleros.io/' target="_blank">Kleros Dispute Resolver</MenuItem>
+            {
+                token &&
+                <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
+            }
+             {/* <MenuItem> */}
+                {/* <IconButton color="inherit">
+                    <Badge badgeContent={1} color="primary" >
+                        <ShoppingCartOutlinedIcon /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                   {/* </Badge>*/}
+               {/* </IconButton> */}
+               {/* <p>Cart</p> */}
+            {/* </MenuItem> */}
         </Menu>
     );
     const categories = 'categories-menu';
@@ -333,11 +667,12 @@ export default function NavBar() {
             keepMounted
             open={Boolean(categoriesMenuOpen)}
             onClose={handleClose}
+
             >
-            <MenuItem onClick={handleClose}>Arts & Crafts</MenuItem>
-            <MenuItem onClick={handleClose}>Automotive</MenuItem>
-            <MenuItem onClick={handleClose}>Appliances</MenuItem>
-            <MenuItem onClick={handleClose}>VideoGames</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Arts & Crafts</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Automotive</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>Appliances</MenuItem>
+            <MenuItem className={classes.listItemText} onClick={handleClose}>VideoGames</MenuItem>
                     </Menu>
                                 );
         const language = 'language-menu';
@@ -358,10 +693,11 @@ export default function NavBar() {
             open={Boolean(languageMenuOpen)}
             onClose={handleClose}
             >
-            <MenuItem onClick={handleClose}>EN</MenuItem>
-            <MenuItem onClick={handleClose}>ES</MenuItem>
-            <MenuItem onClick={handleClose}>PT</MenuItem>
-            <MenuItem onClick={handleClose}>FR</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>English</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Español</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Português</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Française</MenuItem>
+            <MenuItem style={{fontFamily: 'Open Sans'}} onClick={handleClose}>Deutsche</MenuItem>
             </Menu>
             );
     const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -376,15 +712,12 @@ export default function NavBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton aria-label="show 11 new notifications" color="inherit">
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
+                <Button className={classes.connectMobile} onClick={connect} variant="contained" color="primary">
+                { _formatWalletAddress(walletAddress) || 'Connect' }
+                </Button>
             </MenuItem>
-            <MenuItem  onClick={OpenProfile}>
-                <IconButton 
+            <MenuItem>
+                <IconButton
                     aria-label="account of current user"
                     aria-controls="profile-menu"
                     aria-haspopup="true"
@@ -392,24 +725,42 @@ export default function NavBar() {
                 >
                     <AccountCircle />
                 </IconButton>
-                <p>Profile</p>
+                <Link to="/myinfo" className={classes.menuMobileItemLink}>
+                    <p className={classes.menuMobileItemLabel}>Profile</p>
+                </Link>
+            </MenuItem>
+            <MenuItem>
+                <IconButton aria-label="show 11 new notifications" color="inherit">
+                    <Badge badgeContent={11} color="secondary">
+                        <NotificationsIcon />
+                    </Badge>
+                </IconButton>
+                <p className={classes.menuMobileItemLabel}>Notifications</p>
+            </MenuItem>
+            <MenuItem>
+                <IconButton color="inherit">
+                    <Badge badgeContent={1} color="primary" >
+                        <ShoppingCartOutlinedIcon  /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                    </Badge>
+                </IconButton>
+                <p className={classes.menuMobileItemLabel}>Cart</p>
             </MenuItem>
             <MenuItem>
                 <IconButton  color="inherit">
-                    <Badge  >
+                    <Badge>
                         <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                     </Badge>
                 </IconButton>
-                <p>Categories</p>
+                <p className={classes.menuMobileItemLabel}>Categories</p>
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/sell">
-                        <Badge  color="secondary">
+                <IconButton color="inherit">
+                    <Link to="/sell">
+                        <Badge color="secondary">
                             <LoyaltyOutlinedIcon className={classes.linkmenuicon}></LoyaltyOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Sell</p>
+                                <p className={classes.menuMobileItemLabel}>Sell</p>
                             </div>
                         </Badge>
                     </Link>
@@ -419,11 +770,11 @@ export default function NavBar() {
             <MenuItem>
                 <Router>
                 <IconButton color="inherit"  >
-                    <Link  to="/browsinghistory">
+                    <Link to="/browsinghistory">
                         <Badge  color="secondary">
                             <HistoryOutlinedIcon className={classes.linkmenuicon}></HistoryOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Browsing history</p>
+                                <p className={classes.menuMobileItemLabel}>Browsing history</p>
                             </div>
                         </Badge>
                     </Link>
@@ -432,12 +783,12 @@ export default function NavBar() {
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/watchlist">
+                <IconButton color="inherit">
+                    <Link to="/watchlist">
                         <Badge  color="secondary">
                             <AddToQueueOutlinedIcon className={classes.linkmenuicon}></AddToQueueOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Watch list</p>
+                                <p className={classes.menuMobileItemLabel}>Watch list</p>
                             </div>
                         </Badge>
                     </Link>
@@ -446,12 +797,12 @@ export default function NavBar() {
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/helpdesk">
-                        <Badge  color="secondary">
+                <IconButton color="inherit">
+                    <Link to="/helpdesk">
+                        <Badge color="secondary">
                             <ContactSupportOutlinedIcon className={classes.linkmenuicon}></ContactSupportOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Help desk</p>
+                                <p className={classes.menuMobileItemLabel}>Help desk</p>
                             </div>
                         </Badge>
                     </Link>
@@ -460,73 +811,102 @@ export default function NavBar() {
             </MenuItem>
         </Menu>
     );
+
+    const { jwtToken, savedWallet, profileData } = getLoginInfo();
+    useEffect(() => {
+        const init = async () => {
+            if (jwtToken && savedWallet) {
+                setToken(jwtToken);
+                setWalletAddress(savedWallet);
+                setProfileInfo(profileData);
+            }
+        }
+        init();
+      }, [])
+
     return (
-            <div className={classes.container}>
-                <Router>
+        <div className={classes.container}>
+            <Router>
                 <AppBar className={classes.navbar} position="static">
                     <Toolbar>
-                    <Container maxWidth="lg">
-     <div className={classes.root}>
-      <Grid container spacing={2}>
-        <Grid item  sm={3} xs={6}>
-        <div><a href='/'><img className={classes.logo} src={logoImage.default} component={Link} to='/'></img></a></div>
-        </Grid>
-        <Grid item sm={6} xs={6}>
-            {/* Caja de Busqueda */}
-            <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
+                        <Container maxWidth="lg">
+                            <div className={classes.root}>
+                                <Grid container spacing={2}>
+                                    <Grid item  sm={3} xs={6}>
+                                    <div className={classes.sectionDesktopIcon}>
+                                        <div>
+                                            <a href='/'>
+                                                <img className={classes.logo} src={logoImage.default} component={Link} to='/' />
+                                                <img className={classes.isoLogo} src={IsologoImage.default} component={Link} to='/' />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </Grid>
+                                    <Grid item sm={6} xs={6} className={classes.searchContainer}>
+                                        {/* Caja de Busqueda */}
+                                        <div className={classes.search}>
+                                            <div className={classes.searchIcon}>
+                                                <Button style={{outline:'none', backgroundColor:'transparent'}}>
+                                                    <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
+                                                </Button>
+                                            </div>
+                                            <InputBase
+                                                placeholder="Search for goods"
+                                                classes={{
+                                                    root: classes.inputRoot,
+                                                    input: classes.inputInput,
+                                                }}
+                                                inputProps={{ 'aria-label': 'search' }}
+                                            />
+                                        </div>
+                                    </Grid>
+            <Grid className={classes.langContainer} item sm={3} xs={6}>
+                <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage}>
+                    EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                </Link>
+                <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
+                    { _formatWalletAddress(walletAddress) || 'Connect' }
+                </Button>
+            </Grid>
+                                    {/* Second row */}
+                                    <Grid item sm={3} xs={6} className={classes.location}>
+                                        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to <b>Buenos Aires</b> {/* modify in base of location of user */}
+                                    </Grid>
+                                    <Grid item sm={7} xs={6} className={classes.listItemsMenu}>
+                                        <div className={classes.container} />
+                                        <div className={classes.sectionDesktop}>
+                                            {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
+                                            <Typography disableTypography className={classes.link}  noWrap>
+                                            <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories
+                                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                                            </ListItemText>
+                                            <Link className={classes.link} to="/sell" >Sell</Link>
+                                            <Link className={classes.link} to="/browsinghistory" >Browsing history
+                                            </Link>
+                                            <Link className={classes.link} to="/watchlist" >Watch list
+                                            </Link>
+                                            <Link className={classes.link} to="/helpdesk" >Help desk
+                                            </Link>
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                    <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
+                                        <div style={{display:'inline-flex'}}>
+                                            <span className={classes.sectionDesktop}>
+
+                                                <AccountCircle className={classes.notificon} onClick={OpenProfile}
+                                                    aria-label="account of current user"
+                                                    aria-controls="profile-menu"
+                                                    aria-haspopup="true"
+                                                    color="inherit" />
+                                                <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
+                                            </span>
+                                            <Badge  color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
+                                            </div>
+                                    </Grid>
+                                </Grid>
                             </div>
-                            <InputBase
-                                placeholder="Search for goods, services or anything you need..."
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-            </div>
-        </Grid>
-        <Grid item sm={3} xs={6}>
-        <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage} >EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>  </Link>
-        <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
-            { _formatWalletAddress(walletAddress) || 'Connect' }
-        </Button>
-        </Grid>
-        {/* Second row */}
-        <Grid item sm={3} xs={6}>
-        <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to Buenos Aires
-        </Grid>
-        <Grid item sm={7} xs={6}>
-        <div className={classes.container} />
-        <div className={classes.sectionDesktop}>
-                            {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                                <Typography className={classes.link}  noWrap>  
-                                <ListItemText className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
-                                <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                                </ListItemText>
-                                <Link className={classes.link} to="/sell" >Sell  
-                                </Link>
-                                <Link className={classes.link} to="/browsinghistory" >Browsing history  
-                                </Link>
-                                <Link className={classes.link} to="/watchlist" >Watch list  
-                                </Link>
-                                <Link className={classes.link} to="/helpdesk" >Help desk 
-                                </Link></Typography>  
-                        </div>
-        </Grid>
-        <Grid item sm={2} xs={6}>
-                 <AccountCircle className={classes.notificon} onClick={OpenProfile}
-                    aria-label="account of current user"
-                    aria-controls="profile-menu"
-                    aria-haspopup="true"
-                    color="inherit" />
-                <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
-                <Badge badgeContent={1} color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
-        </Grid>
-      </Grid>
-    </div>
-    </Container>
+                        </Container>
                         <div className={classes.sectionMobile}>
                             <IconButton
                                 aria-label="show more"
@@ -534,17 +914,18 @@ export default function NavBar() {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
+                                className={classes.moreIcon}
                             >
-                                <MoreIcon />
+                                <MoreIcon  />
                             </IconButton>
                         </div>
-                    </Toolbar>
-                </AppBar>
-                </Router>
-                {renderMobileMenu}
-                {renderMenu}
-                {renderMenuCategories}
-                {renderMenuLanguage}
-            </div>
+                </Toolbar>
+            </AppBar>
+        </Router>
+        {renderMobileMenu}
+        {renderMenu}
+        {renderMenuCategories}
+        {renderMenuLanguage}
+        </div>
     );
 }
