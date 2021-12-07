@@ -24,7 +24,11 @@ const messageSchema = new Schema({
       user: String,
       message: String
     }
-  ]
+  ],
+  {
+    versionKey: false,
+    timestamps: true,
+  }
 });
 
 const Message = mongoose.model("Message", messageSchema);
