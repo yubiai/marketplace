@@ -3,7 +3,9 @@ const router = express.Router();
 
 const messageController = require("../../controllers/message.controller");
 
-router.route("/:walletAddress").get(messageController.getMessage);
-router.route("/:walletAddress").post(messageController.addMessage);
+router.route("/:orderId").get(messageController.getMessage);
+
+// Add message in order 
+router.route("/:orderId").put(messageController.addMessage);
 
 module.exports = router;

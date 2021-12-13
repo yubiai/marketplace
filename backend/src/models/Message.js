@@ -7,14 +7,6 @@ const messageSchema = new Schema(
       type: String,
       required: true,
     },
-    buyer_user: {
-      type: String,
-      required: true,
-    },
-    seller_user: {
-      type: String,
-      required: true,
-    },
     enabled: {
       type: Boolean,
       default: true,
@@ -23,7 +15,7 @@ const messageSchema = new Schema(
       {
         date: String,
         user: String,
-        message: String,
+        text: String,
       },
     ],
   },

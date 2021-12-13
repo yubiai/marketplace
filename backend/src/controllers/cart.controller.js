@@ -75,7 +75,7 @@ async function incrementArticle(req, res) {
     const cart = await currentCart(data.userId);
 
     const article = {
-      articleId: req.body.itemId,
+      articleId: req.body.product,
       quantity: req.body.quantity,
     };
 
@@ -100,7 +100,7 @@ async function decrementArticle(req, res) {
     const cart = await currentCart(data.userId);
 
     const article = {
-      articleId: req.body.itemId,
+      articleId: req.body.product,
     };
 
     cart.decrementArticle(article);

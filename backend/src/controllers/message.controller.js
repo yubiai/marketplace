@@ -20,15 +20,34 @@ async function getMessage(req, res) {
 
 async function addMessage(req, res) {
   const { orderId } = req.params;
+  const { user } = req.query;
+  let result
 
   try {
-    const message = await Message.findOne({ order_id: orderId });
+    let messages = await Message.findOne({ order_id: orderId });
+    let message = {
+      date: new Date(),
+      user: user,
+      text: req.body.text
+    }
 
-    res.status(200).json({
-      status: "ok",
-      result: message,
-    });
+    if (messages){
+      messages.messages.push(message);
+      result = await messages.save(messages);
+    } else {
+      messages = {
+        order_id: orderId,
+        messages: [
+          message
+        ]
+      }
+      let newMessages = new Message(messages);
+      result = await newMessages.save(newMessages);
+    }
+
+    res.status(200).json(result);
   } catch (error) {
+    console.log(error)
     res.status(400).json({
       message: "Ups Hubo un error!",
       error: error,
