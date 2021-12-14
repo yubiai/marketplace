@@ -16,7 +16,7 @@ const questionSchema = new Schema(
       type: String,
       required: true
     },
-    item_id: {
+    product: {
       type: String,
       required: true
     },
