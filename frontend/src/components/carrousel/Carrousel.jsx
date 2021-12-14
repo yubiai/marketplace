@@ -15,9 +15,7 @@ const useStyles = makeStyles({
     backgroundImage: "",
     backgroundSize: "cover",
     position: "relative",
-    
   },
-
   slidebuttonLeft: {
     color: "#00ABD1",
     textDecoration: "none",
@@ -74,9 +72,9 @@ const useStyles = makeStyles({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    zIndex: 10000,
+    zIndex: 1000,
     padding: '0 1rem',
-    
+
   },
 });
 

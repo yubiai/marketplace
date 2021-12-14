@@ -24,16 +24,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Open Sans',
     display: 'flex',
   },
-  
+
   listItem: {
     borderRadius: '20px',
     height:'117px',
     backgroundColor: 'white',
-    fontFamily: 'Open Sans',  
+    fontFamily: 'Open Sans',
   },
   listItemText:{
-    fontFamily: 'Open Sans',   
+    fontFamily: 'Open Sans',
     marginLeft: '20px',
+    position: 'relative'
   },
   btnChat: {
     display: 'flex',
@@ -48,13 +49,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#00ABD1',
     color: '#fff',
     minWidth: '140px',
-    maxWidth: '140px',  
+    maxWidth: '140px',
     '&:hover': {
       borderBottom: 'none',
       color: '#00ABD1',
-      backgroundColor: 'transparent', 
-    }  
-  }, 
+      backgroundColor: 'transparent',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none !important'
+    },
+  },
   link: {
     display: 'flex',
     fontSize: '14px',
@@ -67,10 +71,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     alignItems: 'center',
     '&:hover': {
-        borderBottom: 'none',
-        color: '#00ABD1',
-        textDecorationColor: 'transparent',  
-      }
+      borderBottom: 'none',
+      color: '#00ABD1',
+      textDecorationColor: 'transparent',
+    }
 },
   image: {
     width: '80px',
@@ -117,72 +121,62 @@ export default function AlignItemsList() {
     setOpen(false);
   };
   return (
-    
-     
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA"}}>
-          
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link className={classes.link}  to="/mailbox"  onClick={handleClick}>
-        Mailbox
+          Mailbox
         </Link>
-        
       </Breadcrumbs>
-          
-    
-    
-    <Grid container spacing={1}
-          variant="fullWidth"
-          direction="column"
-          justifyContent="space-around"
-          alignItems="left" style={{marginTop: '4px'}}>
-      <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
-      <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
-           
-        </ListItemAvatar>
-        <ListItemText
-          disableTypography
-          className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               10.000 UBI
-              </Typography>
-              
-              <l style={{fontWeight:'200'}}>{" Available"}</l>
-              <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
-              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
-                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
-                Chat
-                
-                </Button>
-                <MoreHorizSharpIcon  className={classes.buttonThreeDots}   component={LongMenu} open={open}
-                    onClose={handleClose} />
-                </ListItem>       
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+      <Grid container spacing={1}
+            variant="fullWidth"
+            direction="column"
+            justifyContent="space-around"
+            alignItems="left" style={{marginTop: '4px'}}>
+        <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', height:'117px', marginLeft: '0.75rem' }}>
+          <ListItem className={classes.listItem} alignItems="flex-start">
+            <ListItemAvatar>
+              <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
+            </ListItemAvatar>
+            <ListItemText
+                disableTypography
+                className={classes.listItemText}
+                primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
+                secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  10.000 UBI
+                </Typography>
+                <l style={{fontWeight:'200'}}>{" Available"}</l>
+                <FiberManualRecordSharpIcon className={classes.itemStatusIconAvailable}/>
+                <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                  <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+                    Chat
+                  </Button>
+                  <MoreHorizSharpIcon className={classes.buttonThreeDots}
+                                      component={LongMenu}
+                                      open={open}
+                                      onClose={handleClose} />
+                  </ListItem>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
       </Grid>
-      
       <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginBottom:'8px', marginLeft: '0.75rem'}}>
-      <ListItem alignItems="flex-start" className={classes.listItem}>
-      <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
-           
-        </ListItemAvatar>
-        <ListItemText
-          disableTypography
-          className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
-          secondary={
+        <ListItem alignItems="flex-start" className={classes.listItem}>
+          <ListItemAvatar>
+            <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
+          </ListItemAvatar>
+          <ListItemText
+            disableTypography
+            className={classes.listItemText}
+            primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
+            secondary={
             <React.Fragment>
               <Typography
                 component="span"
@@ -190,60 +184,60 @@ export default function AlignItemsList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-               10.000 UBI
+                10.000 UBI
               </Typography>
               <l style={{fontWeight:'200'}}>{" Paused"}</l>
               <FiberManualRecordSharpIcon className={classes.itemStatusIconPaused}/>
               <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
                 <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
-                Chat
-                
+                  Chat
                 </Button>
-                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
-                    onClose={handleClose} />
-                </ListItem>    
+                <MoreHorizSharpIcon style={{display:'inline-flex'}}
+                                    component={LongMenu}
+                                    open={open}
+                                    onClose={handleClose} />
+                </ListItem>
             </React.Fragment>
           }
         />
-      </ListItem>
+        </ListItem>
       </Grid>
-      
       <Grid item xs={12} md={12} style={{backgroundColor: 'white', borderRadius:'20px', marginLeft: '0.75rem'}}>
-      <ListItem className={classes.listItem} alignItems="flex-start">
-      <ListItemAvatar>
-          <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
-           
-        </ListItemAvatar>
-        <ListItemText
-          disableTypography
-          className={classes.listItemText}
-          primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               10.000 UBI
-              </Typography>
-              <l style={{fontWeight:'200'}}>{" Sold"}</l>
-              <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
-              <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
-                <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
-                Chat
-                
-                </Button>
-                <MoreHorizSharpIcon style={{display:'inline-flex'}}  component={LongMenu} open={open}
-                    onClose={handleClose} />
-                </ListItem>      
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+          <ListItem className={classes.listItem} alignItems="flex-start">
+            <ListItemAvatar>
+              <img alt="{imgjson}" className={classes.image} src={mailboxImage.default} />
+            </ListItemAvatar>
+            <ListItemText
+              disableTypography
+              className={classes.listItemText}
+              primary={<b style={{fontSize:'16px'}}>Canon EOS Rebel T7 EF-S 18-55mm</b>}
+              secondary={
+                <React.Fragment>
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    className={classes.inline}
+                    color="textPrimary"
+                  >
+                  10.000 UBI
+                  </Typography>
+                  <l style={{fontWeight:'200'}}>{" Sold"}</l>
+                  <FiberManualRecordSharpIcon className={classes.itemStatusIconSold}/>
+                  <ListItem style={{display:'inline-flex', top: '-3rem', left:'-1rem'}}>
+                    <Button style={{display:'inline-flex'}} className={classes.btnChat} variant="contained" component={Link} to="/chat" primary="Chat" >
+                      Chat
+                    </Button>
+                    <MoreHorizSharpIcon style={{display:'inline-flex'}}
+                                        component={LongMenu}
+                                        open={open}
+                                        onClose={handleClose} />
+                    </ListItem>
+                </React.Fragment>
+              }
+            />
+          </ListItem>
+        </Grid>
       </Grid>
-    </Grid>  
     </List>
   );
 }

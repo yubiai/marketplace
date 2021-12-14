@@ -2,34 +2,65 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
+import { Link }  from 'react-router-dom';
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 const useStyles = makeStyles((theme) => ({
-    moreIconDots:{
-        display: "inherit",
-        alignItems: "inherit",
-        justifyContent: "inherit",
-        marginLeft: "inherit",
-        marginTop: "inherit",
-        marginBottom: "inherit",
-        color: "black",
-        outline: 'none !important',
-        '&:hover, &:focus, &:active': {
-        outline: 'none !important',
-        },
-        '&:hover': {
-          outline: 'none !important',
-        }
+  moreIconDots: {
+    display: "inherit",
+    alignItems: "inherit",
+    justifyContent: "inherit",
+    marginLeft: "inherit",
+    marginTop: "inherit",
+    marginBottom: "inherit",
+    color: "black",
+    outline: 'none !important',
+    '&:hover, &:focus, &:active': {
+      outline: 'none !important',
+    },
+    '&:hover': {
+      outline: 'none !important',
+    },
+    [theme.breakpoints.down('xs')]: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      width: 'auto',
+      padding: 0
+    },
   },
-    
-  
-
+  link: {
+    color: '#000',
+    outline: 'none',
+    textDecoration: 'none',
+    '&:hover, &:focus, &:active': {
+      color: '#000',
+      outline: 'none !important',
+      textDecoration: 'none',
+    },
+  }
 }));
 
 export default function LongMenu() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const options = ["Delete Chat", "Seller Information"];
+  const [options, setOptions] = React.useState([]);
+
+  React.useEffect(() => {
+    setOptionsBasedOnScreenWidth();
+    window.addEventListener('resize', () => {
+      setOptionsBasedOnScreenWidth();
+    });
+  }, []);
+
+  function setOptionsBasedOnScreenWidth() {
+    if (window.innerWidth >= 600) {
+      setOptions(["Delete Chat", "Seller Information"]);
+    } else {
+      setOptions(["Delete Chat", "Seller Information", "Chat"]);
+    }
+  }
+
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -49,7 +80,7 @@ export default function LongMenu() {
         onClick={handleClick}
         className={classes.moreIconDots}
       >
-        <MoreHorizSharpIcon  className={classes.moreIconDots} />
+        <MoreHorizSharpIcon className={classes.moreIconDots} />
       </IconButton>
       <Menu
         id="long-menu"
@@ -73,7 +104,13 @@ export default function LongMenu() {
             selected={option === "Pyxis"}
             onClick={handleClose}
           >
-            {option}
+            {
+              option === 'Chat' ?
+              <Link className={classes.link} to="/chat">
+                Chat
+              </Link> :
+              option
+            }
           </MenuItem>
         ))}
       </Menu>

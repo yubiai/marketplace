@@ -49,6 +49,14 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 'calc(100% - 4rem)',
       flex: 1,
       margin: '1rem 0'
+    },
+    [theme.breakpoints.down(481)]: {
+      maxWidth: 'initial'
+    }
+  },
+  listItemGridTransaction: {
+    [theme.breakpoints.down(481)]: {
+      width: 'calc(100% - 28px)'
     }
   },
   profileSellerGrid: {
@@ -58,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
       flex: 1,
       marginLeft: '0 !important',
       maxWidth: 'calc(100% - 120px)'
+    },
+    [theme.breakpoints.down(481)]: {
+      maxWidth: 'initial'
     }
   },
   listItem: {
@@ -251,7 +262,7 @@ export default function AlignItemsList() {
             alignItems="flex-start"
             className={classes.transactionSellerContainer}
             style={{marginTop: '10px', marginLeft: '1.8rem'}}>
-        <Grid item xs={10} md={5} className={classes.listItemGrid}>
+        <Grid item xs={10} md={5} className={`${classes.listItemGrid} ${classes.listItemGridTransaction}`}>
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               primary={

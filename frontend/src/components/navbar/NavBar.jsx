@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     root:{
         marginTop: '10px',
         margin: '10px',
-        
    },
     navbar: {
          background: 'linear-gradient(90deg, rgb(0, 171, 209) 0%, #1C538A 100%) !important',
@@ -74,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
             height: '70px',
             minHeight:'70px',
             maxHeight:'70px',
-            zIndex: 99,  
+            zIndex: 99,
         },
     },
     logo: {
@@ -98,16 +97,16 @@ const useStyles = makeStyles((theme) => ({
             // top: '2rem',
             left: '6rem',
             float: ' left'
-        },    
+        },
     },
     isoLogo: {
-        
+
         width: '29px',
         [theme.breakpoints.up(960)]: {
             display: 'none',
-        }, 
+        },
         [theme.breakpoints.down(960)]: {
-            
+
             position: 'relative',
             // marginLeft: '1rem',
             // marginTop: '7rem',
@@ -116,9 +115,9 @@ const useStyles = makeStyles((theme) => ({
             left: '-2.5rem',
             top: '1.5rem',
             float: ' left'
-          },   
+          },
         [theme.breakpoints.down('xs')]: {
-            
+
             position: 'relative',
             // marginLeft: '1rem',
             // marginTop: '7rem',
@@ -140,7 +139,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
             '&:hover': {
                 borderBottom: 'none',
-                color: '#008968', 
+                color: '#008968',
               }
         },
     },
@@ -156,7 +155,7 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             borderBottom: 'none',
             color: '#a9a9a9',
-            textDecorationColor: 'transparent', 
+            textDecorationColor: 'transparent',
           }
     },
     listItemTextc: {
@@ -172,7 +171,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'top',
         '&:hover': {
             borderBottom: 'none',
-            color: '#a9a9a9', 
+            color: '#a9a9a9',
         }
     },
     lang: {
@@ -186,7 +185,7 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             borderBottom: 'none',
             color: '#a9a9a9',
-            textDecorationColor: 'transparent', 
+            textDecorationColor: 'transparent',
         },
         [theme.breakpoints.between(960, 1230)]: {
             marginLeft: 0
@@ -201,20 +200,22 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('xs')]: {
             position: 'relative',
-            // marginLeft: '1rem',
-            // marginTop: '7rem',
-            // marginBottom: '-3rem',
             top: '2rem',
             left: '-8rem',
-            float: ' left'
-        },    
+            float: ' left',
+        },
+    },
+    langContainer: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
     },
     notificon: {
         marginLeft: theme.spacing(2),
         alignItems: 'center',
         '&:hover': {
             borderBottom: 'none',
-            color: '#a9a9a9', 
+            color: '#a9a9a9',
           }
     },
     carticon: {
@@ -224,7 +225,7 @@ const useStyles = makeStyles((theme) => ({
         float:'right',
         '&:hover': {
             borderBottom: 'none',
-            color: '#a9a9a9', 
+            color: '#a9a9a9',
           },
           [theme.breakpoints.down('md')]: {
             left: '-7.5rem',
@@ -238,18 +239,18 @@ const useStyles = makeStyles((theme) => ({
             left: '1rem',
             // marginBottom: '-1.5rem',
             top: '-1.5rem',
-            
-            
-          },  
+
+
+          },
           [theme.breakpoints.down('xs')]: {
             position: 'relative',
             // marginLeft: '11rem',
             top: '-2.5rem',
             left: '9.25rem',
             // marginBottom: '-6rem',
-            
-            
-          },  
+
+
+          },
     },
     connect: {
         fontSize: '14px',
@@ -266,7 +267,7 @@ const useStyles = makeStyles((theme) => ({
             outline: 'none',
             borderBottom: 'none',
             color: 'white',
-            background: '#00ABD1', 
+            background: '#00ABD1',
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
@@ -277,15 +278,15 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
             display: 'none'
-        },  
-        [theme.breakpoints.down('xs')]: {  
+        },
+        [theme.breakpoints.down('xs')]: {
         top: '-2.5rem',
         left: '-2rem',
         maxWidth: '75px',
         minWidth:'75px',
         width: '100%',
-        
-        },    
+
+        },
     },
     connectMobile: {
         fontSize: '14px',
@@ -302,12 +303,12 @@ const useStyles = makeStyles((theme) => ({
             outline: 'none',
             borderBottom: 'none',
             color: 'white',
-            background: '#00ABD1', 
+            background: '#00ABD1',
           },
         '&:hover, &:focus, &:active': {
             outline: 'none',
           },
-    },      
+    },
     listItemText: {
         display: 'flex',
         fontSize: '13px',
@@ -317,9 +318,9 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             borderBottom: 'none',
             color: '#00ABD1',
-            textDecorationColor: 'transparent', 
+            textDecorationColor: 'transparent',
           }
-       
+
     },
     linkmenu: {
         display: 'flex',
@@ -327,7 +328,6 @@ const useStyles = makeStyles((theme) => ({
         color: '#000000',
         textDecorationColor: 'transparent',
         marginLeft: '1rem',
-        
     },
     linkmenuicon: {
         display: 'flex',
@@ -338,8 +338,8 @@ const useStyles = makeStyles((theme) => ({
     searchContainer: {
         [theme.breakpoints.down(900)]: {
             maxWidth: '100%',
-            flexBasis: '100%' 
-        }  
+            flexBasis: '100%'
+        }
     },
     search: {
         position: 'relative',
@@ -382,7 +382,7 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: '-4rem',
             maxWidth: '200px',
             minWidth:'200px',
-            width: '100%',  
+            width: '100%',
         },
     },
     searchIcon: {
@@ -415,7 +415,6 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down(959)]: {
             width: '100%'
         },
-        
     },
     inputInput: {
         fontWeight: 'light !important',
@@ -427,7 +426,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '40ch',
         },
-        
+
     },
     sectionDesktop: {
         display: 'none',
@@ -452,7 +451,6 @@ const useStyles = makeStyles((theme) => ({
         width: '47px',
         height: '47px',
         top: '1.8rem',
-         
     },
     nameMenu:{
         display:'inline-block',
@@ -476,8 +474,19 @@ const useStyles = makeStyles((theme) => ({
     },
     ubiIcon:{
         width: '17px',
-        marginLeft:'75px', 
+        marginLeft:'75px',
         paddingRight:'5px',
+    },
+    menuMobileItemLabel: {
+        marginBottom: 0
+    },
+    menuMobileItemLink: {
+        color: '#000',
+        textDecoration: 'none',
+        '&:hover, &:focus, &:active': {
+            color: '#000',
+            textDecoration: 'none',
+        },
     },
     moreIcon: {
         outline: 'none',
@@ -494,6 +503,9 @@ const useStyles = makeStyles((theme) => ({
             left: 0,
             marginTop: 0,
             width: '20px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            top: 0
         }
     },
     location: {
@@ -514,7 +526,7 @@ const useStyles = makeStyles((theme) => ({
             position: 'relative',
             // marginLeft: '-4rem',
             size: '75%',
-            
+
           },
     },
     listItemsMenu: {
@@ -551,7 +563,6 @@ export default function NavBar() {
     const [walletAddress, setWalletAddress] = React.useState('');
     const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
     const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
-    const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const categoriesMenuOpen = Boolean(categoriesAnchorEl);
     const languageMenuOpen = Boolean(languageAnchorEl);
@@ -603,41 +614,41 @@ export default function NavBar() {
             });
         }
     };
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-    const open = Boolean(anchorEl);
-  const handleClose = () => {
-    setAnchorEl(null);
-    setCategoriesAnchorEl(null);
-    setLanguageAnchorEl(null);
-    setProfileAnchorEl(null);
-  };
-  const disconnect = () => {
-    setWalletAddress('');
-    setToken('');
-    setProfileInfo({});
-    // Save token and wallet on sessionStorage
-    saveLoginInfo('', '', {});
-    handleClose();
-  };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+        setCategoriesAnchorEl(null);
+        setLanguageAnchorEl(null);
+        setProfileAnchorEl(null);
+    };
+
+    const disconnect = () => {
+        setWalletAddress('');
+        setToken('');
+        setProfileInfo({});
+        // Save token and wallet on sessionStorage
+        saveLoginInfo('', '', {});
+        handleClose();
+    };
+
     const profile = 'profile-menu';
     const renderMenu = (
         <Menu
             id={profile}
             anchorEl={profileAnchorEl}
             getContentAnchorEl={null}
-            anchorOrigin={{vertical: "bottom", horizontal: "center", }}            
+            anchorOrigin={{vertical: "bottom", horizontal: "center", }}
             keepMounted
             transformOrigin={{ vertical: "top", horizontal: "center"}}
             open={Boolean(profileMenuOpen)}
             onClose={handleClose}
             TransitionComponent={Fade}
+            style={{top: '15px', zIndex: 1000}}
         >
             <ListItemIcon>
                 <Avatar src={(profileInfo || {}).photo || profileImage.default} profileImage className={classes.avatar} />
             </ListItemIcon>
-            <Typography className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>          
+            <Typography className={classes.nameMenu}>{(profileInfo || {}).display_name || name}</Typography>
             <Typography className={classes.ubiAmmount}>
                 <img src={ubiImage.default} className={classes.ubiIcon} ></img>{ubisAmmount}
             </Typography>
@@ -647,7 +658,7 @@ export default function NavBar() {
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component={Link} to='/myinfo' onClick={handleClose}>My info</MenuItem>
             <MenuItem style={{fontSize:"13px"}} className={classes.listItemText} component="a" href='https://resolve.kleros.io/' target="_blank">Kleros Dispute Resolver</MenuItem>
             {
-                token && 
+                token &&
                 <MenuItem style={{fontSize:"13px"}} className={classes.listItemText}  onClick={disconnect}>Disconnect</MenuItem>
             }
              {/* <MenuItem> */}
@@ -671,7 +682,7 @@ export default function NavBar() {
             keepMounted
             open={Boolean(categoriesMenuOpen)}
             onClose={handleClose}
-            
+
             >
             <MenuItem className={classes.listItemText} onClick={handleClose}>Arts & Crafts</MenuItem>
             <MenuItem className={classes.listItemText} onClick={handleClose}>Automotive</MenuItem>
@@ -718,10 +729,10 @@ export default function NavBar() {
             <MenuItem>
                 <Button className={classes.connectMobile} onClick={connect} variant="contained" color="primary">
                 { _formatWalletAddress(walletAddress) || 'Connect' }
-                </Button> 
+                </Button>
             </MenuItem>
-            <MenuItem  onClick={OpenProfile}>
-                <IconButton 
+            <MenuItem>
+                <IconButton
                     aria-label="account of current user"
                     aria-controls="profile-menu"
                     aria-haspopup="true"
@@ -729,7 +740,9 @@ export default function NavBar() {
                 >
                     <AccountCircle />
                 </IconButton>
-                <p>Profile</p>
+                <Link to="/myinfo" className={classes.menuMobileItemLink}>
+                    <p className={classes.menuMobileItemLabel}>Profile</p>
+                </Link>
             </MenuItem>
             <MenuItem>
                 <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -737,7 +750,7 @@ export default function NavBar() {
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
-                <p>Notifications</p>
+                <p className={classes.menuMobileItemLabel}>Notifications</p>
             </MenuItem>
             <MenuItem>
                 <IconButton color="inherit">
@@ -745,24 +758,24 @@ export default function NavBar() {
                         <ShoppingCartOutlinedIcon  /> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
                     </Badge>
                 </IconButton>
-                <p>Cart</p>
-            </MenuItem>    
+                <p className={classes.menuMobileItemLabel}>Cart</p>
+            </MenuItem>
             <MenuItem>
                 <IconButton  color="inherit">
-                    <Badge  >
+                    <Badge>
                         <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                     </Badge>
                 </IconButton>
-                <p>Categories</p>
+                <p className={classes.menuMobileItemLabel}>Categories</p>
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/sell">
-                        <Badge  color="secondary">
+                <IconButton color="inherit">
+                    <Link to="/sell">
+                        <Badge color="secondary">
                             <LoyaltyOutlinedIcon className={classes.linkmenuicon}></LoyaltyOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Sell</p>
+                                <p className={classes.menuMobileItemLabel}>Sell</p>
                             </div>
                         </Badge>
                     </Link>
@@ -772,11 +785,11 @@ export default function NavBar() {
             <MenuItem>
                 <Router>
                 <IconButton color="inherit"  >
-                    <Link  to="/browsinghistory">
+                    <Link to="/browsinghistory">
                         <Badge  color="secondary">
                             <HistoryOutlinedIcon className={classes.linkmenuicon}></HistoryOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Browsing history</p>
+                                <p className={classes.menuMobileItemLabel}>Browsing history</p>
                             </div>
                         </Badge>
                     </Link>
@@ -785,12 +798,12 @@ export default function NavBar() {
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/watchlist">
+                <IconButton color="inherit">
+                    <Link to="/watchlist">
                         <Badge  color="secondary">
                             <AddToQueueOutlinedIcon className={classes.linkmenuicon}></AddToQueueOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Watch list</p>
+                                <p className={classes.menuMobileItemLabel}>Watch list</p>
                             </div>
                         </Badge>
                     </Link>
@@ -799,12 +812,12 @@ export default function NavBar() {
             </MenuItem>
             <MenuItem>
                 <Router>
-                <IconButton color="inherit"  >
-                    <Link  to="/helpdesk">
-                        <Badge  color="secondary">
+                <IconButton color="inherit">
+                    <Link to="/helpdesk">
+                        <Badge color="secondary">
                             <ContactSupportOutlinedIcon className={classes.linkmenuicon}></ContactSupportOutlinedIcon>
                             <div className={classes.linkmenu}>
-                            <p>Help desk</p>
+                                <p className={classes.menuMobileItemLabel}>Help desk</p>
                             </div>
                         </Badge>
                     </Link>
@@ -835,7 +848,7 @@ export default function NavBar() {
                             <div className={classes.root}>
                                 <Grid container spacing={2}>
                                     <Grid item  sm={3} xs={6}>
-                                    <div className={classes.sectionDesktopIcon}>    
+                                    <div className={classes.sectionDesktopIcon}>
                                         <div>
                                             <a href='/'>
                                                 <img className={classes.logo} src={logoImage.default} component={Link} to='/' />
@@ -850,7 +863,7 @@ export default function NavBar() {
                                             <div className={classes.searchIcon}>
                                                 <Button style={{outline:'none', backgroundColor:'transparent'}}>
                                                     <SearchIcon style={{marginTop:'-0.05rem', marginLeft:'-1.5rem', color:'#727272'}} />
-                                                </Button>    
+                                                </Button>
                                             </div>
                                             <InputBase
                                                 placeholder="Search for goods"
@@ -862,9 +875,9 @@ export default function NavBar() {
                                             />
                                         </div>
                                     </Grid>
-                                    <Grid item sm={3} xs={6}>
+            <Grid className={classes.langContainer} item sm={3} xs={6}>
                 <Link className={classes.lang} aria-controls="language-menu" aria-haspopup="true" onClick={OpenLanguage}>
-                    EN  <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> 
+                    EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                 </Link>
                 <Button className={classes.connect} onClick={connect} variant="contained" color="primary">
                     { _formatWalletAddress(walletAddress) || 'Connect' }
@@ -878,24 +891,24 @@ export default function NavBar() {
                                         <div className={classes.container} />
                                         <div className={classes.sectionDesktop}>
                                             {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                                            <Typography disableTypography className={classes.link}  noWrap>  
-                                            <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories 
+                                            <Typography disableTypography className={classes.link}  noWrap>
+                                            <ListItemText disableTypography className={classes.listItemTextc} aria-controls="categories-menu" aria-haspopup="true" onClick={OpenCategories} >Categories
                                                 <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                                             </ListItemText>
                                             <Link className={classes.link} to="/sell" >Sell</Link>
-                                            <Link className={classes.link} to="/browsinghistory" >Browsing history  
+                                            <Link className={classes.link} to="/browsinghistory" >Browsing history
                                             </Link>
-                                            <Link className={classes.link} to="/watchlist" >Watch list  
+                                            <Link className={classes.link} to="/watchlist" >Watch list
                                             </Link>
-                                            <Link className={classes.link} to="/helpdesk" >Help desk 
+                                            <Link className={classes.link} to="/helpdesk" >Help desk
                                             </Link>
-                                        </Typography>  
+                                        </Typography>
                                     </div>
                                 </Grid>
                                     <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
                                         <div style={{display:'inline-flex'}}>
                                             <span className={classes.sectionDesktop}>
-                                                    
+
                                                 <AccountCircle className={classes.notificon} onClick={OpenProfile}
                                                     aria-label="account of current user"
                                                     aria-controls="profile-menu"
@@ -904,7 +917,7 @@ export default function NavBar() {
                                                 <Badge badgeContent={17} color="secondary" ><NotificationsIcon className={classes.notificon} /></Badge>
                                             </span>
                                             <Badge  color="primary" ><ShoppingCartOutlinedIcon  className={classes.carticon}/> {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}</Badge>
-                                            </div>        
+                                            </div>
                                     </Grid>
                                 </Grid>
                             </div>
