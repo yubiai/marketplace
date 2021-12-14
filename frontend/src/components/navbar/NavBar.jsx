@@ -32,7 +32,7 @@ import axios from 'axios';
 import { setupEthState, getBlockchain } from '../../ethereum';
 import { saveLoginInfo, getLoginInfo } from '../../utils/loginInfo';
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://yubiai-backend.herokuapp.com/';
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
   let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
 const useStyles = makeStyles((theme) => ({
