@@ -8,7 +8,7 @@ import Container from "@material-ui/core/Container";
 import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
 
-const API_URL = "https://yubiai-backend.herokuapp.com/";
+const API_URL = "https://yubiai-backend.herokuapp.com";
 const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [
