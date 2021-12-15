@@ -725,6 +725,7 @@ export default function NavBar() {
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
+            style={{top: '70px'}}
         >
             <MenuItem>
                 <Button className={classes.connectMobile} onClick={connect} variant="contained" color="primary">
