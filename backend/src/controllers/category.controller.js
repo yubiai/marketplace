@@ -19,9 +19,19 @@ async function getCategory(req, res) {
 
 async function postCategory(req, res) {
   try {
+    const categoryId = req.body.categoryId;
+
+    let verifyId = await Category.exists({
+      categoryId
+    });
+  
+    if (verifyId) {
+      return res.status(404).json({ error: "Category Id exists" });
+    }
+
     const item = new Category({
-      categoryId: req.body.categoryId,
-      title: req.body.title,
+      categoryId: categoryId,
+      title: req.body.title,  
       description: req.body.description,
       permalink: req.body.permalink,
     })
@@ -42,7 +52,7 @@ async function postCategory(req, res) {
 
 async function getCategoryId(req, res) {
   try {
-    const categories = await Category.findById({_id: req.params.id}).populate("items")
+    const categories = await Category.find({categoryId: req.params.id}).populate("items")
     res.status(200).json({
       status: 'ok',
       response: categories
