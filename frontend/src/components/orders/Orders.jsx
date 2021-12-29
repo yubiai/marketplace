@@ -100,10 +100,17 @@ const useStyles = makeStyles((theme) => ({
   },
   menuMobileIcon: {
     cursor: 'pointer',
+    
     display: 'none',
     paddingRight: 0,
     [theme.breakpoints.down('xs')]: {
-      display: 'block'
+      display: 'block',
+      '&:hover, &:active, &:focus': {
+        // color: '#000',
+        textDecoration: 'none',
+        outline: 'none',
+  
+      },
     },
   },
   menuIconLink: {
@@ -112,7 +119,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover, &:active, &:focus': {
       color: '#000',
       textDecoration: 'none',
-    }
+      outline: 'none',
+
+    },
+    
   },
   image: {
     width: '120px',
@@ -132,6 +142,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  //Cambiar el hardcodeado del orderImage
   const orderImage = require("../../media/Shoes-PNG-File.png");
   const [open, setOpen] = React.useState(true);
   const handleClick = () => {
@@ -191,7 +202,7 @@ export default function AlignItemsList() {
               aria-controls="more-menu"
               className={classes.menuMobileIcon}
             >
-              <MoreVertIcon />
+              <MoreVertIcon  />
             </IconButton>
             <Menu id="more-menu"
                   keepMounted
