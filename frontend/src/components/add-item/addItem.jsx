@@ -1,12 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import ListItemText from '@material-ui/core/ListItemText'; 
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { Fab } from "@material-ui/core";
-
+import InputLabel from '@material-ui/core/InputLabel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -123,6 +124,18 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'transparent',
       }
     
+  },
+  sellYourProduct: {
+    fontSize: '24px',
+    fontWeight: '600 !important',
+    position: 'relative',
+    left: '11px',
+  },
+  labels: {
+    fontFamily: 'Open Sans',
+
+    fontSize: '14px',
+    color: 'rgba(57, 57, 57, 0.85)',
   },
 }));
 
@@ -318,28 +331,9 @@ return (
   <form noValidate autoComplete="off">
   
   <div>
-  <TextField id="title" label="Title"  type="text" name="title" className={classes.title} variant="outlined"  />
-  <TextField id="price" label="Price" type="number" name="price" className={classes.price} variant="outlined" />
-  
-  <TextField
-          id="standard-select-currency"
-          select
-          className={classes.currency}
-          label="Currency"
-          value={currency}
-          variant="outlined"
-          onChange={handleChange1}
-           type="text"
-        >{currencies.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-    </TextField>
-    </div>
-    
+  <ListItemText disableTypography className={classes.sellYourProduct}>Sell your product </ListItemText>
   <div>   
-    {/* <InputLabel id="condition">Condition</InputLabel> */}
+    <InputLabel disableTypography className={classes.labels} id="condition">Condition</InputLabel>
     <Select
           labelId="demo-simple-select-label"
           id="condition"
@@ -373,7 +367,28 @@ return (
         ))}
            
         </Select>
-      </div>    
+      </div>  
+  <TextField id="title" label="Title"  type="text" name="title" className={classes.title} variant="outlined"  />
+  <TextField id="price" label="Price" type="number" name="price" className={classes.price} variant="outlined" />
+  
+  <TextField
+          id="standard-select-currency"
+          select
+          className={classes.currency}
+          label="Currency"
+          value={currency}
+          variant="outlined"
+          onChange={handleChange1}
+           type="text"
+        >{currencies.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+    </TextField>
+    </div>
+    
+    
         <TextField id="description" aria-label="minimum height" minRows={4} multiline defaultValue="Description" className={classes.description} variant="outlined" />
 
         <label className={classes.imguploader} htmlFor="upload-photo">
