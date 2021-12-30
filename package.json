@@ -17,8 +17,10 @@
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^4.1.0",
     "ethereum-waffle": "^3.4.0",
-    "hardhat": "^2.6.1",
     "node": "^16.6.1",
     "react-material-ui-carousel": "^2.3.1"
+  },
+  "devDependencies": {
+    "hardhat": "^2.6.8"
   }
 }
