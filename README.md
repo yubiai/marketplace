@@ -1,3 +1,7 @@
+Install hardhat first of all
+```sh
+npm install -g hardhat
+```
 ### Root
 ```sh
 $ npx hardhat node
