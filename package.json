@@ -20,5 +20,8 @@
     "hardhat": "^2.8.0",
     "node": "^16.6.1",
     "react-material-ui-carousel": "^2.3.1"
+  },
+  "devDependencies": {
+    "hardhat": "^2.6.8"
   }
 }
