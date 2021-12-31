@@ -127,7 +127,11 @@ const useStyles = makeStyles((theme) => ({
   inputGroup: {
     display: 'flex',
     flexDirection: 'column'
+  },
+  inputName:{
+    width: '102.5ch'
   }
+
 }));
 
 
@@ -363,29 +367,41 @@ export default function AddItem() {
             </Select>
           </div>
         </div>
-        <TextField id="title" label="Title" type="text" name="title"
-                  className={classes.title} variant="outlined" />
-        <TextField id="price" label="Price" type="number" name="price"
-                  className={classes.price} variant="outlined" />
-        <TextField
-                id="standard-select-currency"
-                select
-                className={classes.currency}
-                label="Currency"
-                value={currency}
-                variant="outlined"
-                onChange={handleChange1}
-                type="text"
-              >{currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-        </TextField>
+        <div className={classes.inputGroup}>
+          <InputLabel disableTypography className={classes.labels} id="name">
+                Name
+          </InputLabel>
+          <TextField id="name" label="Enter item name, model & manufacturer" type="text" name="name"
+                    className={`${classes.title} ${classes.inputName}`} variant="outlined" />
+        </div>
       </div>
-      <TextField id="description" aria-label="minimum height" minRows={4}
-                multiline defaultValue="Description"
-                className={classes.description} variant="outlined" />
+          <InputLabel disableTypography className={classes.labels} id="description">
+                    Descrption
+          </InputLabel>
+          <TextField id="description" aria-label="minimum height" minRows={4}
+                    multiline defaultValue="Description"
+                    className={classes.description} variant="outlined" />
+          <InputLabel disableTypography className={classes.labels} id="price">
+                    Price
+          </InputLabel>
+          {/* <TextField id="price" label="Price" type="number" name="price"
+                    className={classes.price} variant="outlined" /> */}
+          <div className="`${classes.rectangle}">  
+            <TextField
+                    id="standard-select-currency"
+                    select
+                    className={classes.currency}
+                    value={currency}
+                    variant="outlined"
+                    onChange={handleChange1}
+                    type="text"
+                  >{currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+            </TextField>
+          </div>
         <label className={classes.imguploader} htmlFor="upload-photo">
           <input
             style={{ display: "none" }}
