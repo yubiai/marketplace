@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListItem = ({item, onClick}) => {
+const ListItem = ({ item, onClick }) => {
   return (
     <li key={item?.id} className="list-group-item">
       {item?.name} <span> - </span>

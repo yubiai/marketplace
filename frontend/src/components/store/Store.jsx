@@ -25,25 +25,24 @@ const ITEMS = [
 ];
 
 const useStyles = makeStyles((theme) => ({
-  root:{
-    [theme.breakpoints.down('md')]: {
-      marginTop: '0.5rem',
-      position: 'relative',
+  root: {
+    [theme.breakpoints.down("md")]: {
+      marginTop: "0.5rem",
+      position: "relative",
     },
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '0.5rem',
-      position: 'relative',
-      width: '100%',
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "0.5rem",
+      position: "relative",
+      width: "100%",
     },
-    [theme.breakpoints.down('xs')]: {
-      top: '0rem',
-      right: '0',
-      margin: 'auto',
-      position: 'relative',
-      width: '100%',
-      boxSizing: 'border-box',
-  },
-
+    [theme.breakpoints.down("xs")]: {
+      top: "0rem",
+      right: "0",
+      margin: "auto",
+      position: "relative",
+      width: "100%",
+      boxSizing: "border-box",
+    },
   },
   gridTitle: {
     padding: "30px 0 5px 0",
@@ -56,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1.5rem",
 
     "&:first-child": {
-      marginTop: 0
+      marginTop: 0,
     },
-},
+  },
 }));
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
@@ -100,12 +99,17 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
 
   return (
     <Container maxWidth="lg">
-      <div className="row" style={{marginBottom: '100px'}}>
+      <div className="row" style={{ marginBottom: "100px" }}>
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span className={classes.gridTitle}>
           Last items posted on the marketplace.{" "}
         </span>
-        <Grid container style={{width: '100%'}} className={classes.root} spacing={2}>
+        <Grid
+          container
+          style={{ width: "100%" }}
+          className={classes.root}
+          spacing={2}
+        >
           {/* This is for the grid spacing */}
           {/* <Grid item xs={12} sm={1}>
         <IconButton className={classes.carrouselButton} aria-label="Forward">
@@ -113,8 +117,17 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
          </IconButton>
         </Grid> */}
 
-          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
+          <div
+            style={{
+              width: "100%",
+              margin: "1rem 0 2rem",
+              position: "relative",
+            }}
+          >
+            <Carrousel
+              style={{ width: "100%" }}
+              slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
+            >
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />
@@ -125,10 +138,26 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </div>
         </Grid>
 
-        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>Items on your watch list </span>
-        <Grid container spacing={2} style={{width: '100%'}} className={classes.root}>
-          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
+        <span className={classes.gridTitle} style={{ marginTop: "-50px" }}>
+          Items on your watch list{" "}
+        </span>
+        <Grid
+          container
+          spacing={2}
+          style={{ width: "100%" }}
+          className={classes.root}
+        >
+          <div
+            style={{
+              width: "100%",
+              margin: "1rem 0 2rem",
+              position: "relative",
+            }}
+          >
+            <Carrousel
+              style={{ width: "100%" }}
+              slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
+            >
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />
@@ -139,12 +168,26 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
           </div>
         </Grid>
 
-        <span className={classes.gridTitle} style={{marginTop: '-50px'}}>
+        <span className={classes.gridTitle} style={{ marginTop: "-50px" }}>
           Last items you've watched on Health and household.{" "}
         </span>
-        <Grid container spacing={2} style={{marginBottom: '-50px', width: '100%'}}className={classes.root}>
-          <div style={{width: '100%', margin: '1rem 0 2rem', position: 'relative'}}>
-            <Carrousel style={{ width: '100%' }} slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}>
+        <Grid
+          container
+          spacing={2}
+          style={{ marginBottom: "-50px", width: "100%" }}
+          className={classes.root}
+        >
+          <div
+            style={{
+              width: "100%",
+              margin: "1rem 0 2rem",
+              position: "relative",
+            }}
+          >
+            <Carrousel
+              style={{ width: "100%" }}
+              slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
+            >
               <ItemCard title={"Producto 1"} price={"5000"} />
               <ItemCard title={"Producto 2"} price={"2300"} />
               <ItemCard title={"Producto 3"} price={"235"} />
