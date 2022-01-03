@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import Layout from "./components/layout/Layout.jsx";
+import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import MessagesBox from './components/MessageBox/MessagesBox';
-import Chat from './components/MessageBox/Chat.jsx'
+import Chat from './components/MessageBox/Chat'
 import Mailbox from './components/mailbox/Mailbox';
 import OrdersView from "./components/orders/Orders";
 import GlobalStyle from "./globalStyles";
