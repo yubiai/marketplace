@@ -6,12 +6,12 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
   inline: {
     display: "flex",
-    fontFamily: 'Open Sans',
+    fontFamily: "Open Sans",
   },
   btnSave: {
     display: "flex",
@@ -21,26 +21,26 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-10px",
     marginBottom: "-5px",
     borderRadius: "10px",
-    fontFamily: 'Open Sans',
+    fontFamily: "Open Sans",
     backgroundColor: "#00ABD1",
     color: "#fff",
-    fontWeight: '500',
-    textTransform: 'none',
-    outline: 'none !important',
+    fontWeight: "500",
+    textTransform: "none",
+    outline: "none !important",
     minWidth: "60px",
     maxWidth: "60px",
     justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
       borderBottom: "none",
-      outline: 'none !important',
+      outline: "none !important",
       color: "#00ABD1",
-      backgroundColor: "transparent"
-    }
+      backgroundColor: "transparent",
+    },
   },
   dialogContent: {
-    fontFamily: 'Open Sans',
-    marginTop: "-1.5rem"
+    fontFamily: "Open Sans",
+    marginTop: "-1.5rem",
   },
 }));
 
@@ -57,15 +57,28 @@ export default function TelHandle() {
 
   return (
     <div>
-      <EditIcon style={{color:'gray'}} variant="outlined" color="primary" onClick={handleClickOpen}>
-        
-        </EditIcon>
+      <EditIcon
+        style={{ color: "gray" }}
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+      ></EditIcon>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}} id="form-dialog-title">Modify Telegram handle</DialogTitle>
+        <DialogTitle
+          disableTypography
+          style={{
+            fontFamily: "Open Sans",
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+          id="form-dialog-title"
+        >
+          Modify Telegram handle
+        </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus

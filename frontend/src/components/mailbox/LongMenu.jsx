@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
-import { Link }  from 'react-router-dom';
+import { Link } from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 const useStyles = makeStyles((theme) => ({
@@ -14,31 +14,31 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "inherit",
     marginBottom: "inherit",
     color: "black",
-    outline: 'none !important',
-    '&:hover, &:focus, &:active': {
-      outline: 'none !important',
+    outline: "none !important",
+    "&:hover, &:focus, &:active": {
+      outline: "none !important",
     },
-    '&:hover': {
-      outline: 'none !important',
+    "&:hover": {
+      outline: "none !important",
     },
-    [theme.breakpoints.down('xs')]: {
-      position: 'absolute',
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
       top: 0,
       right: 0,
-      width: 'auto',
-      padding: 0
+      width: "auto",
+      padding: 0,
     },
   },
   link: {
-    color: '#000',
-    outline: 'none',
-    textDecoration: 'none',
-    '&:hover, &:focus, &:active': {
-      color: '#000',
-      outline: 'none !important',
-      textDecoration: 'none',
+    color: "#000",
+    outline: "none",
+    textDecoration: "none",
+    "&:hover, &:focus, &:active": {
+      color: "#000",
+      outline: "none !important",
+      textDecoration: "none",
     },
-  }
+  },
 }));
 
 export default function LongMenu() {
@@ -48,7 +48,7 @@ export default function LongMenu() {
 
   React.useEffect(() => {
     setOptionsBasedOnScreenWidth();
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       setOptionsBasedOnScreenWidth();
     });
   }, []);
@@ -72,7 +72,7 @@ export default function LongMenu() {
   };
 
   return (
-    <div >
+    <div>
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
@@ -94,8 +94,8 @@ export default function LongMenu() {
             marginTop: "-20px",
             marginBottom: "-5px",
             maxHeight: ITEM_HEIGHT * 4.5,
-            width: "20ch"
-          }
+            width: "20ch",
+          },
         }}
       >
         {options.map((option) => (
@@ -104,13 +104,13 @@ export default function LongMenu() {
             selected={option === "Pyxis"}
             onClick={handleClose}
           >
-            {
-              option === 'Chat' ?
+            {option === "Chat" ? (
               <Link className={classes.link} to="/chat">
                 Chat
-              </Link> :
+              </Link>
+            ) : (
               option
-            }
+            )}
           </MenuItem>
         ))}
       </Menu>

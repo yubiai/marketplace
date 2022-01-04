@@ -24,9 +24,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Yubiai</title>
     <style>
       body {
@@ -60,23 +63,23 @@
       (function () {
         const baseRootDOM = document.querySelector(".base-root");
 
-        function isNotHomeAndDesktop () {
+        function isNotHomeAndDesktop() {
           return window.location.pathname !== "/" && window.innerWidth > 900;
         }
 
-        function setBaseRootContentClassName () {
+        function setBaseRootContentClassName() {
           if (isNotHomeAndDesktop()) {
-            baseRootDOM.classList.add('base-root-content');
+            baseRootDOM.classList.add("base-root-content");
           } else {
-            baseRootDOM.classList.remove('base-root-content')
+            baseRootDOM.classList.remove("base-root-content");
           }
         }
 
-        window.addEventListener('popstate', function () {
+        window.addEventListener("popstate", function () {
           setBaseRootContentClassName();
         });
 
-        window.addEventListener('resize', function () {
+        window.addEventListener("resize", function () {
           setBaseRootContentClassName();
         });
 
