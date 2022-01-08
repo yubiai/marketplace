@@ -21,6 +21,9 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
+import { useEffect } from "react";
+import { profileService } from "../../services/profileService";
+import { setupEthState } from "../../ethereum";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -145,6 +148,27 @@ export default function AlignItemsList() {
     setAnchorEl(null);
   };
 
+  // Get Profile
+  const [data, setData] = React.useState(null);
+
+  useEffect(async() => {
+    await setupEthState().then(async (r) => {
+      const { signerAddress } = r;
+      await profileService
+        .getProfile(signerAddress)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  }, []);
+
+  if(!data) return <>Cargando...</>
+
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
       <Typography variant="h2">
@@ -196,11 +220,11 @@ export default function AlignItemsList() {
               <img
                 alt="{imgjson}"
                 className={classes.image}
-                src={profileImage.default}
+                src={data.photo}
               />
             </ListItemAvatar>
             <ListItemText
-              primary={<div className={classes.profName}>Vitalik Buterin</div>}
+              primary={<div className={classes.profName}>{data.first_name} {data.last_name}</div>}
               secondary={
                 <React.Fragment>
                   <div style={{ display: "inline-flex", marginLeft: "20px" }}>

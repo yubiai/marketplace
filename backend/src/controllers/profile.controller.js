@@ -9,9 +9,12 @@ const { checkProfileOnPOH, signData } = require("../utils/utils");
 
 // TODO: Implement secure request with token
 async function getProfile(req, res, _) {
-  const { walletAddress } = req.params;
+  const { walletAddress } = { ...req.body };
+
   try {
-    const profile = await Profile.findOne({ eth_address: walletAddress });
+    const profile = await Profile.findOne({
+      eth_address: walletAddress.toLowerCase()
+    });
     res.status(200).json(profile);
   } catch (error) {
     res.status(404);
@@ -60,9 +63,9 @@ async function deleteProfile(req, res) {
 
 // Login
 async function login(req, res, next) {
-  //const { walletAddress } = { ...req.body };
-  const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
-
+  const { walletAddress } = { ...req.body };
+  //const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
+  console.log(walletAddress, "wallet address")
   try {
     const response = await checkProfileOnPOH(walletAddress);
     if (response) {
