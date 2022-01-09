@@ -665,7 +665,7 @@ export default function NavBar() {
       </Typography>
       <Typography className={classes.ubiAmmount}>
         <img src={ubiImage.default} className={classes.ubiIcon}></img>
-        {ubisAmmount}
+        {`${ubisAmmount} UBI-s dripped`}
       </Typography>
       <MenuItem
         style={{ fontSize: "13px", fontFamily: "Open Sans" }}
