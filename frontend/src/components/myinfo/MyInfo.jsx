@@ -274,7 +274,6 @@ export default function AlignItemsList() {
                     <div style={{ display: "inline-flex", marginLeft: "20px" }}>
                       {`${balance} UBI-s dripped`}
                     </div>
-                    {/* apuntar backend side ubi dripped */}
                   </ListItemAvatar>
                   <a
                     className={classes.btnMyProfile}

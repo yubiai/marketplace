@@ -31,10 +31,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import axios from "axios";
 import { setupEthState } from "../../ethereum";
 import { saveLoginInfo, getLoginInfo } from "../../utils/loginInfo";
+import { convertExpo } from "../../utils";
+import { profileService } from "../../services/profileService";
+import { etherscanService } from "../../services/etherscanService";
 
 const API_URL = "http://localhost:4000";
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
-let ubisAmmount = "720.55 dripped on address >"; /*fetch from poh address*/
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "10px",
@@ -550,6 +553,8 @@ export default function NavBar() {
   const categoriesMenuOpen = Boolean(categoriesAnchorEl);
   const languageMenuOpen = Boolean(languageAnchorEl);
   const profileMenuOpen = Boolean(profileAnchorEl);
+  const [data, setData] = React.useState(null);
+  const [balance, setBalance] = React.useState(null);
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -582,11 +587,42 @@ export default function NavBar() {
               display_name: resp.data.display_name,
               photo: resp.data.photo,
             });
+            
           });
       });
     }
   };
+  
+  useEffect(async () => {
+    await setupEthState().then(async (r) => {
+      const { signerAddress } = r;
+      await profileService
+        .getProfile(signerAddress)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setData(res.data);
+          getBalanceUbi(res.data.eth_address);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  }, []);
 
+  const getBalanceUbi = async (address) => {
+    await etherscanService
+      .getBalanceUbi(address)
+      .then((res) => {
+        let oldBalance = res.data.result;
+        let newBalance = convertExpo(`${oldBalance}e-18`)
+        setBalance(newBalance)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  let ubisAmmount = balance; 
   const handleClose = () => {
     setAnchorEl(null);
     setCategoriesAnchorEl(null);
