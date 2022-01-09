@@ -24,6 +24,8 @@ import IconButton from "@material-ui/core/IconButton";
 import { useEffect } from "react";
 import { profileService } from "../../services/profileService";
 import { setupEthState } from "../../ethereum";
+import { etherscanService } from "../../services/etherscanService";
+import { convertExpo } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -153,8 +155,9 @@ export default function AlignItemsList() {
 
   // Get Profile
   const [data, setData] = React.useState(null);
+  const [balance, setBalance] = React.useState(null);
 
-  useEffect(async() => {
+  useEffect(async () => {
     await setupEthState().then(async (r) => {
       const { signerAddress } = r;
       await profileService
@@ -163,6 +166,7 @@ export default function AlignItemsList() {
           console.log(res);
           console.log(res.data);
           setData(res.data);
+          getBalanceUbi(res.data.eth_address);
         })
         .catch((err) => {
           console.log(err);
@@ -170,7 +174,20 @@ export default function AlignItemsList() {
     });
   }, []);
 
-  if(!data) return <>Cargando...</>
+  const getBalanceUbi = async (address) => {
+    await etherscanService
+      .getBalanceUbi(address)
+      .then((res) => {
+        let oldBalance = res.data.result;
+        let newBalance = convertExpo(`${oldBalance}e-18`)
+        setBalance(newBalance)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  if (!data) return <>Cargando...</>;
 
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
@@ -220,14 +237,14 @@ export default function AlignItemsList() {
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemAvatar>
-              <img
-                alt="{imgjson}"
-                className={classes.image}
-                src={data.photo}
-              />
+              <img alt="{imgjson}" className={classes.image} src={data.photo} />
             </ListItemAvatar>
             <ListItemText
-              primary={<div className={classes.profName}>{data.first_name} {data.last_name}</div>}
+              primary={
+                <div className={classes.profName}>
+                  {data.first_name} {data.last_name}
+                </div>
+              }
               secondary={
                 <React.Fragment>
                   <div style={{ display: "inline-flex", marginLeft: "20px" }}>
@@ -237,7 +254,6 @@ export default function AlignItemsList() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      {/* {data.eth_address}  */}
                       {_formatWalletAddress(data.eth_address)}
                       {/* agregar call de poh al address */}
                     </Typography>
@@ -256,7 +272,7 @@ export default function AlignItemsList() {
                       src={ubiImage.default}
                     />
                     <div style={{ display: "inline-flex", marginLeft: "20px" }}>
-                      {" UBI-s dripped"}{" "}
+                      {`${balance} UBI-s dripped`}
                     </div>
                     {/* apuntar backend side ubi dripped */}
                   </ListItemAvatar>
