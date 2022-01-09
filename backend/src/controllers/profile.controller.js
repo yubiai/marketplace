@@ -65,14 +65,13 @@ async function deleteProfile(req, res) {
 async function login(req, res, next) {
   const { walletAddress } = { ...req.body };
   //const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
-  console.log(walletAddress, "wallet address")
   try {
     const response = await checkProfileOnPOH(walletAddress);
     if (response) {
       // If it is not validated in Poh
       if (!response.registered) {
         res.status(404).json({ error: "User not validated in Poh" });
-        next();
+        return next();
       }
 
       let userExists = await Profile.findOne({
@@ -87,25 +86,35 @@ async function login(req, res, next) {
       ) {
         await Profile.findByIdAndUpdate(userExists._id, response);
       }
-      let id = null;
+
+      let token = null;
 
       // If it does not exist, save it as a new user
       if (!userExists) {
         let newUser = new Profile(response);
         let result = await newUser.save();
-        id: result._id
+        token = signData({
+          walletAddress,
+          id: result._id
+        });
+  
+        res.status(200).json({
+          token: token,
+          ...response,
+        });
+        return next();
       }
 
-      const token = signData({
+      token = signData({
         walletAddress,
-        id: userExists._id ? userExists._id : id
+        id: userExists._id
       });
 
       res.status(200).json({
         token: token,
         ...response,
       });
-      next();
+      return next();
     }
   } catch (error) {
     console.log("ERROR: ", error);
