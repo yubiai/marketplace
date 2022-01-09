@@ -25,6 +25,7 @@ import { useEffect } from "react";
 import { profileService } from "../../services/profileService";
 import { setupEthState } from "../../ethereum";
 import { etherscanService } from "../../services/etherscanService";
+import { convertExpo } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -174,8 +175,9 @@ export default function AlignItemsList() {
     await etherscanService
       .getBalanceUbi(address)
       .then((res) => {
-        console.log(res.data.result);
-        setBalance(res.data.result.slice(0, 4))
+        let oldBalance = res.data.result;
+        let newBalance = convertExpo(`${oldBalance}e-18`)
+        setBalance(newBalance)
       })
       .catch((err) => {
         console.log(err);

@@ -3,3 +3,8 @@ export const convertToMoney = (number) =>
     style: "currency",
     currency: "USD",
   }).format(number);
+
+
+export const convertExpo = (number) =>{
+  return Number.parseFloat(number).toFixed(2);
+}
