@@ -87,17 +87,20 @@ async function login(req, res, next) {
       ) {
         await Profile.findByIdAndUpdate(userExists._id, response);
       }
+      let id = null;
 
       // If it does not exist, save it as a new user
       if (!userExists) {
         let newUser = new Profile(response);
-        await newUser.save();
+        let result = await newUser.save();
+        id: result._id
       }
 
       const token = signData({
         walletAddress,
-        id: userExists._id
+        id: userExists._id ? userExists._id : id
       });
+
       res.status(200).json({
         token: token,
         ...response,

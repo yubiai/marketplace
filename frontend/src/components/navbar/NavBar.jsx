@@ -567,9 +567,9 @@ export default function NavBar() {
   };
   const connect = () => {
     if (!token) {
-      setupEthState().then((r) => {
+      setupEthState().then(async(r) => {
         const { signerAddress } = r;
-        axios
+        await axios
           .post(`${API_URL}/api/profiles/login`, {
             walletAddress: signerAddress,
           })

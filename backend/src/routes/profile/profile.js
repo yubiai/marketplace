@@ -4,7 +4,7 @@ const router = express.Router();
 const profileController = require("../../controllers/profile.controller");
 const upload = require("../../middlewares/upload");
 
-router.route("/:walletAddress").post(profileController.getProfile);
+router.route("/").post(profileController.getProfile);
 
 router.route("/login").post(profileController.login);
 
