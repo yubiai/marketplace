@@ -1,8 +1,10 @@
 /backend/node_modules
 /backend/src/public
 /backend/.env
+/backend/package-lock.json
 /frontend/node_modules
 /frontend/src/artifacts
+/frontend/package.json
 /node_modules
 .env
 cache/
