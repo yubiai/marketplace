@@ -357,7 +357,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Full name"
+                        secondary={`Real Name: ${data.first_name} ${data.last_name}`}
                       />
                     </ListItem>{" "}
                     <EditIcon
@@ -371,7 +371,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="ID Number"
+                        secondary={`ID: ${data.dni} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -385,7 +385,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Shipping address"
+                        secondary={`Shipping address: ${data.address} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -399,7 +399,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Cellphone number"
+                        secondary={`Cellphone: ${data.telephone} `}
                       />
                     </ListItem>
                     <EditIcon
