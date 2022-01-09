@@ -234,7 +234,7 @@ export default function AlignItemsList() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      'address poh'
+                      {data.eth_address} 
                       {/* agregar call de poh al address */}
                     </Typography>
                     {"|"}
@@ -261,7 +261,7 @@ export default function AlignItemsList() {
                     style={{ marginTop: "-3rem" }}
                     variant="contained"
                     target="_blank"
-                    href="https://app.proofofhumanity.id/profile/0x1db3439a222c519ab44bb1144fc28167b4fa6ee6/"
+                    href={`https://app.proofofhumanity.id/profile/${data.eth_address}`}
                     secondary="MyProfile"
                   >
                     My PoH Profile
