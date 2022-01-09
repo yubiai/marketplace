@@ -131,6 +131,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+function _formatWalletAddress(address = "") {
+  return address ? address.substr(0, 8) : "";
+}
 
 export default function AlignItemsList() {
   const classes = useStyles();
@@ -251,7 +254,7 @@ export default function AlignItemsList() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      {data.eth_address}
+                      {_formatWalletAddress(data.eth_address)}
                       {/* agregar call de poh al address */}
                     </Typography>
                     {"|"}
@@ -370,7 +373,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Full name"
+                        secondary={`Real Name: ${data.first_name} ${data.last_name}`}
                       />
                     </ListItem>{" "}
                     <EditIcon
@@ -384,7 +387,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="ID Number"
+                        secondary={`ID: ${data.dni} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -398,7 +401,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Shipping address"
+                        secondary={`Shipping address: ${data.address} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -412,7 +415,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Cellphone number"
+                        secondary={`Cellphone: ${data.telephone} `}
                       />
                     </ListItem>
                     <EditIcon
