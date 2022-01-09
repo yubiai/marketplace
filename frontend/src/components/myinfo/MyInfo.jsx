@@ -129,6 +129,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+function _formatWalletAddress(address = "") {
+  return address ? address.substr(0, 8) : "";
+}
 
 export default function AlignItemsList() {
   const classes = useStyles();
@@ -234,7 +237,8 @@ export default function AlignItemsList() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      {data.eth_address} 
+                      {/* {data.eth_address}  */}
+                      {_formatWalletAddress(data.eth_address)}
                       {/* agregar call de poh al address */}
                     </Typography>
                     {"|"}
