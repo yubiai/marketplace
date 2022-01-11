@@ -34,6 +34,7 @@ import { saveLoginInfo, getLoginInfo } from "../../utils/loginInfo";
 import { convertExpo } from "../../utils";
 import { profileService } from "../../services/profileService";
 import { etherscanService } from "../../services/etherscanService";
+import { useTranslation } from "react-i18next";
 
 const API_URL = "http://localhost:4000";
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
@@ -555,6 +556,9 @@ export default function NavBar() {
   const profileMenuOpen = Boolean(profileAnchorEl);
   const [data, setData] = React.useState(null);
   const [balance, setBalance] = React.useState(null);
+
+  const { t } = useTranslation("navbar");
+
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -674,7 +678,7 @@ export default function NavBar() {
         to="/orders"
         onClick={handleClose}
       >
-        Orders
+        {t("orders")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -683,7 +687,7 @@ export default function NavBar() {
         to="/salesactive"
         onClick={handleClose}
       >
-        Sales
+        {t("sales")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -692,7 +696,7 @@ export default function NavBar() {
         to="/mailbox"
         onClick={handleClose}
       >
-        Mailbox
+        {t("mailbox")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -701,7 +705,7 @@ export default function NavBar() {
         to="/myinfo"
         onClick={handleClose}
       >
-        My info
+        {t("my_info")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -710,7 +714,7 @@ export default function NavBar() {
         href="https://resolve.kleros.io/"
         target="_blank"
       >
-        Kleros Dispute Resolver
+        {t("kleros_dispute_resolver")}
       </MenuItem>
       {token && (
         <MenuItem
@@ -718,7 +722,7 @@ export default function NavBar() {
           className={classes.listItemText}
           onClick={disconnect}
         >
-          Disconnect
+          {t("disconnect")}
         </MenuItem>
       )}
       {/* <MenuItem> */}
