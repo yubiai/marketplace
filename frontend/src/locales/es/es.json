@@ -1,0 +1,10 @@
+{
+    "navbar": {
+      "orders": "Mis Compras",
+      "sales": "Ventas",
+      "mailbox": "Casilla de correo",
+      "my_info": "Mi Perfil",
+      "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
+      "disconnect": "Desconectarse"
+    }
+  }
