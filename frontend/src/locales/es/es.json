@@ -46,6 +46,18 @@
       "Complete": "Completas",
       "Mailbox": "Mensajes",
       "My Info": "Mi Perfil"
+    },
+    "salesactive": {
+      "Sales": "Ventas",
+      "Active": "Activas",
+      "View": "Ver",
+      "Edit item": "Editar artículo",
+      "item": "artículo"
+    },
+    "menusalesactive": {
+      "Pause Sell": "Pausar venta",
+      "Sell a similar item": "Vender artículo similar",
+      "View": "Ver",
+      "Edit Item": "Editar artículo"
     }
-      
   }

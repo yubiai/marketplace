@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
+import { useTranslation } from "react-i18next";
+
 const useStyles = makeStyles((theme) => ({
   moreIconDots: {
     display: "inline-flex",
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ShortMenu() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("menusalesactive");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [options, setOptions] = React.useState([]);
   const ITEM_HEIGHT = 48;
@@ -111,11 +114,11 @@ export default function ShortMenu() {
           >
             {option === "View" ? (
               <Link className={classes.link} to="/preview">
-                View
+                {t("View")}
               </Link>
             ) : option === "Edit Item" ? (
               <Link className={classes.link} to="/edititem">
-                Edit Item
+                {t("Edit Item")}
               </Link>
             ) : (
               option
