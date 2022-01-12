@@ -827,7 +827,7 @@ export default function NavBar() {
           <AccountCircle />
         </IconButton>
         <Link to="/myinfo" className={classes.menuMobileItemLink}>
-          <p className={classes.menuMobileItemLabel}>Profile</p>
+          <p className={classes.menuMobileItemLabel}>{t("Profile")}</p>
         </Link>
       </MenuItem>
       <MenuItem>
@@ -836,7 +836,7 @@ export default function NavBar() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Notifications</p>
+        <p className={classes.menuMobileItemLabel}>{t("Notifications")}</p>
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
@@ -845,7 +845,7 @@ export default function NavBar() {
             {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Cart</p>
+        <p className={classes.menuMobileItemLabel}>{t("Cart")}</p>
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
@@ -853,7 +853,7 @@ export default function NavBar() {
             <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Categories</p>
+        <p className={classes.menuMobileItemLabel}>{t("Categories")}</p>
       </MenuItem>
       <MenuItem>
         <Router>
@@ -864,7 +864,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></LoyaltyOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Sell</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Sell")}</p>
                 </div>
               </Badge>
             </Link>
@@ -881,7 +881,7 @@ export default function NavBar() {
                 ></HistoryOutlinedIcon>
                 <div className={classes.linkmenu}>
                   <p className={classes.menuMobileItemLabel}>
-                    Browsing history
+                   {t("Browsing history")}
                   </p>
                 </div>
               </Badge>
@@ -898,7 +898,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></AddToQueueOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Watch list</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Watch list")}</p>
                 </div>
               </Badge>
             </Link>
@@ -914,7 +914,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></ContactSupportOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Help desk</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Help desk")}</p>
                 </div>
               </Badge>
             </Link>

@@ -12,7 +12,10 @@
       "mailbox": "Casilla de correo",
       "my_info": "Mi Perfil",
       "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
-      "disconnect": "Desconectarse"
+      "disconnect": "Desconectarse",
+      "Profile": "Perfil",
+      "Notifications": "Notificaciones",
+      "Cart": "Carro de compras"
     },
     "store": {
       "Last items posted on the marketplace.": "Ultimos artículos publicados",
@@ -30,6 +33,8 @@
       "item": "artículo",
       "Order details": "Ver compra",
       "Buy it again": "Volver a comprar"
+    },
+    "sidebar": {
 
     }  
   }

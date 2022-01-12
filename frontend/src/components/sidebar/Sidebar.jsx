@@ -14,6 +14,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -116,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedList() {
   const classes = useStyles();
-
+  const { t, i18n } = useTranslation("sidebar");
   const [open, setOpen] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
 
