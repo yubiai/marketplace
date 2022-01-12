@@ -9,7 +9,7 @@
       "Help desk": "Soporte",
       "orders": "Mis Compras",
       "sales": "Ventas",
-      "mailbox": "Casilla de correo",
+      "mailbox": "Buzon de mensajes",
       "my_info": "Mi Perfil",
       "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
       "disconnect": "Desconectarse",
@@ -39,6 +39,13 @@
       "Buy it again": "Volver a comprar"
     },
     "sidebar": {
-
-    }  
+      "My account": "Mi cuenta",
+      "Orders": "Compras",
+      "Sales": "Ventas",
+      "Active": "Activas",
+      "Complete": "Completas",
+      "Mailbox": "Mensajes",
+      "My Info": "Mi Perfil"
+    }
+      
   }

@@ -164,7 +164,7 @@ export default function NestedList() {
               <ListItemText
                 disableTypography
                 className={classes.HeaderList}
-                primary="My account"
+                primary={t("My account")}
               />
             )}
           </ListItemIcon>
@@ -197,7 +197,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="Orders"
+              primary={t("Orders")}
             />
           </ListItem>
           <ListItem button onClick={handleClick}>
@@ -222,7 +222,7 @@ export default function NestedList() {
                 fontSize: "16px",
                 fontWeight: "200",
               }}
-              primary="Sales"
+              primary={t("Sales")}
             />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
@@ -238,7 +238,7 @@ export default function NestedList() {
                 <ListItemText
                   disableTypography
                   className={classes.listItemText}
-                  primary="Active"
+                  primary={t("Active")}
                 />
               </ListItem>
               <ListItem
@@ -251,7 +251,7 @@ export default function NestedList() {
                 <ListItemText
                   disableTypography
                   className={classes.listItemText}
-                  primary="Complete"
+                  primary={t("Complete")}
                 />
               </ListItem>
             </List>
@@ -271,7 +271,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="Mailbox"
+              primary={t("Mailbox")}
             />
           </ListItem>
           <ListItem button component={Link} to="/myinfo">
@@ -289,7 +289,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="My info"
+              primary={t("My Info")}
             />
           </ListItem>
         </div>
