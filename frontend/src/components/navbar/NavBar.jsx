@@ -782,10 +782,10 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         English
       </MenuItem>
-      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
         Español
       </MenuItem>
-      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Português
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
@@ -984,7 +984,7 @@ export default function NavBar() {
                         </Button>
                       </div>
                       <InputBase
-                        placeholder="Search for goods"
+                        placeholder={t("Search for goods")}
                         classes={{
                           root: classes.inputRoot,
                           input: classes.inputInput,
@@ -1013,7 +1013,7 @@ export default function NavBar() {
                   </Grid>
                   {/* Second row */}
                   <Grid item sm={3} xs={6} className={classes.location}>
-                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to{" "}
+                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>{t("Send to")}{" "}
                     <b>Buenos Aires</b>{" "}
                     {/* modify in base of location of user */}
                   </Grid>
@@ -1033,20 +1033,20 @@ export default function NavBar() {
                           aria-haspopup="true"
                           onClick={OpenCategories}
                         >
-                          Categories
+                          {t("Categories")}
                           <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                         </ListItemText>
                         <Link className={classes.link} to="/sell">
-                          Sell
+                          {t("Sell")}
                         </Link>
                         <Link className={classes.link} to="/browsinghistory">
-                          Browsing history
+                          {t("Browsing history")}
                         </Link>
                         <Link className={classes.link} to="/watchlist">
-                          Watch list
+                          {t("Watch list")}
                         </Link>
                         <Link className={classes.link} to="/helpdesk">
-                          Help desk
+                          {t("Help desk")}
                         </Link>
                       </Typography>
                     </div>

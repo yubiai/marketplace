@@ -1,5 +1,12 @@
 {
     "navbar": {
+      "Send to": "Enviar a",
+      "Search for goods": "Buscar productos",
+      "Categories": "Categorías",
+      "Sell": "Vender",
+      "Browsing history": "Historial",
+      "Watch list": "Favoritos",
+      "Help desk": "Soporte",
       "orders": "Mis Compras",
       "sales": "Ventas",
       "mailbox": "Casilla de correo",
