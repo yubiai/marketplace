@@ -13,5 +13,15 @@
       "my_info": "Mi Perfil",
       "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
       "disconnect": "Desconectarse"
-    }
+    },
+    "store": {
+      "Last items posted on the marketplace.": "Ultimos artículos publicados",
+      "Items on your watch list.": "Tu lista de favoritos.",
+      "Last items you've watched on Health and household.": "Últimos artículos que has visto en Salud y hogar."  
+    },
+    "footer": {
+      "Contact me, Share us your ETHMail": "Contáctame, compártenos tu ETHMail",
+      "Governance Forum": "Foro de Governanza",
+      "UBI Vaults": "Bóvedas UBI"
+    }  
   }
