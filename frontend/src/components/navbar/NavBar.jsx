@@ -557,8 +557,8 @@ export default function NavBar() {
   const [data, setData] = React.useState(null);
   const [balance, setBalance] = React.useState(null);
 
-  const { t } = useTranslation("navbar");
-
+  const { t, i18n } = useTranslation("navbar");
+  
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -785,7 +785,7 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Español
       </MenuItem>
-      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
         Português
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
