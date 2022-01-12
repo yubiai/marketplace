@@ -15,7 +15,11 @@
       "disconnect": "Desconectarse",
       "Profile": "Perfil",
       "Notifications": "Notificaciones",
-      "Cart": "Carro de compras"
+      "Cart": "Carro de compras",
+      "Arts & Crafts": "Arte y Artesanías",
+      "Automotive": "Automotríz",
+      "Appliances": "Electrodomésticos",
+      "VideoGames": "Videojuegos"
     },
     "store": {
       "Last items posted on the marketplace.": "Ultimos artículos publicados",

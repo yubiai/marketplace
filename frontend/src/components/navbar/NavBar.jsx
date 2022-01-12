@@ -748,16 +748,16 @@ export default function NavBar() {
       onClose={handleClose}
     >
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Arts & Crafts
+       {t("Arts & Crafts")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Automotive
+        {t("Automotive")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Appliances
+        {t("Appliances")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        VideoGames
+        {t("VideoGames")}
       </MenuItem>
     </Menu>
   );
