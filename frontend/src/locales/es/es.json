@@ -23,5 +23,13 @@
       "Contact me, Share us your ETHMail": "Contáctame, compártenos tu ETHMail",
       "Governance Forum": "Foro de Governanza",
       "UBI Vaults": "Bóvedas UBI"
+    },
+    "orders": {
+      "Orders": "Compras",
+      "Delivered on": "Entregado el",
+      "item": "artículo",
+      "Order details": "Ver compra",
+      "Buy it again": "Volver a comprar"
+
     }  
   }

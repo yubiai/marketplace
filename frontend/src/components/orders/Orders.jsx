@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -139,7 +140,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlignItemsList() {
   const classes = useStyles();
-  //Cambiar el hardcodeado del orderImage
+  const { t, i18n } = useTranslation("orders");
+  //integrar el hardcodeado del orderImage 
   const orderImage = require("../../media/Shoes-PNG-File.png");
   const [open, setOpen] = React.useState(true);
   const handleClick = () => {
@@ -157,7 +159,7 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link className={classes.link} to="/orders" onClick={handleClick}>
-          Orders
+        {t("Orders")}
         </Link>
       </Breadcrumbs>
       <Grid
@@ -189,7 +191,7 @@ export default function AlignItemsList() {
               primary={
                 <b className={classes.prodTitle}>
                   {" "}
-                  Delivered on 11th of august
+                  {t("Delivered on")} {" "}
                 </b>
               }
               secondary={
@@ -200,9 +202,9 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Shoe Ricky Sarkany 400mm
+                    Ricky Sarkany 
                   </Typography>
-                  {" 1 item"}
+                  {"  "} {t("item")}
                   <Button
                     className={classes.btnCheckOrder}
                     variant="contained"
@@ -210,10 +212,10 @@ export default function AlignItemsList() {
                     to="/checkorders"
                     secondary="CheckOrders"
                   >
-                    Order details
+                    {t("Order details")}
                   </Button>
                   <Button className={classes.btnBuyAgain} variant="contained">
-                    Buy it again
+                    {t("Buy it again")}
                   </Button>
                 </React.Fragment>
               }
@@ -236,7 +238,7 @@ export default function AlignItemsList() {
             >
               <MenuItem className={classes.menuIcons}>
                 <Link to="/checkorders" className={classes.menuIconLink}>
-                  Order details
+                  {t("Order details")}
                 </Link>
               </MenuItem>
               <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
@@ -256,7 +258,7 @@ export default function AlignItemsList() {
               primary={
                 <b className={classes.prodTitle}>
                   {" "}
-                  Delivered on 11th of august
+                  {t("Delivered on")} {" "}
                 </b>
               }
               secondary={
@@ -267,14 +269,14 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Shoe Ricky Sarkany 400mm
+                     Ricky Sarkany
                   </Typography>
                   {" 1 item"}
                   <Button className={classes.btnCheckOrder} variant="contained">
-                    Order details
+                    {t("Order details")}
                   </Button>
                   <Button className={classes.btnBuyAgain} variant="contained">
-                    Buy it again
+                    {t("Buy it again")}
                   </Button>
                 </React.Fragment>
               }
@@ -297,7 +299,7 @@ export default function AlignItemsList() {
             >
               <MenuItem className={classes.menuIcons}>
                 <Link to="/checkorders" className={classes.menuIconLink}>
-                  Order details
+                  {t("Order details")}
                 </Link>
               </MenuItem>
               <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
@@ -317,7 +319,7 @@ export default function AlignItemsList() {
               primary={
                 <b className={classes.prodTitle}>
                   {" "}
-                  Delivered on 11th of august
+                  {t("Delivered on")} {" "}
                 </b>
               }
               secondary={
@@ -328,14 +330,14 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Shoe Ricky Sarkany 400mm
+                     Ricky Sarkany 
                   </Typography>
                   {" 1 item"}
                   <Button className={classes.btnCheckOrder} variant="contained">
-                    Order details
+                    {t("Order details")}
                   </Button>
                   <Button className={classes.btnBuyAgain} variant="contained">
-                    Buy it again
+                    {t("Buy it again")} 
                   </Button>
                 </React.Fragment>
               }
@@ -358,10 +360,10 @@ export default function AlignItemsList() {
             >
               <MenuItem className={classes.menuIcons}>
                 <Link className={classes.menuIconLink} to="/checkorders">
-                  Order details
+                  {t("Order details")}
                 </Link>
               </MenuItem>
-              <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
+              <MenuItem className={classes.menuIcons}>{t("Buy it again")}</MenuItem>
             </Menu>
           </ListItem>
         </Grid>
