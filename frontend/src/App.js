@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import MessagesBox from "./components/MessageBox/MessagesBox";
 import Chat from "./components/MessageBox/Chat";
