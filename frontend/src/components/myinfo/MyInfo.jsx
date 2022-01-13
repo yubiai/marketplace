@@ -22,9 +22,9 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
 import { useEffect } from "react";
-import { profileService } from "../../services/profileService";
+import * as profileService from "../../services/profileService";
 import { setupEthState } from "../../ethereum";
-import { etherscanService } from "../../services/etherscanService";
+import * as etherscanService from "../../services/etherscanService";
 import { convertExpo } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -179,8 +179,8 @@ export default function AlignItemsList() {
       .getBalanceUbi(address)
       .then((res) => {
         let oldBalance = res.data.result;
-        let newBalance = convertExpo(`${oldBalance}e-18`)
-        setBalance(newBalance)
+        let newBalance = convertExpo(`${oldBalance}e-18`);
+        setBalance(newBalance);
       })
       .catch((err) => {
         console.log(err);

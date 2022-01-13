@@ -341,158 +341,152 @@ export default function NavBar() {
 
   return (
     <div>
-      <Router>
-        <AppBar className={classes.navbar} position="static">
-          <Toolbar>
-            <Container maxWidth="lg">
-              <div className={classes.root}>
-                <Grid container spacing={2}>
-                  <Grid item sm={3} xs={6}>
+      <AppBar className={classes.navbar} position="static">
+        <Toolbar>
+          <Container maxWidth="lg">
+            <div className={classes.root}>
+              <Grid container spacing={2}>
+                <Grid item sm={3} xs={6}>
+                  <div>
                     <div>
-                      <div>
-                        <a href="/">
-                          <img
-                            className={classes.logo}
-                            src={logoImage.default}
-                            // component={Link}
-                            // to="/"
-                          />
-                          <img
-                            className={classes.isoLogo}
-                            src={IsologoImage.default}
-                            // component={Link}
-                            // to="/"
-                          />
-                        </a>
-                      </div>
+                      <a href="/">
+                        <img
+                          className={classes.logo}
+                          src={logoImage.default}
+                          // component={Link}
+                          // to="/"
+                        />
+                        <img
+                          className={classes.isoLogo}
+                          src={IsologoImage.default}
+                          // component={Link}
+                          // to="/"
+                        />
+                      </a>
                     </div>
-                  </Grid>
-                  <Grid item sm={6} xs={6} className={classes.searchContainer}>
-                    {/* Caja de Busqueda */}
-                    <div className={classes.search}>
-                      <div className={classes.searchIcon}>
-                        <Button
-                          style={{
-                            outline: "none",
-                            backgroundColor: "transparent",
-                          }}
-                        >
-                          <SearchIcon
-                            style={{
-                              marginTop: "-0.05rem",
-                              marginLeft: "-1.5rem",
-                              color: "#727272",
-                            }}
-                          />
-                        </Button>
-                      </div>
-                      <InputBase
-                        placeholder={t("Search for goods")}
-                        classes={{
-                          root: classes.inputRoot,
-                          input: classes.inputInput,
+                  </div>
+                </Grid>
+                <Grid item sm={6} xs={6} className={classes.searchContainer}>
+                  {/* Caja de Busqueda */}
+                  <div className={classes.search}>
+                    <div className={classes.searchIcon}>
+                      <Button
+                        style={{
+                          outline: "none",
+                          backgroundColor: "transparent",
                         }}
-                        inputProps={{ "aria-label": "search" }}
-                      />
+                      >
+                        <SearchIcon
+                          style={{
+                            marginTop: "-0.05rem",
+                            marginLeft: "-1.5rem",
+                            color: "#727272",
+                          }}
+                        />
+                      </Button>
                     </div>
-                  </Grid>
-                  <Grid className={classes.langContainer} item sm={3} xs={6}>
-                    <Link
-                      className={classes.lang}
-                      aria-controls="language-menu"
-                      aria-haspopup="true"
-                      // onClick={OpenLanguage}
-                    >
-                      EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                    </Link>
-                    <Button
-                      className={classes.connect}
-                      // onClick={connect}
-                      variant="contained"
-                      color="primary"
-                    >
-                      {_formatWalletAddress(walletAddress) || "Connect"}
-                    </Button>
-                  </Grid>
-                  {/* Second row */}
-                  <Grid item sm={3} xs={6} className={classes.location}>
-                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
-                    {t("Send to")} <b>Buenos Aires</b>{" "}
-                    {/* modify in base of location of user */}
-                  </Grid>
-                  <Grid item sm={7} xs={6} className={classes.listItemsMenu}>
-                    {/* <div className={classes.container} /> */}
-                    <div className={classes.sectionDesktop}>
-                      {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
-                      {/* <Typography
+                    <InputBase
+                      placeholder={t("Search for goods")}
+                      classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                      }}
+                      inputProps={{ "aria-label": "search" }}
+                    />
+                  </div>
+                </Grid>
+                <Grid className={classes.langContainer} item sm={3} xs={6}>
+                  <Button
+                    className={classes.lang}
+                    aria-controls="language-menu"
+                    aria-haspopup="true"
+                    // onClick={OpenLanguage}
+                  >
+                    EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                  </Button>
+                  <Button
+                    className={classes.connect}
+                    // onClick={connect}
+                    variant="contained"
+                    color="primary"
+                  >
+                    {_formatWalletAddress(walletAddress) || "Connect"}
+                  </Button>
+                </Grid>
+                {/* Second row */}
+                <Grid item sm={3} xs={6} className={classes.location}>
+                  <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
+                  {t("Send to")} <b>Buenos Aires</b>{" "}
+                  {/* modify in base of location of user */}
+                </Grid>
+                <Grid item sm={7} xs={6} className={classes.listItemsMenu}>
+                  {/* <div className={classes.container} /> */}
+                  <div className={classes.sectionDesktop}>
+                    {/*cambiar "apuntar a notif, una vez creado" y badgeContent{''} */}
+                    {/* <Typography
                         disableTypography
                         className={classes.link}
                         noWrap
                       > */}
-                      <ListItemText
-                        disableTypography
-                        className={classes.listItemText}
-                        aria-controls="categories-menu"
-                        aria-haspopup="true"
-                        // onClick={OpenCategories}
-                      >
-                        {t("Categories")}
-                        <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                      </ListItemText>
-                      <Link className={classes.link} to="/sell">
-                        {t("Sell")}
-                      </Link>
-                      <Link className={classes.link} to="/browsinghistory">
-                        {t("Browsing history")}
-                      </Link>
-                      <Link className={classes.link} to="/watchlist">
-                        {t("Watch list")}
-                      </Link>
-                      <Link className={classes.link} to="/helpdesk">
-                        {t("Help desk")}
-                      </Link>
-                      {/* </Typography> */}
-                    </div>
-                  </Grid>
-                  <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
-                    <div style={{ display: "inline-flex" }}>
-                      <span className={classes.sectionDesktop}>
-                        {profile && (
-                          <ProfileMenu id="profile-menu" profile={profile} />
-                        )}
-                        <Badge badgeContent={17} color="secondary">
-                          <NotificationsIcon className={classes.notificon} />
-                        </Badge>
-                      </span>
-                      <Badge color="primary">
-                        <ShoppingCartOutlinedIcon
-                          className={classes.carticon}
-                        />{" "}
-                        {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
-                      </Badge>
-                    </div>
-                  </Grid>
+                    <ListItemText
+                      disableTypography
+                      className={classes.listItemText}
+                      aria-controls="categories-menu"
+                      aria-haspopup="true"
+                      // onClick={OpenCategories}
+                    >
+                      {t("Categories")}
+                      <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                    </ListItemText>
+                    <Link className={classes.link} to="/sell">
+                      {t("Sell")}
+                    </Link>
+                    <Link className={classes.link} to="/browsinghistory">
+                      {t("Browsing history")}
+                    </Link>
+                    <Link className={classes.link} to="/watchlist">
+                      {t("Watch list")}
+                    </Link>
+                    <Link className={classes.link} to="/helpdesk">
+                      {t("Help desk")}
+                    </Link>
+                    {/* </Typography> */}
+                  </div>
                 </Grid>
-              </div>
-            </Container>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                // onClick={handleMobileMenuOpen}
-                color="inherit"
-                className={classes.moreIcon}
-              >
-                <MoreIcon />
-              </IconButton>
+                <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
+                  <div style={{ display: "inline-flex" }}>
+                    <span className={classes.sectionDesktop}>
+                      <ProfileMenu id="profile-menu" profile={profile} />
+                      <Badge badgeContent={17} color="secondary">
+                        <NotificationsIcon className={classes.notificon} />
+                      </Badge>
+                    </span>
+                    <Badge color="primary">
+                      <ShoppingCartOutlinedIcon className={classes.carticon} />{" "}
+                      {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
+                    </Badge>
+                  </div>
+                </Grid>
+              </Grid>
             </div>
-          </Toolbar>
-        </AppBar>
-      </Router>
-      {renderMobileMenu}
+          </Container>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              // onClick={handleMobileMenuOpen}
+              color="inherit"
+              className={classes.moreIcon}
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      {/* {renderMobileMenu}
       {renderMenuCategories}
-      {renderMenuLanguage}
+      {renderMenuLanguage} */}
     </div>
   );
 }

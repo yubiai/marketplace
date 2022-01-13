@@ -25,7 +25,7 @@ export type Profile = {
 
 type ProfileMenuProps = {
   id: string;
-  profile: Profile;
+  profile?: Profile;
 };
 
 export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
@@ -65,12 +65,12 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
       >
         <ListItemIcon>
           <Avatar
-            src={profile.photo || profileImage}
+            src={profile?.photo || profileImage}
             className={classes.avatar}
           />
         </ListItemIcon>
         <Typography className={classes.nameMenu}>
-          {profile.displayName}
+          {profile?.displayName}
         </Typography>
         <Typography className={classes.ubiAmmount}>
           <img src={ubiImage} className={classes.ubiIcon}></img>
@@ -121,11 +121,11 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
         >
           {t("kleros_dispute_resolver")}
         </MenuItem>
-        {profile.token && (
+        {profile?.token && (
           <MenuItem
             style={{ fontSize: "13px" }}
             className={classes.listItemText}
-            onClick={disconnect}
+            // onClick={disconnect}
           >
             {t("disconnect")}
           </MenuItem>
