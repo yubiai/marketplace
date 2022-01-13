@@ -9,7 +9,7 @@
       "Help desk": "Soporte",
       "orders": "Mis Compras",
       "sales": "Ventas",
-      "mailbox": "Buzon de mensajes",
+      "mailbox": "Buzón de mensajes",
       "my_info": "Mi Perfil",
       "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
       "disconnect": "Desconectarse",
@@ -102,5 +102,19 @@
       "address": "Dirección",
       "Reputation": "Reputación",
       "Send message": "Enviar mensaje"
+    },
+    "mailbox": {
+      "Mailbox": "Buzón de mensajes",
+      "Available": "Activa",
+      "Paused": "Pausada",
+      "Sold": "Vendido",
+      "Chat": "Conversación",
+      "Delete Chat": "Eliminar conversación",
+      "Seller Information":"Información del vendedor"
+    },
+    "menumailbox": {
+      "Chat": "Conversación",
+      "Delete Chat": "Eliminar conversación",
+      "Seller Information":"Información del vendedor"
     }
   }
