@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
@@ -56,13 +56,18 @@ export default function ShortMenu() {
     });
   }, []);
 
-  function setOptionsBasedOnScreenWidth() {
+  const setOptionsBasedOnScreenWidth = useCallback(() => {
     if (window.innerWidth >= 600) {
-      setOptions(["Pause Sell", "Sell a similar item"]);
+      setOptions([t("Pause Sell"), t("Sell a similar item")]);
     } else {
-      setOptions(["Pause Sell", "Sell a similar item", "View", "Edit Item"]);
+      setOptions([
+        t("Pause Sell"),
+        t("Sell a similar item"),
+        t("View"),
+        t("Edit Item"),
+      ]);
     }
-  }
+  }, [window, setOptions, t]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
