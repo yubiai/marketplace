@@ -59,5 +59,12 @@
       "Sell a similar item": "Vender artículo similar",
       "View": "Ver",
       "Edit Item": "Editar artículo"
+    },
+    "salescomplete": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Ver venta",
+      "item": "artículo",
+      "Delivered on": "Entregado el"
     }
   }

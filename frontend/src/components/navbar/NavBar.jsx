@@ -782,11 +782,11 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         English
       </MenuItem>
-      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
-        Español
-      </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Português
+      </MenuItem>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
+        Español
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Française
@@ -994,14 +994,14 @@ export default function NavBar() {
                     </div>
                   </Grid>
                   <Grid className={classes.langContainer} item sm={3} xs={6}>
-                    <Link
+                    <Button
                       className={classes.lang}
                       aria-controls="language-menu"
                       aria-haspopup="true"
                       onClick={OpenLanguage}
                     >
                       EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                    </Link>
+                    </Button>
                     <Button
                       className={classes.connect}
                       onClick={connect}
