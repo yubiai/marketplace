@@ -116,5 +116,21 @@
       "Chat": "Conversación",
       "Delete Chat": "Eliminar conversación",
       "Seller Information":"Información del vendedor"
+    },
+    "chat": {
+      "Mailbox": "Buzón de mensajes",
+      "Chat": "Escribe un mensaje"
+    },
+    "breadcrumbB": {
+      "Mailbox": "Buzón de mensajes"
+    },
+    "breadcrumbA": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Detalle de venta",
+      "Sales messages": "Mensajes de la venta",
+      "Orders": "Compras",
+      "Order details": "Detalle de compra",
+      "Messages of the order": "Mensajes de la compra"
     }
   }

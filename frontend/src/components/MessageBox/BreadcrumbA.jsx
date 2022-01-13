@@ -1,8 +1,10 @@
 import React from "react";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function BreadcrumbA(props) {
+  const { t, i18n } = useTranslation("breadcrumbA");
   let component = (
     <Breadcrumbs
       style={{
@@ -18,27 +20,27 @@ export default function BreadcrumbA(props) {
         to="/sales"
         onClick={props.handleClick}
       >
-        Sales
+        {t("Sales")}
       </Link>
       <Link
         className={props.classes.link}
         to="/salescomplete"
         onClick={props.handleClick}
       >
-        Complete
+        {t("Complete")}
       </Link>
       <Link
         className={props.classes.link}
         to="/salescompletedetails"
         onClick={props.handleClick}
       >
-        Details
+        {t("Details")}
       </Link>
       <Link
         className={props.classes.link}
         to="/salescompletedetails/messagesbox"
       >
-        Sales messages
+        {t("Sales messages")}
       </Link>
     </Breadcrumbs>
   );
@@ -59,17 +61,17 @@ export default function BreadcrumbA(props) {
           to="/orders"
           onClick={props.handleClick}
         >
-          Orders
+          {t("Orders")}
         </Link>
         <Link
           className={props.classes.link}
           to="/checkorders"
           onClick={props.handleClick}
         >
-          Order details
+          {t("Order details")}
         </Link>
         <Link className={props.classes.link} to="/checkorders/messagesbox">
-          Messages of the order
+          {t("Messages of the order")}
         </Link>
       </Breadcrumbs>
     );

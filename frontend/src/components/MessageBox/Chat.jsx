@@ -9,6 +9,7 @@ import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
 import BreadcrumbB from "./BreadcrumbB";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -110,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Chat(props) {
   const classes = useStyles();
+  
   const profileImage = require("../../media/vbuterin.png");
   const [open, setOpen] = React.useState(true);
 
