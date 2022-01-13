@@ -66,5 +66,23 @@
       "Details": "Ver venta",
       "item": "artículo",
       "Delivered on": "Entregado el"
+    },
+    "salescompletedetails": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Detalle de venta",
+      "item": "artículo",
+      "Transaction Details": "Detalles de transacción",
+      "from": "desde",
+      "to (address)": "a (dirección)",
+      " Date  |": "Fecha",
+      "Buy it again": "Volver a comprar",
+      "Amount": "Monto",
+      "Transaction Fee": "Comisión de transacción",
+      "Gas price": "Precio de gas",
+      "Buyer Information": "Información del comprador",
+      "address": "Dirección",
+      "Reputation": "Reputación",
+      "Send message": "Enviar mensaje"
     }
   }

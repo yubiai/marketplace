@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -187,6 +188,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("salescompletedetails");
   const profileImage = require("../../media/vbuterin.png");
   const shoeImage = require("../../media/canoneos.jpg");
   const [open, setOpen] = React.useState(true);
@@ -207,7 +209,7 @@ export default function AlignItemsList() {
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
-          Sales
+          {t("Sales")}
         </Link>
         <Link
           className={classes.link}
@@ -215,10 +217,10 @@ export default function AlignItemsList() {
           style={{ color: "#808080", marginLeft: "-0.5rem" }}
           onClick={handleClick}
         >
-          Complete
+          {t("Complete")}
         </Link>
         <Link className={classes.link} style={{ marginLeft: "-0.2rem" }}>
-          Details
+          {t("Details")}
         </Link>
       </Breadcrumbs>
 
@@ -257,7 +259,7 @@ export default function AlignItemsList() {
                     color="textPrimary"
                     style={{ fontSize: "13px" }}
                   >
-                    {" 1 item"}
+                    {" "} {t("item")}
                   </Typography>
 
                   <ListItemAvatar>
@@ -304,7 +306,7 @@ export default function AlignItemsList() {
                       fontWeight: "bold",
                       display: "inline-flex",
                     }}
-                    primary="Transaction Details"
+                    primary={t("Transaction Details")}
                   />
                   <Breadcrumbs
                     separator="›"
@@ -318,9 +320,9 @@ export default function AlignItemsList() {
                         fontWeight: "light",
                       }}
                     >
-                      from
+                      {t("from")}
                     </span>
-                    <span style={{ fontSize: "13px" }}> to (address)</span>
+                    <span style={{ fontSize: "13px" }}> {t("to (address)")}</span>
                   </Breadcrumbs>
                 </React.Fragment>
               }
@@ -328,7 +330,7 @@ export default function AlignItemsList() {
                 <React.Fragment>
                   <div style={{ fontSize: "11px", fontWeight: "100" }}>
                     {/* change date to backend transaction json o como este conectado a la bd */}
-                    {" Date  |"}{" "}
+                      {t(" Date  |")}{" "}
                     <FileCopyOutlinedIcon
                       className={classes.listItemTextIcon}
                     />
@@ -339,7 +341,7 @@ export default function AlignItemsList() {
                   <ListItem style={{ height: "18px", marginTop: "15px" }}>
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Amount"
+                      secondary={t("Amount")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
@@ -347,7 +349,7 @@ export default function AlignItemsList() {
                         justifyContent: "flex-end",
                         marginLeft: "330px",
                       }}
-                      secondary="0.039 ETH"
+                      secondary={" ","UBI"}
                     />
                   </ListItem>
                   <Divider
@@ -356,7 +358,7 @@ export default function AlignItemsList() {
                   <ListItem style={{ height: "18px" }}>
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Transaction Fee"
+                      secondary={t("Transaction Fee")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
@@ -364,7 +366,7 @@ export default function AlignItemsList() {
                         justifyContent: "flex-end",
                         marginLeft: "290px",
                       }}
-                      secondary="0.016 ETH"
+                      secondary={" ","dai"}
                     />
                   </ListItem>
                   <Divider
@@ -373,7 +375,7 @@ export default function AlignItemsList() {
                   <ListItem style={{ height: "18px" }}>
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Gas price"
+                      secondary={t("Gas price")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
@@ -381,7 +383,7 @@ export default function AlignItemsList() {
                         justifyContent: "flex-end",
                         marginLeft: "340px",
                       }}
-                      secondary="26 GWEI"
+                      secondary={" ","dai"}
                     />
                   </ListItem>
                   <Divider
@@ -415,7 +417,7 @@ export default function AlignItemsList() {
                         justifyContent: "flex-end",
                         marginLeft: "320px",
                       }}
-                      secondary="0.040649 ETH"
+                      secondary={" ","dai"}
                     />
                   </ListItem>
                 </React.Fragment>
@@ -440,7 +442,7 @@ export default function AlignItemsList() {
             <ListItemText
               disableTypography
               style={{ marginTop: "0.65rem" }}
-              primary="Buyer Information"
+              primary={t("Buyer Information")}
             />
           </ListItem>
           <ListItem style={{ justifyContent: "space-around", height: "100px" }}>
@@ -495,7 +497,7 @@ export default function AlignItemsList() {
                           display: "inline-flex",
                         }}
                       >
-                        address
+                        {t("address")}
                       </span>
                     </Breadcrumbs>
                   </React.Fragment>
@@ -511,7 +513,7 @@ export default function AlignItemsList() {
                     margin: "0 !important",
                     marginTop: "-7px",
                   }}
-                  primary="Reputation"
+                  primary={t("Reputation")}
                 />{" "}
                 <StarBorderOutlinedIcon className={classes.starsReput} />
                 <StarBorderOutlinedIcon className={classes.starsReput2} />
@@ -533,7 +535,7 @@ export default function AlignItemsList() {
                   marginTop: "-20px",
                 }}
               >
-                Send message
+                {t("Send message")}
               </Button>
             </Grid>
           </ListItem>
