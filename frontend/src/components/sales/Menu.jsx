@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
@@ -43,17 +43,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ShortMenu() {
   const classes = useStyles();
-  const { t, i18n } = useTranslation("menusalesactive");
+  const { t } = useTranslation("menusalesactive");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [options, setOptions] = React.useState([]);
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOptionsBasedOnScreenWidth();
-    window.addEventListener("resize", () => {
-      setOptionsBasedOnScreenWidth();
-    });
+
+    window.addEventListener("resize", setOptionsBasedOnScreenWidth);
+
+    return () =>
+      window.removeEventListener("resize", setOptionsBasedOnScreenWidth);
   }, []);
 
   const setOptionsBasedOnScreenWidth = useCallback(() => {
