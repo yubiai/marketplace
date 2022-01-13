@@ -140,9 +140,44 @@
       "Personal and shipping information": "Información personal y de envío",
       "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información solo será compartida cuando compres un artículo que necesite ser enviado.",
       "Real Name": "Nombre real",
-      "ID": "DNI",
+      "id": "DNI",
       "Shipping address": "Domicilio",
       "Cellphone": "Número de celular",
       "Telegram handle:": "Usuario en Telegram:"
+    },
+    "myinfoeditname": {
+      "Modify Name": "Modificar nombre",
+      "First Name": "Nombre",
+      "Last Name": "Apellido",
+      "Please note that in order to receive shipments you must use your real name.": "Por favor, ten en cuenta que para recibir envíos debes usar tu nombre real.",
+      "Save": "Guardar"
+    },
+    "myinfoeditId": {
+      "Modify ID Number": "Modificar DNI",
+      "ID number": "Número de DNI",
+      "Please note that in order to receive shipments you must use a valid ID number.": "Por favor, ten en cuenta que para recibir envíos debes usar un número de DNI válido.",
+      "Save": "Guardar"
+    },
+    "myinfoeditShipping": {
+      "Modify shipping address": "Modificar dirección de envío",
+      "Street": "Calle",
+      "Number": "Número",
+      "Apartment/House(Optional)": "Departamento/Piso(Opcional)",
+      "Zip Code": "Código postal",
+      "City": "Localidad",
+      "Province/State": "Provincia",
+      "Country": "País",
+      "Save": "Guardar"
+    },
+    "myinfoeditCellphone": {
+      "Modify cellphone number": "Modificar número de celular",
+      "Cellphone number": "Número de celular",
+      "Remember that you have the option to be contacted via Telegram.": "Recuerda que tienes la opción de ser contactado por Telegram.",
+      "Save": "Guardar"
+    },
+    "myinfoeditTelegram": {
+      "Modify Telegram handle": "Modificar usuario en Telegram",
+      "Telegram handle": "Usuario en Telegram",
+      "Save": "Guardar"
     }
   }

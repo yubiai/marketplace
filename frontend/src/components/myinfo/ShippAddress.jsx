@@ -7,6 +7,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ShipAddress() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditShipping");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -77,14 +80,14 @@ export default function ShipAddress() {
           }}
           id="form-dialog-title"
         >
-          Modify shipping address
+          {t("Modify shipping address")}
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Street"
+            label={t("Street")}
             type="text"
             fullWidth
           />
@@ -92,7 +95,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Number"
+            label={t("Number")}
             type="numbers"
             width="204px"
           />
@@ -100,7 +103,15 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Apartment"
+            label={t("Apartment/House(Optional)")}
+            type="text"
+            width="204px"
+          />
+           <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label={t("Zip Code")}
             type="text"
             width="204px"
           />
@@ -108,7 +119,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="City"
+            label={t("City")}
             type="text"
             width="204px"
           />
@@ -116,7 +127,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Province/State"
+            label={t("Province/State")}
             type="province"
             width="204px"
           />
@@ -124,14 +135,14 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Country"
+            label={t("Country")}
             type="country"
             width="204px"
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+           {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>
