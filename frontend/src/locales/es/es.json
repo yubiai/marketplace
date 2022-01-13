@@ -132,5 +132,17 @@
       "Orders": "Compras",
       "Order details": "Detalle de compra",
       "Messages of the order": "Mensajes de la compra"
+    },
+    "myinfo": {
+      "My Info": "Mi Perfil",
+      "Proof of humanity information": "Información de tu perfil en proofofhumanity",
+      "My PoH Profile": "Mi Perfíl en PoH",
+      "Personal and shipping information": "Información personal y de envío",
+      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información solo será compartida cuando compres un artículo que necesite ser enviado.",
+      "Real Name": "Nombre real",
+      "ID": "DNI",
+      "Shipping address": "Domicilio",
+      "Cellphone": "Número de celular",
+      "Telegram handle:": "Usuario en Telegram:"
     }
   }
