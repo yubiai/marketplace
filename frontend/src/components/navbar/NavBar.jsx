@@ -183,8 +183,8 @@ const useStyles = makeStyles((theme) => ({
     textDecorationColor: "transparent",
     alignItems: "right",
     position:"relative",
-    left:"-10px",
-    top:"7px",
+    left:"-17px",
+    top:"2px",
     "&:hover": {
       borderBottom: "none",
       color: "#a9a9a9",
