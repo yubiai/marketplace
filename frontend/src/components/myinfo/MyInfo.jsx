@@ -188,6 +188,7 @@ export default function AlignItemsList() {
         console.log(err);
       });
   };
+  let ubisAmmount = balance; 
 
   if (!data) return <>Cargando...</>;
   
@@ -274,7 +275,7 @@ export default function AlignItemsList() {
                       src={ubiImage.default}
                     />
                     <div style={{ display: "inline-flex", marginLeft: "20px" }}>
-                      {`${balance} UBI-s dripped`}
+                      {`${ubisAmmount} ${t("UBI's dripped")}`}
                     </div>
                   </ListItemAvatar>
                   <a

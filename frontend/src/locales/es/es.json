@@ -20,7 +20,8 @@
       "Arts & Crafts": "Arte y Artesanías",
       "Automotive": "Automotríz",
       "Appliances": "Electrodomésticos",
-      "VideoGames": "Videojuegos"
+      "VideoGames": "Videojuegos",
+      "UBI's dripped": "UBI's goteados"
     },
     "store": {
       "Last items posted on the marketplace.": "Ultimos artículos publicados",
@@ -144,7 +145,8 @@
       "id": "DNI",
       "Shipping address": "Domicilio",
       "Cellphone": "Número de celular",
-      "Telegram handle:": "Usuario en Telegram:"
+      "Telegram handle:": "Usuario en Telegram:",
+      "UBI's dripped": "UBI's goteados"
     },
     "myinfoeditname": {
       "Modify Name": "Modificar nombre",

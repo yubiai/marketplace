@@ -669,8 +669,17 @@ export default function NavBar() {
       </Typography>
       <Typography className={classes.ubiAmmount}>
         <img src={ubiImage.default} className={classes.ubiIcon}></img>
-        {`${ubisAmmount} UBI-s dripped`}
+        {`${ubisAmmount} ${t("UBI's dripped")}`}
       </Typography>
+      <MenuItem
+        style={{ fontSize: "13px" }}
+        className={classes.listItemText}
+        component={Link}
+        to="/myinfo"
+        onClick={handleClose}
+      >
+        {t("my_info")}
+      </MenuItem>
       <MenuItem
         style={{ fontSize: "13px", fontFamily: "Open Sans" }}
         className={classes.listItemText}
@@ -697,15 +706,6 @@ export default function NavBar() {
         onClick={handleClose}
       >
         {t("mailbox")}
-      </MenuItem>
-      <MenuItem
-        style={{ fontSize: "13px" }}
-        className={classes.listItemText}
-        component={Link}
-        to="/myinfo"
-        onClick={handleClose}
-      >
-        {t("my_info")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -764,6 +764,7 @@ export default function NavBar() {
   const language = "language-menu";
   const renderMenuLanguage = (
     <Menu
+      
       id={language}
       anchorEl={languageAnchorEl}
       getContentAnchorEl={null}
@@ -778,6 +779,7 @@ export default function NavBar() {
       keepMounted
       open={Boolean(languageMenuOpen)}
       onClose={handleClose}
+      
     >
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         English
@@ -794,7 +796,9 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Deutsche
       </MenuItem>
+       
     </Menu>
+    
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
