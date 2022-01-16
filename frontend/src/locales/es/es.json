@@ -1,0 +1,186 @@
+{
+    "navbar": {
+      "Connect": "Conectar",
+      "Send to": "Enviar a",
+      "Search for goods": "Buscar productos",
+      "Categories": "Categorías",
+      "Sell": "Vender",
+      "Browsing history": "Historial",
+      "Watch list": "Favoritos",
+      "Help desk": "Soporte",
+      "orders": "Mis Compras",
+      "sales": "Ventas",
+      "mailbox": "Buzón de mensajes",
+      "my_info": "Mi Perfil",
+      "kleros_dispute_resolver": "Resolvedor de disputas de Kleros",
+      "disconnect": "Desconectarse",
+      "Profile": "Perfil",
+      "Notifications": "Notificaciones",
+      "Cart": "Carro de compras",
+      "Arts & Crafts": "Arte y Artesanías",
+      "Automotive": "Automotríz",
+      "Appliances": "Electrodomésticos",
+      "VideoGames": "Videojuegos",
+      "UBI's dripped": "UBI's goteados"
+    },
+    "store": {
+      "Last items posted on the marketplace.": "Ultimos artículos publicados",
+      "Items on your watch list.": "Tu lista de favoritos.",
+      "Last items you've watched on Health and household.": "Últimos artículos que has visto en Salud y hogar."  
+    },
+    "footer": {
+      "Contact me, Share us your ETHMail": "Contáctame, compártenos tu ETHMail",
+      "Governance Forum": "Foro de Governanza",
+      "UBI Vaults": "Bóvedas UBI"
+    },
+    "orders": {
+      "Orders": "Compras",
+      "Delivered on": "Entregado el",
+      "item": "artículo",
+      "Order details": "Ver compra",
+      "Buy it again": "Volver a comprar"
+    },
+    "checkorders": {
+      "Orders": "Compras",
+      "Order details": "Detalle de compra",
+      "item": "artículo",
+      "Transaction Details": "Detalles de transacción",
+      "from": "desde",
+      "to": "a",
+      " Date  |": "Fecha",
+      "Amount": "Monto",
+      "Transaction Fee": "Comisión por transacción",
+      "Gas price": "Precio de gas",
+      "Seller Information": "Información del vendedor",
+      "address": "Dirección",
+      "Reputation": "Reputación",
+      " sales in the last ": " ventas en los últimos ",
+      "days": "días",
+      "Send message": "Enviar mensaje"
+    },
+    "sidebar": {
+      "My account": "Mi cuenta",
+      "Orders": "Compras",
+      "Sales": "Ventas",
+      "Active": "Activas",
+      "Complete": "Completas",
+      "Mailbox": "Mensajes",
+      "My Info": "Mi Perfil"
+    },
+    "salesactive": {
+      "Sales": "Ventas",
+      "Active": "Activas",
+      "View": "Ver",
+      "Edit item": "Editar artículo",
+      "item": "artículo"
+    },
+    "menusalesactive": {
+      "Pause Sell": "Pausar venta",
+      "Sell a similar item": "Vender artículo similar",
+      "View": "Ver",
+      "Edit Item": "Editar artículo"
+    },
+    "salescomplete": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Ver venta",
+      "item": "artículo",
+      "Delivered on": "Entregado el"
+    },
+    "salescompletedetails": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Detalle de venta",
+      "item": "artículo",
+      "Transaction Details": "Detalles de transacción",
+      "from": "desde",
+      "to": "a",
+      " Date  |": "Fecha",
+      "Buy it again": "Volver a comprar",
+      "Amount": "Monto",
+      "Transaction Fee": "Comisión por transacción",
+      "Gas price": "Precio del gas",
+      "Buyer Information": "Información del comprador",
+      "address": "Dirección",
+      "Reputation": "Reputación",
+      "Send message": "Enviar mensaje"
+    },
+    "mailbox": {
+      "Mailbox": "Buzón de mensajes",
+      "Available": "Activa",
+      "Paused": "Pausada",
+      "Sold": "Vendido",
+      "Chat": "Conversación",
+      "Delete Chat": "Eliminar conversación",
+      "Seller Information":"Información del vendedor"
+    },
+    "menumailbox": {
+      "Chat": "Conversación",
+      "Delete Chat": "Eliminar conversación",
+      "Seller Information":"Información del vendedor"
+    },
+    "chat": {
+      "Mailbox": "Buzón de mensajes",
+      "Chat": "Escribe un mensaje"
+    },
+    "breadcrumbB": {
+      "Mailbox": "Buzón de mensajes"
+    },
+    "breadcrumbA": {
+      "Sales": "Ventas",
+      "Complete": "Completadas",
+      "Details": "Detalle de venta",
+      "Sales messages": "Mensajes de la venta",
+      "Orders": "Compras",
+      "Order details": "Detalle de compra",
+      "Messages of the order": "Mensajes de la compra"
+    },
+    "myinfo": {
+      "My Info": "Mi Perfil",
+      "Proof of humanity information": "Información de tu perfil en proofofhumanity",
+      "My PoH Profile": "Mi Perfíl en PoH",
+      "Personal and shipping information": "Información personal y de envío",
+      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información solo será compartida cuando compres un artículo que necesite ser enviado.",
+      "Real Name": "Nombre real",
+      "id": "DNI",
+      "Shipping address": "Domicilio",
+      "Cellphone": "Número de celular",
+      "Telegram handle:": "Usuario en Telegram:",
+      "UBI's dripped": "UBI's goteados"
+    },
+    "myinfoeditname": {
+      "Modify Name": "Modificar nombre",
+      "First Name": "Nombre",
+      "Last Name": "Apellido",
+      "Please note that in order to receive shipments you must use your real name.": "Por favor, ten en cuenta que para recibir envíos debes usar tu nombre real.",
+      "Save": "Guardar"
+    },
+    "myinfoeditId": {
+      "Modify ID Number": "Modificar DNI",
+      "ID number": "Número de DNI",
+      "Please note that in order to receive shipments you must use a valid ID number.": "Por favor, ten en cuenta que para recibir envíos debes usar un número de DNI válido.",
+      "Save": "Guardar"
+    },
+    "myinfoeditShipping": {
+      "Modify shipping address": "Modificar dirección de envío",
+      "Street": "Calle",
+      "Number": "Número",
+      "Apartment/House(Optional)": "Departamento/Piso(Opcional)",
+      "Zip Code": "Código postal",
+      "City": "Localidad",
+      "Province/State": "Provincia",
+      "Country": "País",
+      "Save": "Guardar"
+    },
+    "myinfoeditCellphone": {
+      "Modify cellphone number": "Modificar número de celular",
+      "Cellphone number": "Número de celular",
+      "Remember that you have the option to be contacted via Telegram.": "Recuerda que tienes la opción de ser contactado por Telegram.",
+      "Save": "Guardar"
+    },
+    "myinfoeditTelegram": {
+      "Modify Telegram handle": "Modificar usuario en Telegram",
+      "Telegram handle": "Usuario en Telegram",
+      "Save": "Guardar"
+    }
+  }

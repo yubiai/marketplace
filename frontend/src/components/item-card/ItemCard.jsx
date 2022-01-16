@@ -24,8 +24,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    fontFamily: 'Open Sans',
-    
+    fontFamily: "Open Sans",
   },
   productImage: {
     width: "150px",
@@ -45,61 +44,60 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFB978",
     marginTop: "-11rem",
     marginRight: "-1rem",
-    
   },
-  moreVertIcon:{
-    outline: 'none',
-  '&:hover, &:focus, &:active': {
-    outline: 'none',
-  },
-  '&:hover': {
-    backgroundColor: 'white',
+  moreVertIcon: {
+    outline: "none",
+    "&:hover, &:focus, &:active": {
+      outline: "none",
+    },
+    "&:hover": {
+      backgroundColor: "white",
     },
   },
   menuIcons: {
-    height: '40px',
-    width: '45px',
-    outline: 'none',
-    padding: 'fit-content',
-    margin: 'fit-content',
-  '&:hover, &:focus, &:active': {
-    outline: 'none',
-  },
-  '&:hover': {
-    backgroundColor: 'white',
+    height: "40px",
+    width: "45px",
+    outline: "none",
+    padding: "fit-content",
+    margin: "fit-content",
+    "&:hover, &:focus, &:active": {
+      outline: "none",
     },
-  },  
+    "&:hover": {
+      backgroundColor: "white",
+    },
+  },
   iconCart: {
-    marginTop:'0.5rem',
-    paddingTop: '0rem',
-    paddingBottom:'-1rem',
+    marginTop: "0.5rem",
+    paddingTop: "0rem",
+    paddingBottom: "-1rem",
     // marginBottom:'-3rem',
-    marginLeft:'-1rem',
-    backgroundColor: 'transparent',
-    outline: 'none',
-    '&:hover, &:focus, &:active': {
-      outline: 'none',
+    marginLeft: "-1rem",
+    backgroundColor: "transparent",
+    outline: "none",
+    "&:hover, &:focus, &:active": {
+      outline: "none",
     },
   },
   iconFav: {
-    marginTop:'-1.5rem',
-    paddingTop: '-1rem',
+    marginTop: "-1.5rem",
+    paddingTop: "-1rem",
     // marginBottom:'-2rem',
-    paddingBottom: '0rem',
-    marginLeft:'-1rem',
-    outline: 'none',
-    '&:hover, &:focus, &:active': {
-      outline: 'none',
+    paddingBottom: "0rem",
+    marginLeft: "-1rem",
+    outline: "none",
+    "&:hover, &:focus, &:active": {
+      outline: "none",
     },
   },
   iconShare: {
-    marginTop:'-3rem',
-    marginBottom:'-2.5rem',
-    marginLeft:'-1rem',
-    paddingBottom: '-2rem',
-    outline: 'none',
-    '&:hover, &:focus, &:active': {
-      outline: 'none',
+    marginTop: "-3rem",
+    marginBottom: "-2.5rem",
+    marginLeft: "-1rem",
+    paddingBottom: "-2rem",
+    outline: "none",
+    "&:hover, &:focus, &:active": {
+      outline: "none",
     },
   },
 }));
@@ -108,10 +106,10 @@ const ItemCard = ({ title, price, image }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
-    console.log(event)
+    console.log(event);
     setAnchorEl(event.currentTarget);
   };
- 
+
   const open = Boolean(anchorEl);
 
   const handleClose = () => {
@@ -122,7 +120,12 @@ const ItemCard = ({ title, price, image }) => {
   const logoImage = require("../../media/Shoes-PNG-File.png");
 
   return (
-    <Grid style={{display: 'grid', width: '100%', maxWidth: '100%'}} item xs={6} sm={2}>
+    <Grid
+      style={{ display: "grid", width: "100%", maxWidth: "100%" }}
+      item
+      xs={6}
+      sm={2}
+    >
       <Paper className={classes.paper}>
         <CardHeader
           action={
@@ -133,10 +136,9 @@ const ItemCard = ({ title, price, image }) => {
               aria-controls="more-menu"
               className={classes.moreVertIcon}
             >
-              <MoreVertIcon  />
+              <MoreVertIcon />
             </IconButton>
           }
-          
         />
         {/* <VisibilityIcon className={classes.saveWatchilist}/> */}
         <Menu
@@ -145,15 +147,16 @@ const ItemCard = ({ title, price, image }) => {
           keepMounted
           onClose={handleClose}
           open={Boolean(anchorEl)}
-          
         >
-          <MenuItem onClick={handleClose} className={classes.menuIcons}  >
-            <IconButton aria-label="add to cart" className={classes.iconCart} >
+          <MenuItem onClick={handleClose} className={classes.menuIcons}>
+            <IconButton aria-label="add to cart" className={classes.iconCart}>
               <AddShoppingCartIcon />
             </IconButton>
           </MenuItem>
           <MenuItem onClick={handleClose} className={classes.menuIcons}>
-            <IconButton aria-label="add to favorites" className={classes.iconFav}
+            <IconButton
+              aria-label="add to favorites"
+              className={classes.iconFav}
             >
               <FavoriteIcon />
             </IconButton>
@@ -171,10 +174,22 @@ const ItemCard = ({ title, price, image }) => {
           alt="Prdct1"
         />
         <CardContent>
-          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textSecondary" component="p">
+          <Typography
+            disableTypography
+            style={{ fontFamily: "Open Sans" }}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+          >
             {title}
           </Typography>
-          <Typography disableTypography style={{fontFamily: 'Open Sans'}} variant="body2" color="textPrimary" component="p">
+          <Typography
+            disableTypography
+            style={{ fontFamily: "Open Sans" }}
+            variant="body2"
+            color="textPrimary"
+            component="p"
+          >
             {price} UBI
           </Typography>
         </CardContent>

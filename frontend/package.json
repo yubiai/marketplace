@@ -12,26 +12,30 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^17.0.5",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "artifacts": "0.0.1",
     "auto-bind": "^4.0.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "ethers": "^5.0.14",
+    "i18next": "^21.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-i18next": "^11.15.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-swipeable": "^6.2.0",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "typescript": "^4.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -48,6 +52,8 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0"
   }
 }

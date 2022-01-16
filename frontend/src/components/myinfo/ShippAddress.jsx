@@ -6,13 +6,14 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles((theme) => ({
   inline: {
     display: "flex",
-    fontFamily: 'Open Sans',
-    
+    fontFamily: "Open Sans",
   },
   btnSave: {
     display: "flex",
@@ -22,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10px",
     marginBottom: "-5px",
     borderRadius: "10px",
-    fontFamily: 'Open Sans',
+    fontFamily: "Open Sans",
     backgroundColor: "#00ABD1",
     color: "#fff",
-    fontWeight: '500',
-    textTransform: 'none',
-    outline: 'none !important',
+    fontWeight: "500",
+    textTransform: "none",
+    outline: "none !important",
     minWidth: "60px",
     maxWidth: "60px",
     justifyContent: "space-evenly",
@@ -35,18 +36,19 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       borderBottom: "none",
       color: "#00ABD1",
-      outline: 'none !important',
-      backgroundColor: "transparent"
-    }
+      outline: "none !important",
+      backgroundColor: "transparent",
+    },
   },
   dialogContent: {
-    fontFamily: 'Open Sans',
-    marginTop: "-1rem"
+    fontFamily: "Open Sans",
+    marginTop: "-1rem",
   },
 }));
 
 export default function ShipAddress() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditShipping");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -58,23 +60,34 @@ export default function ShipAddress() {
 
   return (
     <div>
-      <EditIcon style={{color:'gray'}} variant="outlined" color="primary" onClick={handleClickOpen}>
-        
-        </EditIcon>
+      <EditIcon
+        style={{ color: "gray" }}
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+      ></EditIcon>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle disableTypography style={{fontFamily: 'Open Sans', fontSize:'20px', fontWeight:'bold'}}  id="form-dialog-title">
-          Modify shipping address
+        <DialogTitle
+          disableTypography
+          style={{
+            fontFamily: "Open Sans",
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+          id="form-dialog-title"
+        >
+          {t("Modify shipping address")}
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Street"
+            label={t("Street")}
             type="text"
             fullWidth
           />
@@ -82,7 +95,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Number"
+            label={t("Number")}
             type="numbers"
             width="204px"
           />
@@ -90,7 +103,15 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Apartment"
+            label={t("Apartment/House(Optional)")}
+            type="text"
+            width="204px"
+          />
+           <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label={t("Zip Code")}
             type="text"
             width="204px"
           />
@@ -98,7 +119,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="City"
+            label={t("City")}
             type="text"
             width="204px"
           />
@@ -106,7 +127,7 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Province/State"
+            label={t("Province/State")}
             type="province"
             width="204px"
           />
@@ -114,14 +135,14 @@ export default function ShipAddress() {
             autoFocus
             margin="dense"
             id="name"
-            label="Country"
+            label={t("Country")}
             type="country"
             width="204px"
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+           {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>

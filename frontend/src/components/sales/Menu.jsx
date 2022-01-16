@@ -1,12 +1,14 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useCallback, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
-import { Link }  from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
+import { useTranslation } from "react-i18next";
+
 const useStyles = makeStyles((theme) => ({
-  moreIconDots:{
+  moreIconDots: {
     display: "inline-flex",
     alignItems: "inherit",
     justifyContent: "inherit",
@@ -14,52 +16,60 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "inherit",
     marginBottom: "inherit",
     color: "black",
-    outline: 'none !important',
-    '&:hover, &:focus, &:active': {
-    outline: 'none !important',
+    outline: "none !important",
+    "&:hover, &:focus, &:active": {
+      outline: "none !important",
     },
-    '&:hover': {
-      outline: 'none !important',
+    "&:hover": {
+      outline: "none !important",
     },
-    [theme.breakpoints.down('xs')]: {
-      position: 'absolute',
-      right: '15px',
-      top: '15px'
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      right: "15px",
+      top: "15px",
     },
   },
   link: {
-    color: '#000',
-    outline: 'none',
-    textDecoration: 'none',
-    '&:hover, &:focus, &:active': {
-      color: '#000',
-      outline: 'none !important',
-      textDecoration: 'none',
+    color: "#000",
+    outline: "none",
+    textDecoration: "none",
+    "&:hover, &:focus, &:active": {
+      color: "#000",
+      outline: "none !important",
+      textDecoration: "none",
     },
-  }
+  },
 }));
 
 export default function ShortMenu() {
   const classes = useStyles();
+  const { t } = useTranslation("menusalesactive");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [options, setOptions] = React.useState([]);
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOptionsBasedOnScreenWidth();
-    window.addEventListener('resize', () => {
-      setOptionsBasedOnScreenWidth();
-    });
+
+    window.addEventListener("resize", setOptionsBasedOnScreenWidth);
+
+    return () =>
+      window.removeEventListener("resize", setOptionsBasedOnScreenWidth);
   }, []);
 
-  function setOptionsBasedOnScreenWidth() {
+  const setOptionsBasedOnScreenWidth = useCallback(() => {
     if (window.innerWidth >= 600) {
-      setOptions(["Pause Sell", "Sell a similar item"]);
+      setOptions([t("Pause Sell"), t("Sell a similar item")]);
     } else {
-      setOptions(["Pause Sell", "Sell a similar item", "View", "Edit Item"]);
+      setOptions([
+        t("Pause Sell"),
+        t("Sell a similar item"),
+        t("View"),
+        t("Edit Item"),
+      ]);
     }
-  }
+  }, [window, setOptions, t]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -70,7 +80,14 @@ export default function ShortMenu() {
   };
 
   return (
-    <div style={{width:50, maxBlockSize: '50px', display: 'inline-block', paddingRight: '20px'}} >
+    <div
+      style={{
+        width: 50,
+        maxBlockSize: "50px",
+        display: "inline-block",
+        paddingRight: "20px",
+      }}
+    >
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
@@ -78,7 +95,7 @@ export default function ShortMenu() {
         onClick={handleClick}
         className={classes.moreIconDots}
       >
-        <MoreHorizSharpIcon  className={classes.moreIconDots} />
+        <MoreHorizSharpIcon className={classes.moreIconDots} />
       </IconButton>
       <Menu
         id="long-menu"
@@ -92,8 +109,8 @@ export default function ShortMenu() {
             marginTop: "-20px",
             marginBottom: "-5px",
             maxHeight: ITEM_HEIGHT * 4.5,
-            width: "20ch"
-          }
+            width: "23ch",
+          },
         }}
       >
         {options.map((option) => (
@@ -102,17 +119,17 @@ export default function ShortMenu() {
             selected={option === "Pyxis"}
             onClick={handleClose}
           >
-            {
-              option === 'View' ?
+            {option === "View" ? (
               <Link className={classes.link} to="/preview">
-                View
-              </Link> :
-              option === 'Edit Item' ?
+                {t("View")}
+              </Link>
+            ) : option === "Edit Item" ? (
               <Link className={classes.link} to="/edititem">
-                Edit Item
-              </Link> :
+                {t("Edit Item")}
+              </Link>
+            ) : (
               option
-            }
+            )}
           </MenuItem>
         ))}
       </Menu>

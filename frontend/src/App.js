@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import Layout from "./components/layout/Layout.jsx";
+import { makeStyles } from "@material-ui/core/styles";
+import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
 import Message from "./components/message/Message";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
-import MessagesBox from './components/MessageBox/MessagesBox';
-import Chat from './components/MessageBox/Chat.jsx'
-import Mailbox from './components/mailbox/Mailbox';
+import MessagesBox from "./components/MessageBox/MessagesBox";
+import Chat from "./components/MessageBox/Chat";
+import Mailbox from "./components/mailbox/Mailbox";
 import OrdersView from "./components/orders/Orders";
 import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
@@ -21,15 +21,15 @@ import AddItem from "./components/add-item/addItem";
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
-    width: '100%',
-    zIndex: 100000
+    width: "100%",
+    zIndex: 100000,
   },
   body: {
-    marginTop: '118px',
+    marginTop: "118px",
     [theme.breakpoints.down(900)]: {
-      marginTop: '74px',
+      marginTop: "74px",
     },
   },
 }));
@@ -57,10 +57,13 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      <div style={{
-        fontFamily: 'Open Sans',
-        height: '100%',
-      }} className="App">
+      <div
+        style={{
+          fontFamily: "Open Sans",
+          height: "100%",
+        }}
+        className="App"
+      >
         <header className={classes.header}>
           <NavBar />
         </header>
@@ -71,21 +74,23 @@ function App() {
                 <OrdersView />
               </Layout>
             </Route>
-            <Route path="/checkorders/messagesbox"
-                   render={(props) => (
-                    <Layout>
-                      <MessagesBox {...props}/>
-                    </Layout>
-                   )}/>
+            <Route
+              path="/checkorders/messagesbox"
+              render={(props) => (
+                <Layout>
+                  <MessagesBox {...props} />
+                </Layout>
+              )}
+            />
             <Route path="/checkorders">
               <Layout>
                 <CheckOrders />
               </Layout>
             </Route>
             <Route path="/messagesbox">
-            <Layout>
-              <MessagesBox />
-            </Layout>
+              <Layout>
+                <MessagesBox />
+              </Layout>
             </Route>
             <Route path="/salesactive">
               <Layout>
@@ -102,13 +107,14 @@ function App() {
                 <SalesComplete />
               </Layout>
             </Route>
-            <Route path="/salescompletedetails/messagesbox"
-                   render={(props) => (
-                    <Layout>
-                      <MessagesBox {...props}/>
-                    </Layout>
-                   )}
-                   />
+            <Route
+              path="/salescompletedetails/messagesbox"
+              render={(props) => (
+                <Layout>
+                  <MessagesBox {...props} />
+                </Layout>
+              )}
+            />
             <Route path="/salescompletedetails">
               <Layout>
                 <SalesCompleteDetails />
@@ -120,14 +126,14 @@ function App() {
               </Layout>
             </Route>
             <Route path="/mailbox">
-            <Layout>
-              <Mailbox />
-            </Layout>
+              <Layout>
+                <Mailbox />
+              </Layout>
             </Route>
             <Route path="/myinfo">
-            <Layout>
-              <MyInfo />
-            </Layout>
+              <Layout>
+                <MyInfo />
+              </Layout>
             </Route>
             {/* <Route path="chat">
             <Layout>

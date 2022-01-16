@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { alpha, makeStyles } from '@material-ui/core/styles';
+import { alpha, makeStyles } from "@material-ui/core/styles";
 import { ethers } from "ethers";
 
 import _products from "./fixtures/product.demo.json";
@@ -13,100 +13,92 @@ import back from "../../media/play.svg";
 import klerosIcon from "../../media/logo_kleros.png";
 
 const useStyles = makeStyles((theme) => ({
-      profileView: {
-        padding: '1rem',
-      },
+  profileView: {
+    padding: "1rem",
+  },
 
-      /*
+  /*
         Header
       */
-        container: {
-          display: 'flex',
-        },
+  container: {
+    display: "flex",
+  },
 
-      profilHeader: {
-        display: 'flex',
-      },
+  profilHeader: {
+    display: "flex",
+  },
 
-      profileOverview: {
-        alignItems: 'center',
-        display: 'flex',
-        
-      },
+  profileOverview: {
+    alignItems: "center",
+    display: "flex",
+  },
 
-      profilePhoto: {
-        borderRadius: '50%',
-        height: '50px',
-        marginRight: '1.5rem',
-        width: '50px',
-        
-      },
+  profilePhoto: {
+    borderRadius: "50%",
+    height: "50px",
+    marginRight: "1.5rem",
+    width: "50px",
+  },
 
-      
-      profileWallet: {
-        marginLeft: 'auto',
-      },
-  
-      profileWalletAddress: {
-        border: '1px solid #314ACE',
-        borderRadius: '4px',
-        padding: '0.5rem',
-        textAlign: 'center',
-      },
+  profileWallet: {
+    marginLeft: "auto",
+  },
 
-      profileFullname: {
-        marginLeft: 'auto',
-      },
-      item: {
-        marginLeft: 'auto',
-      },
-      product: {
-        marginLeft: 'auto',
-      },
+  profileWalletAddress: {
+    border: "1px solid #314ACE",
+    borderRadius: "4px",
+    padding: "0.5rem",
+    textAlign: "center",
+  },
 
-      /*
+  profileFullname: {
+    marginLeft: "auto",
+  },
+  item: {
+    marginLeft: "auto",
+  },
+  product: {
+    marginLeft: "auto",
+  },
+
+  /*
         Body section
       */
 
-      
-      profileReviewList: {
-        fontWeight: '300',
-      },
+  profileReviewList: {
+    fontWeight: "300",
+  },
 
-      
-      profileReviewContainer: {
-        display: 'flex',
-        margin: '1.2rem',
-      },
+  profileReviewContainer: {
+    display: "flex",
+    margin: "1.2rem",
+  },
 
-     
-      profileReviewItem: {
-        cursor: 'pointer',
-        margin: '0 2rem',
-      },
+  profileReviewItem: {
+    cursor: "pointer",
+    margin: "0 2rem",
+  },
 
-      profileProductActions: {
-        flexDirection: 'column',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 'auto',
-      },
+  profileProductActions: {
+    flexDirection: "column",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "auto",
+  },
 
-      
-      profileProductActions: {
-        color: '#000',
-        margin: '1rem 0',
-      },
+  profileProductActions: {
+    color: "#000",
+    margin: "1rem 0",
+  },
 
-     
-      profileReviewPict: {
-        borderRadius: '50%',
-        height: '50px',
-        width: '50px',
-      },
-    })); 
-      /*
+  profileReviewPict: {
+    borderRadius: "50%",
+    height: "50px",
+    width: "50px",
+  },
+}));
+/*
         Product section
       
 
@@ -130,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
       /*
         Review section
       */
-      /*
+/*
       profile-review-pict {
         border-radius: 50%;
         height: 50px;
@@ -145,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
       /*
         Back icon
       */
-    /*
+/*
       profile-back-action {
         display: flex;
         align-items: center;
@@ -170,7 +162,7 @@ const useStyles = makeStyles((theme) => ({
       /*
         kleros icon
       */
-    /*
+/*
       profile-dispute-action {
         display: flex;
         align-items: right;
@@ -192,8 +184,6 @@ const useStyles = makeStyles((theme) => ({
         text-decoration: none;
       }
       */
-
-
 
 const DECIMAL_BALANCE_CONST = 1000000000000000000;
 
@@ -232,7 +222,11 @@ const ProfileView = () => {
       <div className={classes.profileHeader}>
         <div className={classes.profileOverview}>
           <div>
-            <img className={classes.profilePhoto} src={demoPicts["a3"].default} alt="Profile" />
+            <img
+              className={classes.profilePhoto}
+              src={demoPicts["a3"].default}
+              alt="Profile"
+            />
           </div>
           <div className={classes.profileName}>
             <div className={classes.profileFullname}>{name}</div>
@@ -241,7 +235,7 @@ const ProfileView = () => {
         </div>
         <div className={classes.profileWallet}>
           <div className={classes.profileWalletAddress}>{walletAddress}</div>
-          <div className={classes.profile-bio}>{walletBalance} ETH</div>
+          <div className={classes.profile - bio}>{walletBalance} ETH</div>
         </div>
       </div>
       <div className={classes.profileBackAction}>
@@ -306,8 +300,12 @@ const ProfileView = () => {
                   className={classes.profileReviewItem}
                   key={`review-${review.reviewId}`}
                 >
-                  <div >
-                    <img className={classes.profileReviewPict} src={profileImgSrc} alt={review.img} />
+                  <div>
+                    <img
+                      className={classes.profileReviewPict}
+                      src={profileImgSrc}
+                      alt={review.img}
+                    />
                   </div>
                   <div className={classes.profileReviewName}>{review.user}</div>
                   <div className={classes.profileReviewStars}>
@@ -343,12 +341,15 @@ const ProfileView = () => {
         </div>
 
         <div
-          
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
           <a href={"https://resolve.kleros.io/create/"} target="_blank">
-            <img className={classes.profileDisputeAction}src={klerosIcon} alt="Create Dispute Kleros" />
+            <img
+              className={classes.profileDisputeAction}
+              src={klerosIcon}
+              alt="Create Dispute Kleros"
+            />
             {isShown && (
               <span style={{ fontWeight: "bold" }}>Create Dispute</span>
             )}
@@ -357,6 +358,6 @@ const ProfileView = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ProfileView;

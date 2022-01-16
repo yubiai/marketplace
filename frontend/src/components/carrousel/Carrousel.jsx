@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSwipeable } from "react-swipeable";
-import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
-import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
+import KeyboardArrowRightRoundedIcon from "@material-ui/icons/KeyboardArrowRightRounded";
+import KeyboardArrowLeftRoundedIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
 import Wrapper from "./Wrapper";
 import CarrouselContainer from "./CarrouselContainer";
 import CarrouselSlot from "./CarrouselSlot";
-import './Carrousel.css';
+import "./Carrousel.css";
 
 const useStyles = makeStyles({
   item: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     //position: "absolute",
     //top: '50%',
     marginTop: "5px",
-    left: '0.7rem',
+    left: "0.7rem",
     boxShadow: "0px 3px 6px #00000029",
     opacity: "1",
     width: "45px",
@@ -66,15 +66,14 @@ const useStyles = makeStyles({
     },
   },
   child: {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
     zIndex: 1000,
-    padding: '0 1rem',
-
+    padding: "0 1rem",
   },
 });
 
@@ -124,7 +123,7 @@ const Carrousel = (props) => {
   const numItems = React.Children.count(props.children);
 
   useEffect(() => {
-    function setSlideVisibilityResize () {
+    function setSlideVisibilityResize() {
       const innerWidth = window.innerWidth;
       switch (true) {
         case innerWidth > SCREEN_WIDTH_G && innerWidth <= SCREEN_WIDTH_LG:
@@ -148,7 +147,7 @@ const Carrousel = (props) => {
       }
     }
     setSlideVisibilityResize();
-    window.addEventListener('resize', setSlideVisibilityResize);
+    window.addEventListener("resize", setSlideVisibilityResize);
   }, []);
 
   const slide = (dir) => {
@@ -173,11 +172,14 @@ const Carrousel = (props) => {
             let missingSlidesToShow;
 
             if (state.pos + visibleSlides > props.children.length) {
-              missingSlidesToShow = (state.pos + visibleSlides) - props.children.length;
+              missingSlidesToShow =
+                state.pos + visibleSlides - props.children.length;
             }
-            const indexInRange = index >= state.pos && index < (state.pos + visibleSlides);
-            const slideOutRangeFromZero = missingSlidesToShow ?
-              index < state.pos && index <= missingSlidesToShow -1 : false;
+            const indexInRange =
+              index >= state.pos && index < state.pos + visibleSlides;
+            const slideOutRangeFromZero = missingSlidesToShow
+              ? index < state.pos && index <= missingSlidesToShow - 1
+              : false;
 
             if (indexInRange || slideOutRangeFromZero) {
               return (

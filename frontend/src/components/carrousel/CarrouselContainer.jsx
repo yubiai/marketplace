@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   carouselcontainer: {
     display: "flex",
     marginLeft: "2rem",
-    marginRight:"2rem",
+    marginRight: "2rem",
     paddingRight: "2rem",
     transition: (props) => (props.sliding ? "none" : "transform 1s ease"),
     transform: `${(props) => {

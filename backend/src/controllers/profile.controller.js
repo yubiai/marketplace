@@ -9,9 +9,12 @@ const { checkProfileOnPOH, signData } = require("../utils/utils");
 
 // TODO: Implement secure request with token
 async function getProfile(req, res, _) {
-  const { walletAddress } = req.params;
+  const { walletAddress } = { ...req.body };
+
   try {
-    const profile = await Profile.findOne({ eth_address: walletAddress });
+    const profile = await Profile.findOne({
+      eth_address: walletAddress.toLowerCase()
+    });
     res.status(200).json(profile);
   } catch (error) {
     res.status(404);
@@ -60,16 +63,15 @@ async function deleteProfile(req, res) {
 
 // Login
 async function login(req, res, next) {
-  //const { walletAddress } = { ...req.body };
-  const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
-
+  const { walletAddress } = { ...req.body };
+  //const walletAddress = '0x245Bd6B5D8f494df8256Ae44737A1e5D59769aB4';
   try {
     const response = await checkProfileOnPOH(walletAddress);
     if (response) {
       // If it is not validated in Poh
       if (!response.registered) {
         res.status(404).json({ error: "User not validated in Poh" });
-        next();
+        return next();
       }
 
       let userExists = await Profile.findOne({
@@ -85,21 +87,34 @@ async function login(req, res, next) {
         await Profile.findByIdAndUpdate(userExists._id, response);
       }
 
+      let token = null;
+
       // If it does not exist, save it as a new user
       if (!userExists) {
         let newUser = new Profile(response);
-        await newUser.save();
+        let result = await newUser.save();
+        token = signData({
+          walletAddress,
+          id: result._id
+        });
+  
+        res.status(200).json({
+          token: token,
+          ...response,
+        });
+        return next();
       }
 
-      const token = signData({
+      token = signData({
         walletAddress,
         id: userExists._id
       });
+
       res.status(200).json({
         token: token,
         ...response,
       });
-      next();
+      return next();
     }
   } catch (error) {
     console.log("ERROR: ", error);
