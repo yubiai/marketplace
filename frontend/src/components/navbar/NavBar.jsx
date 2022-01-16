@@ -182,6 +182,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textDecorationColor: "transparent",
     alignItems: "right",
+    position:"relative",
+    left:"-10px",
+    top:"7px",
     "&:hover": {
       borderBottom: "none",
       color: "#a9a9a9",
@@ -249,6 +252,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   connect: {
+    position:"relative",
+    left:"-34px",
+    top:"2px",
+    width:"99px",
     fontSize: "14px",
     color: "#00ABD1",
     fontWeight: "500",
@@ -764,7 +771,6 @@ export default function NavBar() {
   const language = "language-menu";
   const renderMenuLanguage = (
     <Menu
-      
       id={language}
       anchorEl={languageAnchorEl}
       getContentAnchorEl={null}
@@ -779,7 +785,6 @@ export default function NavBar() {
       keepMounted
       open={Boolean(languageMenuOpen)}
       onClose={handleClose}
-      
     >
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         English
