@@ -47,6 +47,8 @@ const useStyles = makeStyles({
     textDecoration: "none",
     padding: "-10px",
     paddingRight: "-5px",
+    position:"relative",
+    left: "-39px",
     //left: "0.7rem",
     display: "inline-block",
     cursor: "pointer",

@@ -126,7 +126,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
@@ -156,7 +156,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
@@ -186,7 +186,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
