@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     top: 0,
     width: "100%",
-    zIndex: 100000,
+    // zIndex: 100000,
   },
   body: {
     marginTop: "118px",
