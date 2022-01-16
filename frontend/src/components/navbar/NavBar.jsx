@@ -745,6 +745,7 @@ export default function NavBar() {
   const categories = "categories-menu";
   const renderMenuCategories = (
     <Menu
+      style={{ top: "16px" }}
       id={categories}
       anchorEl={categoriesAnchorEl}
       getContentAnchorEl={null}
@@ -771,6 +772,7 @@ export default function NavBar() {
   const language = "language-menu";
   const renderMenuLanguage = (
     <Menu
+      style={{top:"59px"}}
       id={language}
       anchorEl={languageAnchorEl}
       getContentAnchorEl={null}
@@ -808,6 +810,7 @@ export default function NavBar() {
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
+      style={{ top: "55px" }}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
