@@ -814,7 +814,7 @@ export default function NavBar() {
           variant="contained"
           color="primary"
         >
-          {_formatWalletAddress(walletAddress) || `${t("Connect")}`}
+          {_formatWalletAddress(walletAddress) ||  `${t("Connect")}`}
         </Button>
       </MenuItem>
       <MenuItem>
