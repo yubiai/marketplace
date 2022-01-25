@@ -4,9 +4,8 @@ export const profileService = {
     getProfile
 }
 
-
 async function getProfile(signerAddress) {
-    return await axios.post(`http://localhost:4000/api/profiles/`, {
+    return await axios.post(`/profiles/`, {
         walletAddress: signerAddress,
       });
 }

@@ -6,9 +6,9 @@ const path = require("path");
 const passport = require('passport')
 require('./utils/passport')(passport)
 
-const ethers = require("ethers");
+/* const ethers = require("ethers");
 const PaymentProcessor = require("./../../frontend/src/artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json");
-const { Payment } = require("./models/Payment");
+const { Payment } = require("./models/Payment"); */
 
 const app = express();
 const category = require("./routes/category/category");
@@ -38,7 +38,7 @@ app.listen(4000, () => {
   console.log("Server running on port 4000");
 });
 
-const listenToEvents = () => {
+/* const listenToEvents = () => {
   const provider = new ethers.providers.JsonRpcProvider(
     "http://localhost:8545"
   );
@@ -66,4 +66,4 @@ const listenToEvents = () => {
   });
 };
 
-listenToEvents();
+listenToEvents(); */
