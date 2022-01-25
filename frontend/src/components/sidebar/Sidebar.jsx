@@ -14,6 +14,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -116,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedList() {
   const classes = useStyles();
-
+  const { t, i18n } = useTranslation("sidebar");
   const [open, setOpen] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
 
@@ -163,7 +164,7 @@ export default function NestedList() {
               <ListItemText
                 disableTypography
                 className={classes.HeaderList}
-                primary="My account"
+                primary={t("My account")}
               />
             )}
           </ListItemIcon>
@@ -196,7 +197,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="Orders"
+              primary={t("Orders")}
             />
           </ListItem>
           <ListItem button onClick={handleClick}>
@@ -221,7 +222,7 @@ export default function NestedList() {
                 fontSize: "16px",
                 fontWeight: "200",
               }}
-              primary="Sales"
+              primary={t("Sales")}
             />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
@@ -237,7 +238,7 @@ export default function NestedList() {
                 <ListItemText
                   disableTypography
                   className={classes.listItemText}
-                  primary="Active"
+                  primary={t("Active")}
                 />
               </ListItem>
               <ListItem
@@ -250,7 +251,7 @@ export default function NestedList() {
                 <ListItemText
                   disableTypography
                   className={classes.listItemText}
-                  primary="Complete"
+                  primary={t("Complete")}
                 />
               </ListItem>
             </List>
@@ -270,7 +271,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="Mailbox"
+              primary={t("Mailbox")}
             />
           </ListItem>
           <ListItem button component={Link} to="/myinfo">
@@ -288,7 +289,7 @@ export default function NestedList() {
             <ListItemText
               disableTypography
               className={classes.listItemText}
-              primary="My info"
+              primary={t("My Info")}
             />
           </ListItem>
         </div>

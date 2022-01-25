@@ -182,6 +182,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textDecorationColor: "transparent",
     alignItems: "right",
+    position:"relative",
+    left:"-17px",
+    top:"2px",
     "&:hover": {
       borderBottom: "none",
       color: "#a9a9a9",
@@ -249,6 +252,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   connect: {
+    position:"relative",
+    left:"-34px",
+    top:"2px",
+    width:"99px",
     fontSize: "14px",
     color: "#00ABD1",
     fontWeight: "500",
@@ -557,8 +564,8 @@ export default function NavBar() {
   const [data, setData] = React.useState(null);
   const [balance, setBalance] = React.useState(null);
 
-  const { t } = useTranslation("navbar");
-
+  const { t, i18n } = useTranslation("navbar");
+  
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -669,8 +676,17 @@ export default function NavBar() {
       </Typography>
       <Typography className={classes.ubiAmmount}>
         <img src={ubiImage.default} className={classes.ubiIcon}></img>
-        {ubisAmmount}
+        {`${ubisAmmount} ${t("UBI's dripped")}`}
       </Typography>
+      <MenuItem
+        style={{ fontSize: "13px" }}
+        className={classes.listItemText}
+        component={Link}
+        to="/myinfo"
+        onClick={handleClose}
+      >
+        {t("my_info")}
+      </MenuItem>
       <MenuItem
         style={{ fontSize: "13px", fontFamily: "Open Sans" }}
         className={classes.listItemText}
@@ -697,15 +713,6 @@ export default function NavBar() {
         onClick={handleClose}
       >
         {t("mailbox")}
-      </MenuItem>
-      <MenuItem
-        style={{ fontSize: "13px" }}
-        className={classes.listItemText}
-        component={Link}
-        to="/myinfo"
-        onClick={handleClose}
-      >
-        {t("my_info")}
       </MenuItem>
       <MenuItem
         style={{ fontSize: "13px" }}
@@ -738,6 +745,7 @@ export default function NavBar() {
   const categories = "categories-menu";
   const renderMenuCategories = (
     <Menu
+      style={{ top: "16px" }}
       id={categories}
       anchorEl={categoriesAnchorEl}
       getContentAnchorEl={null}
@@ -748,22 +756,23 @@ export default function NavBar() {
       onClose={handleClose}
     >
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Arts & Crafts
+       {t("Arts & Crafts")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Automotive
+        {t("Automotive")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        Appliances
+        {t("Appliances")}
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
-        VideoGames
+        {t("VideoGames")}
       </MenuItem>
     </Menu>
   );
   const language = "language-menu";
   const renderMenuLanguage = (
     <Menu
+      style={{top:"59px"}}
       id={language}
       anchorEl={languageAnchorEl}
       getContentAnchorEl={null}
@@ -783,10 +792,10 @@ export default function NavBar() {
         English
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
-        Español
-      </MenuItem>
-      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Português
+      </MenuItem>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
+        Español
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Française
@@ -794,11 +803,14 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Deutsche
       </MenuItem>
+       
     </Menu>
+    
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
+      style={{ top: "55px" }}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
@@ -814,7 +826,7 @@ export default function NavBar() {
           variant="contained"
           color="primary"
         >
-          {_formatWalletAddress(walletAddress) || "Connect"}
+          {_formatWalletAddress(walletAddress) ||  `${t("Connect")}`}
         </Button>
       </MenuItem>
       <MenuItem>
@@ -827,7 +839,7 @@ export default function NavBar() {
           <AccountCircle />
         </IconButton>
         <Link to="/myinfo" className={classes.menuMobileItemLink}>
-          <p className={classes.menuMobileItemLabel}>Profile</p>
+          <p className={classes.menuMobileItemLabel}>{t("Profile")}</p>
         </Link>
       </MenuItem>
       <MenuItem>
@@ -836,7 +848,7 @@ export default function NavBar() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Notifications</p>
+        <p className={classes.menuMobileItemLabel}>{t("Notifications")}</p>
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
@@ -845,7 +857,7 @@ export default function NavBar() {
             {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Cart</p>
+        <p className={classes.menuMobileItemLabel}>{t("Cart")}</p>
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
@@ -853,7 +865,7 @@ export default function NavBar() {
             <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
           </Badge>
         </IconButton>
-        <p className={classes.menuMobileItemLabel}>Categories</p>
+        <p className={classes.menuMobileItemLabel}>{t("Categories")}</p>
       </MenuItem>
       <MenuItem>
         <Router>
@@ -864,7 +876,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></LoyaltyOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Sell</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Sell")}</p>
                 </div>
               </Badge>
             </Link>
@@ -881,7 +893,7 @@ export default function NavBar() {
                 ></HistoryOutlinedIcon>
                 <div className={classes.linkmenu}>
                   <p className={classes.menuMobileItemLabel}>
-                    Browsing history
+                   {t("Browsing history")}
                   </p>
                 </div>
               </Badge>
@@ -898,7 +910,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></AddToQueueOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Watch list</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Watch list")}</p>
                 </div>
               </Badge>
             </Link>
@@ -914,7 +926,7 @@ export default function NavBar() {
                   className={classes.linkmenuicon}
                 ></ContactSupportOutlinedIcon>
                 <div className={classes.linkmenu}>
-                  <p className={classes.menuMobileItemLabel}>Help desk</p>
+                  <p className={classes.menuMobileItemLabel}>{t("Help desk")}</p>
                 </div>
               </Badge>
             </Link>
@@ -984,7 +996,7 @@ export default function NavBar() {
                         </Button>
                       </div>
                       <InputBase
-                        placeholder="Search for goods"
+                        placeholder={t("Search for goods")}
                         classes={{
                           root: classes.inputRoot,
                           input: classes.inputInput,
@@ -994,26 +1006,26 @@ export default function NavBar() {
                     </div>
                   </Grid>
                   <Grid className={classes.langContainer} item sm={3} xs={6}>
-                    <Link
+                    <Button
                       className={classes.lang}
                       aria-controls="language-menu"
                       aria-haspopup="true"
                       onClick={OpenLanguage}
                     >
                       EN <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                    </Link>
+                    </Button>
                     <Button
                       className={classes.connect}
                       onClick={connect}
                       variant="contained"
                       color="primary"
                     >
-                      {_formatWalletAddress(walletAddress) || "Connect"}
+                      {_formatWalletAddress(walletAddress) || `${t("Connect")}`}
                     </Button>
                   </Grid>
                   {/* Second row */}
                   <Grid item sm={3} xs={6} className={classes.location}>
-                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>Send to{" "}
+                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>{t("Send to")}{" "}
                     <b>Buenos Aires</b>{" "}
                     {/* modify in base of location of user */}
                   </Grid>
@@ -1033,20 +1045,20 @@ export default function NavBar() {
                           aria-haspopup="true"
                           onClick={OpenCategories}
                         >
-                          Categories
+                          {t("Categories")}
                           <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                         </ListItemText>
                         <Link className={classes.link} to="/sell">
-                          Sell
+                          {t("Sell")}
                         </Link>
                         <Link className={classes.link} to="/browsinghistory">
-                          Browsing history
+                          {t("Browsing history")}
                         </Link>
                         <Link className={classes.link} to="/watchlist">
-                          Watch list
+                          {t("Watch list")}
                         </Link>
                         <Link className={classes.link} to="/helpdesk">
-                          Help desk
+                          {t("Help desk")}
                         </Link>
                       </Typography>
                     </div>

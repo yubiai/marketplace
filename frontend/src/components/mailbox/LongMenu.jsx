@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import { Link } from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
+import { useTranslation } from "react-i18next";
+
 const useStyles = makeStyles((theme) => ({
   moreIconDots: {
     display: "inherit",
@@ -43,23 +45,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LongMenu() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("menumailbox");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [options, setOptions] = React.useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOptionsBasedOnScreenWidth();
-    window.addEventListener("resize", () => {
-      setOptionsBasedOnScreenWidth();
-    });
+
+    window.addEventListener("resize", setOptionsBasedOnScreenWidth);
+
+    return () =>
+      window.removeEventListener("resize", setOptionsBasedOnScreenWidth);
   }, []);
 
-  function setOptionsBasedOnScreenWidth() {
+  const setOptionsBasedOnScreenWidth = useCallback(() => {
     if (window.innerWidth >= 600) {
-      setOptions(["Delete Chat", "Seller Information"]);
+      setOptions([t("Delete Chat"), t("Seller Information")]);
     } else {
-      setOptions(["Delete Chat", "Seller Information", "Chat"]);
+      setOptions([
+        t("Delete Chat"),
+        t("Seller Information"),
+        t("Chat"),
+      ]);
     }
-  }
+  }, [window, setOptions, t]);
+
+  
 
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
@@ -106,7 +117,7 @@ export default function LongMenu() {
           >
             {option === "Chat" ? (
               <Link className={classes.link} to="/chat">
-                Chat
+                {t("Chat")}
               </Link>
             ) : (
               option

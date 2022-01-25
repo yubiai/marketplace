@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { DialogContentText } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EditName() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditname");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -80,14 +82,14 @@ export default function EditName() {
           }}
           id="form-dialog-title"
         >
-          Modify Name
+          {t("Modify Name")}
         </DialogTitle>
         <DialogContent disableTypography className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="First Name"
+            label={t("First Name")}
             type="text"
             fullWidth
           />
@@ -95,7 +97,7 @@ export default function EditName() {
             autoFocus
             margin="dense"
             id="name"
-            label="Last Name"
+            label={t("Last Name")}
             type="text"
             fullWidth
           />
@@ -112,12 +114,11 @@ export default function EditName() {
             paddingLeft: "0.5rem",
           }}
         >
-          Please note that in order to receive shipments you must use your real
-          name.
+          {t("Please note that in order to receive shipments you must use your real name.")}
         </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+            {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>

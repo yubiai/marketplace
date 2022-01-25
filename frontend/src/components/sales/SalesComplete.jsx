@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,6 +103,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AlignItemsList() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const { t, i18n } = useTranslation("salescomplete");
   const completeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
@@ -127,7 +129,7 @@ export default function AlignItemsList() {
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
-          Sales
+          {t("Sales")}
         </Link>
         <Link
           className={classes.link}
@@ -136,7 +138,7 @@ export default function AlignItemsList() {
           aria-current="page"
           style={{ marginLeft: "-0.2rem" }}
         >
-          Complete
+          {t("Complete")}
         </Link>
       </Breadcrumbs>
       <Grid
@@ -172,7 +174,7 @@ export default function AlignItemsList() {
               disableTypography
               className={classes.listItemText}
               primary={
-                <b style={{ fontSize: "16px" }}> Delivered on 11th of august</b>
+                <b style={{ fontSize: "16px" }}> {t("Delivered on")} {" "}</b>
               }
               secondary={
                 <React.Fragment>
@@ -184,7 +186,7 @@ export default function AlignItemsList() {
                   >
                     Canon EOS Rebel T7 EF-S 18-55mm
                   </Typography>
-                  {" 1 item"}
+                  {" "} {t("item")}
 
                   <Button
                     className={classes.btnDetails}
@@ -193,7 +195,7 @@ export default function AlignItemsList() {
                     to="/salescompletedetails"
                     primary="Preview"
                   >
-                    Details
+                    {t("Details")}
                   </Button>
                 </React.Fragment>
               }
@@ -219,7 +221,7 @@ export default function AlignItemsList() {
                   className={classes.menuIconLink}
                   to="/salescompletedetails"
                 >
-                  Details
+                  {t("Details")}
                 </Link>
               </MenuItem>
             </Menu>
@@ -248,7 +250,7 @@ export default function AlignItemsList() {
               disableTypography
               className={classes.listItemText}
               primary={
-                <b style={{ fontSize: "16px" }}> Delivered on 11th of august</b>
+                <b style={{ fontSize: "16px" }}> {t("Delivered on")} {" "}</b>
               }
               secondary={
                 <React.Fragment>
@@ -260,7 +262,7 @@ export default function AlignItemsList() {
                   >
                     Canon EOS Rebel T7 EF-S 18-55mm
                   </Typography>
-                  {" 1 item"}
+                    {" "} {t("item")}
 
                   <Button
                     className={classes.btnDetails}
@@ -269,7 +271,7 @@ export default function AlignItemsList() {
                     to="/salescompletedetails"
                     primary="Preview"
                   >
-                    Details
+                    {t("Details")}
                   </Button>
                 </React.Fragment>
               }
@@ -295,7 +297,7 @@ export default function AlignItemsList() {
                   className={classes.menuIconLink}
                   to="/salescompletedetails"
                 >
-                  Details
+                  {t("Details")}
                 </Link>
               </MenuItem>
             </Menu>
@@ -311,7 +313,7 @@ export default function AlignItemsList() {
             marginLeft: "0.75rem",
           }}
         >
-          <ListItem className={classes.listItem} alignItems="flex-start">
+          <ListItem alignItems="flex-start" className={classes.listItem}>
             <ListItemAvatar>
               <img
                 alt="{imgjson}"
@@ -323,7 +325,7 @@ export default function AlignItemsList() {
               disableTypography
               className={classes.listItemText}
               primary={
-                <b style={{ fontSize: "16px" }}> Delivered on 11th of august</b>
+                <b style={{ fontSize: "16px" }}> {t("Delivered on")} {" "}</b>
               }
               secondary={
                 <React.Fragment>
@@ -335,7 +337,7 @@ export default function AlignItemsList() {
                   >
                     Canon EOS Rebel T7 EF-S 18-55mm
                   </Typography>
-                  {" 1 item"}
+                    {" "} {t("item")}
 
                   <Button
                     className={classes.btnDetails}
@@ -344,7 +346,7 @@ export default function AlignItemsList() {
                     to="/salescompletedetails"
                     primary="Preview"
                   >
-                    Details
+                    {t("Details")}
                   </Button>
                 </React.Fragment>
               }
@@ -370,7 +372,7 @@ export default function AlignItemsList() {
                   className={classes.menuIconLink}
                   to="/salescompletedetails"
                 >
-                  Details
+                  {t("Details")}
                 </Link>
               </MenuItem>
             </Menu>

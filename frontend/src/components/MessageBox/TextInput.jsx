@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
 import { InputBase } from "@material-ui/core";
 import { Fab } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   wrapForm: {
@@ -94,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const TextInput = () => {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("chat");
   return (
     <>
       {/* connect to backend endpoint db  */}
@@ -117,7 +119,7 @@ export const TextInput = () => {
         <InputBase
           disableTypography
           className={classes.input}
-          placeholder="Chat"
+          placeholder={t("Chat")}
           inputProps={{ "aria-label": "contact" }}
         ></InputBase>
         <Button variant="contained" className={classes.button}>

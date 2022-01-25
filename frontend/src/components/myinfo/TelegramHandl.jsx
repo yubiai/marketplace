@@ -7,6 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TelHandle() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditTelegram");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -77,21 +79,21 @@ export default function TelHandle() {
           }}
           id="form-dialog-title"
         >
-          Modify Telegram handle
+          {t("Modify Telegram handle")}
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Telegram handle"
+            label={t("Telegram handle")}
             type="text"
             fullWidth
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+            {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>

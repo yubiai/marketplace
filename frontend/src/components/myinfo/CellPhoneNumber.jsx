@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { DialogContentText } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CellphoneNumber() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditCellphone");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,14 +80,14 @@ export default function CellphoneNumber() {
           }}
           id="form-dialog-title"
         >
-          Modify cellphone number
+          {t("Modify cellphone number")}
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Cellphone number"
+            label={t("Cellphone number")}
             type="numbers"
             fullWidth
           />
@@ -102,11 +104,11 @@ export default function CellphoneNumber() {
             paddingLeft: "0.5rem",
           }}
         >
-          Remember that you have the option to be contacted via Telegram.
+          {t("Remember that you have the option to be contacted via Telegram.")}
         </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+           {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>

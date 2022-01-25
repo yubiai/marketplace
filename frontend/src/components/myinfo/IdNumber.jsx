@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { DialogContentText } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function IdNumber() {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation("myinfoeditId");
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,14 +80,14 @@ export default function IdNumber() {
           }}
           id="form-dialog-title"
         >
-          Modify ID Number
+          {t("Modify ID Number")}
         </DialogTitle>
         <DialogContent className={classes.dialogContent}>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="ID number"
+            label={t("ID number")}
             type="numbers"
             fullWidth
           />
@@ -102,12 +104,11 @@ export default function IdNumber() {
             paddingLeft: "0.5rem",
           }}
         >
-          Please note that in order to receive shipments you must use a valid ID
-          number.
+          {t("Please note that in order to receive shipments you must use a valid ID number.")}
         </DialogContentText>
         <DialogActions>
           <Button onClick={handleClose} className={classes.btnSave}>
-            Save
+            {t("Save")}
           </Button>
         </DialogActions>
       </Dialog>

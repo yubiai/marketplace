@@ -12,6 +12,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FiberManualRecordSharpIcon from "@material-ui/icons/FiberManualRecordSharp";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 import LongMenu from "./LongMenu";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -108,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AlignItemsList() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const { t, i18n } = useTranslation("mailbox");
   const mailboxImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
@@ -123,7 +125,7 @@ export default function AlignItemsList() {
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link className={classes.link} to="/mailbox" onClick={handleClick}>
-          Mailbox
+          {t("Mailbox")}
         </Link>
       </Breadcrumbs>
       <Grid
@@ -171,9 +173,9 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    10.000 UBI
+                    {" "} UBI
                   </Typography>
-                  <l style={{ fontWeight: "200" }}>{" Available"}</l>
+                  <l style={{ fontWeight: "200" }}>{t("Available")}</l>
                   <FiberManualRecordSharpIcon
                     className={classes.itemStatusIconAvailable}
                   />
@@ -192,7 +194,7 @@ export default function AlignItemsList() {
                       to="/chat"
                       primary="Chat"
                     >
-                      Chat
+                      {t("Chat")}
                     </Button>
                     <MoreHorizSharpIcon
                       className={classes.buttonThreeDots}
@@ -241,9 +243,9 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    10.000 UBI
+                    {" "}UBI
                   </Typography>
-                  <l style={{ fontWeight: "200" }}>{" Paused"}</l>
+                  <l style={{ fontWeight: "200" }}>{t("Paused")}</l>
                   <FiberManualRecordSharpIcon
                     className={classes.itemStatusIconPaused}
                   />
@@ -262,7 +264,7 @@ export default function AlignItemsList() {
                       to="/chat"
                       primary="Chat"
                     >
-                      Chat
+                      {t("Chat")}
                     </Button>
                     <MoreHorizSharpIcon
                       style={{ display: "inline-flex" }}
@@ -310,9 +312,9 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    10.000 UBI
+                    {" "}UBI
                   </Typography>
-                  <l style={{ fontWeight: "200" }}>{" Sold"}</l>
+                  <l style={{ fontWeight: "200" }}>{t("Sold")}</l>
                   <FiberManualRecordSharpIcon
                     className={classes.itemStatusIconSold}
                   />
@@ -331,7 +333,7 @@ export default function AlignItemsList() {
                       to="/chat"
                       primary="Chat"
                     >
-                      Chat
+                      {t("Chat")}
                     </Button>
                     <MoreHorizSharpIcon
                       style={{ display: "inline-flex" }}

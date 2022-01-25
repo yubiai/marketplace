@@ -12,6 +12,8 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 import Menu from "./Menu";
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -147,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("salesactive");
   const [open, setOpen] = React.useState(true);
   const activeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
@@ -168,7 +171,7 @@ export default function AlignItemsList() {
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
-          Sales
+          {t("Sales")}
         </Link>
         <Link
           className={classes.link}
@@ -177,7 +180,7 @@ export default function AlignItemsList() {
           aria-current="page"
           style={{ marginLeft: "-0.2rem" }}
         >
-          Active
+          {t("Active")}
         </Link>
       </Breadcrumbs>
       <Link to={"/additem"}>
@@ -240,7 +243,7 @@ export default function AlignItemsList() {
                   >
                     10.000 UBI
                   </Typography>
-                  {" 1 item"}
+                  {"  "} {t("item")}
                   <Button
                     className={classes.btnPreview}
                     variant="contained"
@@ -248,7 +251,7 @@ export default function AlignItemsList() {
                     to="/preview"
                     primary="Preview"
                   >
-                    View
+                    {t("View")}
                   </Button>
                   <Button
                     className={classes.btnEdit}
@@ -257,7 +260,7 @@ export default function AlignItemsList() {
                     to="/edititem"
                     primary="EditItem"
                   >
-                    Edit Item
+                    {t("Edit item")}
                   </Button>
                 </React.Fragment>
               }
@@ -275,7 +278,7 @@ export default function AlignItemsList() {
             marginLeft: "0.75rem",
           }}
         >
-          <ListItem alignItems="flex-start" className={classes.listItem}>
+           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemAvatar>
               <img
                 alt="{imgjson}"
@@ -307,7 +310,7 @@ export default function AlignItemsList() {
                   >
                     10.000 UBI
                   </Typography>
-                  {" 1 item"}
+                  {"  "} {t("item")}
                   <Button
                     className={classes.btnPreview}
                     variant="contained"
@@ -315,7 +318,7 @@ export default function AlignItemsList() {
                     to="/preview"
                     primary="Preview"
                   >
-                    View
+                    {t("View")}
                   </Button>
                   <Button
                     className={classes.btnEdit}
@@ -324,7 +327,7 @@ export default function AlignItemsList() {
                     to="/edititem"
                     primary="EditItem"
                   >
-                    Edit Item
+                    {t("Edit item")}
                   </Button>
                 </React.Fragment>
               }
@@ -341,7 +344,7 @@ export default function AlignItemsList() {
             marginLeft: "0.75rem",
           }}
         >
-          <ListItem className={classes.listItem} alignItems="flex-start">
+           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemAvatar>
               <img
                 alt="{imgjson}"
@@ -373,7 +376,7 @@ export default function AlignItemsList() {
                   >
                     10.000 UBI
                   </Typography>
-                  {" 1 item"}
+                  {"  "} {t("item")}
                   <Button
                     className={classes.btnPreview}
                     variant="contained"
@@ -381,7 +384,7 @@ export default function AlignItemsList() {
                     to="/preview"
                     primary="Preview"
                   >
-                    View
+                    {t("View")}
                   </Button>
                   <Button
                     className={classes.btnEdit}
@@ -390,7 +393,7 @@ export default function AlignItemsList() {
                     to="/edititem"
                     primary="EditItem"
                   >
-                    Edit Item
+                    {t("Edit item")}
                   </Button>
                 </React.Fragment>
               }

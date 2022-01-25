@@ -26,6 +26,7 @@ import { profileService } from "../../services/profileService";
 import { setupEthState } from "../../ethereum";
 import { etherscanService } from "../../services/etherscanService";
 import { convertExpo } from "../../utils";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -137,6 +138,7 @@ function _formatWalletAddress(address = "") {
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("myinfo");
   const profileImage = require("../../media/vbuterin.png");
   const ubiImage = require("../../media/ubi2.svg");
   const [open, setOpen] = React.useState(false);
@@ -186,9 +188,10 @@ export default function AlignItemsList() {
         console.log(err);
       });
   };
+  let ubisAmmount = balance; 
 
   if (!data) return <>Cargando...</>;
-
+  
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
       <Typography variant="h2">
@@ -200,7 +203,7 @@ export default function AlignItemsList() {
             marginLeft: "0.75rem",
           }}
         >
-          My Info
+          {t("My Info")}
         </h4>
       </Typography>
       <Typography variant="h2">
@@ -211,7 +214,7 @@ export default function AlignItemsList() {
             marginLeft: "0.75rem",
           }}
         >
-          Proof of humanity information
+          {t("Proof of humanity information")}
         </h4>
       </Typography>
       <Grid
@@ -272,7 +275,7 @@ export default function AlignItemsList() {
                       src={ubiImage.default}
                     />
                     <div style={{ display: "inline-flex", marginLeft: "20px" }}>
-                      {`${balance} UBI-s dripped`}
+                      {`${ubisAmmount} ${t("UBI's dripped")}`}
                     </div>
                   </ListItemAvatar>
                   <a
@@ -283,7 +286,7 @@ export default function AlignItemsList() {
                     href={`https://app.proofofhumanity.id/profile/${data.eth_address}`}
                     secondary="MyProfile"
                   >
-                    My PoH Profile
+                    {t("My PoH Profile")}
                   </a>
                   <IconButton
                     onClick={openMobileMenuOpt}
@@ -327,13 +330,13 @@ export default function AlignItemsList() {
                 marginLeft: "0.75rem",
               }}
             >
-              Personal and shipping information
+              {t("Personal and shipping information")}
             </h4>
           </Typography>
           <Tooltip
             disableTypography
             className={classes.infoClass}
-            title="This info will only be shared when you make a purchase of an item that needs to be shipped."
+            title={t("This info will only be shared when you make a purchase of an item that needs to be shipped.")}
           >
             <IconButton aria-label="info">
               <InfoOutlinedIcon />
@@ -372,7 +375,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary={`Real Name: ${data.first_name} ${data.last_name}`}
+                        secondary={`${t("Real Name")}: ${data.first_name} ${data.last_name}`}   
                       />
                     </ListItem>{" "}
                     <EditIcon
@@ -386,7 +389,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary={`ID: ${data.dni} `}
+                        secondary={`${t("id")}: ${data.dni}`}
                       />
                     </ListItem>
                     <EditIcon
@@ -400,7 +403,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary={`Shipping address: ${data.address} `}
+                        secondary={`${t("Shipping address")}: ${data.address} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -414,7 +417,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary={`Cellphone: ${data.telephone} `}
+                        secondary={`${t("Cellphone")}: ${data.telephone} `}
                       />
                     </ListItem>
                     <EditIcon
@@ -428,7 +431,7 @@ export default function AlignItemsList() {
                     <ListItem style={{ height: "18px" }}>
                       <ListItemText
                         classes={{ secondary: classes.listItemText }}
-                        secondary="Telegram handle"
+                        secondary={t("Telegram handle:")}
                       />
                     </ListItem>
                     <EditIcon

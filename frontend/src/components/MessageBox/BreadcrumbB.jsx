@@ -1,8 +1,10 @@
 import React from "react";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function BreadcrumbB(props) {
+  const { t, i18n } = useTranslation("breadcrumbB");
   let componentb = (
     <Breadcrumbs
       style={{
@@ -18,7 +20,7 @@ export default function BreadcrumbB(props) {
         to="/mailbox"
         onClick={props.handleClick}
       >
-        Mailbox
+        {t("Mailbox")}
       </Link>
       <Link
         className={props.classes.link}

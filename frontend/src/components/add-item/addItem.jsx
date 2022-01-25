@@ -6,6 +6,7 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { Fab } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -286,6 +287,7 @@ export default function AddItem() {
   const [currency, setCurrency] = React.useState("UBI");
   const [condition, setCondition] = React.useState("New");
   const [category, setCategory] = React.useState("YUBI1648");
+  const { t, i18n } = useTranslation("additem");
 
   const handleChange1 = (event1) => {
     setCurrency(event1.target.value1);
@@ -302,7 +304,7 @@ export default function AddItem() {
       <div>
         <TextField
           id="title"
-          label="Title"
+          label={t("Title")}
           type="text"
           name="title"
           className={classes.title}
@@ -310,7 +312,7 @@ export default function AddItem() {
         />
         <TextField
           id="price"
-          label="Price"
+          label={t("Price")}
           type="number"
           name="price"
           className={classes.price}
@@ -321,7 +323,7 @@ export default function AddItem() {
           id="standard-select-currency"
           select
           className={classes.currency}
-          label="Currency"
+          label={t("Currency")}
           value={currency}
           variant="outlined"
           onChange={handleChange1}
@@ -376,7 +378,7 @@ export default function AddItem() {
         aria-label="minimum height"
         minRows={4}
         multiline
-        defaultValue="Description"
+        label={t("Description")}
         className={classes.description}
         variant="outlined"
       />
@@ -405,7 +407,7 @@ export default function AddItem() {
           variant="contained"
           className={classes.submit}
         >
-          Submit
+          {t("Submit")}
         </Button>
       </div>
     </form>

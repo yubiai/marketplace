@@ -7,6 +7,7 @@ import ListItem from "../list-item/ListItem";
 import Container from "@material-ui/core/Container";
 import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
+import { useTranslation } from "react-i18next";
 
 const API_URL = "http://localhost:4000";
 const SLIDE_VISIBLE_DEFAULT = 6;
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   const classes = useStyles();
-
+  const { t, i18n } = useTranslation("store");
   const buy = async (item) => {
     const response1 = await axios.get(
       `${API_URL}/api/items/getPaymentId/${item.id}`
@@ -102,7 +103,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
       <div className="row" style={{ marginBottom: "100px" }}>
         {/* <h4>Tu dirección de cuenta es: {signerAddress} </h4> */}
         <span className={classes.gridTitle}>
-          Last items posted on the marketplace.{" "}
+        {t("Last items posted on the marketplace.")}{" "}
         </span>
         <Grid
           container
@@ -139,7 +140,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         </Grid>
 
         <span className={classes.gridTitle} style={{ marginTop: "-50px" }}>
-          Items on your watch list{" "}
+          {t("Items on your watch list.")}{" "}
         </span>
         <Grid
           container
@@ -169,7 +170,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
         </Grid>
 
         <span className={classes.gridTitle} style={{ marginTop: "-50px" }}>
-          Last items you've watched on Health and household.{" "}
+          {t("Last items you've watched on Health and household.")}{" "}
         </span>
         <Grid
           container

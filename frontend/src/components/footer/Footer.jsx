@@ -12,6 +12,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import SendIcon from "@material-ui/icons/Send";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -134,6 +135,7 @@ export default function StickyFooter(props) {
   const logoImage = require("../../images/logo2.png");
   const [name, setName] = useState("");
   const [isHomePage, setIsHomePage] = useState("");
+  const { t, i18n } = useTranslation("footer");
 
   let location = useLocation();
 
@@ -168,7 +170,7 @@ export default function StickyFooter(props) {
                   <InputBase
                     disableTypography
                     className={classes.input}
-                    placeholder="Contact me, Share us your ETHMail"
+                    placeholder={t("Contact me, Share us your ETHMail")}
                     inputProps={{ "aria-label": "contact" }}
                   ></InputBase>
                   <Button className={classes.button}>
@@ -189,7 +191,7 @@ export default function StickyFooter(props) {
                     onClick={preventDefault}
                     target="_blank"
                   >
-                    Governance Forum{" "}
+                    {t("Governance Forum")}{" "}
                   </Link>
                   <Link
                     className={classes.link}
@@ -201,11 +203,11 @@ export default function StickyFooter(props) {
                   </Link>
                   <Link
                     className={classes.link}
-                    href="https://democracy.earth/#/"
+                    href="https://app.democracy.earth/#/"
                     onClick={preventDefault}
                     target="_blank"
                   >
-                    UBI Vaults{" "}
+                    {t("UBI Vaults")}{" "}
                   </Link>
                   <Link
                     className={classes.link}

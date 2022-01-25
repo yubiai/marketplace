@@ -13,12 +13,17 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: "159ch",
     backgroundColor: theme.palette.background.paper,
+    fontFamily: "Open Sans",
+    [theme.breakpoints.down(900)]: {
+      marginBottom: 250,
+    },
   },
   inline: {
     fontSize: "11px",
@@ -28,6 +33,45 @@ const useStyles = makeStyles((theme) => ({
   dividerFullWidth: {
     margin: `5px 0 0 ${theme.spacing(2)}px`,
   },
+  transactionBuyerContainer: {
+    [theme.breakpoints.down(900)]: {
+      flexDirection: "column",
+    },
+    [theme.breakpoints.down(481)]: {
+      maxWidth: "initial !important",
+      width: "calc(100% - 60px) !important",
+    },
+  },
+  listItemGrid: {
+    backgroundColor: "white",
+    borderRadius: "10px",
+    [theme.breakpoints.down(900)]: {
+      width: "100% !important",
+      maxWidth: "calc(100% - 4rem)",
+      flex: 1,
+      margin: "1rem 0",
+    },
+    [theme.breakpoints.down(481)]: {
+      maxWidth: "initial",
+    },
+  },
+  listItemGridTransaction: {
+    [theme.breakpoints.down(481)]: {
+      width: "calc(100% - 28px)",
+    },
+  },
+  profileBuyerGrid: {
+    [theme.breakpoints.down(960)]: {
+      width: "100%",
+      marginTop: "10px",
+      flex: 1,
+      marginLeft: "0 !important",
+      maxWidth: "calc(100% - 120px)",
+    },
+    [theme.breakpoints.down(481)]: {
+      maxWidth: "initial",
+    },
+  },  
   listItem: {
     borderRadius: "10px",
     fontSize: "14px",
@@ -55,14 +99,12 @@ const useStyles = makeStyles((theme) => ({
       textDecoloration: "transparent",
     },
   },
-
   link: {
     display: "flex",
     fontSize: "14px",
     color: "#000000",
     textDecorationColor: "transparent",
-    marginTop: "0.25rem",
-    marginLeft: "1.6rem",
+    marginLeft: "1.5rem",
     marginRight: "-0.75rem",
     justifyContent: "space-evenly",
     padding: theme.spacing(1),
@@ -92,6 +134,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginTop: "-65px",
   },
+  listItemTransaction: {
+    height: "auto",
+    marginTop: "15px",
+    padding: "0 0 0 1rem",
+  },
   listItemText: {
     fontSize: "11px", //Insert your required size
     color: "black",
@@ -104,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontWeight: "bold",
     marginLeft: "-13px",
+    fontFamily: "Open Sans",
   },
   listItemTextIcon: {
     height: "14px",
@@ -120,10 +168,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-60px",
     fontWeight: "700",
     marginLeft: "20px",
+    fontFamily: "Open Sans",
   },
-  profileReputation: {
-    fontSize: "14px",
-    height: "19px",
+  profileRepContainer: {
+    padding: 0,
+    flexDirection: "column",
+    alignItems: "baseline",
   },
   txtReputation: {
     color: "black",
@@ -131,8 +181,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "12px",
     justifyContent: "left",
     alignItems: "left",
-    marginTop: "-25px",
   },
+  starsContainer: {},
   starsReput: {
     display: "inline-block",
     alignItems: "center",
@@ -143,50 +193,17 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "85px",
     color: "#00ABD1",
   },
-  starsReput2: {
-    display: "inline-block",
-    alignItems: "center",
-    justifyContent: "center",
+  starsReputation: {
     width: "20px",
     height: "20px",
-    marginTop: "-50px",
-    marginLeft: "5px",
-    color: "#00ABD1",
-  },
-  starsReput3: {
-    display: "inline-block",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "20px",
-    height: "20px",
-    marginTop: "-50px",
-    marginLeft: "5px",
-    color: "#00ABD1",
-  },
-  starsReput4: {
-    display: "inline-block",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "20px",
-    height: "20px",
-    marginTop: "-50px",
-    marginLeft: "5px",
-    color: "#00ABD1",
-  },
-  starsReput5: {
-    display: "inline-block",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "20px",
-    height: "20px",
-    marginTop: "-50px",
-    marginLeft: "5px",
+    marginRight: "5px",
     color: "#00ABD1",
   },
 }));
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const { t, i18n } = useTranslation("salescompletedetails");
   const profileImage = require("../../media/vbuterin.png");
   const shoeImage = require("../../media/canoneos.jpg");
   const [open, setOpen] = React.useState(true);
@@ -207,7 +224,7 @@ export default function AlignItemsList() {
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
-          Sales
+          {t("Sales")}
         </Link>
         <Link
           className={classes.link}
@@ -215,10 +232,10 @@ export default function AlignItemsList() {
           style={{ color: "#808080", marginLeft: "-0.5rem" }}
           onClick={handleClick}
         >
-          Complete
+          {t("Complete")}
         </Link>
         <Link className={classes.link} style={{ marginLeft: "-0.2rem" }}>
-          Details
+          {t("Details")}
         </Link>
       </Breadcrumbs>
 
@@ -235,9 +252,8 @@ export default function AlignItemsList() {
           item
           xs={10}
           md={10}
+          className={classes.listItemGrid}
           style={{
-            backgroundColor: "white",
-            borderRadius: "10px",
             marginBottom: "4px",
             marginLeft: "2rem",
             height: "67px",
@@ -257,7 +273,7 @@ export default function AlignItemsList() {
                     color="textPrimary"
                     style={{ fontSize: "13px" }}
                   >
-                    {" 1 item"}
+                    {" "} {t("item")}
                   </Typography>
 
                   <ListItemAvatar>
@@ -279,56 +295,49 @@ export default function AlignItemsList() {
         spacing={0}
         direction="row"
         justifyContent="left"
-        alignItems="center"
-        style={{ marginTop: "10px" }}
+        alignItems="flex-start"
+        className={classes.transactionBuyerContainer}
+        style={{ marginTop: "10px", marginLeft: "1.8rem" }}
       >
         <Grid
           item
           xs={10}
           md={5}
-          style={{
-            backgroundColor: "white",
-            borderRadius: "10px",
-            height: "190px",
-            marginLeft: "1.8rem",
-          }}
+          className={`${classes.listItemGrid} ${classes.listItemGridTransaction}`}
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               primary={
                 <React.Fragment>
-                  <ListItemText
-                    disableTypography
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "bold",
-                      display: "inline-flex",
-                    }}
-                    primary="Transaction Details"
-                  />
-                  <Breadcrumbs
-                    separator="›"
-                    aria-label="breadcrumb"
-                    style={{ display: "inline-flex" }}
-                  >
-                    <span
+                  <div style={{ display: "flex" }}>
+                    <ListItemText
+                      disableTypography
                       style={{
-                        marginLeft: "160px",
-                        fontSize: "13px",
-                        fontWeight: "light",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        display: "inline-flex",
                       }}
+                      primary={t("Transaction Details")}
+                    />
+                    <Breadcrumbs
+                      separator="›"
+                      aria-label="breadcrumb"
+                      style={{ display: "inline-flex" }}
                     >
-                      from
-                    </span>
-                    <span style={{ fontSize: "13px" }}> to (address)</span>
-                  </Breadcrumbs>
+                      <span style={{ fontSize: "13px", fontWeight: "light" }}>
+                        {t("from")}
+                      </span>
+                      {/* en linea 320 {" "} insertar address */}
+                      <span style={{ fontSize: "13px" }}> {t("to")} {" "}</span> 
+                    </Breadcrumbs>
+                  </div>
                 </React.Fragment>
               }
               secondary={
                 <React.Fragment>
                   <div style={{ fontSize: "11px", fontWeight: "100" }}>
-                    {/* change date to backend transaction json o como este conectado a la bd */}
-                    {" Date  |"}{" "}
+                    {/* conectar date en {" "} */}
+                    {t(" Date  |")}{" "}
                     <FileCopyOutlinedIcon
                       className={classes.listItemTextIcon}
                     />
@@ -336,58 +345,73 @@ export default function AlignItemsList() {
                       className={classes.listItemTextIcon}
                     />
                   </div>
-                  <ListItem style={{ height: "18px", marginTop: "15px" }}>
+                  <ListItem
+                    className={classes.listItemTransaction}
+                    style={{ height: "18px", marginTop: "15px" }}
+                  >
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Amount"
+                      secondary={t("Amount")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
                       style={{
                         justifyContent: "flex-end",
-                        marginLeft: "330px",
+                        marginLeft: "auto",
+                        textAlign: "right",
                       }}
-                      secondary="0.039 ETH"
+                      secondary={" ","UBI"}
                     />
                   </ListItem>
                   <Divider
-                    style={{ backgroundColor: "black", height: "0.5px" }}
+                    style={{ backgroundColor: "black", height: "1px" }}
                   />
-                  <ListItem style={{ height: "18px" }}>
+                  <ListItem
+                    className={classes.listItemTransaction}
+                    style={{ height: "18px" }}
+                  >
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Transaction Fee"
+                      secondary={t("Transaction Fee")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
                       style={{
                         justifyContent: "flex-end",
-                        marginLeft: "290px",
+                        marginLeft: "auto",
+                        textAlign: "right",
                       }}
-                      secondary="0.016 ETH"
+                      secondary={" ","UBI"}
                     />
                   </ListItem>
                   <Divider
-                    style={{ backgroundColor: "black", height: "0.5px" }}
+                    style={{ backgroundColor: "black", height: "1px" }}
                   />
-                  <ListItem style={{ height: "18px" }}>
+                  <ListItem
+                    className={classes.listItemTransaction}
+                    style={{ height: "18px" }}
+                  >
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
-                      secondary="Gas price"
+                      secondary={t("Gas price")}
                     />
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
                       style={{
                         justifyContent: "flex-end",
-                        marginLeft: "340px",
+                        marginLeft: "auto",
+                        textAlign: "right",
                       }}
-                      secondary="26 GWEI"
+                      secondary={" ","dai"}
                     />
                   </ListItem>
                   <Divider
-                    style={{ backgroundColor: "black", height: "0.5px" }}
+                    style={{ backgroundColor: "black", height: "1px" }}
                   />
-                  <ListItem style={{ height: "18px" }}>
+                  <ListItem
+                    className={classes.listItemTransaction}
+                    style={{ height: "18px" }}
+                  >
                     <ListItemText
                       classes={{ secondary: classes.listItemText }}
                       secondary="Nonce"
@@ -396,15 +420,19 @@ export default function AlignItemsList() {
                       classes={{ secondary: classes.listItemText }}
                       style={{
                         justifyContent: "flex-end",
-                        marginLeft: "350px",
+                        marginLeft: "auto",
+                        textAlign: "right",
                       }}
-                      secondary="16"
+                      secondary={" "}
                     />
                   </ListItem>
                   <Divider
-                    style={{ backgroundColor: "black", height: "0.5px" }}
+                    style={{ backgroundColor: "black", height: "1px" }}
                   />
-                  <ListItem style={{ height: "18px" }}>
+                  <ListItem
+                    className={classes.listItemTransaction}
+                    style={{ height: "18px" }}
+                  >
                     <ListItemText
                       classes={{ primary: classes.listItemTextTotal }}
                       primary="Total"
@@ -413,9 +441,10 @@ export default function AlignItemsList() {
                       classes={{ secondary: classes.listItemText }}
                       style={{
                         justifyContent: "flex-end",
-                        marginLeft: "320px",
+                        marginLeft: "auto",
+                        textAlign: "right",
                       }}
-                      secondary="0.040649 ETH"
+                      secondary={" ","UBI"}
                     />
                   </ListItem>
                 </React.Fragment>
@@ -427,6 +456,7 @@ export default function AlignItemsList() {
           item
           xs={5}
           md={5}
+          className={`${classes.listItemGrid} ${classes.profileBuyerGrid}`}
           style={{
             backgroundColor: "white",
             borderRadius: "10px",
@@ -439,22 +469,25 @@ export default function AlignItemsList() {
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
-              style={{ marginTop: "0.65rem" }}
-              primary="Buyer Information"
+              style={{ marginTop: "0.65rem", marginBottom: "-0.3rem" }}
+              primary={t("Buyer Information")}
             />
           </ListItem>
-          <ListItem style={{ justifyContent: "space-around", height: "100px" }}>
+          <ListItem style={{ alignItems: "flex-start", height: "initial" }}>
             <Grid xs={3} style={{ height: "100%", flexBasis: "auto" }}>
               <ListItemAvatar
-                style={{ margin: 0, width: "100%", height: "100%" }}
+                style={{ margin: 0,
+                  width: "100%",
+                  height: "100%",
+                  maxWidth: "100px", }}
               >
                 <img
                   alt="{imgjson}"
                   className={classes.imageProfile}
                   style={{
                     marginTop: 0,
-                    width: "auto",
-                    height: "100%",
+                    width: "100%",
+                    height: "auto",
                     display: "block",
                   }}
                   src={profileImage.default}
@@ -495,29 +528,22 @@ export default function AlignItemsList() {
                           display: "inline-flex",
                         }}
                       >
-                        address
+                        {t("address")}
                       </span>
                     </Breadcrumbs>
                   </React.Fragment>
                 }
               />
-              <ListItem
-                style={{ display: "inline-block", marginLeft: "-15px" }}
-              >
-                <ListItemText
-                  disableTypography
-                  className={classes.profileReputation}
-                  style={{
-                    margin: "0 !important",
-                    marginTop: "-7px",
-                  }}
-                  primary="Reputation"
-                />{" "}
-                <StarBorderOutlinedIcon className={classes.starsReput} />
-                <StarBorderOutlinedIcon className={classes.starsReput2} />
-                <StarBorderOutlinedIcon className={classes.starsReput3} />
-                <StarBorderOutlinedIcon className={classes.starsReput4} />
-                <StarBorderOutlinedIcon className={classes.starsReput5} />
+              <ListItem className={classes.profileRepContainer}>
+                
+                <div className={classes.starsContainer}>
+                  <a>{t("Reputation")} </a>
+                  <StarBorderOutlinedIcon className={classes.starsReputation} />
+                  <StarBorderOutlinedIcon className={classes.starsReputation} />
+                  <StarBorderOutlinedIcon className={classes.starsReputation} />
+                  <StarBorderOutlinedIcon className={classes.starsReputation} />
+                  <StarBorderOutlinedIcon className={classes.starsReputation} />
+                </div>
               </ListItem>
 
               <Button
@@ -530,10 +556,9 @@ export default function AlignItemsList() {
                   minWidth: 0,
                   width: "150px",
                   margin: "0.5rem 0",
-                  marginTop: "-20px",
                 }}
               >
-                Send message
+                {t("Send message")}
               </Button>
             </Grid>
           </ListItem>
