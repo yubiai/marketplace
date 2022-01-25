@@ -1,6 +1,6 @@
 import { ethers, Contract } from "ethers";
-import PaymentProcessor from "./artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json";
-import Ubi from "./artifacts/contracts/Ubi.sol/Ubi.json";
+//import PaymentProcessor from "./artifacts/contracts/PaymentProcessor.sol/PaymentProcessor.json";
+//import Ubi from "./artifacts/contracts/Ubi.sol/Ubi.json";
 
 async function setupEthState() {
   await window.ethereum.enable();
@@ -13,11 +13,11 @@ async function setupEthState() {
 
   const paymentProcessor = new Contract(
     ppAddress,
-    PaymentProcessor.abi,
+    //PaymentProcessor.abi,
     signer
   );
 
-  const ubi = new Contract(ubiAddress, Ubi.abi, signer);
+  const ubi = new Contract(ubiAddress, signer);
   return { provider, signerAddress, paymentProcessor, ubi };
 }
 
