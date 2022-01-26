@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
@@ -302,6 +303,9 @@ export default function AddItem() {
   return (
     <form noValidate autoComplete="off">
       <div>
+        <ListItemText disableTypography>
+          Sell your product
+        </ListItemText>
         <TextField
           id="title"
           label={t("Title")}
