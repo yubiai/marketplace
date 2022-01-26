@@ -42,14 +42,12 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
   };
 
   return (
-    <div>
+    <>
       <IconButton onClick={handleMenuClick}>
         <AccountCircle
-          className={classes.notificon}
           aria-label="account of current user"
           aria-controls="profile-menu"
           aria-haspopup="true"
-          color="inherit"
         />
       </IconButton>
       <Menu
@@ -139,6 +137,6 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
         {/* <p>Cart</p> */}
         {/* </MenuItem> */}
       </Menu>
-    </div>
+    </>
   );
 };

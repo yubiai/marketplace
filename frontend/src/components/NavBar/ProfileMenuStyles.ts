@@ -51,6 +51,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   notificon: {
+    color: "white",
     marginLeft: theme.spacing(2),
     alignItems: "center",
     "&:hover": {

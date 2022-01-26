@@ -428,16 +428,19 @@ export default function NavBar() {
                         className={classes.link}
                         noWrap
                       > */}
-                    <ListItemText
+                    {/* <ListItemText
                       disableTypography
                       className={classes.listItemText}
                       aria-controls="categories-menu"
                       aria-haspopup="true"
                       // onClick={OpenCategories}
-                    >
+                    > */}
+                    <Link to="#" className={classes.link}>
                       {t("Categories")}
                       <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
-                    </ListItemText>
+                    </Link>
+
+                    {/* </ListItemText> */}
                     <Link className={classes.link} to="/sell">
                       {t("Sell")}
                     </Link>
@@ -453,19 +456,19 @@ export default function NavBar() {
                     {/* </Typography> */}
                   </div>
                 </Grid>
-                <Grid item sm={2} xs={6} className={classes.quickActionsMenu}>
-                  <div style={{ display: "inline-flex" }}>
-                    <span className={classes.sectionDesktop}>
-                      <ProfileMenu id="profile-menu" profile={profile} />
-                      <Badge badgeContent={17} color="secondary">
-                        <NotificationsIcon className={classes.notificon} />
-                      </Badge>
-                    </span>
-                    <Badge color="primary">
-                      <ShoppingCartOutlinedIcon className={classes.carticon} />{" "}
-                      {/*cambiar "apuntar a cart, una vez creado + prop como notif(en est caso seria cant de items en el cart)" */}
-                    </Badge>
-                  </div>
+                <Grid item sm={2} xs={6}>
+                  <ProfileMenu id="profile-menu" profile={profile} />
+                  <Badge badgeContent={17} color="secondary">
+                    <IconButton>
+                      <NotificationsIcon />
+                    </IconButton>
+                  </Badge>
+
+                  <Badge color="primary">
+                    <IconButton>
+                      <ShoppingCartOutlinedIcon />{" "}
+                    </IconButton>
+                  </Badge>
                 </Grid>
               </Grid>
             </div>
