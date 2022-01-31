@@ -25,6 +25,7 @@ import { useEffect } from "react";
 import * as profileService from "../../services/profileService";
 import { setupEthState } from "../../ethereum";
 import * as etherscanService from "../../services/etherscanService";
+import { getBalanceUbi } from "../../services/etherscanService";
 import { convertExpo } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({

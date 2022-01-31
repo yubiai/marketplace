@@ -48,6 +48,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ id, profile }) => {
           aria-label="account of current user"
           aria-controls="profile-menu"
           aria-haspopup="true"
+          style={{ color: "white" }}
         />
       </IconButton>
       <Menu

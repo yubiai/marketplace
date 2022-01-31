@@ -21,6 +21,7 @@
     "react-material-ui-carousel": "^2.3.1"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "hardhat": "^2.6.8"
   }
 }

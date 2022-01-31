@@ -458,15 +458,15 @@ export default function NavBar() {
                 </Grid>
                 <Grid item sm={2} xs={6}>
                   <ProfileMenu id="profile-menu" profile={profile} />
-                  <Badge badgeContent={17} color="secondary">
+                  <Badge badgeContent={17} color="secondary" style={{ right: "13px", top: "12px" }}>
                     <IconButton>
-                      <NotificationsIcon />
+                      <NotificationsIcon style={{ fill: "white", position: "relative", right: "-13px", top: "-12px" }} />
                     </IconButton>
                   </Badge>
 
-                  <Badge color="primary">
+                  <Badge >
                     <IconButton>
-                      <ShoppingCartOutlinedIcon />{" "}
+                      <ShoppingCartOutlinedIcon style={{ color: "white" }} />{" "}
                     </IconButton>
                   </Badge>
                 </Grid>

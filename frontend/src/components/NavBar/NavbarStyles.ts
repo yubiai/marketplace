@@ -44,6 +44,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: "100px",
+    position: "relative",
+    top: "12px",
+    left: "10px",
     [theme.breakpoints.down(960)]: {
       display: "none",
       position: "relative",
@@ -151,6 +154,9 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   langContainer: {
+    position: "relative",
+    top: "15px",
+    right: "47px",
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
@@ -275,6 +281,14 @@ export const useStyles = makeStyles((theme) => ({
     textDecorationColor: "transparent",
   },
   searchContainer: {
+    position: "relative",
+    top: "9px",
+    [theme.breakpoints.up(900)]: {
+      // maxWidth: "100%",
+      // flexBasis: "100%",
+      position: "relative",
+      top: "11px",
+    },
     [theme.breakpoints.down(900)]: {
       maxWidth: "100%",
       flexBasis: "100%",
@@ -367,6 +381,8 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   sectionDesktop: {
+    position: "relative",
+    top: "5px",
     display: "none",
     [theme.breakpoints.up("md")]: {
       display: "flex",
@@ -418,6 +434,9 @@ export const useStyles = makeStyles((theme) => ({
     width: "21px",
     height: "30px",
     marginTop: "-3px",
+    position: "relative",
+    top: "10px",
+    left: "10px",
     [theme.breakpoints.down("sm")]: {
       display: "none", // remove
       position: "relative",
