@@ -1,4 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
+
+const SERVER_ENDPOINT = (
+  process.env.REACT_APP_BE_SERVER || 'http://localhost:4000');
 
 export const profileService = {
   getProfile,
@@ -17,10 +20,8 @@ export const profileService = {
  */
 async function getProfile(walletAddress) {
   return await axios.post(
-    'http://localhost:4000/api/profiles/',
-    {
-      walletAddress
-    }
+    `${SERVER_ENDPOINT}/api/profiles/`,
+    { walletAddress }
   );
 }
 
@@ -31,7 +32,7 @@ async function getProfile(walletAddress) {
  */
 async function updateProfile(userId, payload = {}) {
   return await axios.put(
-    `http://localhost:4000/api/profiles/${userId}`,
+    `${SERVER_ENDPOINT}/api/profiles/${userId}`,
     { ...payload }
   );
 }
@@ -43,7 +44,7 @@ async function updateProfile(userId, payload = {}) {
  */
 async function deleteProfile(userId) {
   return await axios.delete(
-    `http://localhost:4000/api/profiles/${userId}`);
+    `${SERVER_ENDPOINT}/api/profiles/${userId}`);
 }
 
 /**
@@ -52,10 +53,8 @@ async function deleteProfile(userId) {
  */
 async function login(walletAddress) {
   return await axios.post(
-    'http://localhost:4000/api/profiles/login',
-    {
-      walletAddress
-    }
+    `${SERVER_ENDPOINT}/api/profiles/login`,
+    { walletAddress }
   );
 }
 
@@ -65,7 +64,7 @@ async function login(walletAddress) {
  */
 async function getFavorites(userId) {
   return await axios.get(
-    `http://localhost:4000/api/profiles/favorites/${userId}`);
+    `${SERVER_ENDPOINT}/api/profiles/favorites/${userId}`);
 }
 
 /**
@@ -75,7 +74,7 @@ async function getFavorites(userId) {
  */
 async function updateFavorites(userId, payload = {}) {
   return await axios.put(
-    `http://localhost:4000/api/profiles/favorites/${userId}`,
+    `${SERVER_ENDPOINT}/api/profiles/favorites/${userId}`,
     { ...payload }
   );
 }
@@ -86,7 +85,7 @@ async function updateFavorites(userId, payload = {}) {
  */
 async function getMyPurchases(userId) {
   return await axios.get(
-    `http://localhost:4000/api/profiles/my_purchases/${userId}`);
+    `${SERVER_ENDPOINT}/api/profiles/my_purchases/${userId}`);
 }
 
 /**
@@ -95,6 +94,5 @@ async function getMyPurchases(userId) {
  */
 async function getMySales(userId) {
   return await axios.get(
-    `http://localhost:4000/api/profiles/my_sales/${userId}`);
+    `${SERVER_ENDPOINT}/api/profiles/my_sales/${userId}`);
 }
-
