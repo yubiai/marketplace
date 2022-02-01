@@ -48,7 +48,7 @@ const useStyles = makeStyles({
     padding: "-10px",
     paddingRight: "-5px",
     position:"relative",
-    left: "-9px",
+    left: "-23px",
     //left: "0.7rem",
     display: "inline-block",
     cursor: "pointer",
