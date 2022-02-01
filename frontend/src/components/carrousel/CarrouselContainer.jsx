@@ -6,6 +6,7 @@ const PREV = "PREV";
 const useStyles = makeStyles({
   carouselcontainer: {
     display: "flex",
+    marginBottom: "15px",
     marginLeft: "2rem",
     marginRight: "2rem",
     paddingRight: "2rem",
