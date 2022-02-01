@@ -182,5 +182,23 @@
       "Modify Telegram handle": "Modificar usuario en Telegram",
       "Telegram handle": "Usuario en Telegram",
       "Save": "Guardar"
+    },
+    "additem": {
+      "Sell your product": "Vende tu producto",
+      "Condition": "Condición",
+      "Category": "Categoria",
+      "Currency": "Moneda",
+      "Name": "Nombre",
+      "Enter item name, model & manufacturer": "Ingresa el nombre, modelo y fabricante del artículo",
+      "Title": "Título",
+      "Price": "Precio",
+      "New": "Nuevo",
+      "Description": "Descripción",
+      "Write a detailed description of your item": "Escribe una descripción detallada de tu artículo",
+      "Submit": "Publicar",
+      "Product Images": "Imágenes del producto",
+      "Get noticed by the right buyers with visual examples of your services/products. Images must have a minimum width of 375px(Max Size: 10 MB | *.jpg, *.jpeg, *.png)": "Sé visto por los compradores con ejemplos visuales de tus servicios/productos. Las imágenes deben tener una anchura mínima de 375px(Tamaño máximo: 10 MB | *.jpg, *.jpeg, *.png)",
+      "Drag & drop a photo or Browse": "Arrastra y suelta una foto o navega para subir",
+      "Preview & Submit for review": "Previsualizar y enviar para revisión"
     }
   }
