@@ -9,7 +9,7 @@ import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
 import { useTranslation } from "react-i18next";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://yubiai-backend.herokuapp.com";
 const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [
@@ -126,7 +126,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%",  marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
@@ -156,7 +156,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
@@ -186,7 +186,7 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
             }}
           >
             <Carrousel
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
               <ItemCard title={"Producto 1"} price={"5000"} />
