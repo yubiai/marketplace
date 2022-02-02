@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16 AS development
 
 ENV NODE_ENV development
 # Add a work directory
