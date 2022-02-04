@@ -23,9 +23,6 @@ import axios from "axios";
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
 axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
 
-
-import axios from "axios";
-
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
 //axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
 axios.defaults.baseURL = 'http://localhost:4001/api';
