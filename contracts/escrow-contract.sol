@@ -229,7 +229,7 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction);
 
         require(_transaction.token.approve(paymentProcessorAddress, _amount), "The `transfer` function must not fail.");
-        emit paymentProcessorAddress.managePayment(_amount, _transactionID, _transaction.receiver);
+         paymentProcessorAddress.managePayment(_amount, _transactionID, _transaction.receiver);
         emit TransactionStateUpdated(_transactionID, _transaction);
     }
 
@@ -247,7 +247,7 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction);
 
         require(_transaction.token.approve(paymentProcessorAddress, _amountReimbursed), "The `transfer` function must not fail.");
-        emit paymentProcessorAddress.managePayment(_transactionID, _amountReimbursed, msg.sender);
+        paymentProcessorAddress.managePayment(_transactionID, _amountReimbursed, msg.sender);
         emit TransactionStateUpdated(_transactionID, _transaction);
     }
 
