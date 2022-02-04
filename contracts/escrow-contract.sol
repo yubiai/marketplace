@@ -264,7 +264,7 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         _transaction.status = Status.Resolved;
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction);
 
-        require(_transaction.token.transfer(_transaction.receiver, amount), "The `transfer` function must not fail.");
+        require(_transaction.token.approve(paymentProcessorAddress, _amount), "The `transfer` function must not fail.");
 
         emit TransactionStateUpdated(_transactionID, _transaction);
         emit TransactionResolved(_transactionID, Resolution.TransactionExecuted);
@@ -346,7 +346,7 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         _transaction.status = Status.Resolved; 
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction); // solhint-disable-line
 
-        require(_transaction.token.transfer(_transaction.sender, amount), "The `transfer` function must not fail.");
+        require(_transaction.token.approve(_transaction.sender, amount), "The `transfer` function must not fail.");
         _transaction.sender.send(senderFee); // It is the user responsibility to accept ETH.
         emit TransactionStateUpdated(_transactionID, _transaction);
         emit TransactionResolved(_transactionID, Resolution.TimeoutBySender);
@@ -373,8 +373,8 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         _transaction.status = Status.Resolved;
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction); // solhint-disable-line
 
-        require(_transaction.token.transfer(_transaction.receiver, amount), "The `transfer` function must not fail.");
-        _transaction.receiver.send(receiverFee); // It is the user responsibility to accept ETH.
+        require(_transaction.token.approve(paymentProcessorAddress, amount), "The `transfer` function must not fail.");
+        _transaction.receiver.send(receiverFee); // It is the user responsibility to accept UBI.
 
         emit TransactionStateUpdated(_transactionID, _transaction);
         emit TransactionResolved(_transactionID, Resolution.TimeoutByReceiver);
@@ -622,10 +622,10 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         // Note that we use `send` to prevent a party from blocking the execution.
         if (transactionDispute.ruling == Party.Sender) {
             _transaction.sender.send(senderFee);
-            require(_transaction.token.transfer(_transaction.sender, amount), "The `transfer` function must not fail.");
+            require(_transaction.token.approve(_transaction.sender, amount), "The `transfer` function must not fail.");
         } else if (transactionDispute.ruling == Party.Receiver) {
             _transaction.receiver.send(receiverFee);
-            require(_transaction.token.transfer(_transaction.receiver, amount), "The `transfer` function must not fail.");
+            require(_transaction.token.approve(_transaction.receiver, amount), "The `transfer` function must not fail.");
         } else {
             // `senderFee` and `receiverFee` are equal to the arbitration cost.
             uint256 splitArbitrationFee = senderFee / 2;
@@ -634,8 +634,8 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
             // Tokens should not reenter or allow recipients to refuse the transfer.
             // In the case of an uneven token amount, one basic token unit can be burnt.
             uint256 splitAmount = amount / 2;
-            require(_transaction.token.transfer(_transaction.receiver, splitAmount), "The `transfer` function must not fail.");
-            require(_transaction.token.transfer(_transaction.sender, splitAmount), "The `transfer` function must not fail.");
+            require(_transaction.token.approve(_transaction.receiver, splitAmount), "The `transfer` function must not fail.");
+            require(_transaction.token.approve(_transaction.sender, splitAmount), "The `transfer` function must not fail.");
         }
 
         emit TransactionStateUpdated(_transactionID, _transaction);
