@@ -28,15 +28,32 @@ const useStyles = makeStyles((theme) => ({
     width: '700px',
     [theme.breakpoints.down(628)]: {
       width: '100%',
-     
-     
-      
-    },
+     },
   },
   gridCondition: {
     // backgroundColor: 'white',
     // borderRadius:'20px'
   },
+  sellYourProduct: {
+    width: 205,
+    height: 33,
+    fontFamily: 'Open Sans',
+    fontSize: 24,
+    fontWeight: "600",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    color: "#000000"
+  },
+  productImages: {
+  width: 146,
+  height: 25,
+  fontFamily: 'Open Sans',
+  fontSize: 18,
+  fontWeight: "700",
+  fontStyle: "normal",
+  letterSpacing: 0,
+  color: "rgba(57, 57, 57, 0.85)"
+},
   dragNdropBox: {
     position: 'relative',
     border: '1px dashed grey',
@@ -99,12 +116,17 @@ const useStyles = makeStyles((theme) => ({
     margin:'5px',
     color:'black'
   },
+  divPrice: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginLeft: '9px',
+  },
   price: {
-    width: '100%',
+    width: '223px',
     margin:'5px'
     },
   currency: {
-    width: '100%',
+    width: '78px',
     margin:'5px'
   },
   condition: {
@@ -120,7 +142,14 @@ const useStyles = makeStyles((theme) => ({
     m: 1,
     width: '100%',
     margin:'5px',
-   
+    marginTop: "-31px",
+    [theme.breakpoints.down('xs')]: {
+      // display: 'flex',
+      // flexDirection: 'column',
+      // height: '100%',
+      // justifyContent: 'space-around'
+      marginTop: "7px",
+    },
   },
   description: {
     width: '100%',
@@ -161,6 +190,23 @@ const useStyles = makeStyles((theme) => ({
         color: '#00ABD1',
         backgroundColor: 'White',
       }
+  },
+  label: {   
+    marginLeft: '8px',
+    fontFamily: 'Open Sans',
+    fontSize: '14px',
+  },
+  labelCategory: {   
+    marginLeft: '8px',
+    // marginBottom: '-25px',
+    fontFamily: 'Open Sans',
+    fontSize: '14px',
+   
+  },
+  labelPrice: {
+    marginLeft: '14px',
+    fontFamily: 'Open Sans',
+    fontSize: '14px',
   },
 }));
 
@@ -212,8 +258,11 @@ export default function AddItem() {
       <Grid item xs={10} md={5} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
       <div>
-      <h2>Sell your product</h2>
+      <h2 className={classes.sellYourProduct}>Sell your product</h2>
       </div>
+        <label className={classes.label}>
+          Condition
+        </label>
         <Select
               labelId="demo-simple-select-label"
               id="condition"
@@ -233,6 +282,9 @@ export default function AddItem() {
 
       <Grid item xs={10} md={5}  alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
+        <label className={classes.labelCategory}>
+          Category
+        </label>
         <Select
               labelId="demo-simple-select-label"
               id="category"
@@ -250,8 +302,11 @@ export default function AddItem() {
       </Grid>
 
       <Grid item xs={10} md={10} >
+        <label className={classes.label}>
+          Name
+        </label>
         <TextField id="title"
-                  label="enter item name, model & manufacturer"
+                  label="Enter item name, model & manufacturer"
                   type="text"
                   name="title"
                   className={classes.title}
@@ -261,6 +316,9 @@ export default function AddItem() {
                   placeholder="Title" />
       </Grid>
       <Grid item xs={10} md={10}>
+        <label className={classes.label}>
+        Description
+        </label>
         <TextField id="description"
                     aria-label="minimum height"
                     minRows={4}
@@ -271,7 +329,13 @@ export default function AddItem() {
                     className={classes.description}
                     variant="outlined" />
       </Grid>
+      <div>
+      <label className={classes.labelPrice}>
+        Price
+      </label>
+      <div className={classes.divPrice}>
       <Grid item xs={10} md={3}>
+        
         <TextField
                 id="standard-select-currency"
                 select
@@ -299,8 +363,10 @@ export default function AddItem() {
                   variant="outlined"
                   placeholder="Price" />
       </Grid>
+      </div>
+      </div>
       <Grid item xs={10} md={10} >
-        <h3>Item Images</h3>
+        <h3 className={classes.productImages}>Item Images</h3>
         <p>Get noticed by the right buyers with visual examples of your services. Images must have a minimum width of 375px, height of 375px and must not be more than 10mb each</p>
       </Grid>
 
