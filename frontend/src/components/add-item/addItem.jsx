@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { Box, Fab, withTheme } from "@material-ui/core";
 import { currencies, categories, conditions } from "./addItemJSON";
+import AddItemPreview from "./addItemPreview";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -149,6 +150,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AddItem() {
   const classes = useStyles();
+  const [showItemPreview, setShowItemPreview] = React.useState(false);
+
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
   const [category, setCategory] = React.useState('YUBI1648');
@@ -161,12 +164,27 @@ export default function AddItem() {
   const fileInputFieldNd = React.useRef(null);
   const fileInputFieldRd = React.useRef(null);
   const [files, setFiles] = React.useState({});
+  const [pictures, setPictures] = React.useState([]);
 
+  /**
+   * Format file before open modal
+   */
   const setFile = (ev, field) => {
     setFiles({
       ...files,
       [field]: ev.currentTarget.files[0]
     })
+  };
+  const openModal = () => {
+    const pictureList = [];
+    Object.values(files).forEach((pictVal, index) => {
+      pictureList.push({
+        url: URL.createObjectURL(pictVal),
+        alt: `Pict-${index}`
+      })
+    });
+    setPictures([...pictureList]);
+    setShowItemPreview(true);
   };
 
   return (
@@ -317,10 +335,23 @@ export default function AddItem() {
         </Box>
       </Grid>
       <Grid item xs={10} md={10}>
-        <Button type="submit" value="Submit" variant="contained" className={classes.submit}>Preview & Submit for review</Button>
+        <Button type="submit" value="Submit" variant="contained"
+                className={classes.submit}
+                onClick={openModal}>
+          Preview &amp; Submit for review
+        </Button>
       </Grid>
       {/* </form> */}
       <div sx={{ marginBottom: '200ch'}}>&nbsp;<br></br></div>
+      {
+        showItemPreview &&
+        <AddItemPreview productName={name}
+                        productDescription={description}
+                        productPrice={{value: price, currency}}
+                        pictures={pictures}
+                        hideItemModal={() => setShowItemPreview(false)}
+        />
+      }
     </Grid>
   );
 }
