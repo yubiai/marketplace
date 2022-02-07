@@ -158,7 +158,8 @@ const useStyles = makeStyles((theme) => ({
       outline: 'none !important',
       },
       '&:hover': {
-        backgroundColor: 'Blue',
+        color: '#00ABD1',
+        backgroundColor: 'White',
       }
   },
 }));
