@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container:{
-    marginLeft:'-150px !important',
+    // marginLeft:'-150px !important',
     
   },
   gridCondition: {
