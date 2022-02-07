@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'20px',
     overflowY: 'scroll',
     height: '100%',
-    width: '700px',
+    // width: '700px',
     [theme.breakpoints.down(628)]: {
       width: '100%',
      
@@ -205,14 +205,17 @@ export default function AddItem() {
   return (
     <Grid container spacing={2}
           variant="fullWidth"
+          layout="flexbox"
           alignItems="left" className={classes.gridRoot} >
           
       {/* <form noValidate autoComplete="off"> */}
-      <Grid item xs={10} md={5} className={classes.gridCondition}>
+      <Grid item xs={6} md={4} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
       <div>
       <h2>Sell your product</h2>
       </div>
+      <label>
+          Condition
         <Select
               labelId="demo-simple-select-label"
               id="condition"
@@ -228,10 +231,13 @@ export default function AddItem() {
               </MenuItem>
             ))}
         </Select>
+        </label>
       </Grid>
 
-      <Grid item xs={10} md={5}  alignItems="flex-end" className={classes.gridCategory} >
+      <Grid item xs={6} md={5}  alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
+        <label>
+          Category
         <Select
               labelId="demo-simple-select-label"
               id="category"
@@ -246,9 +252,12 @@ export default function AddItem() {
               </MenuItem>
             ))}
           </Select>
+          </label>
       </Grid>
 
-      <Grid item xs={10} md={10} >
+      <Grid item xs={12} md={12} >
+        <label>
+          Name
         <TextField id="title"
                   label="enter item name, model & manufacturer"
                   type="text"
@@ -258,8 +267,11 @@ export default function AddItem() {
                   value={name}
                   onChange={ev => setName(ev.target.value)}
                   placeholder="Title" />
+        </label>
       </Grid>
       <Grid item xs={10} md={10}>
+        <label>
+        Description
         <TextField id="description"
                     aria-label="minimum height"
                     minRows={4}
@@ -269,6 +281,7 @@ export default function AddItem() {
                     value={description}
                     className={classes.description}
                     variant="outlined" />
+         </label>
       </Grid>
       <Grid item xs={10} md={3}>
         <TextField
@@ -288,7 +301,8 @@ export default function AddItem() {
         </TextField>
       </Grid>
       <Grid item xs={10} md={3}>
-        <TextField id="price"
+
+          <TextField id="price"
                   label="0.00"
                   type="number"
                   name="price"
