@@ -20,11 +20,22 @@ const useStyles = makeStyles((theme) => ({
   },
   gridRoot: {
     marginTop: '4px' ,
-    marginLeft: '1rem'
+    marginLeft: '1rem',
+    backgroundColor: 'white',
+    borderRadius:'20px',
+    overflowY: 'scroll',
+    height: '100%',
+    width: '700px',
+    [theme.breakpoints.down(628)]: {
+      width: '100%',
+     
+     
+      
+    },
   },
   gridCondition: {
-    backgroundColor: 'white',
-    borderRadius:'20px'
+    // backgroundColor: 'white',
+    // borderRadius:'20px'
   },
   dragNdropBox: {
     position: 'relative',
@@ -102,10 +113,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     margin:'5px'
   },
+  gridCategory: {
+    display:"grid"
+  },
   category: {
     m: 1,
     width: '100%',
-    margin:'5px'
+    margin:'5px',
+   
   },
   description: {
     width: '100%',
@@ -191,9 +206,13 @@ export default function AddItem() {
     <Grid container spacing={2}
           variant="fullWidth"
           alignItems="left" className={classes.gridRoot} >
+          
       {/* <form noValidate autoComplete="off"> */}
       <Grid item xs={10} md={5} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
+      <div>
+      <h2>Sell your product</h2>
+      </div>
         <Select
               labelId="demo-simple-select-label"
               id="condition"
@@ -211,7 +230,7 @@ export default function AddItem() {
         </Select>
       </Grid>
 
-      <Grid item xs={10} md={5} >
+      <Grid item xs={10} md={5}  alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
         <Select
               labelId="demo-simple-select-label"
