@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius:'20px',
     overflowY: 'scroll',
-    height: '100%',
+    height: '680px',
     width: '700px',
     [theme.breakpoints.down(628)]: {
       width: '100%',
