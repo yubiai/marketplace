@@ -285,7 +285,7 @@ export default function AddItem() {
       </label>    */}
       <Grid item xs={10} md={3}>
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
           accept="image/*"
           onChange={ev => setFile(ev, 'fileOne')}
@@ -296,7 +296,7 @@ export default function AddItem() {
       </Grid>
       <Grid item xs={10} md={3}>
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
           onChange={ev => setFile(ev, 'fileTwo')}
           type="file"
@@ -307,7 +307,7 @@ export default function AddItem() {
 
         <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
           type="file"
           onChange={ev => setFile(ev, 'fileThree')}
