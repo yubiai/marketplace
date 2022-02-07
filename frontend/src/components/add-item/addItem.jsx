@@ -9,6 +9,9 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { Box, Fab, withTheme } from "@material-ui/core";
 import { currencies, categories, conditions } from "./addItemJSON";
 import AddItemPreview from "./addItemPreview";
+import FormControl from '@mui/material/FormControl';
+import Container from '@mui/material/Container';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
      
       
     },
+  },
+  container:{
+    marginLeft:'-150px !important',
+    
   },
   gridCondition: {
     // backgroundColor: 'white',
@@ -161,6 +168,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'Blue',
       }
   },
+  label:{   
+  marginLeft: '8px',
+  // fontFamily: 'Poppins',
+  fontSize: '14px',
+  },
 }));
 
 export default function AddItem() {
@@ -203,19 +215,26 @@ export default function AddItem() {
   };
 
   return (
-    <Grid container spacing={2}
-          variant="fullWidth"
+    <Container maxWidth="md" className={classes.container}>  
+    
+      
+      
+    <Grid container spacing={2}          
           layout="flexbox"
           alignItems="left" className={classes.gridRoot} >
+
+   
+      
           
       {/* <form noValidate autoComplete="off"> */}
-      <Grid item xs={6} md={4} className={classes.gridCondition}>
-      {/* <InputLabel id="condition">Condition</InputLabel> */}
-      <div>
+      <Grid item xs={6} md={6} className={classes.gridCondition}>
       <h2>Sell your product</h2>
-      </div>
-      <label>
+      {/* <InputLabel id="condition">Condition</InputLabel> */}
+      
+      
+      <label className={classes.label}>
           Condition
+      </label>
         <Select
               labelId="demo-simple-select-label"
               id="condition"
@@ -230,14 +249,15 @@ export default function AddItem() {
                 {option.label}
               </MenuItem>
             ))}
-        </Select>
-        </label>
+        </Select>          
       </Grid>
 
-      <Grid item xs={6} md={5}  alignItems="flex-end" className={classes.gridCategory} >
+      <Grid item xs={6} md={6}  alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
-        <label>
+       
+          <label className={classes.label}>
           Category
+          </label>
         <Select
               labelId="demo-simple-select-label"
               id="category"
@@ -251,13 +271,13 @@ export default function AddItem() {
                 {option.label}
               </MenuItem>
             ))}
-          </Select>
-          </label>
+          </Select>       
       </Grid>
 
       <Grid item xs={12} md={12} >
-        <label>
+        <label className={classes.label}>
           Name
+        </label>
         <TextField id="title"
                   label="enter item name, model & manufacturer"
                   type="text"
@@ -267,11 +287,12 @@ export default function AddItem() {
                   value={name}
                   onChange={ev => setName(ev.target.value)}
                   placeholder="Title" />
-        </label>
+        
       </Grid>
-      <Grid item xs={10} md={10}>
-        <label>
+      <Grid item xs={10} md={12}>
+        <label className={classes.label}>
         Description
+        </label>
         <TextField id="description"
                     aria-label="minimum height"
                     minRows={4}
@@ -281,9 +302,9 @@ export default function AddItem() {
                     value={description}
                     className={classes.description}
                     variant="outlined" />
-         </label>
+         
       </Grid>
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={6}>
         <TextField
                 id="standard-select-currency"
                 select
@@ -300,7 +321,7 @@ export default function AddItem() {
               ))}
         </TextField>
       </Grid>
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={6}>
 
           <TextField id="price"
                   label="0.00"
@@ -312,7 +333,7 @@ export default function AddItem() {
                   variant="outlined"
                   placeholder="Price" />
       </Grid>
-      <Grid item xs={10} md={10} >
+      <Grid item xs={10} md={12} >
         <h3>Item Images</h3>
         <p>Get noticed by the right buyers with visual examples of your services. Images must have a minimum width of 375px, height of 375px and must not be more than 10mb each</p>
       </Grid>
@@ -334,7 +355,7 @@ export default function AddItem() {
               <AddAPhotoIcon />
               </Fab>
       </label>    */}
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={4}>
         <Box component="div" className={classes.dragNdropBox}>
           <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
@@ -345,7 +366,7 @@ export default function AddItem() {
           />
         </Box>
       </Grid>
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={4}>
         <Box component="div" className={classes.dragNdropBox}>
           <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
@@ -356,7 +377,7 @@ export default function AddItem() {
         </Box>
       </Grid>
 
-        <Grid item xs={10} md={3} >
+        <Grid item xs={10} md={4} >
         <Box component="div" className={classes.dragNdropBox}>
           <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
           <input className={classes.dragNdropInput}
@@ -386,5 +407,6 @@ export default function AddItem() {
         />
       }
     </Grid>
+  </Container> 
   );
 }
