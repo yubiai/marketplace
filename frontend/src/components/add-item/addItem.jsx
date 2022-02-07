@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
     padding: '20px',
+   
   },
   gridRoot: {
     marginTop: '4px' ,
@@ -27,8 +28,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius:'20px',
     overflowY: 'scroll',
+    overflowX: 'hidden',
     height: '100%',
     // width: '700px',
+   
     [theme.breakpoints.down(628)]: {
       width: '100%',
      
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container:{
     // marginLeft:'-150px !important',
-    
+   
   },
   gridCondition: {
     // backgroundColor: 'white',
