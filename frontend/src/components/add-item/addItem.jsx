@@ -17,6 +17,32 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: '20px',
   },
+  gridRoot: {
+    marginTop: '4px' ,
+    marginLeft: '1rem'
+  },
+  gridCondition: {
+    backgroundColor: 'white',
+    borderRadius:'20px'
+  },
+  dragNdropBox: {
+    position: 'relative',
+    border: '1px dashed grey',
+    height:'150px',
+    display: 'flex'
+  },
+  dragNdropSpan: {
+    margin: 'auto'
+  },
+  dragNdropInput: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    left: 0,
+    top: 0,
+    opacity: 0,
+    cursor: 'pointer'
+  },
   inline: {
     fontFamily: 'Open Sans',
     display: 'flex',
@@ -146,9 +172,9 @@ export default function AddItem() {
   return (
     <Grid container spacing={2}
           variant="fullWidth"
-          alignItems="left" style={{marginTop: '4px' ,  marginLeft: '1rem'}}>
+          alignItems="left" className={classes.gridRoot} >
       {/* <form noValidate autoComplete="off"> */}
-      <Grid item xs={10} md={5} style={{backgroundColor: 'white', borderRadius:'20px' }}>
+      <Grid item xs={10} md={5} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
         <Select
               labelId="demo-simple-select-label"
@@ -258,24 +284,9 @@ export default function AddItem() {
               </Fab>
       </label>    */}
       <Grid item xs={10} md={3}>
-        <Box component="div" sx={
-          {
-            position: 'relative',
-            border: '1px dashed grey',
-            height:'150px',
-            display: 'flex'
-          }
-        }>
-          <span style={{margin: 'auto'}}>Drag &amp; drop a photo or </span>
-          <input style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            left: 0,
-            top: 0,
-            opacity: 0,
-            cursor: 'pointer'
-          }}
+        <Box component="div" className={classes.dragNdropBox}>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <input className={classes.dragNdropInput}
           accept="image/*"
           onChange={ev => setFile(ev, 'fileOne')}
           type="file"
@@ -284,24 +295,9 @@ export default function AddItem() {
         </Box>
       </Grid>
       <Grid item xs={10} md={3}>
-        <Box component="div" sx={
-          {
-            border: '1px dashed grey',
-            height:'150px',
-            display: 'flex',
-            position: 'relative'
-          }
-        }>
-          <span style={{margin: 'auto'}}>Drag &amp; drop a photo or </span>
-          <input style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            left: 0,
-            top: 0,
-            opacity: 0,
-            cursor: 'pointer'
-          }}
+        <Box component="div" className={classes.dragNdropBox}>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <input className={classes.dragNdropInput}
           onChange={ev => setFile(ev, 'fileTwo')}
           type="file"
           accept="image/*"
@@ -310,24 +306,9 @@ export default function AddItem() {
       </Grid>
 
         <Grid item xs={10} md={3} >
-        <Box component="div" sx={
-          {
-            border: '1px dashed grey',
-            height:'150px',
-            display: 'flex',
-            position: 'relative'
-          }
-        }>
-          <span style={{margin: 'auto'}}>Drag &amp; drop a photo or </span>
-          <input style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            left: 0,
-            top: 0,
-            opacity: 0,
-            cursor: 'pointer'
-          }}
+        <Box component="div" className={classes.dragNdropBox}>
+          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or </span>
+          <input className={classes.dragNdropInput}
           type="file"
           onChange={ev => setFile(ev, 'fileThree')}
           type="file"
