@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
   dragNdropSpan: {
     margin: 'auto',
     fontSize: '12px',
+    textAlign: 'center'
   },
   dragNdropInput: {
     position: 'absolute',
@@ -74,6 +75,21 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     opacity: 0,
     cursor: 'pointer'
+  },
+  dragNdropIconContainer: {
+    position: "absolute",
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%,-50%)',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  },
+  dragNDropIcon: {
+    color: 'gray',
+    width: '45px',
+    height: '36px',
+    display: 'block'
   },
   inline: {
     fontFamily: 'Open Sans',
@@ -194,17 +210,17 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'White',
       }
   },
-  label: {   
+  label: {
     marginLeft: '8px',
     fontFamily: 'Open Sans',
     fontSize: '14px',
   },
-  labelCategory: {   
+  labelCategory: {
     marginLeft: '8px',
     // marginBottom: '-25px',
     fontFamily: 'Open Sans',
     fontSize: '14px',
-   
+
   },
   categoryMenu: {
     position: 'relative',
@@ -215,7 +231,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '14px',
     fontFamily: 'Open Sans',
     fontSize: '14px',
-  },
+  }
 }));
 
 export default function AddItem() {
@@ -261,7 +277,7 @@ export default function AddItem() {
     <Grid container spacing={2}
           variant="fullWidth"
           alignItems="left" className={classes.gridRoot} >
-          
+
       {/* <form noValidate autoComplete="off"> */}
       <Grid item xs={10} md={5} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
@@ -343,7 +359,7 @@ export default function AddItem() {
       </label>
       <div className={classes.divPrice}>
       <Grid item xs={10} md={3}>
-        
+
         <TextField
                 id="standard-select-currency"
                 select
@@ -397,10 +413,16 @@ export default function AddItem() {
       </label>    */}
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <div  style={{position: "absolute",top: "50%", left: "50%", transform: "translate(-50%,-50%"}} >
-            <ImageIcon style={{color: "gray", width: "45px", height: "36px"}} />
+          <div className={classes.dragNdropIconContainer}>
+            <ImageIcon className={classes.dragNdropIcon}
+                      style={{
+                        color: 'gray',
+                        width: '45px',
+                        height: '36px',
+                        display: 'block'}
+                      } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
-          </div>  
+          </div>
           <input className={classes.dragNdropInput}
           accept="image/*"
           onChange={ev => setFile(ev, 'fileOne')}
@@ -411,8 +433,16 @@ export default function AddItem() {
       </Grid>
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <ImageIcon />
-          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
+          <div className={classes.dragNdropIconContainer}>
+            <ImageIcon className={classes.dragNdropIcon}
+                      style={{
+                        color: 'gray',
+                        width: '45px',
+                        height: '36px',
+                        display: 'block'}
+                      } />
+            <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
+          </div>
           <input className={classes.dragNdropInput}
           onChange={ev => setFile(ev, 'fileTwo')}
           type="file"
@@ -423,10 +453,17 @@ export default function AddItem() {
 
         <Grid item xs={10} md={3}  >
         <Box component="div" className={classes.dragNdropBox}>
-          <ImageIcon />
-          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
+          <div className={classes.dragNdropIconContainer}>
+            <ImageIcon className={classes.dragNdropIcon}
+                      style={{
+                        color: 'gray',
+                        width: '45px',
+                        height: '36px',
+                        display: 'block'}
+                      } />
+            <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
+          </div>
           <input className={classes.dragNdropInput}
-          
           type="file"
           onChange={ev => setFile(ev, 'fileThree')}
           type="file"
