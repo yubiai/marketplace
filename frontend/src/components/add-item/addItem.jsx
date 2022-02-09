@@ -9,6 +9,7 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { Box, Fab, withTheme } from "@material-ui/core";
 import { currencies, categories, conditions } from "./addItemJSON";
 import AddItemPreview from "./addItemPreview";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,11 +58,13 @@ const useStyles = makeStyles((theme) => ({
   dragNdropBox: {
     position: 'relative',
     border: '1px dashed grey',
-    height:'150px',
+    height:'180px',
+    // width: '180px',
     display: 'flex'
   },
   dragNdropSpan: {
-    margin: 'auto'
+    margin: 'auto',
+    fontSize: '12px',
   },
   dragNdropInput: {
     position: 'absolute',
@@ -392,9 +395,12 @@ export default function AddItem() {
               <AddAPhotoIcon />
               </Fab>
       </label>    */}
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
+          <div  style={{position: "absolute",top: "50%", left: "50%", transform: "translate(-50%,-50%"}} >
+            <ImageIcon style={{color: "gray", width: "45px", height: "36px"}} />
+            <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
+          </div>  
           <input className={classes.dragNdropInput}
           accept="image/*"
           onChange={ev => setFile(ev, 'fileOne')}
@@ -403,8 +409,9 @@ export default function AddItem() {
           />
         </Box>
       </Grid>
-      <Grid item xs={10} md={3}>
+      <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
+          <ImageIcon />
           <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           <input className={classes.dragNdropInput}
           onChange={ev => setFile(ev, 'fileTwo')}
@@ -414,10 +421,12 @@ export default function AddItem() {
         </Box>
       </Grid>
 
-        <Grid item xs={10} md={3} >
+        <Grid item xs={10} md={3}  >
         <Box component="div" className={classes.dragNdropBox}>
+          <ImageIcon />
           <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
           <input className={classes.dragNdropInput}
+          
           type="file"
           onChange={ev => setFile(ev, 'fileThree')}
           type="file"
