@@ -1,7 +1,11 @@
+// import { useTranslation } from "react-i18next";
+
+// const { t, i18n } = useTranslation("additemJson");
 const conditions = [
+  
     {
       value: 'New',
-      label: 'New',
+      label:  "New",
     },
     {
       value: 'Used',

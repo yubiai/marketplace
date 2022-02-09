@@ -9,7 +9,7 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { Box, Fab, withTheme } from "@material-ui/core";
 import { currencies, categories, conditions } from "./addItemJSON";
 import AddItemPreview from "./addItemPreview";
-
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -203,6 +203,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
    
   },
+  categoryMenu: {
+    position: 'relative',
+    maxHeight: '600px !important',
+    top: '90px',
+  },
   labelPrice: {
     marginLeft: '14px',
     fontFamily: 'Open Sans',
@@ -213,7 +218,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AddItem() {
   const classes = useStyles();
   const [showItemPreview, setShowItemPreview] = React.useState(false);
-
+  const { t, i18n } = useTranslation("additem");
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
   const [category, setCategory] = React.useState('YUBI1648');
@@ -258,10 +263,10 @@ export default function AddItem() {
       <Grid item xs={10} md={5} className={classes.gridCondition}>
       {/* <InputLabel id="condition">Condition</InputLabel> */}
       <div>
-      <h2 className={classes.sellYourProduct}>Sell your product</h2>
+      <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
       </div>
         <label className={classes.label}>
-          Condition
+          {t("Condition")}
         </label>
         <Select
               labelId="demo-simple-select-label"
@@ -283,7 +288,7 @@ export default function AddItem() {
       <Grid item xs={10} md={5}  alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
         <label className={classes.labelCategory}>
-          Category
+          {t("Category")}
         </label>
         <Select
               labelId="demo-simple-select-label"
@@ -294,7 +299,7 @@ export default function AddItem() {
               label="Category"
               variant="outlined"
             >{categories.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+              <MenuItem  key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
@@ -303,10 +308,10 @@ export default function AddItem() {
 
       <Grid item xs={10} md={10} >
         <label className={classes.label}>
-          Name
+          {t("Name")}
         </label>
         <TextField id="title"
-                  label="Enter item name, model & manufacturer"
+                  label={t("Enter item name, model & manufacturer")}
                   type="text"
                   name="title"
                   className={classes.title}
@@ -317,13 +322,13 @@ export default function AddItem() {
       </Grid>
       <Grid item xs={10} md={10}>
         <label className={classes.label}>
-        Description
+        {t("Description")}
         </label>
         <TextField id="description"
                     aria-label="minimum height"
                     minRows={4}
                     multiline
-                    placeholder="Description"
+                    placeholder={t("Write a detailed description of your item")}
                     onChange={ev => setDescription(ev.target.value)}
                     value={description}
                     className={classes.description}
@@ -331,7 +336,7 @@ export default function AddItem() {
       </Grid>
       <div>
       <label className={classes.labelPrice}>
-        Price
+        {t("Price")}
       </label>
       <div className={classes.divPrice}>
       <Grid item xs={10} md={3}>
@@ -340,7 +345,7 @@ export default function AddItem() {
                 id="standard-select-currency"
                 select
                 className={classes.currency}
-                label="Currency"
+                label={t("Currency")}
                 value={currency}
                 variant="outlined"
                 onChange={ev => setCurrency(ev.target.value)}
@@ -366,8 +371,8 @@ export default function AddItem() {
       </div>
       </div>
       <Grid item xs={10} md={10} >
-        <h3 className={classes.productImages}>Item Images</h3>
-        <p>Get noticed by the right buyers with visual examples of your services. Images must have a minimum width of 375px, height of 375px and must not be more than 10mb each</p>
+        <h3 className={classes.productImages}>{t("Product Images")}</h3>
+        <p>{t("Get noticed by the right buyers with visual examples of your services/products. Images must have a minimum width of 375px(Max Size: 10 MB | *.jpg, *.jpeg, *.png)")}</p>
       </Grid>
 
       {/* <label className={classes.imguploader} htmlFor="upload-photo">
@@ -389,7 +394,7 @@ export default function AddItem() {
       </label>    */}
       <Grid item xs={10} md={3}>
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
+          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           <input className={classes.dragNdropInput}
           accept="image/*"
           onChange={ev => setFile(ev, 'fileOne')}
@@ -400,7 +405,7 @@ export default function AddItem() {
       </Grid>
       <Grid item xs={10} md={3}>
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
+          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           <input className={classes.dragNdropInput}
           onChange={ev => setFile(ev, 'fileTwo')}
           type="file"
@@ -411,7 +416,7 @@ export default function AddItem() {
 
         <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <span className={classes.dragNdropSpan}>Drag &amp; drop a photo or Browse </span>
+          <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
           <input className={classes.dragNdropInput}
           type="file"
           onChange={ev => setFile(ev, 'fileThree')}
@@ -424,7 +429,7 @@ export default function AddItem() {
         <Button type="submit" value="Submit" variant="contained"
                 className={classes.submit}
                 onClick={openModal}>
-          Preview &amp; Submit for review
+          {t("Preview & Submit for review")}
         </Button>
       </Grid>
       {/* </form> */}

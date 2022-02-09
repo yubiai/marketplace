@@ -870,7 +870,7 @@ export default function NavBar() {
       <MenuItem>
         <Router>
           <IconButton color="inherit">
-            <Link to="/sell">
+            <Link to="/additem">
               <Badge color="secondary">
                 <LoyaltyOutlinedIcon
                   className={classes.linkmenuicon}
@@ -1048,7 +1048,7 @@ export default function NavBar() {
                           {t("Categories")}
                           <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                         </ListItemText>
-                        <Link className={classes.link} to="/sell">
+                        <Link className={classes.link} to="/additem">
                           {t("Sell")}
                         </Link>
                         <Link className={classes.link} to="/browsinghistory">
