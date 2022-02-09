@@ -74,22 +74,37 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     top: 0,
     opacity: 0,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    zIndex: 10
+  },
+  dragNdropIconContainerFill: {
+    background: 'rgba(0, 0, 0, 0.5)',
+    color: '#fff',
+    padding: 1
   },
   dragNdropIconContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%,-50%)',
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    zIndex: 10
   },
   dragNDropIcon: {
     color: 'gray',
     width: '45px',
     height: '36px',
     display: 'block'
+  },
+  dragNDropPictRender: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 1
   },
   inline: {
     fontFamily: 'Open Sans',
@@ -272,6 +287,9 @@ export default function AddItem() {
     setPictures([...pictureList]);
     setShowItemPreview(true);
   };
+  const getImgFromFile = (fileObj) => {
+    return URL.createObjectURL(fileObj);
+  };
 
   return (
     <Grid container spacing={2}
@@ -413,7 +431,8 @@ export default function AddItem() {
       </label>    */}
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <div className={classes.dragNdropIconContainer}>
+          <div className={
+            `${classes.dragNdropIconContainer} ${files.fileOne ? classes.dragNdropIconContainerFill: ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
                       style={{
                         color: 'gray',
@@ -423,17 +442,24 @@ export default function AddItem() {
                       } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           </div>
+          {
+            files.fileOne &&
+            <img className={classes.dragNDropPictRender}
+                src={getImgFromFile(files.fileOne)}
+                alt="Image one" />
+          }
           <input className={classes.dragNdropInput}
-          accept="image/*"
-          onChange={ev => setFile(ev, 'fileOne')}
-          type="file"
-          ref={fileInputFieldSt}
+                accept="image/*"
+                onChange={ev => setFile(ev, 'fileOne')}
+                type="file"
+                ref={fileInputFieldSt}
           />
         </Box>
       </Grid>
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
-          <div className={classes.dragNdropIconContainer}>
+          <div className={
+            `${classes.dragNdropIconContainer} ${files.fileTwo ? classes.dragNdropIconContainerFill: ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
                       style={{
                         color: 'gray',
@@ -443,17 +469,24 @@ export default function AddItem() {
                       } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           </div>
+          {
+            files.fileTwo &&
+            <img className={classes.dragNDropPictRender}
+                src={getImgFromFile(files.fileTwo)}
+                alt="Image two" />
+          }
           <input className={classes.dragNdropInput}
-          onChange={ev => setFile(ev, 'fileTwo')}
-          type="file"
-          accept="image/*"
-          ref={fileInputFieldNd} />
+                onChange={ev => setFile(ev, 'fileTwo')}
+                type="file"
+                accept="image/*"
+                ref={fileInputFieldNd} />
         </Box>
       </Grid>
 
         <Grid item xs={10} md={3}  >
         <Box component="div" className={classes.dragNdropBox}>
-          <div className={classes.dragNdropIconContainer}>
+          <div className={
+            `${classes.dragNdropIconContainer} ${files.fileThree ? classes.dragNdropIconContainerFill: ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
                       style={{
                         color: 'gray',
@@ -463,12 +496,18 @@ export default function AddItem() {
                       } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
           </div>
+          {
+            files.fileThree &&
+            <img className={classes.dragNDropPictRender}
+                src={getImgFromFile(files.fileThree)}
+                alt="Image three" />
+          }
           <input className={classes.dragNdropInput}
-          type="file"
-          onChange={ev => setFile(ev, 'fileThree')}
-          type="file"
-          accept="image/*"
-          ref={fileInputFieldRd} />
+              type="file"
+              onChange={ev => setFile(ev, 'fileThree')}
+              type="file"
+              accept="image/*"
+              ref={fileInputFieldRd} />
         </Box>
       </Grid>
       <Grid item xs={10} md={10}>
