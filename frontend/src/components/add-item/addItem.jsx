@@ -78,8 +78,9 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 10
   },
   dragNdropIconContainerFill: {
-    background: 'rgba(0, 0, 0, 0.5)',
-    color: '#fff',
+    // background: 'rgba(0, 0, 0, 0.5)',
+    color: 'transparent',
+    display: "none !important",
     padding: 1
   },
   dragNdropIconContainer: {
