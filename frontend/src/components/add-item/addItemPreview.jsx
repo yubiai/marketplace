@@ -17,7 +17,7 @@ const styles = makeStyles({
     },
     addItemModal: {
         width: '50vw',
-        height: '50vh',
+        height: '80vh',
         background: '#fff',
         position: 'absolute',
         top: '50%',
