@@ -60,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
     border: '1px dashed grey',
     height:'180px',
     // width: '180px',
-    display: 'flex'
+    display: 'flex',
+    
   },
   dragNdropSpan: {
     margin: 'auto',
@@ -75,7 +76,8 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     opacity: 0,
     cursor: 'pointer',
-    zIndex: 10
+    zIndex: 10,
+    
   },
   dragNdropIconContainerFill: {
     // background: 'rgba(0, 0, 0, 0.5)',
@@ -105,7 +107,18 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    zIndex: 1
+    zIndex: 1,
+    [theme.breakpoints.down(900)]: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)',
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      maxWidth: '50% !important',
+      width: '50% !important',
+    },
   },
   inline: {
     fontFamily: 'Open Sans',
