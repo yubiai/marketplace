@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { Fab } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -299,9 +300,12 @@ export default function AddItem() {
     setCategory(event3.target.value3);
   };
 
+  const global = useGlobal();
+
   return (
     <form noValidate autoComplete="off">
       <div>
+        {global.prices && global.prices.ubi * global.prices.arg} 
         <TextField
           id="title"
           label={t("Title")}
