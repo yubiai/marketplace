@@ -264,7 +264,7 @@ contract MultipleArbitrableTokenTransactionWithAppeals is IArbitrable, IEvidence
         _transaction.status = Status.Resolved;
         transactionHashes[_transactionID - 1] = hashTransactionState(_transaction);
 
-        require(_transaction.token.approve(paymentProcessorAddress, _amount), "The `transfer` function must not fail.");
+        require(_transaction.token.approve(paymentProcessorAddress, amount), "The `transfer` function must not fail.");
 
         emit TransactionStateUpdated(_transactionID, _transaction);
         emit TransactionResolved(_transactionID, Resolution.TransactionExecuted);
