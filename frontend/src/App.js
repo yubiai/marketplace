@@ -18,6 +18,7 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
+import Checkout from "./components/checkout/checkout";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -134,6 +135,11 @@ function App() {
               <Layout>
                 <MyInfo />
               </Layout>
+            </Route>
+            <Route path="/checkout">
+              
+                <Checkout />
+              
             </Route>
             {/* <Route path="chat">
             <Layout>

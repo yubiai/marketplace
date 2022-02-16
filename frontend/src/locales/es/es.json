@@ -232,5 +232,8 @@
     },
     "additemJson": {
       "New": "Nuevo"
+    },
+    "checkout": {
+      "Checkout": "Pagar"
     }
   }
