@@ -18,8 +18,10 @@ const question = require("./routes/question/question");
 const cart = require("./routes/cart/cart");
 const shipping = require("./routes/shipping/shipping");
 const message = require("./routes/message/message");
+const pricecoin = require("./routes/pricecoin/pricecoin");
 
 const config = require("./db");
+const { refreshPriceCoin } = require('./worker/refreshPriceCoin');
 
 // Cors
 const whitelist = process.env.WHITELISTED_DOMAINS ? process.env.WHITELISTED_DOMAINS.split(",") : []
@@ -46,10 +48,13 @@ app.use("/api/questions", question);
 app.use("/api/carts", cart);
 app.use("/api/shipping", shipping);
 app.use("/api/messages", message);
+app.use("/api/prices", pricecoin);
 
 app.listen(4000, () => {
   console.log("Server running on port 4000");
 });
+
+refreshPriceCoin();
 
 /* const listenToEvents = () => {
   const provider = new ethers.providers.JsonRpcProvider(

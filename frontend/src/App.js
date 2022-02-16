@@ -18,12 +18,14 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
-
-
 import axios from "axios";
 
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
 axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
+
+// LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
+//axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
+axios.defaults.baseURL = 'http://localhost:4001/api';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -47,13 +49,13 @@ function App() {
   const classes = useStyles();
 
   useEffect(() => {
-    const init = async () => {
-      const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
-      setPaymentProcessor(paymentProcessor);
-      setUbi(ubi);
-      setSignerAddress(signerAddress);
-    };
-    init();
+    // const init = async () => {
+    //   const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
+    //   setPaymentProcessor(paymentProcessor);
+    //   setUbi(ubi);
+    //   setSignerAddress(signerAddress);
+    // };
+    // init();
   }, []);
 
   if (typeof window.ethereum === "undefined") {
