@@ -172,6 +172,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       borderBottom: "none",
       color: "#a9a9a9",
+      cursor: "pointer",
     },
   },
   lang: {
@@ -766,6 +767,93 @@ export default function NavBar() {
       </MenuItem>
       <MenuItem className={classes.listItemText} onClick={handleClose}>
         {t("VideoGames")}
+      </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Agro")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Food and Drinks")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Animal and Pets")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Antiques and Collectibles")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Cars, Motorcycles and Others")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Babies")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Beauty and Personal Care")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Cameras and Accessories")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Cell Phones and Phones")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Computing")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Construction")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Sports and Fitness")}
+      </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Appliances and Air Ac.")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Electronics, Audio and Video")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Tickets for Events")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Tools")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Home, Furniture and Garden")}
+      </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Industries and Offices")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Real Estate")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Musical instruments")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Jewelry and watches")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Games and toys")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Books, Magazines and Comics")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Music, Movies and Series")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Clothes and accessories")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Health and Medical Equipment")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Services")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Souvenirs, Party Favors and Parties")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Other categories")}
       </MenuItem>
     </Menu>
   );
