@@ -12,6 +12,10 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +87,26 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexDirection:"row !important",
   },
-  
+  editDefaultAddress: {
+    fontSize: "14px !important",
+    color: "#00ABD1",
+    position:"relative",
+    top: "-3px"
+
+  },
+  borderDefAddress: {
+    border: "1px solid #323232",
+    boxSizing: "border-box",
+    borderRadius: "5px",
+    height: "33px"
+  },
+  borderNewAddress: {
+    border: "1px solid #BABABA",
+    boxSizing: "border-box",
+    borderRadius: "5px",
+    height: "270px",
+    marginTop: "10px"
+  },
 
 }));
 
@@ -112,16 +135,101 @@ return (
                 defaultValue="defaultAddress"
                 name="radio-buttons-group"
               >
-                <FormControlLabel
-                  value="defaultAddress"
-                  control={<Radio />}
-                  label="Default address"
-                />
-                <FormControlLabel
-                  value="newAddress"
-                  control={<Radio />}
-                  label="New Address"
-                />
+                <div className={classes.borderDefAddress}>
+                  <FormControlLabel
+                     value="defaultAddress"
+                    control={<Radio />}
+                    label="Default address"
+                   />
+                  <Button className={classes.editDefaultAddress}>Edit</Button>
+                </div> 
+                <div className={classes.borderNewAddress}>
+                  <FormControlLabel
+                    value="newAddress"
+                    control={<Radio />}
+                    label="New Address"
+                  />
+                  <LocalShippingIcon />
+                  <DialogTitle
+                    disableTypography
+                    style={{
+                      fontFamily: "Open Sans",
+                      fontSize: "18px",
+                      color: "#BABABA",
+                      height: "27px",
+                      marginTop: "-26px",
+                      marginLeft: "6px",
+                    }}
+                    id="form-dialog-title"
+                  >
+                    {t("New delivery address")}
+                  </DialogTitle>
+                  <DialogContent className={classes.dialogContent}>
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Street")}
+                      type="text"
+                      fullWidth
+                      style={{marginTop: "-4px", marginLeft: "6px", maxWidth: "500px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Number")}
+                      type="numbers"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Apartment/House(Optional)")}
+                      type="text"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Zip Code")}
+                      type="text"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("City")}
+                      type="text"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Province/State")}
+                      type="province"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label={t("Country")}
+                      type="country"
+                      width="204px"
+                      style={{marginTop: "-4px", marginLeft: "6px"}}
+                    />
+                  </DialogContent>
+                </div>
               </RadioGroup>
             </FormControl>
 
