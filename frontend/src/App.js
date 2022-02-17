@@ -18,7 +18,7 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
-
+import Cart from "./components/cart/cart";
 
 import axios from "axios";
 
@@ -141,6 +141,9 @@ function App() {
                 <MyInfo />
               </Layout>
             </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>  
             {/* <Route path="chat">
             <Layout>
               <Chat />
