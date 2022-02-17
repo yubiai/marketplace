@@ -11,6 +11,7 @@ import FormLabel from '@mui/material/FormLabel';
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius:'10px',
     // overflowY: 'scroll',
-    height: '780px',
+    height: '740px',
     maxWidth: '801px',
     width: '100%',
     // [theme.breakpoints.down(628)]: {
@@ -48,6 +49,41 @@ const useStyles = makeStyles((theme) => ({
     //   width: '100%',
     //  },
   },
+  backToShop: {
+    flexDirection:"row",
+    display:"flex",
+    position: "relative",
+    alignItems: "center",
+
+  },
+  backToShopIcon: {
+    width: "17px",
+    height: "23px",
+    position: "relative",
+    top: "-4px"
+  },
+  backToShopText: {
+    fontSize: "20px",
+    fontWeight: "600",
+  },
+  checkoutTitle: {
+    fontSize: "20px",
+    fontWeight: "700",
+  },
+  shippingTitle: {
+    fontSize: "20px",
+    fontWeight: "600",
+  },
+  deliveryTitle: {
+    fontSize: "18px !important",
+    color: "#BABABA !important",
+
+  },
+  deliveryAddress: {
+    alignItems: "center",
+    flexDirection:"row !important",
+  },
+  
 
 }));
 
@@ -59,30 +95,34 @@ export default function Checkout() {
 return (
     <Grid container spacing={2}
           variant="fullWidth"
-          alignItems="left"
-          direction="row"  >
+          alignItems="flex-start"
+          direction="row"
+          justifyContent="center"  >
           <Grid direction="column" item xs={10} md={5} className={classes.gridCheckout}>
-            <h3>{t("Checkout")}</h3>
-            <h4>Shipping Details</h4>
+            <div className={classes.backToShop}>
+              <ArrowBackIosIcon className={classes.backToShopIcon} />
+              <h1 className={classes.backToShopText}>Back to Shopping</h1>
+            </div>  
+            <h3 className={classes.checkoutTitle}>{t("Checkout")}</h3>
+            <h4 className={classes.shippingTitle}>Shipping Details</h4>
             <FormControl>
-                <FormLabel id="address">Select delivery location</FormLabel>
-                <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="default-address"
-                    name="radio-buttons-group"
-                >
-                    <FormControlLabel value="address" control={<Radio />} label={" "} />
-                </RadioGroup>
-            </FormControl>
-            <FormControl>
-                <FormLabel id="address">New Address</FormLabel>
-                <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="default-address"
-                    name="radio-buttons-group"
-                >
-                    <FormControlLabel value="address" control={<Radio />} label={" "} />
-                </RadioGroup>
+              <FormLabel disableTypography className={classes.deliveryTitle} id="address">Select delivery location</FormLabel>
+              <RadioGroup
+                aria-labelledby="deliveryLocations"
+                defaultValue="defaultAddress"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="defaultAddress"
+                  control={<Radio />}
+                  label="Default address"
+                />
+                <FormControlLabel
+                  value="newAddress"
+                  control={<Radio />}
+                  label="New Address"
+                />
+              </RadioGroup>
             </FormControl>
 
           </Grid>
