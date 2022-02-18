@@ -20,15 +20,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#BABABA !important",
 
   },
-  deliveryAddress: {
-    alignItems: "center",
-    flexDirection:"row !important",
+  newDelivAdd: {
+    fontFamily: "Open Sans",
+    fontSize: "18px",
+    color: "#BABABA",
+    height: "27px",
+    marginTop: "-26px",
+    marginLeft: "6px",
   },
   editDefaultAddress: {
     fontSize: "14px !important",
     color: "#00ABD1",
     position:"relative",
-    top: "-3px",
+    top: "-7px",
     textTransform: "none",
   },
   borderDefAddress: {
@@ -55,15 +59,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   radioDefaultAddress: {
-    marginTop: "-5px !important",
+    marginTop: "-3px !important",
     marginLeft:"8px !important",
   },
   radioNewAddress: {
     marginLeft:"8px !important",
   },
   textStreet: {
-    marginTop: "-4px",
-    marginLeft: "6px",
+    marginTop: "6px",
+    marginLeft: "4px",
     width: "100%",
     maxWidth: "500px",
     [theme.breakpoints.down(1200)]: {
@@ -101,6 +105,7 @@ return (
                       value="defaultAddress"
                       control={<Radio className={classes.radioDefaultAddress}/>}
                       label="Default address"
+                      style={{ top: "-3px", position: "relative" }}
                     />
 
                     <Button className={classes.editDefaultAddress}>Edit address</Button>
@@ -114,14 +119,7 @@ return (
                     <LocalShippingIcon />
                     <DialogTitle
                       disableTypography
-                      style={{
-                        fontFamily: "Open Sans",
-                        fontSize: "18px",
-                        color: "#BABABA",
-                        height: "27px",
-                        marginTop: "-26px",
-                        marginLeft: "6px",
-                      }}
+                      className={classes.newDelivAdd}
                       id="form-dialog-title"
                     >
                       {t("New delivery address")}
@@ -132,6 +130,7 @@ return (
                         margin="dense"
                         id="name"
                         label={t("Street")}
+                        variant="outlined"
                         type="text"
                         fullWidth
                         className={classes.textStreet}
@@ -141,54 +140,60 @@ return (
                         margin="dense"
                         id="name"
                         label={t("Number")}
+                        variant="outlined"
                         type="numbers"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                       <TextField
                         autoFocus
                         margin="dense"
                         id="name"
                         label={t("Apartment/House(Optional)")}
+                        variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                       <TextField
                         autoFocus
                         margin="dense"
                         id="name"
                         label={t("Zip Code")}
+                        variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                       <TextField
                         autoFocus
                         margin="dense"
                         id="name"
                         label={t("City")}
+                        variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                       <TextField
                         autoFocus
                         margin="dense"
                         id="name"
                         label={t("Province/State")}
+                        variant="outlined"
                         type="province"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                       <TextField
                         autoFocus
                         margin="dense"
                         id="name"
                         label={t("Country")}
+                        variant="outlined"
                         type="country"
                         width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
+                        style={{marginTop: "2px", marginLeft: "3px"}}
                       />
                     </DialogContent>
                   </div>
