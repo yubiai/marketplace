@@ -17,6 +17,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Link from "@material-ui/core/Link";
+import ShippDetails from "./shippDetails";
+import EscrowPayment from "./escrowPayChk";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,12 +37,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius:'10px',
     // overflowY: 'scroll',
-    height: '740px',
+    height: '730px',
     maxWidth: '801px',
     width: '100%',
-    // [theme.breakpoints.down(628)]: {
-    //   width: '100%',
-    //  },
+    [theme.breakpoints.down('xs')]: {
+      height: '850px',
+     },
   },
   gridSummary: {
     marginTop: '4px' ,
@@ -51,9 +53,11 @@ const useStyles = makeStyles((theme) => ({
     height: '522px',
     maxWidth: '477px',
     width: '100%',
-    // [theme.breakpoints.down(628)]: {
-    //   width: '100%',
-    //  },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      position: 'relative',
+      top: '10px',
+     },
   },
   backToShop: {
     flexDirection:"row",
@@ -86,65 +90,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontWeight: "600",
   },
-  deliveryTitle: {
-    fontSize: "18px !important",
-    color: "#BABABA !important",
-
-  },
-  deliveryAddress: {
-    alignItems: "center",
-    flexDirection:"row !important",
-  },
-  editDefaultAddress: {
-    fontSize: "14px !important",
-    color: "#00ABD1",
-    position:"relative",
-    top: "-3px",
-    textTransform: "none",
-  },
-  borderDefAddress: {
-    border: "1px solid #323232",
-    boxSizing: "border-box",
-    borderRadius: "5px",
-    height: "33px"
-  },
-  borderNewAddress: {
-    border: "1px solid #BABABA",
-    boxSizing: "border-box",
-    borderRadius: "5px",
-    height: "230px",
-    marginTop: "10px",
-    [theme.breakpoints.down(1600)]: {
-      height: "270px",
-    },
-    [theme.breakpoints.down(1200)]: {
-      height: "390px",
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: "390px",
-
-    },
-  },
-  radioDefaultAddress: {
-    marginTop: "-5px !important",
-    marginLeft:"8px !important",
-  },
-  radioNewAddress: {
-    marginLeft:"8px !important",
-  },
-  textStreet: {
-    marginTop: "-4px",
-    marginLeft: "6px",
-    width: "100%",
-    maxWidth: "500px",
-    [theme.breakpoints.down(1200)]: {
-      maxWidth: "300px",
-    },
-    [theme.breakpoints.down('xs')]: {
-      maxWidth: "300px",
-    },
-    
-  },
   shippingMethod: {
     width: "379px",
     height: "32px",
@@ -160,31 +105,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'White',
       },
   },
-  timeBox: {
-    width: "36px",
-    height: "42px",
-    border: "1px solid #BABABA",
-    boxSizing: "border-box",
-    borderRadius: "5px",
-  },
-  borderEscrow: {
-    border: "1px solid #BABABA",
-    boxSizing: "border-box",
-    borderRadius: "5px",
-    height: "126px",
-    marginTop: "10px",
-    [theme.breakpoints.down(1600)]: {
-      height: "200px",
-    },
-    [theme.breakpoints.down(1200)]: {
-      height: "260px",
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: "2600px",
-
-    },
-  },
-  
 }));
 
 export default function Checkout() {
@@ -210,185 +130,12 @@ return (
             <div style={{marginLeft:"15px", marginTop:"20px"}}> 
               <h3 className={classes.checkoutTitle}>{t("Checkout")}</h3>
               <h4 className={classes.shippingTitle}>Shipping Details</h4>
-              <FormControl>
-                <FormLabel disableTypography className={classes.deliveryTitle} id="address">Select delivery location</FormLabel>
-                <RadioGroup
-                  aria-labelledby="deliveryLocations"
-                  defaultValue="defaultAddress"
-                  name="radio-buttons-group"
-                >
-                  <Grid
-                    container
-                    direction="row"
-                    justify="space-between"
-                    alignItems="center"
-                    className={classes.borderDefAddress}>
-                    <FormControlLabel
-                      value="defaultAddress"
-                      control={<Radio className={classes.radioDefaultAddress}/>}
-                      label="Default address"
-                    />
-
-                    <Button className={classes.editDefaultAddress}>Edit address</Button>
-                  </Grid> 
-                  <div className={classes.borderNewAddress}>
-                    <FormControlLabel
-                      value="newAddress"
-                      control={<Radio className={classes.radioNewAddress}/>}
-                      label="New Address"
-                    />
-                    <LocalShippingIcon />
-                    <DialogTitle
-                      disableTypography
-                      style={{
-                        fontFamily: "Open Sans",
-                        fontSize: "18px",
-                        color: "#BABABA",
-                        height: "27px",
-                        marginTop: "-26px",
-                        marginLeft: "6px",
-                      }}
-                      id="form-dialog-title"
-                    >
-                      {t("New delivery address")}
-                    </DialogTitle>
-                    <DialogContent >
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Street")}
-                        type="text"
-                        fullWidth
-                        className={classes.textStreet}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Number")}
-                        type="numbers"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Apartment/House(Optional)")}
-                        type="text"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Zip Code")}
-                        type="text"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("City")}
-                        type="text"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Province/State")}
-                        type="province"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Country")}
-                        type="country"
-                        width="204px"
-                        style={{marginTop: "-4px", marginLeft: "6px"}}
-                      />
-                    </DialogContent>
-                  </div>
-                </RadioGroup>
-              </FormControl>
+              <ShippDetails />
               <div style={{marginTop:"20px"}}>
                 <h4 className={classes.shippingTitle}>Shipping Method</h4>
                 <Button className={classes.shippingMethod}>Manage shipment with the seller</Button>
               </div>
-              <div className={classes.borderEscrow}>
-                
-                    <DialogTitle
-                      disableTypography
-                      style={{
-                        fontFamily: "Open Sans",
-                        fontSize: "18px",
-                        color: "#BABABA",
-                        height: "27px",
-                        
-                        
-                      }}
-                      id="form-dialog-title"
-                    >
-                      {t("Payment waiting on escrow")}
-                    </DialogTitle>
-                    <DialogContent >
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Days")}
-                        type="numbers"
-                        fullWidth
-                        className={classes.timeBox}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Hours")}
-                        type="numbers"
-                        width="204px"
-                        className={classes.timeBox}
-                        style={{ marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("")}
-                        type="text"
-                        className={classes.timeBox}
-                        style={{ marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Minutes")}
-                        type="numbers"
-                        className={classes.timeBox}
-                        style={{ marginLeft: "6px"}}
-                      />
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label={t("Seconds")}
-                        type="text"
-                        className={classes.timeBox}
-                        style={{ marginLeft: "6px"}}
-                      />
-                    </DialogContent>
-              </div>
+                  <EscrowPayment />
             </div>
           </Grid>
           <Grid item xs={10} md={5} className={classes.gridSummary}>
@@ -419,9 +166,7 @@ return (
                 <ListItemText>Order Total </ListItemText>
                 <ListItemText>Price</ListItemText>
             </ListItem> 
-                      
           </Grid>
-           
-</Grid>
+    </Grid>
   );
 }
