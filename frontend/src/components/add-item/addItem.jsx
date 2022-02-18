@@ -10,6 +10,7 @@ import { Box, Fab, withTheme } from "@material-ui/core";
 import { currencies, categories, conditions } from "./addItemJSON";
 import AddItemPreview from "./addItemPreview";
 import ImageIcon from "@material-ui/icons/Image";
+import { itemService } from '../../services/itemService';
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     height:'180px',
     // width: '180px',
     display: 'flex',
-    
+
   },
   dragNdropSpan: {
     margin: 'auto',
@@ -77,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0,
     cursor: 'pointer',
     zIndex: 10,
-    
+
   },
   dragNdropIconContainerFill: {
     // background: 'rgba(0, 0, 0, 0.5)',
@@ -303,6 +304,18 @@ export default function AddItem() {
   };
   const getImgFromFile = (fileObj) => {
     return URL.createObjectURL(fileObj);
+  };
+  const submitReview = async () => {
+    const form = new FormData();
+    Object.values(files).forEach((file, index) => {
+      form.append(`file${index}`, file)
+    });
+    form.append('title', name);
+    form.append('price', price);
+    form.append('description', description);
+    form.append('condition', condition);
+
+    await itemService.newItem(form, category);
   };
 
   return (
@@ -540,6 +553,7 @@ export default function AddItem() {
                         productPrice={{value: price, currency}}
                         pictures={pictures}
                         hideItemModal={() => setShowItemPreview(false)}
+                        submitReview={submitReview}
         />
       }
     </Grid>

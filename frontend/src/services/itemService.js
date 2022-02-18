@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken } from './utils';
 
 const SERVER_ENDPOINT = (
   process.env.REACT_APP_BE_SERVER || 'http://localhost:4000');
@@ -17,10 +18,16 @@ async function getItem(itemId = '') {
   );
 }
 
-async function newItem(payload = {}) {
+async function newItem(payload, categoryId) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/items/item`,
-    { ...payload }
+    `${SERVER_ENDPOINT}/api/items/item?categoryId=${categoryId}`,
+    payload,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${getToken()}`
+      }
+    }
   );
 }
 

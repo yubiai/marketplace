@@ -566,7 +566,7 @@ export default function NavBar() {
   const [balance, setBalance] = React.useState(null);
 
   const { t, i18n } = useTranslation("navbar");
-  
+
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -593,18 +593,19 @@ export default function NavBar() {
           .then((resp) => {
             setWalletAddress(resp.data.eth_address);
             setToken(resp.data.token);
+            localStorage.setItem('YBI-token', resp.data.token);
             setProfileInfo({ ...resp.data });
             // Save token and wallet on sessionStorage
             saveLoginInfo(resp.data.token, resp.data.eth_address, {
               display_name: resp.data.display_name,
               photo: resp.data.photo,
             });
-            
+
           });
       });
     }
   };
-  
+
   useEffect(async () => {
     await setupEthState().then(async (r) => {
       const { signerAddress } = r;
@@ -634,7 +635,7 @@ export default function NavBar() {
         console.log(err);
       });
   };
-  let ubisAmmount = balance; 
+  let ubisAmmount = balance;
   const handleClose = () => {
     setAnchorEl(null);
     setCategoriesAnchorEl(null);
@@ -891,9 +892,9 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Deutsche
       </MenuItem>
-       
+
     </Menu>
-    
+
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
