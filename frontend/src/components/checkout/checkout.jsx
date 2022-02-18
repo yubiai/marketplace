@@ -99,8 +99,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px !important",
     color: "#00ABD1",
     position:"relative",
-    top: "-3px"
-
+    top: "-3px",
+    textTransform: "none",
   },
   borderDefAddress: {
     border: "1px solid #323232",
@@ -217,14 +217,20 @@ return (
                   defaultValue="defaultAddress"
                   name="radio-buttons-group"
                 >
-                  <div className={classes.borderDefAddress}>
+                  <Grid
+                    container
+                    direction="row"
+                    justify="space-between"
+                    alignItems="center"
+                    className={classes.borderDefAddress}>
                     <FormControlLabel
                       value="defaultAddress"
                       control={<Radio className={classes.radioDefaultAddress}/>}
                       label="Default address"
                     />
-                    <Button className={classes.editDefaultAddress}>Edit</Button>
-                  </div> 
+
+                    <Button className={classes.editDefaultAddress}>Edit address</Button>
+                  </Grid> 
                   <div className={classes.borderNewAddress}>
                     <FormControlLabel
                       value="newAddress"
