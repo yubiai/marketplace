@@ -27,9 +27,12 @@ async function getItem(req, res) {
 // Add Product
 async function postItem(req, res) {
   try {
-    const searchCategory = await Category.find({
-      categoryId: req.query.categoryId,
-    })
+    console.log('Req body ...... ', req.body);
+    console.log('Req files ...... ', req.files);
+
+    // const searchCategory = await Category.find({
+    //   categoryId: req.query.categoryId,
+    // })
 
     const reqFiles = [];
 
@@ -46,9 +49,9 @@ async function postItem(req, res) {
     })
 
     searchCategory.map(async (e) => {
-      item.category.push(e._id)
+      //item.category.push(e._id)
       // Hardcode?
-      const pepe = await Category.findById(e._id)
+      //const pepe = await Category.findById(e._id)
       pepe.items.push(item)
       await pepe.save()
       await item.save()

@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer();
+const type = upload.single('recfile');
 
 const itemController = require("../../controllers/item.controller");
-const upload = require("../../middlewares/upload");
+// const upload = require("../../middlewares/upload");
 
 router.route("/item")
     .get(itemController.getItem)
-    .post(upload, itemController.postItem)
+    .post(type, itemController.postItem)
 
 router.route("/item/:slug")
     .get(itemController.getItemSlug)
