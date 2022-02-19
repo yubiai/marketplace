@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "17vh",
+    minHeight: "7vh",
     flexGrow: 1,
     fontSize: "14px",
     bottom: 0,

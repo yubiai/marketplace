@@ -56,41 +56,54 @@ return (
                     >
                       {t("Payment waiting on escrow")}
                     </DialogTitle>
-                    <DialogContent >
+                    <DialogContent style={{height:"82px", flexDirection:"row !important", display:"inline-flex"}} >
                       <TextField
+                        variant="outlined"
                         autoFocus
                         margin="dense"
                         id="name"
-                        label={t("Days")}
+                        label={<p style={{position:"relative", top:"30px", left: "-16px" }}>{t("Days")}</p>}
                         type="numbers"
                         fullWidth
                         className={classes.timeBox}
                       />
                       <TextField
+                        variant="outlined"
                         autoFocus
                         margin="dense"
                         id="name"
-                        label={t("Hours")}
+                        label={<p style={{position:"relative", top:"30px", left: "-1px" }}>{t("Hours")}</p>}
                         type="numbers"
                         width="204px"
                         className={classes.timeBox}
-                        style={{ marginLeft: "6px"}}
+                        style={{ marginLeft: "14px"}}
                       />
                       <TextField
+                        variant="outlined"
                         autoFocus
                         margin="dense"
                         id="name"
-                        label={t("Minutes")}
                         type="numbers"
                         className={classes.timeBox}
                         style={{ marginLeft: "6px"}}
                       />
+                      <p style={{top: "10px", left: "4px", position: "relative", fontSize: "25px", color: "#BABABA"}}>:</p>
                       <TextField
+                        variant="outlined"
                         autoFocus
                         margin="dense"
                         id="name"
-                        label={t("Seconds")}
+                        label={<p style={{position:"relative", top:"30px", left: "-10px" }}>{t("Minutes")}</p>}
                         type="text"
+                        className={classes.timeBox}
+                        style={{ marginLeft: "12px"}}
+                      />
+                      <TextField
+                        variant="outlined"
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        type="numbers"
                         className={classes.timeBox}
                         style={{ marginLeft: "6px"}}
                       />
