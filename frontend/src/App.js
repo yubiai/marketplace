@@ -97,7 +97,7 @@ function App() {
                 <SalesActive />
               </Layout>
             </Route>
-            <Route path="/additem">
+            <Route exact path="/additem">
               <Layout>
                 <AddItem />
               </Layout>

@@ -27,26 +27,27 @@ async function getItem(req, res) {
 // Add Product
 async function postItem(req, res) {
   try {
-    console.log('Req body ...... ', req.body);
-    console.log('Req files ...... ', req.files);
+    
+    const searchCategory = await Category.find({
+      categoryId: req.query.categoryId,
+    })
 
-    // const searchCategory = await Category.find({
-    //   categoryId: req.query.categoryId,
-    // })
-
-    const reqFiles = [];
-
-    for (let index = 0; index < req.files.length; index++) {
-      reqFiles.push(req.files[index].filename)
-    }
+    /*     const reqFiles = [];
+    
+        for (let index = 0; index < req.files.length; index++) {
+          reqFiles.push(req.files[index].filename)
+        }  */
 
     const item = new Item({
       title: req.body.title,
       price: req.body.price,
       description: req.body.description,
-      condition: req.body.condition,
-      picture: reqFiles,
+      condition: req.body.condition
+      //picture: reqFiles,
     })
+
+    await item.save()
+
 
     searchCategory.map(async (e) => {
       //item.category.push(e._id)
@@ -54,14 +55,15 @@ async function postItem(req, res) {
       //const pepe = await Category.findById(e._id)
       pepe.items.push(item)
       await pepe.save()
-      await item.save()
     })
+
+    console.log("Save")
 
     res.status(200).json({
       message: 'Item agregado con éxito!',
     })
   } catch (error) {
-    console.log(error)
+    console.log(error, "aca")
     res.status(400).json({
       message: 'Ups Hubo un error!',
       error: error,
@@ -72,7 +74,7 @@ async function postItem(req, res) {
 // One Product by SLUG
 async function getItemSlug(req, res) {
   try {
-    const item = await Item.find({slug: req.params.slug})
+    const item = await Item.find({ slug: req.params.slug })
 
     res.status(200).json({
       status: 'ok',

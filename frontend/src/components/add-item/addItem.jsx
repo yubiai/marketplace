@@ -12,6 +12,8 @@ import AddItemPreview from "./addItemPreview";
 import ImageIcon from "@material-ui/icons/Image";
 import { itemService } from '../../services/itemService';
 import { useTranslation } from "react-i18next";
+import AddItemResult from './addItemResult';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,16 +23,16 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   gridRoot: {
-    marginTop: '4px' ,
+    marginTop: '4px',
     marginLeft: '1rem',
     backgroundColor: 'white',
-    borderRadius:'20px',
+    borderRadius: '20px',
     overflowY: 'scroll',
     height: '680px',
     width: '700px',
     [theme.breakpoints.down(628)]: {
       width: '100%',
-     },
+    },
   },
   gridCondition: {
     // backgroundColor: 'white',
@@ -47,19 +49,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#000000"
   },
   productImages: {
-  width: 146,
-  height: 25,
-  fontFamily: 'Open Sans',
-  fontSize: 18,
-  fontWeight: "700",
-  fontStyle: "normal",
-  letterSpacing: 0,
-  color: "rgba(57, 57, 57, 0.85)"
-},
+    width: 146,
+    height: 25,
+    fontFamily: 'Open Sans',
+    fontSize: 18,
+    fontWeight: "700",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    color: "rgba(57, 57, 57, 0.85)"
+  },
   dragNdropBox: {
     position: 'relative',
     border: '1px dashed grey',
-    height:'180px',
+    height: '180px',
     // width: '180px',
     display: 'flex',
 
@@ -124,15 +126,15 @@ const useStyles = makeStyles((theme) => ({
   inline: {
     fontFamily: 'Open Sans',
     display: 'flex',
-    marginTop:'-0.5rem',
+    marginTop: '-0.5rem',
   },
   listItem: {
     borderRadius: '20px',
-    height:'117px',
+    height: '117px',
     backgroundColor: 'white',
     fontFamily: 'Open Sans',
   },
-  listItemText:{
+  listItemText: {
     fontFamily: 'Open Sans',
     marginLeft: '20px',
     [theme.breakpoints.down('xs')]: {
@@ -150,11 +152,11 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonThreeDots: {
     outline: 'none',
-    display:'flex',
+    display: 'flex',
     maxBlockSize: '50px',
-    width:50,
+    width: 50,
     '&:hover, &:focus, &:active': {
-    outline: 'none !important',
+      outline: 'none !important',
     },
     '&:hover': {
       backgroundColor: 'white',
@@ -162,8 +164,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     width: '100%',
-    margin:'5px',
-    color:'black'
+    margin: '5px',
+    color: 'black'
   },
   divPrice: {
     display: 'flex',
@@ -172,25 +174,25 @@ const useStyles = makeStyles((theme) => ({
   },
   price: {
     width: '223px',
-    margin:'5px'
-    },
+    margin: '5px'
+  },
   currency: {
     width: '78px',
-    margin:'5px'
+    margin: '5px'
   },
   condition: {
     m: 1,
     width: '100%',
     color: 'black',
-    margin:'5px'
+    margin: '5px'
   },
   gridCategory: {
-    display:"grid"
+    display: "grid"
   },
   category: {
     m: 1,
     width: '100%',
-    margin:'5px',
+    margin: '5px',
     marginTop: "-31px",
     [theme.breakpoints.down('xs')]: {
       // display: 'flex',
@@ -202,11 +204,11 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     width: '100%',
-    margin:'5px'
+    margin: '5px'
   },
   imguploader: {
     width: '100%',
-    margin:'5px'
+    margin: '5px'
   },
   addPhotoButton: {
     color: 'gray',
@@ -218,9 +220,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent',
     outline: 'none !important',
     '&:hover, &:focus, &:active': {
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-        outline: 'none !important',
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      outline: 'none !important',
     },
     '&:hover': {
       outline: 'none !important',
@@ -228,17 +230,17 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     width: '200px',
-    margin:'10px',
+    margin: '10px',
     color: 'white',
     // marginLeft: "92.5ch",
     backgroundColor: '#00ABD1',
     '&:hover, &:focus, &:active': {
       outline: 'none !important',
-      },
-      '&:hover': {
-        color: '#00ABD1',
-        backgroundColor: 'White',
-      }
+    },
+    '&:hover': {
+      color: '#00ABD1',
+      backgroundColor: 'White',
+    }
   },
   label: {
     marginLeft: '8px',
@@ -267,6 +269,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AddItem() {
   const classes = useStyles();
   const [showItemPreview, setShowItemPreview] = React.useState(false);
+  const [showItemResult, setShowItemResult] = React.useState(false);
   const { t, i18n } = useTranslation("additem");
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
@@ -274,6 +277,7 @@ export default function AddItem() {
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [price, setPrice] = React.useState(0);
+  const history = useHistory();
 
   // File definitions
   const fileInputFieldSt = React.useRef(null);
@@ -315,59 +319,76 @@ export default function AddItem() {
     form.append('description', description);
     form.append('condition', condition);
 
-    await itemService.newItem(form, category);
+    let newData = {
+      title: name,
+      description: description,
+      price: price,
+      condition: condition
+    }
+    console.log(newData)
+    await itemService.newItem(newData, category)
+      .then((res) => {
+        // Si sale todo bien
+        console.log(res, "res")
+        setShowItemPreview(false);
+        setShowItemResult(true);
+      })
+      .catch((err) => {
+        // Si sale algo mal
+        console.log(err, "err");
+      })
   };
 
   return (
     <Grid container spacing={2}
-          variant="fullWidth"
-          alignItems="left" className={classes.gridRoot} >
+      variant="fullWidth"
+      alignItems="left" className={classes.gridRoot} >
 
       {/* <form noValidate autoComplete="off"> */}
       <Grid item xs={10} md={5} className={classes.gridCondition}>
-      {/* <InputLabel id="condition">Condition</InputLabel> */}
-      <div>
-      <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
-      </div>
+        {/* <InputLabel id="condition">Condition</InputLabel> */}
+        <div>
+          <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
+        </div>
         <label className={classes.label}>
           {t("Condition")}
         </label>
         <Select
-              labelId="demo-simple-select-label"
-              id="condition"
-              value={condition}
-              onChange={ev => setCondition(ev.target.value)}
-              className={classes.condition}
-              label="Condition"
-              variant="outlined"
-              helperText="Please select your condition"
-            >{conditions.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
+          labelId="demo-simple-select-label"
+          id="condition"
+          value={condition}
+          onChange={ev => setCondition(ev.target.value)}
+          className={classes.condition}
+          label="Condition"
+          variant="outlined"
+          helperText="Please select your condition"
+        >{conditions.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
         </Select>
       </Grid>
 
-      <Grid item xs={10} md={5}  alignItems="flex-end" className={classes.gridCategory} >
+      <Grid item xs={10} md={5} alignItems="flex-end" className={classes.gridCategory} >
         {/* <InputLabel id="category">Category</InputLabel> */}
         <label className={classes.labelCategory}>
           {t("Category")}
         </label>
         <Select
-              labelId="demo-simple-select-label"
-              id="category"
-              value={category}
-              onChange={ev => setCategory(ev.target.value)}
-              className={classes.category}
-              label="Category"
-              variant="outlined"
-            >{categories.map((option) => (
-              <MenuItem  key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </Select>
+          labelId="demo-simple-select-label"
+          id="category"
+          value={category}
+          onChange={ev => setCategory(ev.target.value)}
+          className={classes.category}
+          label="Category"
+          variant="outlined"
+        >{categories.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+        </Select>
       </Grid>
 
       <Grid item xs={10} md={10} >
@@ -375,64 +396,64 @@ export default function AddItem() {
           {t("Name")}
         </label>
         <TextField id="title"
-                  label={t("Enter item name, model & manufacturer")}
-                  type="text"
-                  name="title"
-                  className={classes.title}
-                  variant="outlined"
-                  value={name}
-                  onChange={ev => setName(ev.target.value)}
-                  placeholder="Title" />
+          label={t("Enter item name, model & manufacturer")}
+          type="text"
+          name="title"
+          className={classes.title}
+          variant="outlined"
+          value={name}
+          onChange={ev => setName(ev.target.value)}
+          placeholder="Title" />
       </Grid>
       <Grid item xs={10} md={10}>
         <label className={classes.label}>
-        {t("Description")}
+          {t("Description")}
         </label>
         <TextField id="description"
-                    aria-label="minimum height"
-                    minRows={4}
-                    multiline
-                    placeholder={t("Write a detailed description of your item")}
-                    onChange={ev => setDescription(ev.target.value)}
-                    value={description}
-                    className={classes.description}
-                    variant="outlined" />
+          aria-label="minimum height"
+          minRows={4}
+          multiline
+          placeholder={t("Write a detailed description of your item")}
+          onChange={ev => setDescription(ev.target.value)}
+          value={description}
+          className={classes.description}
+          variant="outlined" />
       </Grid>
       <div>
-      <label className={classes.labelPrice}>
-        {t("Price")}
-      </label>
-      <div className={classes.divPrice}>
-      <Grid item xs={10} md={3}>
+        <label className={classes.labelPrice}>
+          {t("Price")}
+        </label>
+        <div className={classes.divPrice}>
+          <Grid item xs={10} md={3}>
 
-        <TextField
-                id="standard-select-currency"
-                select
-                className={classes.currency}
-                label={t("Currency")}
-                value={currency}
-                variant="outlined"
-                onChange={ev => setCurrency(ev.target.value)}
-                type="text"
-              >{currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-        </TextField>
-      </Grid>
-      <Grid item xs={10} md={3}>
-        <TextField id="price"
-                  label="0.00"
-                  type="number"
-                  name="price"
-                  onChange={ev => setPrice(ev.target.value)}
-                  value={price}
-                  className={classes.price}
-                  variant="outlined"
-                  placeholder="Price" />
-      </Grid>
-      </div>
+            <TextField
+              id="standard-select-currency"
+              select
+              className={classes.currency}
+              label={t("Currency")}
+              value={currency}
+              variant="outlined"
+              onChange={ev => setCurrency(ev.target.value)}
+              type="text"
+            >{currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+            </TextField>
+          </Grid>
+          <Grid item xs={10} md={3}>
+            <TextField id="price"
+              label="0.00"
+              type="number"
+              name="price"
+              onChange={ev => setPrice(ev.target.value)}
+              value={price}
+              className={classes.price}
+              variant="outlined"
+              placeholder="Price" />
+          </Grid>
+        </div>
       </div>
       <Grid item xs={10} md={10} >
         <h3 className={classes.productImages}>{t("Product Images")}</h3>
@@ -459,102 +480,112 @@ export default function AddItem() {
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
           <div className={
-            `${classes.dragNdropIconContainer} ${files.fileOne ? classes.dragNdropIconContainerFill: ''}`}>
+            `${classes.dragNdropIconContainer} ${files.fileOne ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
-                      style={{
-                        color: 'gray',
-                        width: '45px',
-                        height: '36px',
-                        display: 'block'}
-                      } />
+              style={{
+                color: 'gray',
+                width: '45px',
+                height: '36px',
+                display: 'block'
+              }
+              } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           </div>
           {
             files.fileOne &&
             <img className={classes.dragNDropPictRender}
-                src={getImgFromFile(files.fileOne)}
-                alt="Image one" />
+              src={getImgFromFile(files.fileOne)}
+              alt="Image one" />
           }
           <input className={classes.dragNdropInput}
-                accept="image/*"
-                onChange={ev => setFile(ev, 'fileOne')}
-                type="file"
-                ref={fileInputFieldSt}
+            accept="image/*"
+            onChange={ev => setFile(ev, 'fileOne')}
+            type="file"
+            ref={fileInputFieldSt}
           />
         </Box>
       </Grid>
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
           <div className={
-            `${classes.dragNdropIconContainer} ${files.fileTwo ? classes.dragNdropIconContainerFill: ''}`}>
+            `${classes.dragNdropIconContainer} ${files.fileTwo ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
-                      style={{
-                        color: 'gray',
-                        width: '45px',
-                        height: '36px',
-                        display: 'block'}
-                      } />
+              style={{
+                color: 'gray',
+                width: '45px',
+                height: '36px',
+                display: 'block'
+              }
+              } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")} </span>
           </div>
           {
             files.fileTwo &&
             <img className={classes.dragNDropPictRender}
-                src={getImgFromFile(files.fileTwo)}
-                alt="Image two" />
+              src={getImgFromFile(files.fileTwo)}
+              alt="Image two" />
           }
           <input className={classes.dragNdropInput}
-                onChange={ev => setFile(ev, 'fileTwo')}
-                type="file"
-                accept="image/*"
-                ref={fileInputFieldNd} />
+            onChange={ev => setFile(ev, 'fileTwo')}
+            type="file"
+            accept="image/*"
+            ref={fileInputFieldNd} />
         </Box>
       </Grid>
 
-        <Grid item xs={10} md={3}  >
+      <Grid item xs={10} md={3}  >
         <Box component="div" className={classes.dragNdropBox}>
           <div className={
-            `${classes.dragNdropIconContainer} ${files.fileThree ? classes.dragNdropIconContainerFill: ''}`}>
+            `${classes.dragNdropIconContainer} ${files.fileThree ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
-                      style={{
-                        color: 'gray',
-                        width: '45px',
-                        height: '36px',
-                        display: 'block'}
-                      } />
+              style={{
+                color: 'gray',
+                width: '45px',
+                height: '36px',
+                display: 'block'
+              }
+              } />
             <span className={classes.dragNdropSpan}>{t("Drag & drop a photo or Browse")}</span>
           </div>
           {
             files.fileThree &&
             <img className={classes.dragNDropPictRender}
-                src={getImgFromFile(files.fileThree)}
-                alt="Image three" />
+              src={getImgFromFile(files.fileThree)}
+              alt="Image three" />
           }
           <input className={classes.dragNdropInput}
-              type="file"
-              onChange={ev => setFile(ev, 'fileThree')}
-              type="file"
-              accept="image/*"
-              ref={fileInputFieldRd} />
+            type="file"
+            onChange={ev => setFile(ev, 'fileThree')}
+            type="file"
+            accept="image/*"
+            ref={fileInputFieldRd} />
         </Box>
       </Grid>
       <Grid item xs={10} md={10}>
         <Button type="submit" value="Submit" variant="contained"
-                className={classes.submit}
-                onClick={openModal}>
+          className={classes.submit}
+          onClick={openModal}>
           {t("Preview & Submit for review")}
         </Button>
       </Grid>
       {/* </form> */}
-      <div sx={{ marginBottom: '200ch'}}>&nbsp;<br></br></div>
+      <div sx={{ marginBottom: '200ch' }}>&nbsp;<br></br></div>
       {
         showItemPreview &&
         <AddItemPreview productName={name}
-                        productDescription={description}
-                        productPrice={{value: price, currency}}
-                        pictures={pictures}
-                        hideItemModal={() => setShowItemPreview(false)}
-                        submitReview={submitReview}
-        />
+          productDescription={description}
+          productPrice={{ value: price, currency }}
+          pictures={pictures}
+          hideItemModal={() => setShowItemPreview(false)}
+          submitReview={submitReview}
+        />  
+      }
+      {showItemResult &&
+        <AddItemResult hideItemModal={() => {
+          setShowItemResult(false)
+          history.push("/")
+        }}
+          text="Hola" />
       }
     </Grid>
   );

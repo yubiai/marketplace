@@ -17,6 +17,7 @@ mongoose
   })
   .then(function () {
     console.log("Conectado a la Base de Datos con éxito!");
+    console.log(process.env.MONGODB_URL)
   })
   .catch(function (err) {
     console.log("Ups! Hubo un error al conectar con la base de datos!");
