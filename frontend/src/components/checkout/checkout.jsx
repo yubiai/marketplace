@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -19,7 +20,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Link from "@material-ui/core/Link";
 import ShippDetails from "./shippDetails";
 import EscrowPayment from "./escrowPayChk";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -207,12 +208,14 @@ const useStyles = makeStyles((theme) => ({
   },
   payEscButGrid:{
     marginTop:"20px",
+    justifyContent:"center",
+    display: "flex",
   },
   payWEscrow: {
     width: "210px",
     height: "32px",
     marginTop: "10px",
-    backgroundColor: "#BABABA80",
+    backgroundColor: "#BABABA80 !important",
     borderRadius: "5px",
     fontSize: "16px",
     lineHeight: "24px",
@@ -224,6 +227,18 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   
+}));
+
+const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.white,
+    borderRadius:"5px",
+    fontSize:"14px",
+    color:"black",
+    marginLeft: "10px",
+  },
 }));
 
 export default function Checkout() {
@@ -257,6 +272,7 @@ return (
                   <EscrowPayment />
             </div>
           </Grid>
+        <Grid direction="column" style={{height:"677px"}}>  
           <Grid item xs={10} md={5} className={classes.gridSummary}>
             <h3 className={classes. orderSumTitle}>Order Summary</h3>
             <Grid variant="fullWidth"
@@ -328,11 +344,12 @@ return (
                 </Grid>  
             </Grid>
              <Grid className={classes.payEscButGrid}>
-              <Tooltip title="Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment." arrow>
+              <LightTooltip  title="Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment." arrow>
                 <Button className={classes.payWEscrow}>Pay with Escrow</Button>
-              </Tooltip>
+              </LightTooltip>
             </Grid>
           </Grid>
+        </Grid>  
      </Grid>
   );
 }
