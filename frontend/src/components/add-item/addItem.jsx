@@ -312,21 +312,14 @@ export default function AddItem() {
   const submitReview = async () => {
     const form = new FormData();
     Object.values(files).forEach((file, index) => {
-      form.append(`file${index}`, file)
+      form.append('file', file)
     });
     form.append('title', name);
     form.append('price', price);
     form.append('description', description);
     form.append('condition', condition);
 
-    let newData = {
-      title: name,
-      description: description,
-      price: price,
-      condition: condition
-    }
-    console.log(newData)
-    await itemService.newItem(newData, category)
+    await itemService.newItem(form, category)
       .then((res) => {
         // Si sale todo bien
         console.log(res, "res")
