@@ -17,7 +17,7 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import LoyaltyOutlinedIcon from "@material-ui/icons/LoyaltyOutlined";
 import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
 import AddToQueueOutlinedIcon from "@material-ui/icons/AddToQueueOutlined";
@@ -956,7 +956,7 @@ export default function NavBar() {
         <p className={classes.menuMobileItemLabel}>{t("Categories")}</p>
       </MenuItem>
       <MenuItem>
-        <Router>
+        {/* <Router> */}
           <IconButton color="inherit">
             <Link to="/additem">
               <Badge color="secondary">
@@ -969,7 +969,7 @@ export default function NavBar() {
               </Badge>
             </Link>
           </IconButton>
-        </Router>
+        {/* </Router> */}
       </MenuItem>
       <MenuItem>
         <Router>
@@ -1136,9 +1136,10 @@ export default function NavBar() {
                           {t("Categories")}
                           <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                         </ListItemText>
-                        <Link className={classes.link} to="/additem">
-                          {t("Sell")}
-                        </Link>
+                        <a className={classes.link} target="_self" href="/additem" >{t("Sell")}</a>
+                        {/* <Link className={classes.link} to="/additem">
+                              {t("Sell")}
+                        </Link> */}
                         <Link className={classes.link} to="/browsinghistory">
                           {t("Browsing history")}
                         </Link>
