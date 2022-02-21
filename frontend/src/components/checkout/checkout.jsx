@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '801px',
     width: '100%',
     [theme.breakpoints.down('xs')]: {
-      height: '850px',
+      height: '880px',
      },
   },
   gridSummary: {
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontWeight: "600",
     color: "#000000",
-  
+    paddingTop: "7px",
   },
   dividerSummary: {
     backgroundColor: "gray",
@@ -274,7 +274,7 @@ return (
           </Grid>
         <Grid direction="column" style={{height:"677px"}}>  
           <Grid item xs={10} md={5} className={classes.gridSummary}>
-            <h3 className={classes. orderSumTitle}>{t("Order Summary")}</h3>
+            <h3 className={classes.orderSumTitle}>{t("Order Summary")}</h3>
             <Grid variant="fullWidth"
                   alignItems="flex-start"
                   direction="row"

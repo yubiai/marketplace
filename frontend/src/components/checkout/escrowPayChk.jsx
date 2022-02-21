@@ -13,16 +13,16 @@ const useStyles = makeStyles((theme) => ({
         boxSizing: "border-box",
         borderRadius: "5px",
         '& label.Mui-focused': {
-    color: '#00ABD1',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#00ABD1',
-    },
-    '& .MuiOutlinedInput-root': {
-      '&.Mui-focused fieldset': {
-        borderColor: '#00ABD1',
-      },
-    },
+        color: '#00ABD1',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: '#00ABD1',
+        },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: '#00ABD1',
+          },
+       },
     },
     borderEscrow: {
         border: "1px solid #BABABA",
