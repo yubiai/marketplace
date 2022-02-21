@@ -226,7 +226,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'White',
       },
   },
-  
+  responOrderSum: {
+    marginLeft: "17px",
+    marginRight: "10px",
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: "17px",
+      marginRight: "10px",
+     },
+  },
 }));
 
 const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -274,6 +281,7 @@ return (
           </Grid>
         <Grid direction="column" style={{height:"677px"}}>  
           <Grid item xs={10} md={5} className={classes.gridSummary}>
+           <div className={classes.responOrderSum}>
             <h3 className={classes.orderSumTitle}>{t("Order Summary")}</h3>
             <Grid variant="fullWidth"
                   alignItems="flex-start"
@@ -341,8 +349,9 @@ return (
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
                   <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
-                </Grid>  
+                </Grid>
             </Grid>
+            </div> 
              <Grid className={classes.payEscButGrid}>
               <LightTooltip  title={t("Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment.")} arrow>
                 <Button className={classes.payWEscrow}>{t("Pay with Escrow")}</Button>
