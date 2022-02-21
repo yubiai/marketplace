@@ -234,6 +234,34 @@
       "New": "Nuevo"
     },
     "checkout": {
-      "Checkout": "Pagar"
-    }
+      "Checkout": "Pagar",
+      "Back to Shopping": "Seguir comprando",
+      "Shipping Details": "Detalles de envío",
+      "Shipping Method": "Método de envío",
+      "Manage shipment with the seller": "Gestionar el envío con el vendedor",
+      "Order Summary": "Resumen de la compra",
+      "Sub total": "Subtotal",
+      "Yubiai Fee": "Comisión de Yubiai",
+      "UBI Burner Fee": "Comisión de UBI Burner",
+      "Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment.": "Una vez establecido el tiempo de retención del pago en el depósito en garantía, el vendedor asignará el periodo de tiempo de retención, y luego podrá enviar el pago.",
+      "Order Total": "Total"
+    },
+    "shippDetails": {
+      "Default address": "Dirección predeterminada",
+      "New Address": "Nueva dirección",
+      "New delivery address": "Nueva dirección de envío",
+      "Street": "Calle",
+      "Number": "Número",
+      "Apartment/House(Optional)":"Departamento/Piso(Opcional)",
+      "Zip Code": "Código postal",
+      "City": "Localidad",
+      "Province/State": "Provincia",
+      "Country": "País"
+    },
+    "escrowCheckout": {
+      "Payment waiting on escrow": "Pago en espera en el contrato inteligente del depósito en garantía",
+      "Days": "Días",
+      "Hours": "Horas",
+      "Minutes": "Minutos"
   }
+}

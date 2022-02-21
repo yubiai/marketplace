@@ -258,23 +258,23 @@ return (
             <div className={classes.backToShop}>
               <Link className={classes.backToShopText}>
               <ArrowBackIosIcon className={classes.backToShopIcon} />
-              Back to Shopping
+              {t("Back to Shopping")}
               </Link>
             </div>
             <div style={{marginLeft:"15px", marginTop:"20px"}}> 
               <h3 className={classes.checkoutTitle}>{t("Checkout")}</h3>
-              <h4 className={classes.shippingTitle}>Shipping Details</h4>
+              <h4 className={classes.shippingTitle}>{t("Shipping Details")}</h4>
               <ShippDetails />
               <div style={{marginTop:"20px"}}>
-                <h4 className={classes.shippingTitle}>Shipping Method</h4>
-                <Button className={classes.shippingMethod}>Manage shipment with the seller</Button>
+                <h4 className={classes.shippingTitle}>{t("Shipping Method")}</h4>
+                <Button className={classes.shippingMethod}>{t("Manage shipment with the seller")}</Button>
               </div>
                   <EscrowPayment />
             </div>
           </Grid>
         <Grid direction="column" style={{height:"677px"}}>  
           <Grid item xs={10} md={5} className={classes.gridSummary}>
-            <h3 className={classes. orderSumTitle}>Order Summary</h3>
+            <h3 className={classes. orderSumTitle}>{t("Order Summary")}</h3>
             <Grid variant="fullWidth"
                   alignItems="flex-start"
                   direction="row"
@@ -303,7 +303,7 @@ return (
                   direction="row"
                   justify="space-between"
                   className={classes.subtotalGrid}> 
-                <p className={classes.subtotalTitle}>Sub total </p>
+                <p className={classes.subtotalTitle}>{t("Sub total")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
                   <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
@@ -314,7 +314,7 @@ return (
                   direction="row"
                   justify="space-between"
                   className={classes.yubFeeGrid}> 
-                <p className={classes.YubFeeTitle}>Yubiai Fee </p>
+                <p className={classes.YubFeeTitle}>{t("Yubiai Fee")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
                   <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
@@ -325,7 +325,7 @@ return (
                   direction="row"
                   justify="space-between"
                   className={classes.ubiBurnFeeGrid}> 
-                <p className={classes.ubiBurnFeeTitle}>UBI Burner Fee </p>
+                <p className={classes.ubiBurnFeeTitle}>{t("UBI Burner Fee")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
                   <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
@@ -337,15 +337,15 @@ return (
                   direction="row"
                   justify="space-between"
                   className={classes.orderTotalGrid}> 
-                <p className={classes.orderTotalTitle}>Order Total </p>
+                <p className={classes.orderTotalTitle}>{t("Order Total")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
                   <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
                 </Grid>  
             </Grid>
              <Grid className={classes.payEscButGrid}>
-              <LightTooltip  title="Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment." arrow>
-                <Button className={classes.payWEscrow}>Pay with Escrow</Button>
+              <LightTooltip  title={t("Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment.")} arrow>
+                <Button className={classes.payWEscrow}>{t("Pay with Escrow")}</Button>
               </LightTooltip>
             </Grid>
           </Grid>

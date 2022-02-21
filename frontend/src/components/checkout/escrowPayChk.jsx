@@ -7,13 +7,23 @@ import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
     timeBox: {
-            
         width: "36px",
         height: "42px",
         border: "1px solid #BABABA",
         boxSizing: "border-box",
         borderRadius: "5px",
-     },
+        '& label.Mui-focused': {
+    color: '#00ABD1',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#00ABD1',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: '#00ABD1',
+      },
+    },
+    },
     borderEscrow: {
         border: "1px solid #BABABA",
         boxSizing: "border-box",
@@ -27,16 +37,29 @@ const useStyles = makeStyles((theme) => ({
         height: "139px",
         },
         [theme.breakpoints.down('xs')]: {
-        height: "139px",
-
+        height: "159px",
         },
     },
-  
+    paymentTitle: {
+      fontFamily: "Open Sans",
+      fontSize: "18px",
+      color: "#BABABA",
+      height: "27px",
+      [theme.breakpoints.down(1600)]: {
+        marginBottom: "28px",
+        },
+      [theme.breakpoints.down(1200)]: {
+        marginBottom: "28px",
+        },
+      [theme.breakpoints.down('xs')]: {
+          marginBottom: "28px",
+        },
+    },     
 }));
 
 export default function EscrowPayment() {
     const classes = useStyles();
-    const { t, i18n } = useTranslation("checkout");
+    const { t, i18n } = useTranslation("escrowCheckout");
     const [currency, setCurrency] = React.useState('UBI');
 
 return (
@@ -44,14 +67,7 @@ return (
                 
                     <DialogTitle
                       disableTypography
-                      style={{
-                        fontFamily: "Open Sans",
-                        fontSize: "18px",
-                        color: "#BABABA",
-                        height: "27px",
-                        
-                        
-                      }}
+                      className={classes.paymentTitle}
                       id="form-dialog-title"
                     >
                       {t("Payment waiting on escrow")}

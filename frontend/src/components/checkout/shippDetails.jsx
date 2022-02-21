@@ -54,22 +54,39 @@ const useStyles = makeStyles((theme) => ({
       height: "390px",
     },
     [theme.breakpoints.down('xs')]: {
-      height: "390px",
+      height: "400px",
 
     },
   },
   radioDefaultAddress: {
     marginTop: "-3px !important",
     marginLeft:"8px !important",
+    '&.Mui-checked': {
+        color: "#00ABD1 !important",
+      },
   },
   radioNewAddress: {
     marginLeft:"8px !important",
+    '&.Mui-checked': {
+        color: "#00ABD1 !important",
+      },
   },
   textStreet: {
     marginTop: "6px",
     marginLeft: "4px",
     width: "100%",
     maxWidth: "500px",
+    '& label.Mui-focused': {
+    color: '#00ABD1',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#00ABD1',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: '#00ABD1',
+    },
+  },
     [theme.breakpoints.down(1200)]: {
       maxWidth: "300px",
     },
@@ -78,8 +95,21 @@ const useStyles = makeStyles((theme) => ({
     },
     
   },
-  
-  
+  textRest: {
+    marginTop: "2px",
+    marginLeft: "3px",
+    '& label.Mui-focused': {
+    color: '#00ABD1',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#00ABD1',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: '#00ABD1',
+      },
+    },
+  },
 }));
 
 export default function ShippDetails() {
@@ -89,7 +119,7 @@ export default function ShippDetails() {
 
 return (
   <FormControl>
-                <FormLabel disableTypography className={classes.deliveryTitle} id="address">Select delivery location</FormLabel>
+                <FormLabel disableTypography className={classes.deliveryTitle} id="address">{t("Select delivery location")}</FormLabel>
                 <RadioGroup
                   aria-labelledby="deliveryLocations"
                   defaultValue="defaultAddress"
@@ -103,18 +133,19 @@ return (
                     className={classes.borderDefAddress}>
                     <FormControlLabel
                       value="defaultAddress"
-                      control={<Radio className={classes.radioDefaultAddress}/>}
-                      label="Default address"
+                      control={<Radio className={classes.radioDefaultAddress}
+                      />}
+                      label={t("Default address")}
                       style={{ top: "-3px", position: "relative" }}
                     />
 
-                    <Button className={classes.editDefaultAddress}>Edit address</Button>
+                    <Button className={classes.editDefaultAddress}>{t("Edit address")}</Button>
                   </Grid> 
                   <div className={classes.borderNewAddress}>
                     <FormControlLabel
                       value="newAddress"
                       control={<Radio className={classes.radioNewAddress}/>}
-                      label="New Address"
+                      label={t("New Address")}
                     />
                     <LocalShippingIcon />
                     <DialogTitle
@@ -143,7 +174,7 @@ return (
                         variant="outlined"
                         type="numbers"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                       <TextField
                         autoFocus
@@ -153,7 +184,7 @@ return (
                         variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                       <TextField
                         autoFocus
@@ -163,7 +194,7 @@ return (
                         variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                       <TextField
                         autoFocus
@@ -173,7 +204,7 @@ return (
                         variant="outlined"
                         type="text"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                       <TextField
                         autoFocus
@@ -183,7 +214,7 @@ return (
                         variant="outlined"
                         type="province"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                       <TextField
                         autoFocus
@@ -193,7 +224,7 @@ return (
                         variant="outlined"
                         type="country"
                         width="204px"
-                        style={{marginTop: "2px", marginLeft: "3px"}}
+                        className={classes.textRest}
                       />
                     </DialogContent>
                   </div>
