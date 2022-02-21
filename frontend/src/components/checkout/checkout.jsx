@@ -210,6 +210,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop:"20px",
     justifyContent:"center",
     display: "flex",
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '5px',
+     },
   },
   payWEscrow: {
     width: "210px",
@@ -353,7 +356,7 @@ return (
             </Grid>
             </div> 
              <Grid className={classes.payEscButGrid}>
-              <LightTooltip  title={t("Once settled the time of the payment being held on the escrow and the seller assign it, you will be able to send the payment.")} arrow>
+              <LightTooltip  title={t("Once both parts have agreed on the time of the payment being held on the escrow, the seller will assign it and you will be able to send the payment.")} arrow>
                 <Button className={classes.payWEscrow}>{t("Pay with Escrow")}</Button>
               </LightTooltip>
             </Grid>

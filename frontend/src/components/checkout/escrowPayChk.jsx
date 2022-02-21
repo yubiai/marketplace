@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiOutlinedInput-root': {
           '&.Mui-focused fieldset': {
             borderColor: '#00ABD1',
+            transform: "none !important",
           },
        },
     },
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         height: "139px",
         },
         [theme.breakpoints.down('xs')]: {
-        height: "159px",
+        height: "179px",
         },
     },
     paymentTitle: {
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "28px",
         },
       [theme.breakpoints.down('xs')]: {
-          marginBottom: "28px",
+          marginBottom: "55px",
         },
     },     
 }));
