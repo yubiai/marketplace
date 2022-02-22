@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: 360,
-    minWidth: 218,
+    maxWidth: "300px",
+    minWidth: "218",
     backgroundColor: "#F5F5F5",
     [theme.breakpoints.down(900)]: {
       maxWidth: "initial",
