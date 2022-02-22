@@ -22,9 +22,9 @@
       "Appliances": "Electrodomésticos",
       "VideoGames": "Videojuegos",
       "Agro":	"Agro",
-      "Food and drinks":	"Alimentos y Bebidas",
-      "Animals and Pets":	"Animales y Mascotas",
-      "Antiques and Collections":	"Antigüedades y Colecciones",
+      "Food and Drinks":	"Alimentos y Bebidas",
+      "Animal and Pets":	"Animales y Mascotas",
+      "Antiques and Collectibles":	"Antigüedades y Colecciones",
       "Cars, Motorcycles and Others":	"Autos, Motos y Otros",
       "Babies":	"Bebés",
       "Beauty and Personal Care":	"Belleza y Cuidado Personal",
@@ -171,7 +171,7 @@
       "Proof of humanity information": "Información de tu perfil en proofofhumanity",
       "My PoH Profile": "Mi Perfíl en PoH",
       "Personal and shipping information": "Información personal y de envío",
-      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información solo será compartida cuando compres un artículo que necesite ser enviado.",
+      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información sólo será compartida cuando compres un artículo que necesite ser enviado.",
       "Real Name": "Nombre real",
       "id": "DNI",
       "Shipping address": "Domicilio",
@@ -234,5 +234,37 @@
     },
     "additemJson": {
       "New": "Nuevo"
-    }
+    },
+    "checkout": {
+      "Checkout": "Pagar",
+      "Back to Shopping": "Seguir comprando",
+      "Shipping Details": "Detalles de envío",
+      "Shipping Method": "Método de envío",
+      "Manage shipment with the seller": "Gestionar el envío con el vendedor",
+      "Order Summary": "Resumen de la compra",
+      "Sub total": "Subtotal",
+      "Yubiai Fee": "Comisión de Yubiai",
+      "UBI Burner Fee": "Comisión de UBI Burner",
+      "Once both parts have agreed on the time of the payment being held on the escrow, the seller will assign it and you will be able to send the payment.": "Una vez acordado el tiempo de retención del pago en el depósito en garantía, el vendedor lo asignará ,y luego podrá enviar el pago.",
+      "Order Total": "Total",
+      "Pay with Escrow": "Pagar con Escrow"
+    },
+    "shippDetails": {
+      "Default address": "Dirección predeterminada",
+      "New Address": "Nueva dirección",
+      "New delivery address": "Nueva dirección de envío",
+      "Street": "Calle",
+      "Number": "Número",
+      "Apartment/House(Optional)":"Departamento/Piso(Opcional)",
+      "Zip Code": "Código postal",
+      "City": "Localidad",
+      "Province/State": "Provincia",
+      "Country": "País"
+    },
+    "escrowCheckout": {
+      "Payment waiting on escrow": "Pago en espera en el contrato inteligente del depósito en garantía(Escrow)",
+      "Days": "Días",
+      "Hours": "Horas",
+      "Minutes": "Minutos"
   }
+}
