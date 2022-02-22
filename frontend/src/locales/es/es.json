@@ -94,7 +94,9 @@
       "Active": "Activas",
       "Complete": "Completas",
       "Mailbox": "Mensajes",
-      "My Info": "Mi Perfil"
+      "My Info": "Mi Perfil",
+      "In review": "En revisión",
+      "Add new product": "Vender"
     },
     "salesactive": {
       "Sales": "Ventas",

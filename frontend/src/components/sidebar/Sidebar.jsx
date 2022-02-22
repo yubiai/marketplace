@@ -245,6 +245,19 @@ export default function NestedList() {
                 button
                 className={classes.nested}
                 component={Link}
+                to="/salesinreview"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("In review")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
                 to="/salescomplete"
               >
                 <ListItemIcon></ListItemIcon>
@@ -252,6 +265,19 @@ export default function NestedList() {
                   disableTypography
                   className={classes.listItemText}
                   primary={t("Complete")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/additem"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Add new product")}
                 />
               </ListItem>
             </List>

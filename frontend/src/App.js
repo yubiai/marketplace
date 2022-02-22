@@ -13,6 +13,7 @@ import Mailbox from "./components/mailbox/Mailbox";
 import OrdersView from "./components/orders/Orders";
 import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
+import SalesInReview from "./components/sales/SalesInReview";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
@@ -95,6 +96,11 @@ function App() {
             <Route path="/salesactive">
               <Layout>
                 <SalesActive />
+              </Layout>
+            </Route>
+            <Route path="/salesinreview">
+              <Layout>
+                <SalesInReview />
               </Layout>
             </Route>
             <Route exact path="/additem">
