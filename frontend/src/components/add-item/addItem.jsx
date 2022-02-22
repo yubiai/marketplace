@@ -279,6 +279,9 @@ export default function AddItem() {
   const [price, setPrice] = React.useState(0);
   const history = useHistory();
 
+  // Wallet User
+  const walletUser = sessionStorage.getItem('wallet');
+
   // File definitions
   const fileInputFieldSt = React.useRef(null);
   const fileInputFieldNd = React.useRef(null);
@@ -318,6 +321,7 @@ export default function AddItem() {
     form.append('price', price);
     form.append('description', description);
     form.append('condition', condition);
+    form.append('seller', walletUser);
 
     await itemService.newItem(form, category)
       .then((res) => {
