@@ -262,7 +262,7 @@
       "Country": "País"
     },
     "escrowCheckout": {
-      "Payment waiting on escrow": "Pago en espera en el contrato inteligente del depósito en garantía(Escrow)",
+      "Payment waiting on escrow": "Pago en espera en el Escrow",
       "Days": "Días",
       "Hours": "Horas",
       "Minutes": "Minutos"

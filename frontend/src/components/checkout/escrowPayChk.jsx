@@ -32,13 +32,13 @@ const useStyles = makeStyles((theme) => ({
         height: "126px",
         marginTop: "10px",
         [theme.breakpoints.down(1600)]: {
-        height: "160px",
+        height: "126px",
         },
         [theme.breakpoints.down(1200)]: {
-        height: "139px",
+        height: "126px",
         },
         [theme.breakpoints.down('xs')]: {
-        height: "179px",
+        height: "126px",
         },
     },
     paymentTitle: {
@@ -46,15 +46,15 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "18px",
       color: "#BABABA",
       height: "27px",
-      [theme.breakpoints.down(1600)]: {
-        marginBottom: "28px",
-        },
-      [theme.breakpoints.down(1200)]: {
-        marginBottom: "28px",
-        },
-      [theme.breakpoints.down('xs')]: {
-          marginBottom: "55px",
-        },
+      // [theme.breakpoints.down(1600)]: {
+      //   marginBottom: "10px",
+      //   },
+      // [theme.breakpoints.down(1200)]: {
+      //   marginBottom: "10px",
+      //   },
+      // [theme.breakpoints.down('xs')]: {
+      //     marginBottom: "10px",
+      //   },
     },     
 }));
 

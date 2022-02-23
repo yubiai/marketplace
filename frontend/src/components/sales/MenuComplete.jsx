@@ -23,7 +23,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       outline: "none !important",
     },
+    [theme.breakpoints.up("xs")]: {
+      display: "none",
+    },
     [theme.breakpoints.down("xs")]: {
+      display: "inline-flex",
       position: "absolute",
       right: "15px",
       top: "18px",
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ShortMenu() {
+export default function MenuComplete() {
   const classes = useStyles();
   const { t } = useTranslation("menusalesactive");
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -60,13 +64,10 @@ export default function ShortMenu() {
 
   const setOptionsBasedOnScreenWidth = useCallback(() => {
     if (window.innerWidth >= 600) {
-      setOptions([t("Pause Sell"), t("Sell a similar item")]);
+      setOptions([t("Details")]);
     } else {
       setOptions([
-        t("Pause Sell"),
-        t("Sell a similar item"),
-        t("View"),
-        t("Edit Item"),
+        t("Details"),
       ]);
     }
   }, [window, setOptions, t]);
@@ -113,25 +114,29 @@ export default function ShortMenu() {
           },
         }}
       >
-        {options.map((option) => (
+      <MenuItem
+        className={classes.link}
+        component={Link}
+        to="/salescompletedetails"
+        onClose={handleClose}
+      >
+        {t("Details")}
+      </MenuItem>
+        {/* {options.map((option) => (
           <MenuItem
             key={option}
             selected={option === "Pyxis"}
             onClick={handleClose}
           >
-            {option === "View" ? (
-              <Link className={classes.link} to="/preview">
-                {t("View")}
-              </Link>
-            ) : option === "Edit Item" ? (
-              <Link className={classes.link} to="/edititem">
-                {t("Edit Item")}
-              </Link>
+            {option === "Details" ? (
+              <a className={classes.link} target="_self" href="/salescompletedetails">
+                {t("Details")}
+              </a>
             ) : (
               option
             )}
           </MenuItem>
-        ))}
+        ))} */}
       </Menu>
     </div>
   );
