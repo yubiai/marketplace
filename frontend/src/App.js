@@ -10,7 +10,9 @@ import Footer from "./components/footer/Footer";
 import MessagesBox from "./components/MessageBox/MessagesBox";
 import Chat from "./components/MessageBox/Chat";
 import Mailbox from "./components/mailbox/Mailbox";
-import OrdersView from "./components/orders/Orders";
+import OrdersView from "./components/orders/OrdersActive";
+import OrdersComplete from "./components/orders/OrdersComplete";
+import OrdersCompleteDetails from "./components/orders/CheckOrdersComplete";
 import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
 import SalesInReview from "./components/sales/SalesInReview";
@@ -71,9 +73,19 @@ function App() {
         </header>
         <div className={classes.body}>
           <Switch>
-            <Route path="/orders">
+            <Route path="/ordersactive">
               <Layout>
                 <OrdersView />
+              </Layout>
+            </Route>
+            <Route path="/orderscomplete">
+              <Layout>
+                <OrdersComplete />
+              </Layout>
+            </Route>
+            <Route path="/checkorderscomplete">
+              <Layout>
+                <OrdersCompleteDetails />
               </Layout>
             </Route>
             <Route

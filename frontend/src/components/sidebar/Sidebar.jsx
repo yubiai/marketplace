@@ -182,7 +182,7 @@ export default function NestedList() {
               : ""
           }`}
         >
-          <ListItem button component={Link} to="/orders">
+          <ListItem button onClick={handleClick}>
             <ListItemIcon>
               <CardGiftcardOutlinedIcon
                 style={{
@@ -199,7 +199,38 @@ export default function NestedList() {
               className={classes.listItemText}
               primary={t("Orders")}
             />
+            {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/ordersactive"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Active")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/orderscomplete"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Complete")}
+                />
+              </ListItem>
+            </List>
+          </Collapse>    
           <ListItem button onClick={handleClick}>
             <ListItemIcon>
               <StorefrontOutlinedIcon

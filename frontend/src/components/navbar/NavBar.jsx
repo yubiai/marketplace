@@ -693,7 +693,7 @@ export default function NavBar() {
         style={{ fontSize: "13px", fontFamily: "Open Sans" }}
         className={classes.listItemText}
         component={Link}
-        to="/orders"
+        to="/ordersactive"
         onClick={handleClose}
       >
         {t("orders")}

@@ -35,19 +35,19 @@ const styles = makeStyles((theme) => ({
       marginTop: "15px",
     },
   },
-  btnPreview: {
+  btnCheckOrder: {
     display: "flex",
     alignItems: "center",
     fontWeight: "500",
     textTransform: "none",
     justifyContent: "space-evenly",
     marginLeft: "auto",
-    marginBottom: "5px",
     borderRadius: "10px",
     backgroundColor: "#00ABD1",
     color: "#fff",
     minWidth: "140px",
     maxWidth: "140px",
+    top: "-0.5rem",
     "&:hover": {
       borderBottom: "none",
       color: "#00ABD1",
@@ -57,15 +57,7 @@ const styles = makeStyles((theme) => ({
       display: "none",
     },
   },
-  menuIconLink: {
-    color: "#000",
-    textDecoration: "none",
-    "&:hover, &:active, &:focus": {
-      color: "#000",
-      textDecoration: "none",
-    },
-  },
-  btnEdit: {
+  btnBuyAgain: {
     display: "flex",
     fontWeight: "500",
     textTransform: "none",
@@ -86,40 +78,13 @@ const styles = makeStyles((theme) => ({
       display: "none",
     },
   },
-   btnDetails: {
-    display: "flex",
-    alignItems: "center",
-    fontWeight: "500",
-    textTransform: "none",
-    justifyContent: "space-evenly",
-    marginLeft: "auto",
-    borderRadius: "10px",
-    backgroundColor: "#00ABD1",
-    color: "#fff",
-    minWidth: "140px",
-    maxWidth: "140px",
-    top: "-2.5rem",
-    "&:hover": {
-      borderBottom: "none",
-      color: "#00ABD1",
-      backgroundColor: "transparent",
+  menuIconLink: {
+    color: "#000",
+    textDecoration: "none",
+    "&:hover, &:active, &:focus": {
+      color: "#000",
+      textDecoration: "none",
     },
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
-  },
-  addItem: {
-    display: "inline-flex",
-    color: "#FFFF",
-    float: "right",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    marginTop: "-2.2rem",
-    marginRight: "2rem",
-    backgroundColor: "#00ABD1",
-    boxShadow: "0px 3px 6px #00000029",
-    borderRadius: "25px",
-    opacity: "1",
   },
   link: {
     display: "flex",
@@ -265,7 +230,30 @@ const styles = makeStyles((theme) => ({
         height: "100%",
         marginTop: "-47px"
       },
-  }
+  },
+  menuMobileIcon: {
+    cursor: "pointer",
+
+    display: "none",
+    paddingRight: 0,
+    [theme.breakpoints.down("xs")]: {
+      display: "block",
+      "&:hover, &:active, &:focus": {
+        // color: '#000',
+        textDecoration: "none",
+        outline: "none",
+      },
+    },
+  },
+  menuIconLink: {
+    color: "#000",
+    textDecoration: "none",
+    "&:hover, &:active, &:focus": {
+      color: "#000",
+      textDecoration: "none",
+      outline: "none",
+    },
+  }, 
 }));
 
 export default styles;

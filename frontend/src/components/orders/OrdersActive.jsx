@@ -39,12 +39,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     fontSize: "14px",
     color: "#000000",
-    fontFamily: "Open Sans",
     textDecorationColor: "transparent",
-    marginLeft: "0.75rem",
-    marginBottom: "0.5rem",
-    marginTop: "-0.25rem",
+    marginTop: "-0.03rem",
+    marginLeft: "0.4rem",
+    marginRight: "-0.75rem",
     justifyContent: "space-evenly",
+    padding: theme.spacing(1),
     alignItems: "center",
     "&:hover": {
       borderBottom: "none",
@@ -157,9 +157,26 @@ export default function AlignItemsList() {
 
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
-      <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link className={classes.link} to="/orders" onClick={handleClick}>
-        {t("Orders")}
+      <Breadcrumbs
+        style={{ marginTop: "-0.75rem" }}
+        separator="›"
+        aria-label="breadcrumb"
+      >
+        <Link
+          className={classes.link}
+          style={{ color: "#808080" }}
+          onClick={handleClick}
+        >
+          {t("Orders")}
+        </Link>
+        <Link
+          className={classes.link}
+          to="/ordersactive"
+          onClick={handleClick}
+          aria-current="page"
+          style={{ marginLeft: "-0.2rem" }}
+        >
+          {t("Active")}
         </Link>
       </Breadcrumbs>
       <Grid
