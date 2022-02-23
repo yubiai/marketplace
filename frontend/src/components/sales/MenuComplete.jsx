@@ -122,21 +122,6 @@ export default function MenuComplete() {
       >
         {t("Details")}
       </MenuItem>
-        {/* {options.map((option) => (
-          <MenuItem
-            key={option}
-            selected={option === "Pyxis"}
-            onClick={handleClose}
-          >
-            {option === "Details" ? (
-              <a className={classes.link} target="_self" href="/salescompletedetails">
-                {t("Details")}
-              </a>
-            ) : (
-              option
-            )}
-          </MenuItem>
-        ))} */}
       </Menu>
     </div>
   );
