@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         boxSizing: "border-box",
         borderRadius: "5px",
         height: "126px",
-        marginTop: "10px",
+        marginTop: "0px",
         [theme.breakpoints.down(1600)]: {
         height: "126px",
         },

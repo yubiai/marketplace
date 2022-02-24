@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     borderRadius: "10px",
     [theme.breakpoints.down(900)]: {
+      flexDirection: "column",
       width: "100% !important",
       maxWidth: "calc(100% - 4rem)",
       flex: 1,
@@ -62,12 +63,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   profileSellerGrid: {
+    backgroundColor: "white",
+    borderRadius: "10px",
+    marginLeft: "7px", height: "100%", maxHeight: "190px",
+    justifyContent: "space-around",
+    width: "30vw",
     [theme.breakpoints.down(960)]: {
       width: "100%",
       marginTop: "10px",
       flex: 1,
       marginLeft: "0 !important",
       maxWidth: "calc(100% - 120px)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "100%",
+      maxHeight: "241px",
+      marginTop: "10px",
     },
     [theme.breakpoints.down(481)]: {
       maxWidth: "initial",
@@ -78,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontWeight: "bold",
     fontFamily: "Open Sans",
+    
   },
   btnSendMsg: {
     display: "flex",
@@ -328,7 +340,7 @@ export default function AlignItemsList() {
         direction="row"
         justifyContent="left"
         alignItems="flex-start"
-        className={classes.transactionBuyerContainer}
+        className={classes.transactionSellerContainer}
         style={{ marginTop: "10px", marginLeft: "1.8rem" }}
       >
         <Grid
@@ -488,15 +500,14 @@ export default function AlignItemsList() {
             item
             xs={5}
             md={5}
-            className={`${classes.listItemGrid} ${classes.profileBuyerGrid}`}
-            style={{
-              backgroundColor: "white",
-              borderRadius: "10px",
-              marginLeft: "7px",
-              height: "190px",
-              justifyContent: "space-around",
-              width: "30vw",
-            }}
+            className={`${classes.listItemGrid} ${classes.profileSellerGrid}`}
+            // style={{
+            //   backgroundColor: "white",
+            //   borderRadius: "10px",
+            //   marginLeft: "7px", height: "100%", maxHeight: "190px",
+            //   justifyContent: "space-around",
+            //   width: "30vw",
+            // }}
           >
           
           <ListItem className={classes.listItem} alignItems="flex-start">

@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     width: "379px",
     height: "32px",
     marginTop: "10px",
+    marginBottom: "10px",
     backgroundColor: "#00ABD1",
     borderRadius: "5px",
     fontSize: "16px",
