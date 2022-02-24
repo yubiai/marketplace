@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "159ch",
     backgroundColor: theme.palette.background.paper,
     fontFamily: "Open Sans",
-    [theme.breakpoints.down(900)]: {
-      marginBottom: 250,
-    },
   },
   inline: {
     fontSize: "11px",
