@@ -21,6 +21,7 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
+import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
 
 const useStyles = makeStyles((theme) => ({
@@ -155,9 +156,10 @@ function App() {
               </Layout>
             </Route>
             <Route path="/checkout">
-              
                 <Checkout />
-              
+            </Route>
+            <Route path="/itemactive">
+                <ItemActive />
             </Route>
             {/* <Route path="chat">
             <Layout>
