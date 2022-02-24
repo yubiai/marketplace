@@ -86,7 +86,7 @@ const styles = makeStyles((theme) => ({
       display: "none",
     },
   },
-   btnDetails: {
+  btnDetails: {
     display: "flex",
     alignItems: "center",
     fontWeight: "500",
@@ -98,7 +98,7 @@ const styles = makeStyles((theme) => ({
     color: "#fff",
     minWidth: "140px",
     maxWidth: "140px",
-    top: "-2.5rem",
+    top: "-0.05rem",
     "&:hover": {
       borderBottom: "none",
       color: "#00ABD1",

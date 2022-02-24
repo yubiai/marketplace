@@ -132,7 +132,7 @@ export default function OrdersComplete() {
               open={Boolean(anchorEl)}
             >
               <MenuItem className={classes.menuIcons}>
-                <Link to="/checkorders" className={classes.menuIconLink}>
+                <Link to="/checkorderscomplete" className={classes.menuIconLink}>
                   {t("Order details")}
                 </Link>
               </MenuItem>
@@ -206,7 +206,7 @@ export default function OrdersComplete() {
               open={Boolean(anchorEl)}
             >
               <MenuItem className={classes.menuIcons}>
-                <Link to="/checkorders" className={classes.menuIconLink}>
+                <Link to="/checkorderscomplete" className={classes.menuIconLink}>
                   {t("Order details")}
                 </Link>
               </MenuItem>
@@ -280,7 +280,7 @@ export default function OrdersComplete() {
               open={Boolean(anchorEl)}
             >
               <MenuItem className={classes.menuIcons}>
-                <Link to="/checkorders" className={classes.menuIconLink}>
+                <Link to="/checkorderscomplete" className={classes.menuIconLink}>
                   {t("Order details")}
                 </Link>
               </MenuItem>

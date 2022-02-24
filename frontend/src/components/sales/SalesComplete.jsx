@@ -63,6 +63,13 @@ export default function SalesComplete() {
           {t("Complete")}
         </Link>
       </Breadcrumbs>
+      <Link to={"/additem"}>
+        <AddCircleOutlinedIcon
+          className={classes.addItem}
+          component={"svg"}
+          primary="AddItem"
+        />
+      </Link>
        <Grid
         container
         spacing={1}
