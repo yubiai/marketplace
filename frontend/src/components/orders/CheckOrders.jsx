@@ -227,7 +227,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     marginBottom: "4px",
     marginLeft: "2rem",
-    height: "67px",
+    height: "100%",
+    maxHeight: "123px",
+    minHeight: "123px",
     width: "100%",
     maxWidth:"528px",
     

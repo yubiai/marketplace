@@ -22,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "159ch",
     backgroundColor: theme.palette.background.paper,
     fontFamily: "Open Sans",
-    [theme.breakpoints.down(900)]: {
-      marginBottom: 250,
-    },
+   
   },
   inline: {
     fontSize: "11px",
@@ -66,7 +64,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     marginBottom: "4px",
     marginLeft: "2rem",
-    height: "67px",
+    height: "100%",
+    maxHeight: "122px",
+    minHeight: "122px",
     width: "100%",
     maxWidth:"528px",
     
@@ -82,6 +82,11 @@ const useStyles = makeStyles((theme) => ({
       flex: 1,
       marginLeft: "0 !important",
       maxWidth: "calc(100% - 120px)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      maxWidth: "445px !important",
+      minWidth: "445px !important",
     },
     [theme.breakpoints.down(481)]: {
       maxWidth: "initial",
@@ -147,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "70px",
     justifyContent: "space-between",
     marginLeft: "auto",
-    marginTop: "-65px",
+    marginTop: "-49px",
   },
   listItemTransaction: {
     height: "auto",
@@ -495,7 +500,9 @@ export default function AlignItemsList() {
               marginLeft: "7px",
               height: "190px",
               justifyContent: "space-around",
-              width: "30vw",
+              width: "100%",
+              maxWidth: "375px",
+              minWidth: "375px",
             }}
           >
           

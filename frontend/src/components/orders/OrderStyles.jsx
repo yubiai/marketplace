@@ -104,7 +104,7 @@ const styles = makeStyles((theme) => ({
     },
   },
   image: {
-    width: "80px",
+    width: "100px",
     height: "80px",
     borderRadius: "10px",
     marginLeft: "1.25rem",
