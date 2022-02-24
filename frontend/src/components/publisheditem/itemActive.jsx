@@ -38,8 +38,9 @@ return (
           direction="colummn"
           justifyContent="center"
           className={classes.gridRoot}
+          style={{maxHeight: '80vh', overflowY: 'scroll'}}
             >
-            <Grid direction="row" >
+            <Grid direction="row">
                  <div style={{flexDirection:"row", display: "flex",border:"1px solid blue", marginTop:"20px"}}>
                     <div style={{flexDirection:"column", display: "flex", width:"100%", maxWidth: "65px", minWidth:"65px",justifyContent:"center", alignItems:"center", border:"1px solid green"}}>
                         <img style={{width:"100%", maxWidth: "60px", minWidth:"60px", height:"%100", maxHeight: "60px", minHeight:"60px", marginBottom: "15px"}}
