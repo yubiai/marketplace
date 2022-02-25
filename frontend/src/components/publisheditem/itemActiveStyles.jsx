@@ -37,8 +37,11 @@ const styles = makeStyles((theme) => ({
         width:"100%",
         maxWidth: "65px",
         minWidth:"65px",
-        justifyContent:"center",
-        alignItems:"center"
+        justifyContent:"flex-end",
+        alignItems:"flex-end",
+        height:"413px",
+        position:"relative",
+        left:"60px",
     },
     sideImage: {
         width:"100%",
@@ -161,7 +164,7 @@ const styles = makeStyles((theme) => ({
     position: "relative",
     top: '48px',
     marginTop: "5px",
-    left: "0.7rem",
+    left: "-2.3rem",
     boxShadow: "0px 3px 6px #00000029",
     opacity: "1",
     width: "45px",
@@ -186,6 +189,7 @@ const styles = makeStyles((theme) => ({
     cursor: "pointer",
     position: "relative",
     top: '45px',
+    left: "-13px",
     marginTop: "5px",
     boxShadow: "0px 3px 6px #00000029",
     opacity: "1",
@@ -292,8 +296,8 @@ const styles = makeStyles((theme) => ({
       color: '#00ABD1',
       backgroundColor: 'White',
     },
-    },
-    btnAddCart: {
+   },
+   btnAddCart: {
     width: "206px",
     height: "32px",
     fontSize: "16px",
@@ -309,14 +313,178 @@ const styles = makeStyles((theme) => ({
     padding: "4px 49px",
     borderRadius: "5px",
     backgroundColor: "rgba(186, 186, 186, 0.5)",
-    // '&:hover, &:focus, &:active': {
-    //   outline: 'none !important',
-    // },
-    // '&:hover': {
-    //   color: 'white',
-    //   backgroundColor: '#00ABD1',
-    // },
-    },            
+    },
+   mainImgNdSellDiv: {
+    flexDirection:"column",
+    display:"flex",
+    justifyContent:"space-between",
+    alignItems:"center"
+  },
+   mainImgDiv: {
+	  display:"flex",
+    flexDirection:"column",
+   	justifyContent:"center",
+    alignItems:"center",
+    height:"-webkit-fill-available",
+  },
+   mainImg: {
+    width:"100%",
+    maxWidth: "500px",
+    minWidth:"500px",
+    height:"%100",
+    maxHeight: "272px",
+    minHeight:"272px"
+  },
+   sellerGrid: {
+    flexDirection:"column",
+    display: "flex"
+  },
+   divider: {
+    width:"100%",
+    maxWidth: "710px",
+    height: "1px",
+    color: "rgba(186, 186, 186, 1)",
+  },
+  dividerFullWidth: {
+    width:"100%",
+    maxWidth: "1188px",
+    height: "1px",
+    color: "rgba(186, 186, 186, 1)",
+    border: "1px solid #BABABA",
+    marginTop: "69px"
+  },
+   sellTitleSpan: {
+    flexDirection:"column",
+    display: "flex"
+  },
+   mainSellerPostsDiv: {
+    flexDirection:"row",
+    display: "flex",
+    widht:"100%",
+    maxWidth: "850px",
+    minWidth:"850px",
+  },
+  firstSellerPostsDiv: {
+    flexDirection:"column",
+    display: "flex",
+    width:"100%",
+    maxWidth: "180px",
+    minWidth:"180px",
+    height:"%100",
+    maxHeight: "163px",
+    minHeight:"163px",
+    justifyContent:"center",
+    alignItems:"center",
+    border: "1px solid #bababa",
+    borderRadius: "5px",
+    marginRight: "20px",
+    marginLeft: "-40px",
+  },
+  secondSellerPostsDiv: {
+    flexDirection:"column",
+    display: "flex",
+    width:"100%",
+    maxWidth: "180px",
+    minWidth:"180px",
+    height:"%100",
+    maxHeight: "163px",
+    minHeight:"163px",
+    justifyContent:"center",
+    alignItems:"center",
+    border: "1px solid #bababa",
+    borderRadius: "5px",
+    marginRight: "20px"
+  },
+  thirdSellerPostsDiv: {
+    flexDirection:"column",
+    display: "flex",
+    width:"100%",
+    maxWidth: "180px",
+    minWidth:"180px",
+    height:"%100",
+    maxHeight: "163px",
+    minHeight:"163px",
+    justifyContent:"center",
+    alignItems:"center",
+    border: "1px solid #bababa",
+    borderRadius: "5px",
+    marginRight: "20px"
+  },
+  fourthSellerPostsDiv: {
+    flexDirection:"column",
+    display: "flex",
+    width:"100%",
+    maxWidth: "180px",
+    minWidth:"180px",
+    height:"%100",
+    maxHeight: "163px",
+    minHeight:"163px",
+    justifyContent:"center",
+    alignItems:"center",
+    border: "1px solid #bababa",
+    borderRadius: "5px",
+
+  },
+  firstSellerImg: {
+    width:"100%",
+    maxWidth: "106px",
+    minWidth:"106px",
+    height:"%100",
+    maxHeight: "60px",
+    minHeight:"60px",
+    marginBottom: "15px"
+  },
+  firstSellerSpanPrice: {
+    flexDirection:"row",
+    display: "flex"
+  },
+  secondSellerImg: {
+    width:"100%",
+    maxWidth: "106px",
+    minWidth:"106px",
+    height:"%100",
+    maxHeight: "60px",
+    minHeight:"60px",
+    marginBottom: "15px"
+  },
+  secondSellerSpanPrice: {
+    flexDirection:"row",
+    display: "flex"
+  },
+  itemTitleDiv: {
+    flexDirection:"column",
+    display: "flex",
+    width:"100%",
+    maxWidth: "367px",
+    minWidth:"367px",
+    maxHeight: "610px",
+    minHeight:"610px",
+    justifyContent:"center",
+    alignItems:"center",
+    border:"1px solid #bababa",
+    borderRadius:"5px",
+    marginLeft:"-16px",
+ },
+ descriptionTitle: {
+   fontSize: "20px",
+   lineHeight: "27px",
+ },
+ backToShopIcon: {
+    width: "17px",
+    height: "23px",
+    position: "relative",
+    top: "-1px"
+  },
+  backToShopText: {
+    fontSize: "20px",
+    fontWeight: "600",
+    color: "#000000",
+    '&:hover': {
+      color: "#00ABD1",
+      cursor: 'pointer',
+      textDecoration: 'none',
+    }
+  },
 }));
 
 export default styles;    
