@@ -67,8 +67,9 @@ return (
                             />
                         </div>
                         <div style={{flexDirection:"column", display: "flex"}}>
+                            <Divider style={{width:"100%", maxWidth: "710px", height: "1px", color: "rgba(186, 186, 186, 1)"}}/>
                             <span style={{flexDirection:"column", display: "flex"}}>
-                                    <p>Seller posts</p>
+                                    <p className={classes.sellerPosts}>Seller posts</p>
                             </span>
                             <div style={{flexDirection:"row", display: "flex"}}>
                                 <KeyboardArrowLeftRoundedIcon
@@ -185,10 +186,6 @@ return (
                         <Button  disabled className={classes.btnAddCart}>{t("Add to cart")}</Button>
                     </div>
                 </div>        
-                <div style={{flexDirection:"column", display: "flex"}}> 
-                    <Divider style={{width:"100%", maxWidth: "710px", height: "1px", color: "rgba(186, 186, 186, 1)"}}/>
-                                    
-                </div>
                 <div style={{marginTop:"20px"}}>
                     <h4 className={classes.shippingTitle}>{t("Shipping Method")}</h4>
                     <Button className={classes.shippingMethod}>{t("Manage shipment with the seller")}</Button>

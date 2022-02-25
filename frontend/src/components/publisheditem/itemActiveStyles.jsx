@@ -51,6 +51,19 @@ const styles = makeStyles((theme) => ({
         border: "1px solid #bababa",
         borderRadius:"5px"
     },
+    sellerPosts: {
+      width: "165px",
+      height: "22px",
+      margin: "10.5px 23px 3px 8px",
+      fontSize: "16px",
+      fontWeight: "normal",
+      fontStretch: "normal",
+      fontStyle: "normal",
+      lineHeight: "normal",
+      letterSpacing: "normal",
+      textAlign: "justify",
+      color: "#323232",
+  },
     subtotalPrice: {
         fontSize: "16px",
         lineHeight: "24px",
