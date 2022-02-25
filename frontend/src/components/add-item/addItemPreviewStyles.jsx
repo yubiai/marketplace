@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles({
     modalTitle: {
-        fontSize: 24,
-        fontWeight: 500
+        fontSize: "36px",
+        fontWeight: "600",
+         color: "#1c548b",
     },
     addItemPreview: {
         position: 'fixed',
@@ -78,6 +79,39 @@ const styles = makeStyles({
         background: '#00abd1',
         color: '#fff',
         padding: '20px'
-    }
+    },
+    successIcon: {
+        color: "#25AE88",
+        width: "120px",
+        height: "120px",
+    },
+    addItemResult: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        background: 'rgba(0, 0, 0, .5)',
+        width: '100vw',
+        height: '100vh',
+        // margin: "4px 410px 279px 40px",
+        // padding: "26px 0 47px",
+        borderRadius: "8px",
+        // backgroundColor: "#fff",
+        zIndex: 100000
+    },
+    addItemModalResult: {
+        width: '38vw',
+        height: '60vh',
+        background: '#fff',
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        padding: '20px 30px',
+        borderRadius: '8px'
+    },
+    modalTextResult: {
+        fontSize: "14px",
+        color: "#979797",
+    },            
 });
 export default styles;
