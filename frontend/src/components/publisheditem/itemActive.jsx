@@ -42,7 +42,7 @@ return (
                 <div style={{marginTop:"20px"}}>
                     <span>
                         <h4 className={classes.descriptionTitle}>{t("Product Description")}</h4>
-                        <p>{"Item description field"}</p>
+                        <p>{t("Item description field")}</p>
                     </span>    
                 </div>    
                 

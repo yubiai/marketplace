@@ -55,7 +55,7 @@ const styles = makeStyles((theme) => ({
         borderRadius:"5px"
     },
     sellerPosts: {
-      width: "165px",
+      width: "212px",
       height: "22px",
       margin: "10.5px 23px 3px 8px",
       fontSize: "16px",
@@ -87,10 +87,10 @@ const styles = makeStyles((theme) => ({
     color: "#00ABD1",
   },
   opinions: {
-    width: "114px",
+    width: "130px",
     height: "19px",
     flexGrow: "0",
-    margin: "7px 42px 21px 13px",
+    margin: "-1px 40px 20px 13px",
     fontSize: "14px",
     fontWeight: "normal",
     fontStretch: "normal",
@@ -114,7 +114,7 @@ const styles = makeStyles((theme) => ({
     marginLeft:"5px"
   },
   Fee: {
-    width: "206px",
+    width: "242px",
     flexGrow: "0",
     margin:" 7px 7px 4px 7px",
     fontSize: "14px",
@@ -141,7 +141,7 @@ const styles = makeStyles((theme) => ({
     color: "#323232",
   },
   stock: {
-    width: "204px",
+    width: "212px",
     flexGrow: "0",
     margin:" 7px 7px 4px 7px",
     fontSize: "14px",
@@ -260,7 +260,7 @@ const styles = makeStyles((theme) => ({
     color: "#323232",
    },
    available: {
-    width: "78px",
+    width: "99px",
     height: "19px",
     flexGrow: "0",
     margin: "17px 7px 4px 7px",
@@ -274,7 +274,7 @@ const styles = makeStyles((theme) => ({
     color: "#bababa",
    },
    btnBuyNow: {
-    width: "206px",
+    width: "237px",
     height: "32px",
     fontSize: "16px",
     textTransform: "none",
@@ -298,7 +298,7 @@ const styles = makeStyles((theme) => ({
     },
    },
    btnAddCart: {
-    width: "206px",
+    width: "237px",
     height: "32px",
     fontSize: "16px",
     textTransform: "none",

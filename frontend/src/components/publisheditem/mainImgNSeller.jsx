@@ -25,7 +25,7 @@ return (
                         <div className={classes.sellerGrid}>
                             <Divider className={classes.divider} />
                             <span className={classes.sellTitleSpan}>
-                                    <p className={classes.sellerPosts}>Seller posts</p>
+                                    <p className={classes.sellerPosts}>{t("Seller posts")}</p>
                             </span>
                             <div className={classes.mainSellerPostsDiv}>
                                 <KeyboardArrowLeftRoundedIcon

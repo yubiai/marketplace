@@ -266,5 +266,27 @@
       "Days": "Días",
       "Hours": "Horas",
       "Minutes": "Minutos"
+  },
+  "itemActive": {
+    "Back to Shopping": "Seguir comprando",
+    "Product Description": "Descripción del producto",
+    "Item description field": "Campo de descripción del artículo"
+  },
+  "itemTitle": {
+    "Seller posts": "Publicaciones del vendedor",
+    "sold": "Vendidos",
+    "Product Title": "Título del producto",
+    "opinions": "Opiniones",
+    "5% additional for Yubiai Fee": "5% adicional por Comisión de Yubiai",
+    "5% additional UBI Burner": "5% adicional para quema",
+    "Manage shipment with the seller": "Gestionar envío con el vendedor",
+    "Select your size": "Selecciona tu tamaño",
+    "Only ": "Sólo ",
+    "in stock -order soon": "en stock - ordena pronto",
+    "Buy: ": "Comprar: ",
+    "unit": "unidades",
+    "available)": "disponibles)",
+    "Buy Now": "Comprar",
+    "Add to cart": "Agregar al carrito"
   }
 }

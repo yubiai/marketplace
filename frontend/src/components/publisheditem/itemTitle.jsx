@@ -15,7 +15,7 @@ export default function ItemTitle() {
 return (
     <div className={classes.itemTitleDiv}>
                         <span>
-                            <a>{"condition"} {"quantity"} sold</a> 
+                            <a>{"condition"} {"quantity "}{t("sold")}</a> 
                             <h4 className={classes.productTitle}>{t("Product Title")}</h4>
                         </span>
                         <div style={{flexDirection:"row", display: "flex"}}>
@@ -24,7 +24,7 @@ return (
                             <StarBorderOutlinedIcon className={classes.starsReputation} />
                             <StarBorderOutlinedIcon className={classes.starsReputation} />
                             <StarBorderOutlinedIcon className={classes.starsReputation} />
-                            <a className={classes.opinions}> {"quantity"} opinions</a>
+                            <a className={classes.opinions}> {"quantity"} {t("opinions")}</a>
                         </div>
                         <span style={{flexDirection:"row", display: "flex", marginLeft:"-50px"}}>
                             <a className={classes.Price}>{"Price UBI"}</a>
@@ -49,9 +49,9 @@ return (
                                 <a className={classes.sizeRect}>{"12"}</a>
                             </span>
                             <a className={classes.color}>{t("Color: ")} {"Pick Color"}</a>
-                            <a className={classes.stock}>{t("Only ")}{"n "}{"in stock -order soon"}</a>
-                            <span style={{flexDirection:"row", display:"flex"}}>
-                                <a className={classes.buy}>{"Buy: "}</a>
+                            <a className={classes.stock}>{t("Only ")}{"n "}{t("in stock -order soon")}</a>
+                            <span style={{flexDirection:"row", display:"flex", justifyContent:"space-around"}}>
+                                <a className={classes.buy}>{t("Buy: ")}</a>
                                 <TextField
                                     id="filled-number"
                                     label={t("unit")}
