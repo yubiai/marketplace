@@ -21,6 +21,35 @@
       "Automotive": "Automotríz",
       "Appliances": "Electrodomésticos",
       "VideoGames": "Videojuegos",
+      "Agro":	"Agro",
+      "Food and Drinks":	"Alimentos y Bebidas",
+      "Animal and Pets":	"Animales y Mascotas",
+      "Antiques and Collectibles":	"Antigüedades y Colecciones",
+      "Cars, Motorcycles and Others":	"Autos, Motos y Otros",
+      "Babies":	"Bebés",
+      "Beauty and Personal Care":	"Belleza y Cuidado Personal",
+      "Cameras and Accessories":	"Cámaras y Accesorios",
+      "Cell Phones and Phones":	"Celulares y Teléfonos",
+      "Computing":	"Computación",
+      "Construction":	"Construcción",
+      "Sports and Fitness":	"Deportes y Fitness",
+      "Appliances and Air Ac.":	"Electrodomésticos y Aires Ac.",
+      "Electronics, Audio and Video":	"Electrónica, Audio y Video",
+      "Tickets for Events":	"Entradas para Eventos",
+      "Tools":	"Herramientas",
+      "Home, Furniture and Garden":	"Hogar, Muebles y Jardín",
+      "Industries and Offices":	"Industrias y Oficinas",
+      "Real Estate":	"Inmuebles",
+      "Musical instruments":	"Instrumentos Musicales",
+      "Jewelry and watches":	"Joyas y Relojes",
+      "Games and toys":	"Juegos y Juguetes",
+      "Books, Magazines and Comics":	"Libros, Revistas y Comics",
+      "Music, Movies and Series":	"Música, Películas y Series",
+      "Clothes and accessories":	"Ropa y Accesorios",
+      "Health and Medical Equipment":	"Salud y Equipamiento Médico",
+      "Services":	"Servicios",
+      "Souvenirs, Party Favors and Parties": "Cotillón y Fiestas",
+      "Other categories":	"Otras categorías",
       "UBI's dripped": "UBI's goteados"
     },
     "store": {
@@ -65,7 +94,9 @@
       "Active": "Activas",
       "Complete": "Completas",
       "Mailbox": "Mensajes",
-      "My Info": "Mi Perfil"
+      "My Info": "Mi Perfil",
+      "In review": "En revisión",
+      "Add new product": "Vender"
     },
     "salesactive": {
       "Sales": "Ventas",
@@ -140,7 +171,7 @@
       "Proof of humanity information": "Información de tu perfil en proofofhumanity",
       "My PoH Profile": "Mi Perfíl en PoH",
       "Personal and shipping information": "Información personal y de envío",
-      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información solo será compartida cuando compres un artículo que necesite ser enviado.",
+      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Esta información sólo será compartida cuando compres un artículo que necesite ser enviado.",
       "Real Name": "Nombre real",
       "id": "DNI",
       "Shipping address": "Domicilio",
@@ -184,7 +215,7 @@
       "Save": "Guardar"
     },
     "additem": {
-      "Sell your product": "Vende tu producto",
+      "Sell your product": "Vender",
       "Condition": "Condición",
       "Category": "Categoria",
       "Currency": "Moneda",
@@ -196,9 +227,66 @@
       "Description": "Descripción",
       "Write a detailed description of your item": "Escribe una descripción detallada de tu artículo",
       "Submit": "Publicar",
-      "Product Images": "Imágenes del producto",
+      "Product Images": "Imágenes",
       "Get noticed by the right buyers with visual examples of your services/products. Images must have a minimum width of 375px(Max Size: 10 MB | *.jpg, *.jpeg, *.png)": "Sé visto por los compradores con ejemplos visuales de tus servicios/productos. Las imágenes deben tener una anchura mínima de 375px(Tamaño máximo: 10 MB | *.jpg, *.jpeg, *.png)",
       "Drag & drop a photo or Browse": "Arrastra y suelta una foto o navega para subir",
       "Preview & Submit for review": "Previsualizar y enviar para revisión"
-    }
+    },
+    "additemJson": {
+      "New": "Nuevo"
+    },
+    "checkout": {
+      "Checkout": "Pagar",
+      "Back to Shopping": "Seguir comprando",
+      "Shipping Details": "Detalles de envío",
+      "Shipping Method": "Método de envío",
+      "Manage shipment with the seller": "Gestionar el envío con el vendedor",
+      "Order Summary": "Resumen de la compra",
+      "Sub total": "Subtotal",
+      "Yubiai Fee": "Comisión de Yubiai",
+      "UBI Burner Fee": "Comisión de UBI Burner",
+      "Once both parts have agreed on the time of the payment being held on the escrow, the seller will assign it and you will be able to send the payment.": "Una vez acordado el tiempo de retención del pago en el depósito en garantía, el vendedor lo asignará ,y luego podrá enviar el pago.",
+      "Order Total": "Total",
+      "Pay with Escrow": "Pagar con Escrow"
+    },
+    "shippDetails": {
+      "Default address": "Dirección predeterminada",
+      "New Address": "Nueva dirección",
+      "New delivery address": "Nueva dirección de envío",
+      "Street": "Calle",
+      "Number": "Número",
+      "Apartment/House(Optional)":"Departamento/Piso(Opcional)",
+      "Zip Code": "Código postal",
+      "City": "Localidad",
+      "Province/State": "Provincia",
+      "Country": "País"
+    },
+    "escrowCheckout": {
+      "Payment waiting on escrow": "Pago en espera en el Escrow",
+      "Days": "Días",
+      "Hours": "Horas",
+      "Minutes": "Minutos"
+  },
+  "itemActive": {
+    "Back to Shopping": "Seguir comprando",
+    "Product Description": "Descripción del producto",
+    "Item description field": "Campo de descripción del artículo"
+  },
+  "itemTitle": {
+    "Seller posts": "Publicaciones del vendedor",
+    "sold": "Vendidos",
+    "Product Title": "Título del producto",
+    "opinions": "Opiniones",
+    "5% additional for Yubiai Fee": "5% adicional por Comisión de Yubiai",
+    "5% additional UBI Burner": "5% adicional para quema",
+    "Manage shipment with the seller": "Gestionar envío con el vendedor",
+    "Select your size": "Selecciona tu tamaño",
+    "Only ": "Sólo ",
+    "in stock -order soon": "en stock - ordena pronto",
+    "Buy: ": "Comprar: ",
+    "unit": "unidades",
+    "available)": "disponibles)",
+    "Buy Now": "Comprar",
+    "Add to cart": "Agregar al carrito"
   }
+}

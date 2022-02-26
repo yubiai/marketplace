@@ -10,14 +10,18 @@ import Footer from "./components/footer/Footer";
 import MessagesBox from "./components/MessageBox/MessagesBox";
 import Chat from "./components/MessageBox/Chat";
 import Mailbox from "./components/mailbox/Mailbox";
-import OrdersView from "./components/orders/Orders";
+import OrdersView from "./components/orders/OrdersActive";
+import OrdersComplete from "./components/orders/OrdersComplete";
+import OrdersCompleteDetails from "./components/orders/CheckOrdersComplete";
 import GlobalStyle from "./globalStyles";
 import SalesActive from "./components/sales/SalesActive";
+import SalesInReview from "./components/sales/SalesInReview";
 import SalesComplete from "./components/sales/SalesComplete";
 import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
+<<<<<<< HEAD
 import axios from "axios";
 
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
@@ -26,6 +30,10 @@ axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
 //axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
 axios.defaults.baseURL = 'http://localhost:4001/api';
+=======
+import ItemActive from "./components/publisheditem/itemActive";
+import Checkout from "./components/checkout/checkout";
+>>>>>>> 2eed79272c3f76627e9c3e955c91a76b78758c42
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -77,9 +85,19 @@ function App() {
         </header>
         <div className={classes.body}>
           <Switch>
-            <Route path="/orders">
+            <Route path="/ordersactive">
               <Layout>
                 <OrdersView />
+              </Layout>
+            </Route>
+            <Route path="/orderscomplete">
+              <Layout>
+                <OrdersComplete />
+              </Layout>
+            </Route>
+            <Route path="/checkorderscomplete">
+              <Layout>
+                <OrdersCompleteDetails />
               </Layout>
             </Route>
             <Route
@@ -105,7 +123,12 @@ function App() {
                 <SalesActive />
               </Layout>
             </Route>
-            <Route path="/additem">
+            <Route path="/salesinreview">
+              <Layout>
+                <SalesInReview />
+              </Layout>
+            </Route>
+            <Route exact path="/additem">
               <Layout>
                 <AddItem />
               </Layout>
@@ -142,6 +165,12 @@ function App() {
               <Layout>
                 <MyInfo />
               </Layout>
+            </Route>
+            <Route path="/checkout">
+                <Checkout />
+            </Route>
+            <Route path="/itemactive">
+                <ItemActive />
             </Route>
             {/* <Route path="chat">
             <Layout>

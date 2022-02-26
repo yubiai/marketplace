@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: 360,
-    minWidth: 218,
+    maxWidth: "300px",
+    minWidth: "218",
     backgroundColor: "#F5F5F5",
     [theme.breakpoints.down(900)]: {
       maxWidth: "initial",
@@ -182,7 +182,7 @@ export default function NestedList() {
               : ""
           }`}
         >
-          <ListItem button component={Link} to="/orders">
+          <ListItem button onClick={handleClick}>
             <ListItemIcon>
               <CardGiftcardOutlinedIcon
                 style={{
@@ -199,7 +199,38 @@ export default function NestedList() {
               className={classes.listItemText}
               primary={t("Orders")}
             />
+            {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/ordersactive"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Active")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/orderscomplete"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Complete")}
+                />
+              </ListItem>
+            </List>
+          </Collapse>    
           <ListItem button onClick={handleClick}>
             <ListItemIcon>
               <StorefrontOutlinedIcon
@@ -245,6 +276,19 @@ export default function NestedList() {
                 button
                 className={classes.nested}
                 component={Link}
+                to="/salesinreview"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("In review")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
                 to="/salescomplete"
               >
                 <ListItemIcon></ListItemIcon>
@@ -252,6 +296,19 @@ export default function NestedList() {
                   disableTypography
                   className={classes.listItemText}
                   primary={t("Complete")}
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.nested}
+                component={Link}
+                to="/additem"
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  className={classes.listItemText}
+                  primary={t("Add new product")}
                 />
               </ListItem>
             </List>

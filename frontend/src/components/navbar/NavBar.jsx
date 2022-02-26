@@ -17,7 +17,7 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import LoyaltyOutlinedIcon from "@material-ui/icons/LoyaltyOutlined";
 import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
 import AddToQueueOutlinedIcon from "@material-ui/icons/AddToQueueOutlined";
@@ -174,6 +174,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       borderBottom: "none",
       color: "#a9a9a9",
+      cursor: "pointer",
     },
   },
   lang: {
@@ -567,7 +568,7 @@ export default function NavBar() {
   const [balance, setBalance] = React.useState(null);
 
   const { t, i18n } = useTranslation("navbar");
-  
+
   const OpenCategories = (event) => {
     setCategoriesAnchorEl(event.currentTarget);
   };
@@ -594,18 +595,19 @@ export default function NavBar() {
           .then((resp) => {
             setWalletAddress(resp.data.eth_address);
             setToken(resp.data.token);
+            localStorage.setItem('YBI-token', resp.data.token);
             setProfileInfo({ ...resp.data });
             // Save token and wallet on sessionStorage
             saveLoginInfo(resp.data.token, resp.data.eth_address, {
               display_name: resp.data.display_name,
               photo: resp.data.photo,
             });
-            
+
           });
       });
     }
   };
-  
+
   useEffect(async () => {
     await setupEthState().then(async (r) => {
       const { signerAddress } = r;
@@ -635,7 +637,7 @@ export default function NavBar() {
         console.log(err);
       });
   };
-  let ubisAmmount = balance; 
+  let ubisAmmount = balance;
   const handleClose = () => {
     setAnchorEl(null);
     setCategoriesAnchorEl(null);
@@ -693,7 +695,7 @@ export default function NavBar() {
         style={{ fontSize: "13px", fontFamily: "Open Sans" }}
         className={classes.listItemText}
         component={Link}
-        to="/orders"
+        to="/ordersactive"
         onClick={handleClose}
       >
         {t("orders")}
@@ -769,6 +771,93 @@ export default function NavBar() {
       <MenuItem className={classes.listItemText} onClick={handleClose}>
         {t("VideoGames")}
       </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Agro")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Food and Drinks")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Animal and Pets")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Antiques and Collectibles")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Cars, Motorcycles and Others")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Babies")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Beauty and Personal Care")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Cameras and Accessories")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Cell Phones and Phones")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Computing")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Construction")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Sports and Fitness")}
+      </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Appliances and Air Ac.")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Electronics, Audio and Video")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Tickets for Events")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Tools")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Home, Furniture and Garden")}
+      </MenuItem>
+       <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Industries and Offices")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Real Estate")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Musical instruments")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Jewelry and watches")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Games and toys")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Books, Magazines and Comics")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Music, Movies and Series")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Clothes and accessories")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+       {t("Health and Medical Equipment")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Services")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Souvenirs, Party Favors and Parties")}
+      </MenuItem>
+      <MenuItem className={classes.listItemText} onClick={handleClose}>
+        {t("Other categories")}
+      </MenuItem>
     </Menu>
   );
   const language = "language-menu";
@@ -805,9 +894,9 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Deutsche
       </MenuItem>
-       
+
     </Menu>
-    
+
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -870,9 +959,9 @@ export default function NavBar() {
         <p className={classes.menuMobileItemLabel}>{t("Categories")}</p>
       </MenuItem>
       <MenuItem>
-        <Router>
+        {/* <Router> */}
           <IconButton color="inherit">
-            <Link to="/sell">
+            <Link to="/additem">
               <Badge color="secondary">
                 <LoyaltyOutlinedIcon
                   className={classes.linkmenuicon}
@@ -883,7 +972,7 @@ export default function NavBar() {
               </Badge>
             </Link>
           </IconButton>
-        </Router>
+        {/* </Router> */}
       </MenuItem>
       <MenuItem>
         <Router>
@@ -1050,9 +1139,10 @@ export default function NavBar() {
                           {t("Categories")}
                           <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
                         </ListItemText>
-                        <Link className={classes.link} to="/sell">
-                          {t("Sell")}
-                        </Link>
+                        <a className={classes.link} target="_self" href="/additem" >{t("Sell")}</a>
+                        {/* <Link className={classes.link} to="/additem">
+                              {t("Sell")}
+                        </Link> */}
                         <Link className={classes.link} to="/browsinghistory">
                           {t("Browsing history")}
                         </Link>
