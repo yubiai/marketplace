@@ -34,7 +34,19 @@ const styles = makeStyles({
         color: 'rgba(0, 0, 0, 0.5)'
     },
     addItemInfo: {
-
+        
+        
+    },
+    addItemInfoDescription: {
+        width: "100%",
+        maxWidth: "500px",
+        minWidth: "500px",
+        height: "100%",
+        maxHeight: "276px",
+        minHeight: "276px",
+        display: "flex",
+        textAlign: "justify",
+        wordBreak: "break-all",
     },
     addItemContent: {
         display: 'flex'

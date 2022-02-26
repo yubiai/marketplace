@@ -52,7 +52,7 @@ export default function AddItemPreview({
                         </div>
                         <div className="addItem-description">
                             <p className={classes.addItemLabel}>Description</p>
-                            <p className={classes.addItemInfo}>{productDescription}</p>
+                            <p className={classes.addItemInfoDescription}>{productDescription}</p>
                         </div>
                     </div>
                 </div>
