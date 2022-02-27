@@ -390,7 +390,7 @@ export default function AddItem() {
 
       <Grid item xs={10} md={10} >
         <label className={classes.label}>
-          {t("Name")}
+          {t("Title")}
         </label>
         <TextField id="title"
           label={t("Enter item name, model & manufacturer")}
@@ -400,7 +400,7 @@ export default function AddItem() {
           variant="outlined"
           value={name}
           onChange={ev => setName(ev.target.value)}
-          placeholder="Title" />
+          placeholder={t("i.e MacAir Book 13 inch gray")} />
       </Grid>
       <Grid item xs={10} md={10}>
         <label className={classes.label}>

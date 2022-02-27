@@ -219,9 +219,9 @@
       "Condition": "Condición",
       "Category": "Categoria",
       "Currency": "Moneda",
-      "Name": "Nombre",
+      "i.e MacAir Book 13 inch gray": "Ejemplo: MacAir Book 13 pulgadas gris",
       "Enter item name, model & manufacturer": "Ingresa el nombre, modelo y fabricante del artículo",
-      "Title": "Título",
+      "Title": "Indicá producto, marca, modelo y características principales",
       "Price": "Precio",
       "New": "Nuevo",
       "Description": "Descripción",
@@ -234,6 +234,19 @@
     },
     "additemJson": {
       "New": "Nuevo"
+    },
+    "AddItemPreview": {
+      "Review your listing": "Previsualizar artículo",
+      "Name": "Nombre del artículo",
+      "Price": "Precio",
+      "Description": "Descripción",
+      "Go back": "Volver",
+      "Submit for review": "Enviar para revisión"
+    },
+    "AddItemResult": {
+      "Your listing has been submitted!": "¡Tu artículo ha sido enviado para revisión!",
+      "Our team would review your listing and notify you once your listing is live.": "Nuestro equipo revisará tu artículo y te notificaremos una vez esté publicado.",
+      "Finalize": "Finalizar"
     },
     "checkout": {
       "Checkout": "Pagar",

@@ -4,7 +4,8 @@ const styles = makeStyles({
     modalTitle: {
         fontSize: "36px",
         fontWeight: "600",
-         color: "#1c548b",
+        color: "#1c548b",
+        textAlign: "center",
     },
     addItemPreview: {
         position: 'fixed',
@@ -34,16 +35,17 @@ const styles = makeStyles({
         color: 'rgba(0, 0, 0, 0.5)'
     },
     addItemInfo: {
-        
+        fontSize: "20px",
+        fontWeight: "600",
         
     },
     addItemInfoDescription: {
         width: "100%",
-        maxWidth: "500px",
-        minWidth: "500px",
+        maxWidth: "400px",
+        minWidth: "400px",
         height: "100%",
-        maxHeight: "276px",
-        minHeight: "276px",
+        maxHeight: "414px",
+        minHeight: "414px",
         display: "flex",
         textAlign: "justify",
         wordBreak: "break-all",
@@ -53,7 +55,10 @@ const styles = makeStyles({
     },
     mainPicture: {
         margin: '0 auto 20px',
-        maxWidth: '150px',
+        maxWidth: "400px",
+        minWidth: "400px",
+        maxHeight: "372px",
+        minHeight: "372px",
         '& img': {
             width: '100%'
         }

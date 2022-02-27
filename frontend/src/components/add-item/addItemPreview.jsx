@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './addItemPreviewStyles';
+import { useTranslation } from "react-i18next";
 
 export default function AddItemPreview({
     hideItemModal,
@@ -10,11 +11,12 @@ export default function AddItemPreview({
     submitReview
 }) {
     const classes = styles();
+    const { t, i18n } = useTranslation("AddItemPreview");
     return (
         <div className={classes.addItemPreview}>
             <div className={classes.addItemModal}>
                 <div>
-                    <p className={classes.modalTitle}>Review your listing</p>
+                    <p className={classes.modalTitle}>{t("Review your listing")}</p>
                 </div>
                 <div className={classes.addItemContent}>
                     {
@@ -43,24 +45,24 @@ export default function AddItemPreview({
                     }
                     <div className={classes.addItemText}>
                         <div className="addItem-name">
-                            <p className={classes.addItemLabel}>Name</p>
+                            <p className={classes.addItemLabel}>{t("Name")}</p>
                             <p className={classes.addItemInfo}>{productName}</p>
                         </div>
                         <div className="addItem-price">
-                            <p className={classes.addItemLabel}>Price</p>
+                            <p className={classes.addItemLabel}>{t("Price")}</p>
                             <p className={classes.addItemInfo}>{productPrice.value} {productPrice.currency}</p>
                         </div>
                         <div className="addItem-description">
-                            <p className={classes.addItemLabel}>Description</p>
+                            <p className={classes.addItemLabel}>{t("Description")}</p>
                             <p className={classes.addItemInfoDescription}>{productDescription}</p>
                         </div>
                     </div>
                 </div>
                 <div className={classes.addItemCta}>
                     <button className={classes.addItemGoBack}
-                            onClick={hideItemModal}>Go back</button>
+                            onClick={hideItemModal}>{t("Go back")}</button>
                     <button onClick={submitReview}
-                        className={classes.addItemSubmit}>Submit for review</button>
+                        className={classes.addItemSubmit}>{t("Submit for review")}</button>
                 </div>
             </div>
         </div>
