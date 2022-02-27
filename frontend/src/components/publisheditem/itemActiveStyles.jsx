@@ -99,19 +99,22 @@ const styles = makeStyles((theme) => ({
     letterSpacing: "normal",
     textAlign: "justify",
     color: "#bababa",
+    textDecoration: "none !important",
   },
   Price: {
     fontSize: "20px",
     lineHeight: "27px",
     // textAlign: "right",
-    color: "#323232"
+    color: "#323232",
+    textDecoration: "none !important",
   },
   PriceFiat: {
     color:"#BABABA",
     fontSize: "20px",
     lineHeight: "27px",
     // textAlign: "right",
-    marginLeft:"5px"
+    marginLeft:"5px",
+    textDecoration: "none !important",
   },
   Fee: {
     width: "242px",
@@ -125,7 +128,7 @@ const styles = makeStyles((theme) => ({
     letterSpacing: "normal",
     textAlign: "justify",
     color: "#323232",
-
+    textDecoration: "none !important",
   },
   color: {
     width: "112px",
@@ -139,6 +142,7 @@ const styles = makeStyles((theme) => ({
     letterSpacing: "normal",
     textAlign: "justify",
     color: "#323232",
+    textDecoration: "none !important",
   },
   stock: {
     width: "212px",
@@ -151,7 +155,8 @@ const styles = makeStyles((theme) => ({
     lineHeight: "normal",
     letterSpacing: "normal",
     textAlign: "justify",
-    color: "#ab0707"
+    color: "#ab0707",
+    textDecoration: "none !important",
     },  
   slidebuttonLeft: {
     color: "#00ABD1",
@@ -215,7 +220,8 @@ const styles = makeStyles((theme) => ({
     lineHeight: "normal",
     letterSpacing: "normal",
     textAlign: "left",
-    color: "#00abd1"
+    color: "#00abd1",
+    textDecoration: "none !important",
    },
    manageShipping: {
     width: "100%",
@@ -229,7 +235,8 @@ const styles = makeStyles((theme) => ({
     lineHeight: "normal",
     letterSpacing: "normal",
     textAlign: "justify",
-    color: "#000"
+    color: "#000",
+    textDecoration: "none !important",
    },
    sizeRect: {
     width: "40px",
@@ -239,6 +246,7 @@ const styles = makeStyles((theme) => ({
     padding: "9px 13px 9px 12px",
     borderRadius: "5px",
     border: "solid 1px gray",
+    textDecoration: "none !important",
     '&:hover, &:focus, &:active': {
       outline: 'none !important',
       border: "solid 1px #00abd1",
@@ -258,6 +266,7 @@ const styles = makeStyles((theme) => ({
     letterSpacing: "normal",
     textAlign: "justify",
     color: "#323232",
+    textDecoration: "none !important",
    },
    available: {
     width: "99px",
@@ -272,6 +281,7 @@ const styles = makeStyles((theme) => ({
     letterSpacing: "normal",
     textAlign: "justify",
     color: "#bababa",
+    textDecoration: "none !important",
    },
    btnBuyNow: {
     width: "237px",
