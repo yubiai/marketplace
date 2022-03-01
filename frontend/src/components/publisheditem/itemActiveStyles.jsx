@@ -82,7 +82,8 @@ const styles = makeStyles((theme) => ({
         minHeight:"60px",
         marginBottom: "15px",
         border: "1px solid #bababa",
-        borderRadius:"5px"
+        borderRadius:"5px",
+        color: "#bababa",
     },
     sellerPosts: {
       width: "212px",
@@ -377,6 +378,7 @@ const styles = makeStyles((theme) => ({
     height:"100%",
     maxHeight: "272px",
     minHeight:"272px",
+    color: "#bababa",
     [theme.breakpoints.down(1024)]: {
       minWidth: 0,
     },
@@ -481,7 +483,8 @@ const styles = makeStyles((theme) => ({
     height:"%100",
     maxHeight: "60px",
     minHeight:"60px",
-    marginBottom: "15px"
+    marginBottom: "15px",
+    color: "#bababa",
   },
   firstSellerSpanPrice: {
     flexDirection:"row",
@@ -494,11 +497,36 @@ const styles = makeStyles((theme) => ({
     height:"%100",
     maxHeight: "60px",
     minHeight:"60px",
-    marginBottom: "15px"
+    marginBottom: "15px",
+    color: "#bababa",
   },
   secondSellerSpanPrice: {
     flexDirection:"row",
     display: "flex"
+  },
+  thirdSellerImg: {
+    width:"100%",
+    maxWidth: "106px",
+    minWidth:"106px",
+    height:"%100",
+    maxHeight: "60px",
+    minHeight:"60px",
+    marginBottom: "15px",
+    color: "#bababa"
+  },
+  thirdSellerSpanPrice: {
+    flexDirection:"row",
+    display: "flex"
+  },
+  fourthSellerImg: {
+    width:"100%",
+    maxWidth: "106px",
+    minWidth:"106px",
+    height:"%100",
+    maxHeight: "60px",
+    minHeight:"60px",
+    marginBottom: "15px",
+    color: "#bababa"
   },
   itemTitleDiv: {
     flexDirection:"column",

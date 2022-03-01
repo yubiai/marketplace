@@ -12,6 +12,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 import EscrowPayment from "../checkout/escrowPayChk";
+import ImageIcon from "@material-ui/icons/Image";
 import Menu from "./Menu";
 import { useTranslation } from "react-i18next";
 
@@ -79,17 +80,13 @@ export default function SalesActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={activeImage.default}
-                  />
+                  <ImageIcon className={classes.image}/>
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                         <p className={classes.itemName}>Canon EOS Rebel T7 EF-S 18-55mm </p>
+                         <p className={classes.itemName}>{"Product Title"} </p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -112,7 +109,7 @@ export default function SalesActive() {
                           className={classes.btnPreview}
                           variant="contained"
                           component={Link}
-                          to="/preview"
+                          to="/itemactive"
                           primary="Preview"
                         >
                           {t("View")}
@@ -141,17 +138,13 @@ export default function SalesActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={activeImage.default}
-                  />
+                  <ImageIcon className={classes.image}/>
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>Canon EOS Rebel T7 EF-S 18-55mm </p>
+                        <p className={classes.itemName}>{"Product Title"} </p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -174,7 +167,7 @@ export default function SalesActive() {
                           className={classes.btnPreview}
                           variant="contained"
                           component={Link}
-                          to="/preview"
+                          to="/itemactive"
                           primary="Preview"
                         >
                           {t("View")}
@@ -203,17 +196,13 @@ export default function SalesActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={activeImage.default}
-                  />
+                  <ImageIcon className={classes.image}/>
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>Canon EOS Rebel T7 EF-S 18-55mm </p>
+                        <p className={classes.itemName}>{"Product Title"}</p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -236,7 +225,7 @@ export default function SalesActive() {
                           className={classes.btnPreview}
                           variant="contained"
                           component={Link}
-                          to="/preview"
+                          to="/itemactive"
                           primary="Preview"
                         >
                           {t("View")}

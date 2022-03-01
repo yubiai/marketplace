@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -116,23 +117,32 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageProfile: {
-    display: "flex",
+    display: "block",
     alignItems: "left",
     left: "10px",
     justifyContent: "left",
     marginLeft: "1px",
     marginBottom: "-10px",
-    width: "104px",
-    height: "104px",
-  },
+    maxWidth: "104px",
+    minWidth: "104px",
+    maxHeight: "104px",
+    marginTop: 0,
+    width: "100%",
+    height: "auto",
+    color: "#bababa",
+ },
   imageOrder: {
     display: "flex",
     alignItems: "center",
     right: "1px",
     maxWidth: "70px",
+    width: "100%",
+    height: "100%",
+    maxHeight: "48px",
     justifyContent: "space-between",
     marginLeft: "auto",
     marginTop: "-55px",
+    color: "#bababa",
   },
   listItemTransaction: {
     height: "auto",
@@ -261,7 +271,7 @@ export default function OrderDetailsComplete() {
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
-              primary="Shoe Ricky Sarkany 400mm" //aca va nombre del order item
+              primary={"Product Title"} //aca va nombre del order item
               secondary={
                 <React.Fragment>
                   <Typography
@@ -274,11 +284,7 @@ export default function OrderDetailsComplete() {
                     {" "} {t("item")}
                   </Typography>
                   <ListItemAvatar>
-                    <img
-                      alt="{imgjson}"
-                      className={classes.imageOrder}
-                      src={shoeImage.default}
-                    />
+                    <ImageIcon className={classes.imageOrder}/>
                   </ListItemAvatar>
                 </React.Fragment>
               }
@@ -479,17 +485,7 @@ export default function OrderDetailsComplete() {
                   maxWidth: "100px",
                 }}
               >
-                <img
-                  alt="{imgjson}"
-                  className={classes.imageProfile}
-                  style={{
-                    marginTop: 0,
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                  src={profileImage.default}
-                />
+                <ImageIcon className={classes.imageProfile}/>
               </ListItemAvatar>
             </Grid>
             <Grid
@@ -516,7 +512,7 @@ export default function OrderDetailsComplete() {
                           display: "inline-flex",
                           color: "black",
                         }}
-                        primary="Vitalik Buterin"
+                        primary={"Seller Name"}
                       />{" "}
                       <span
                         style={{

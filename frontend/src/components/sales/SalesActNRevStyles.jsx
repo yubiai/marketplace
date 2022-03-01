@@ -144,6 +144,14 @@ const styles = makeStyles((theme) => ({
     borderRadius: "10px",
     marginLeft: "1.25rem",
     marginRight: "0.75rem",
+    color: "#bababa",
+  },
+  imageSales: {
+    maxWidth: "70px",
+    width: "100%",
+    height: "100%",
+    maxHeight: "48px",
+    color: "#bababa",
   },
   buttonThreeDots: {
     outline: "none",

@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import ImageIcon from "@material-ui/icons/Image";
 import EscrowPayment from "../checkout/escrowPayChk";
 import { useTranslation } from "react-i18next";
 
@@ -78,11 +79,7 @@ export default function OrdersActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={orderImage.default}
-                  />
+                  <ImageIcon className={classes.image} />
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
@@ -152,11 +149,7 @@ export default function OrdersActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                        alt="{imgjson}"
-                        className={classes.image}
-                        src={orderImage.default}
-                   />
+                  <ImageIcon className={classes.image} />
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
@@ -226,11 +219,7 @@ export default function OrdersActive() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                        alt="{imgjson}"
-                        className={classes.image}
-                        src={orderImage.default}
-                   />
+                  <ImageIcon className={classes.image} />
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>

@@ -484,7 +484,7 @@ export default function AddItem() {
             `${classes.dragNdropIconContainer} ${files.fileOne ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
               style={{
-                color: 'gray',
+                color: '#bababa',
                 width: '45px',
                 height: '36px',
                 display: 'block'
@@ -512,7 +512,7 @@ export default function AddItem() {
             `${classes.dragNdropIconContainer} ${files.fileTwo ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
               style={{
-                color: 'gray',
+                color: '#bababa',
                 width: '45px',
                 height: '36px',
                 display: 'block'
@@ -540,7 +540,7 @@ export default function AddItem() {
             `${classes.dragNdropIconContainer} ${files.fileThree ? classes.dragNdropIconContainerFill : ''}`}>
             <ImageIcon className={classes.dragNdropIcon}
               style={{
-                color: 'gray',
+                color: '#bababa',
                 width: '45px',
                 height: '36px',
                 display: 'block'

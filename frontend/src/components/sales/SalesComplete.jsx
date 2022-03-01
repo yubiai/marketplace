@@ -17,13 +17,13 @@ import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 import EscrowPayment from "../checkout/escrowPayChk";
 import Menu from "./MenuComplete";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 export default function SalesComplete() {
   const classes = styles();
   const [open, setOpen] = React.useState(true);
   const { t, i18n } = useTranslation("salescomplete");
-  const completeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
   };
@@ -91,12 +91,8 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={completeImage.default}
-                  />
-                </ListItemAvatar>
+                <ImageIcon className={classes.image} />
+              </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
@@ -144,12 +140,8 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={completeImage.default}
-                  />
-                </ListItemAvatar>
+                <ImageIcon className={classes.image} />
+              </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
@@ -197,11 +189,7 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                  <img
-                    alt="{imgjson}"
-                    className={classes.image}
-                    src={completeImage.default}
-                  />
+                  <ImageIcon className={classes.image} />
                 </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>

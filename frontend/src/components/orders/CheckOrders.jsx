@@ -14,6 +14,7 @@ import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
 import EscrowPayment from "../checkout/escrowPayChk";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -126,23 +127,31 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageProfile: {
-    display: "flex",
+    display: "block",
     alignItems: "left",
     left: "10px",
     justifyContent: "left",
     marginLeft: "1px",
     marginBottom: "-10px",
-    width: "104px",
-    height: "104px",
+    maxWidth: "104px",
+    minWidth: "104px",
+    maxHeight: "104px",
+    marginTop: 0,
+    width: "100%",
+    height: "auto",
+    color: "#bababa",
   },
   imageOrder: {
     display: "flex",
     alignItems: "center",
     right: "1px",
     maxWidth: "70px",
+    width: "70px",
+    height: "47px",
     justifyContent: "space-between",
     marginLeft: "auto",
     marginTop: "-55px",
+    color: "#bababa",
   },
   listItemTransaction: {
     height: "auto",
@@ -304,7 +313,7 @@ export default function AlignItemsList() {
             <ListItemText
               disableTypography
               //en primary va nombre del order item}
-              primary="Canon EOS Rebel T7 EF-S 18-55mm"
+              primary={"Product Title"}
               secondary={
                 <React.Fragment>
                   <Typography
@@ -317,11 +326,7 @@ export default function AlignItemsList() {
                     {" "} {t("item")}
                   </Typography>
                    <ListItemAvatar>
-                    <img
-                      alt="{imgjson}"
-                      className={classes.imageOrder}
-                      src={shoeImage.default}
-                    />
+                    <ImageIcon className={classes.imageOrder}/>
                   </ListItemAvatar>
                 </React.Fragment>
               }
@@ -524,17 +529,7 @@ export default function AlignItemsList() {
                   height: "100%",
                   maxWidth: "100px", }}
               >
-                <img
-                  alt="{imgjson}"
-                  className={classes.imageProfile}
-                  style={{
-                    marginTop: 0,
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                  src={profileImage.default}
-                />
+                <ImageIcon className={classes.imageProfile} />
               </ListItemAvatar>
             </Grid>
             <Grid
@@ -561,7 +556,7 @@ export default function AlignItemsList() {
                           display: "inline-flex",
                           color: "black",
                         }}
-                        primary="Vitalik Buterin"
+                        primary={"Seller Name"}
                       />{" "}
                       <span
                         style={{
@@ -593,7 +588,7 @@ export default function AlignItemsList() {
                 className={classes.btnSendMsg}
                 variant="contained"
                 component={Link}
-                to="/salescompletedetails/messagesbox"
+                to="/checkorders/messagesbox"
                 primary="MessagesBox"
                 style={{
                   minWidth: 0,

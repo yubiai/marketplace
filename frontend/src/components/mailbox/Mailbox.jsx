@@ -12,6 +12,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FiberManualRecordSharpIcon from "@material-ui/icons/FiberManualRecordSharp";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
 import LongMenu from "./LongMenu";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
     width: "80px",
     height: "80px",
     borderRadius: "10px",
+    color: "#bababa"
   },
   itemStatusIconAvailable: {
     color: "#1ED9A1",
@@ -151,18 +153,14 @@ export default function AlignItemsList() {
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemAvatar>
-              <img
-                alt="{imgjson}"
-                className={classes.image}
-                src={mailboxImage.default}
-              />
+             <ImageIcon className={classes.image} />
             </ListItemAvatar>
             <ListItemText
               disableTypography
               className={classes.listItemText}
               primary={
                 <b style={{ fontSize: "16px" }}>
-                  Canon EOS Rebel T7 EF-S 18-55mm
+                  {"Product Title"}
                 </b>
               }
               secondary={
@@ -173,7 +171,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {" "} UBI
+                    {"Price UBI"}{"(Price ARS/USD)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Available")}</l>
                   <FiberManualRecordSharpIcon
@@ -221,18 +219,14 @@ export default function AlignItemsList() {
         >
           <ListItem alignItems="flex-start" className={classes.listItem}>
             <ListItemAvatar>
-              <img
-                alt="{imgjson}"
-                className={classes.image}
-                src={mailboxImage.default}
-              />
+              <ImageIcon className={classes.image} />
             </ListItemAvatar>
             <ListItemText
               disableTypography
               className={classes.listItemText}
               primary={
                 <b style={{ fontSize: "16px" }}>
-                  Canon EOS Rebel T7 EF-S 18-55mm
+                  {"Product Title"}
                 </b>
               }
               secondary={
@@ -243,7 +237,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {" "}UBI
+                    {"Price UBI"}{"(Price ARS/USD)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Paused")}</l>
                   <FiberManualRecordSharpIcon
@@ -290,18 +284,14 @@ export default function AlignItemsList() {
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemAvatar>
-              <img
-                alt="{imgjson}"
-                className={classes.image}
-                src={mailboxImage.default}
-              />
+              <ImageIcon className={classes.image} />
             </ListItemAvatar>
             <ListItemText
               disableTypography
               className={classes.listItemText}
               primary={
                 <b style={{ fontSize: "16px" }}>
-                  Canon EOS Rebel T7 EF-S 18-55mm
+                  {"Product Title"}
                 </b>
               }
               secondary={
@@ -312,7 +302,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {" "}UBI
+                    {"Price UBI"}{"(Price ARS/USD)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Sold")}</l>
                   <FiberManualRecordSharpIcon

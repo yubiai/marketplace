@@ -109,6 +109,7 @@ const styles = makeStyles((theme) => ({
     borderRadius: "10px",
     marginLeft: "1.25rem",
     marginRight: "0.75rem",
+    color: "#bababa",
   },
   buttonThreeDots: {
     outline: "none",
