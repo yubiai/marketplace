@@ -411,7 +411,11 @@ export default function AddItem() {
           minRows={4}
           multiline
           placeholder={t("Write a detailed description of your item")}
-          onChange={ev => setDescription(ev.target.value)}
+          onChange={ev => {
+            if ((ev.target.value || '').length < 100) {
+              setDescription(ev.target.value);
+            }
+          }}
           value={description}
           className={classes.description}
           variant="outlined" />

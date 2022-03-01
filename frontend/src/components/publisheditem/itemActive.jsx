@@ -30,12 +30,14 @@ return (
                     {t("Back to Shopping")}
                     </a>
                 </div>
-                <div className={classes.sideImgGrid} >
-                    {/* first component */}
-                    <SideImg />
-                    {/* second component */}
-                    <ImgAndSellerPosts />
-                    {/* third component         */}
+                <div className={classes.sideImgGrid}>
+                    <div className={classes.imgGridContainer}>
+                        {/* first component */}
+                        <SideImg />
+                        {/* second component */}
+                        <ImgAndSellerPosts />
+                    </div>
+                    {/* third component */}
                     <ItemTitle />
                 </div>  
                 <Divider className={classes.dividerFullWidth} />      

@@ -10,7 +10,11 @@ const styles = makeStyles((theme) => ({
         backgroundColor: "white",
         fontFamily: "Open Sans",
         maxHeight: '80vh',
-        overflowY: 'scroll'
+        overflowY: 'scroll',
+        [theme.breakpoints.down(1024)]: {
+          width: "100%",
+          position: "relative"
+        },
     },
     productTitle: {
         width: "303px",
@@ -25,11 +29,27 @@ const styles = makeStyles((theme) => ({
         letterSpacing: "normal",
         textAlign: "justify",
         color: "#000",
+        [theme.breakpoints.down(1024)]: {
+          position: "absolute",
+          top: "35px",
+          textAlign: "center",
+          left: "50%",
+          transform: "translateX(-50%)"
+        },
+    },
+    imgGridContainer: {
+      display: 'flex',
+      [theme.breakpoints.down(1024)]: {
+        flexDirection: "column-reverse"
+      },
     },
     sideImgGrid: {
         flexDirection:"row",
         display: "flex",
-        marginTop:"20px"
+        marginTop:"20px",
+        [theme.breakpoints.down(1024)]: {
+          flexDirection: "column",
+        },
     },
     sideImgDiv: {
         flexDirection:"column",
@@ -42,6 +62,16 @@ const styles = makeStyles((theme) => ({
         height:"413px",
         position:"relative",
         left:"60px",
+        [theme.breakpoints.down(1024)]: {
+          left: 0,
+          flexDirection: "row",
+          height: "auto",
+          width: "100%",
+          maxWidth: "none",
+          justifyContent: "space-around",
+          marginTop: "30px",
+          alignItems: "center"
+        },
     },
     sideImage: {
         width:"100%",
@@ -328,7 +358,10 @@ const styles = makeStyles((theme) => ({
     flexDirection:"column",
     display:"flex",
     justifyContent:"space-between",
-    alignItems:"center"
+    alignItems:"center",
+    [theme.breakpoints.down(1024)]: {
+      marginTop: "60px"
+    },
   },
    mainImgDiv: {
 	  display:"flex",
@@ -341,13 +374,19 @@ const styles = makeStyles((theme) => ({
     width:"100%",
     maxWidth: "500px",
     minWidth:"500px",
-    height:"%100",
+    height:"100%",
     maxHeight: "272px",
-    minHeight:"272px"
+    minHeight:"272px",
+    [theme.breakpoints.down(1024)]: {
+      minWidth: 0,
+    },
   },
    sellerGrid: {
     flexDirection:"column",
-    display: "flex"
+    display: "flex",
+    [theme.breakpoints.down(1024)]: {
+      display: "none",
+    },
   },
    divider: {
     width:"100%",
@@ -474,6 +513,12 @@ const styles = makeStyles((theme) => ({
     border:"1px solid #bababa",
     borderRadius:"5px",
     marginLeft:"-16px",
+    [theme.breakpoints.down(1024)]: {
+      maxWidth: "none",
+      marginLeft: 0,
+      marginTop: "30px",
+      border: 0
+    },
  },
  descriptionTitle: {
    fontSize: "20px",
