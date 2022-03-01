@@ -14,6 +14,7 @@ import { itemService } from '../../services/itemService';
 import { useTranslation } from "react-i18next";
 import AddItemResult from './addItemResult';
 import { useHistory } from "react-router-dom";
+import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
