@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
     left: "-75px",
     fontWeight: "500",
     textTransform: "none",
-    minWidth: "60px",
-    maxWidth: "60px",
+    width: "100%",
+    minWidth: "70px",
+    maxWidth: "80px",
     justifyContent: "space-evenly",
     marginLeft: "auto",
     outline: "none !important",
@@ -45,6 +46,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-1.5rem",
     fontSize: "18px",
     fontWeight: "light",
+  },
+  textField: {
+    '& label.Mui-focused': {
+        color: '#00ABD1',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: '#00ABD1',
+        },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: '#00ABD1',
+          },
+       },
   },
 }));
 
@@ -92,6 +106,7 @@ export default function EditName() {
             label={t("First Name")}
             type="text"
             fullWidth
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -100,6 +115,7 @@ export default function EditName() {
             label={t("Last Name")}
             type="text"
             fullWidth
+            className={classes.textField}
           />
         </DialogContent>
         <DialogContentText

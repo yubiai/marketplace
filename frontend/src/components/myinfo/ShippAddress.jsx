@@ -29,8 +29,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "500",
     textTransform: "none",
     outline: "none !important",
-    minWidth: "60px",
-    maxWidth: "60px",
+    width: "100%",
+    minWidth: "70px",
+    maxWidth: "80px",
     justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
@@ -43,6 +44,19 @@ const useStyles = makeStyles((theme) => ({
   dialogContent: {
     fontFamily: "Open Sans",
     marginTop: "-1rem",
+  },
+  textField: {
+    '& label.Mui-focused': {
+        color: '#00ABD1',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: '#00ABD1',
+        },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: '#00ABD1',
+          },
+       },
   },
 }));
 
@@ -90,6 +104,7 @@ export default function ShipAddress() {
             label={t("Street")}
             type="text"
             fullWidth
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -98,6 +113,7 @@ export default function ShipAddress() {
             label={t("Number")}
             type="numbers"
             width="204px"
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -106,6 +122,7 @@ export default function ShipAddress() {
             label={t("Apartment/House(Optional)")}
             type="text"
             width="204px"
+            className={classes.textField}
           />
            <TextField
             autoFocus
@@ -114,6 +131,7 @@ export default function ShipAddress() {
             label={t("Zip Code")}
             type="text"
             width="204px"
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -122,6 +140,7 @@ export default function ShipAddress() {
             label={t("City")}
             type="text"
             width="204px"
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -130,6 +149,7 @@ export default function ShipAddress() {
             label={t("Province/State")}
             type="province"
             width="204px"
+            className={classes.textField}
           />
           <TextField
             autoFocus
@@ -138,6 +158,7 @@ export default function ShipAddress() {
             label={t("Country")}
             type="country"
             width="204px"
+            className={classes.textField}
           />
         </DialogContent>
         <DialogActions>

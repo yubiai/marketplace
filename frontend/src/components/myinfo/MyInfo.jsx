@@ -4,6 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import { styled } from '@mui/material/styles';
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import EditIcon from "@material-ui/icons/Edit";
@@ -16,7 +17,7 @@ import IdNumber from "./IdNumber";
 import ShippAddress from "./ShippAddress";
 import CellphoneNumber from "./CellPhoneNumber";
 import TelegramHandl from "./TelegramHandl";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -87,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       outline: "none !important",
       borderBottom: "none",
-      color: "#00ABD1",
+      color: "#00ABD1 !important",
       backgroundColor: "transparent",
       textDecoration: "none",
       fontFamily: "Open Sans",
@@ -135,6 +136,26 @@ const useStyles = makeStyles((theme) => ({
 function _formatWalletAddress(address = "") {
   return address ? address.substr(0, 8) : "";
 }
+
+const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.gray,
+    borderRadius:"5px",
+    fontSize:"14px",
+    color:"white",
+    marginLeft: "10px",
+    position: "relative",
+    top: "-60px",
+    left: "180px",
+    [theme.breakpoints.down(600)]: {
+      top: "-10px",
+      left: "-20px",
+      position: "relative",
+    },
+  },
+}));
 
 export default function AlignItemsList() {
   const classes = useStyles();
@@ -333,7 +354,7 @@ export default function AlignItemsList() {
               {t("Personal and shipping information")}
             </h4>
           </Typography>
-          <Tooltip
+          <LightTooltip
             disableTypography
             className={classes.infoClass}
             title={t("This info will only be shared when you make a purchase of an item that needs to be shipped.")}
@@ -341,7 +362,7 @@ export default function AlignItemsList() {
             <IconButton aria-label="info">
               <InfoOutlinedIcon />
             </IconButton>
-          </Tooltip>
+          </LightTooltip>
         </div>
         <Grid
           container

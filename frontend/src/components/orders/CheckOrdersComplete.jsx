@@ -13,7 +13,6 @@ import Grid from "@material-ui/core/Grid";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
-import EscrowPayment from "../checkout/escrowPayChk";
 import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
@@ -23,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "159ch",
     backgroundColor: theme.palette.background.paper,
     fontFamily: "Open Sans",
+    [theme.breakpoints.down(900)]: {
+      marginBottom: 250,
+    },
   },
   inline: {
     fontSize: "11px",
@@ -45,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     borderRadius: "10px",
     [theme.breakpoints.down(900)]: {
-      flexDirection: "column",
       width: "100% !important",
       maxWidth: "calc(100% - 4rem)",
       flex: 1,
@@ -61,22 +62,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   profileSellerGrid: {
-    backgroundColor: "white",
-    borderRadius: "10px",
-    marginLeft: "7px", height: "100%", maxHeight: "190px",
-    justifyContent: "space-around",
-    width: "30vw",
     [theme.breakpoints.down(960)]: {
       width: "100%",
       marginTop: "10px",
       flex: 1,
       marginLeft: "0 !important",
       maxWidth: "calc(100% - 120px)",
-    },
-    [theme.breakpoints.down("xs")]: {
-      height: "100%",
-      maxHeight: "241px",
-      marginTop: "10px",
     },
     [theme.breakpoints.down(481)]: {
       maxWidth: "initial",
@@ -87,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontWeight: "bold",
     fontFamily: "Open Sans",
-    
   },
   btnSendMsg: {
     display: "flex",
@@ -140,14 +130,15 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "auto",
     color: "#bababa",
-  },
+ },
   imageOrder: {
     display: "flex",
     alignItems: "center",
     right: "1px",
     maxWidth: "70px",
-    width: "70px",
-    height: "47px",
+    width: "100%",
+    height: "100%",
+    maxHeight: "48px",
     justifyContent: "space-between",
     marginLeft: "auto",
     marginTop: "-55px",
@@ -218,45 +209,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "5px",
     color: "#00ABD1",
   },
-  escNdbuttonGrid: {
-    backgroundColor:"white",
-    borderRadius: "10px",
-    marginLeft: "7px",
-    [theme.breakpoints.down(1100)]: {
-        marginLeft: "2rem"
-      },
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      maxWidth: "450px",
-      marginTop: "10px"
-    },  
-  },
-  ItemGrid: {
-    backgroundColor: "white",
-    borderRadius: "10px",
-    marginBottom: "4px",
-    marginLeft: "2rem",
-    height: "100%",
-    maxHeight: "123px",
-    minHeight: "123px",
-    width: "100%",
-    maxWidth:"528px",
-    
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      maxWidth: "450px",
-    },
-  },
-  ItndEscGrid : {
-    [theme.breakpoints.down("xs")]: {
-      flexDirection:"column",
-      display:"flex",
-    },
-
-  }
 }));
 
-export default function AlignItemsList() {
+export default function OrderDetailsComplete() {
   const classes = useStyles();
   const { t, i18n } = useTranslation("checkorders");
   const profileImage = require("../../media/vbuterin.png");
@@ -268,13 +223,14 @@ export default function AlignItemsList() {
   };
   return (
     <List className={classes.root} style={{ backgroundColor: "#EAEAEA" }}>
-     <Breadcrumbs
-        style={{ marginTop: "-0.75rem" }}
+      <Breadcrumbs
+        style={{ marginTop: "-0.25rem" }}
         separator="›"
         aria-label="breadcrumb"
-        >
+      >
         <Link
           className={classes.link}
+          to="/orderscomplete"
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
@@ -282,15 +238,14 @@ export default function AlignItemsList() {
         </Link>
         <Link
           className={classes.link}
-          to="/ordersactive"
+          to="/orderscomplete"
+          style={{ color: "#808080", marginLeft: "-0.5rem" }}
           onClick={handleClick}
-          aria-current="page"
-          style={{ marginLeft: "-0.2rem" }}
         >
-          {t("Active")}
+          {t("Complete")}
         </Link>
         <Link className={classes.link} style={{ marginLeft: "-0.2rem" }}>
-          {t("Details")}
+          {t("Order details complete")}
         </Link>
       </Breadcrumbs>
       <Grid
@@ -298,22 +253,25 @@ export default function AlignItemsList() {
         spacing={1}
         variant="fullWidth"
         direction="row"
-        // justifyContent="space-between"
+        justifyContent="space-between"
         alignItems="left"
-        className={classes.ItndEscGrid}
         style={{ marginTop: "4px" }}
       >
         <Grid
           item
           xs={10}
           md={10}
-          className={classes.ItemGrid}
+          className={classes.listItemGrid}
+          style={{
+            marginBottom: "4px",
+            marginLeft: "2rem",
+            height: "67px",
+          }}
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
-              //en primary va nombre del order item}
-              primary={"Product Title"}
+              primary={"Product Title"} //aca va nombre del order item
               secondary={
                 <React.Fragment>
                   <Typography
@@ -325,7 +283,7 @@ export default function AlignItemsList() {
                   >
                     {" "} {t("item")}
                   </Typography>
-                   <ListItemAvatar>
+                  <ListItemAvatar>
                     <ImageIcon className={classes.imageOrder}/>
                   </ListItemAvatar>
                 </React.Fragment>
@@ -333,11 +291,7 @@ export default function AlignItemsList() {
             />
           </ListItem>
         </Grid>
-        <Grid className={classes.escNdbuttonGrid}>
-          <EscrowPayment   />
-        </Grid>
       </Grid>
-
       <Grid
         container
         spacing={0}
@@ -385,7 +339,7 @@ export default function AlignItemsList() {
                 <React.Fragment>
                   <div style={{ fontSize: "11px", fontWeight: "100" }}>
                     {/* conectar date en {" "} */}
-                    {t(" Date  |")}{" "}
+                    {t("Date  |")}{" "}
                     <FileCopyOutlinedIcon
                       className={classes.listItemTextIcon}
                     />
@@ -501,19 +455,19 @@ export default function AlignItemsList() {
           </ListItem>
         </Grid>
         <Grid
-            item
-            xs={5}
-            md={5}
-            className={`${classes.listItemGrid} ${classes.profileSellerGrid}`}
-            // style={{
-            //   backgroundColor: "white",
-            //   borderRadius: "10px",
-            //   marginLeft: "7px", height: "100%", maxHeight: "190px",
-            //   justifyContent: "space-around",
-            //   width: "30vw",
-            // }}
-          >
-          
+          item
+          xs={5}
+          md={5}
+          className={`${classes.listItemGrid} ${classes.profileSellerGrid}`}
+          style={{
+            backgroundColor: "white",
+            borderRadius: "10px",
+            marginLeft: "7px",
+            height: "190px",
+            justifyContent: "space-around",
+            width: "30vw",
+          }}
+        >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
@@ -524,12 +478,14 @@ export default function AlignItemsList() {
           <ListItem style={{ alignItems: "flex-start", height: "initial" }}>
             <Grid xs={3} style={{ height: "100%", flexBasis: "auto" }}>
               <ListItemAvatar
-                style={{ margin: 0,
+                style={{
+                  margin: 0,
                   width: "100%",
                   height: "100%",
-                  maxWidth: "100px", }}
+                  maxWidth: "100px",
+                }}
               >
-                <ImageIcon className={classes.imageProfile} />
+                <ImageIcon className={classes.imageProfile}/>
               </ListItemAvatar>
             </Grid>
             <Grid
@@ -573,9 +529,7 @@ export default function AlignItemsList() {
                 }
               />
               <ListItem className={classes.profileRepContainer}>
-                
                 <div className={classes.starsContainer}>
-                  <a>{t("Reputation")} </a>
                   <StarBorderOutlinedIcon className={classes.starsReputation} />
                   <StarBorderOutlinedIcon className={classes.starsReputation} />
                   <StarBorderOutlinedIcon className={classes.starsReputation} />
@@ -583,7 +537,15 @@ export default function AlignItemsList() {
                   <StarBorderOutlinedIcon className={classes.starsReputation} />
                 </div>
               </ListItem>
-
+              <ListItemText
+                disableTypography
+                component="span"
+                display="inline-block"
+                className={classes.txtReputation}
+                style={{ fontWeight: "light", fontSize: "12px" }}
+              >
+                {" "}{t(" sales in the last ")}{" "}{t("days")}
+              </ListItemText>
               <Button
                 className={classes.btnSendMsg}
                 variant="contained"

@@ -8,7 +8,7 @@ const categorySchema = new Schema({
   title: String,
   description: String,
   permalink: String,
-  categoryId: { type: Number, default: 0 },
+  categoryId: { type: String, default: 0 },
   slug: {
     type: String,
     unique: true,

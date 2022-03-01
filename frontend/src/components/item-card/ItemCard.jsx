@@ -14,6 +14,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ImageIcon from "@material-ui/icons/Image";
 import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,8 +28,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans",
   },
   productImage: {
+    height: "85px",
     width: "150px",
     padding: `${theme.spacing(0)} 12.5px`,
+    color: "#bababa"
   },
   media: {
     height: 0,
@@ -117,7 +120,7 @@ const ItemCard = ({ title, price, image }) => {
   };
 
   const classes = useStyles();
-  const logoImage = require("../../media/Shoes-PNG-File.png");
+  // const logoImage = require("../../media/Shoes-PNG-File.png");
 
   return (
     <Grid
@@ -168,11 +171,7 @@ const ItemCard = ({ title, price, image }) => {
           </MenuItem>
         </Menu>
 
-        <img
-          className={classes.productImage}
-          src={logoImage.default}
-          alt="Prdct1"
-        />
+        <ImageIcon className={classes.productImage} />
         <CardContent>
           <Typography
             disableTypography

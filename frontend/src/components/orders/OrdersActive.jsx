@@ -1,37 +1,32 @@
-import React from "react";
-import styles from "./SalesActNRevStyles";
+import React, { useState } from "react";
+import styles from "./OrderStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-// import Menu from "@material-ui/core/Menu";
+import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
-import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
-import EscrowPayment from "../checkout/escrowPayChk";
-import Menu from "./MenuComplete";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import ImageIcon from "@material-ui/icons/Image";
+import EscrowPayment from "../checkout/escrowPayChk";
 import { useTranslation } from "react-i18next";
 
-export default function SalesComplete() {
+export default function OrdersActive() {
   const classes = styles();
+  const { t, i18n } = useTranslation("orders");
+  //integrar el hardcodeado del orderImage 
+  const orderImage = require("../../media/Shoes-PNG-File.png");
   const [open, setOpen] = React.useState(true);
-  const { t, i18n } = useTranslation("salescomplete");
   const handleClick = () => {
     setOpen(!open);
   };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const openMobileMenuOpt = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -51,26 +46,19 @@ export default function SalesComplete() {
           style={{ color: "#808080" }}
           onClick={handleClick}
         >
-          {t("Sales")}
+          {t("Orders")}
         </Link>
         <Link
           className={classes.link}
-          to="/salescomplete"
+          to="/ordersactive"
           onClick={handleClick}
           aria-current="page"
           style={{ marginLeft: "-0.2rem" }}
         >
-          {t("Complete")}
+          {t("Active")}
         </Link>
       </Breadcrumbs>
-      <Link to={"/additem"}>
-        <AddCircleOutlinedIcon
-          className={classes.addItem}
-          component={"svg"}
-          primary="AddItem"
-        />
-      </Link>
-       <Grid
+      <Grid
         container
         spacing={1}
         variant="fullWidth"
@@ -91,20 +79,14 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                <ImageIcon className={classes.image} />
-              </ListItemAvatar>
+                  <ImageIcon className={classes.image} />
+                </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
                          <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
-                        <MoreHorizSharpIcon
-                          className={classes.buttonThreeDots}
-                          component={Menu}
-                          open={open}
-                          onClose={handleClose}
-                        />
-                    </span>
+                  </span>
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
@@ -117,18 +99,45 @@ export default function SalesComplete() {
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
                   <Button
-                    className={classes.btnDetails}
+                    className={classes.btnCheckOrder}
                     variant="contained"
                     component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
+                    to="/checkorders"
+                    secondary="CheckOrders"
                   >
-                    {t("Details")}
+                    {t("Order details")}
                   </Button>
-              </Grid>    
+                  <Button className={classes.btnBuyAgain} variant="contained">
+                    {t("Buy it again")}
+                  </Button>
+              </Grid> 
+            <IconButton
+              onClick={openMobileMenuOpt}
+              aria-label="more"
+              aria-haspopup="true"
+              aria-controls="more-menu"
+              className={classes.menuMobileIcon}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="more-menu"
+              keepMounted
+              anchorEl={anchorEl}
+              onClose={closeMobileMenuOpt}
+              open={Boolean(anchorEl)}
+            >
+              <MenuItem className={classes.menuIcons}>
+                <Link to="/checkorders" className={classes.menuIconLink}>
+                  {t("Order details")}
+                </Link>
+              </MenuItem>
+              <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
+            </Menu>     
             </Grid>
         </Grid>
-        {/* second item */}
+       {/* end of second item */}
+       {/* second item */}
         <Grid
           container
           spacing={1}
@@ -140,20 +149,14 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                <ImageIcon className={classes.image} />
-              </ListItemAvatar>
+                  <ImageIcon className={classes.image} />
+                </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
-                        <MoreHorizSharpIcon
-                          className={classes.buttonThreeDots}
-                          component={Menu}
-                          open={open}
-                          onClose={handleClose}
-                        />
-                    </span>
+                         <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
+                  </span>
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
@@ -166,17 +169,44 @@ export default function SalesComplete() {
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
                   <Button
-                    className={classes.btnDetails}
+                    className={classes.btnCheckOrder}
                     variant="contained"
                     component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
+                    to="/checkorders"
+                    secondary="CheckOrders"
                   >
-                    {t("Details")}
+                    {t("Order details")}
                   </Button>
-              </Grid>    
+                  <Button className={classes.btnBuyAgain} variant="contained">
+                    {t("Buy it again")}
+                  </Button>
+              </Grid> 
+            <IconButton
+              onClick={openMobileMenuOpt}
+              aria-label="more"
+              aria-haspopup="true"
+              aria-controls="more-menu"
+              className={classes.menuMobileIcon}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="more-menu"
+              keepMounted
+              anchorEl={anchorEl}
+              onClose={closeMobileMenuOpt}
+              open={Boolean(anchorEl)}
+            >
+              <MenuItem className={classes.menuIcons}>
+                <Link to="/checkorders" className={classes.menuIconLink}>
+                  {t("Order details")}
+                </Link>
+              </MenuItem>
+              <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
+            </Menu>     
             </Grid>
-        </Grid>  
+        </Grid>
+        {/* end of second item */}
         {/* third item */}
         <Grid
           container
@@ -195,14 +225,8 @@ export default function SalesComplete() {
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>{t("Delivered on")} {" "} </p>
-                        <MoreHorizSharpIcon
-                          className={classes.buttonThreeDots}
-                          component={Menu}
-                          open={open}
-                          onClose={handleClose}
-                        />
-                    </span>
+                         <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
+                  </span>
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
@@ -215,17 +239,44 @@ export default function SalesComplete() {
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
                   <Button
-                    className={classes.btnDetails}
+                    className={classes.btnCheckOrder}
                     variant="contained"
                     component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
+                    to="/checkorders"
+                    secondary="CheckOrders"
                   >
-                    {t("Details")}
+                    {t("Order details")}
                   </Button>
-              </Grid>    
+                  <Button className={classes.btnBuyAgain} variant="contained">
+                    {t("Buy it again")}
+                  </Button>
+              </Grid> 
+            <IconButton
+              onClick={openMobileMenuOpt}
+              aria-label="more"
+              aria-haspopup="true"
+              aria-controls="more-menu"
+              className={classes.menuMobileIcon}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="more-menu"
+              keepMounted
+              anchorEl={anchorEl}
+              onClose={closeMobileMenuOpt}
+              open={Boolean(anchorEl)}
+            >
+              <MenuItem className={classes.menuIcons}>
+                <Link to="/checkorders" className={classes.menuIconLink}>
+                  {t("Order details")}
+                </Link>
+              </MenuItem>
+              <MenuItem className={classes.menuIcons}>Buy it again</MenuItem>
+            </Menu>     
             </Grid>
-        </Grid> 
+        </Grid>
+        {/* end of third item */}
       </Grid>
     </List>
   );

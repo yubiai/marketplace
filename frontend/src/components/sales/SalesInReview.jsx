@@ -6,37 +6,26 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-// import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import AddCircleOutlinedIcon from "@material-ui/icons/AddCircleOutlined";
 import MoreHorizSharpIcon from "@material-ui/icons/MoreHorizSharp";
+import Menu from "./Menu";
 import EscrowPayment from "../checkout/escrowPayChk";
-import Menu from "./MenuComplete";
 import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
-export default function SalesComplete() {
+export default function SalesInReview() {
   const classes = styles();
+  const { t, i18n } = useTranslation("salesinreview");
   const [open, setOpen] = React.useState(true);
-  const { t, i18n } = useTranslation("salescomplete");
+  const activeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
   };
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const openMobileMenuOpt = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const closeMobileMenuOpt = () => {
-    setAnchorEl(null);
   };
 
   return (
@@ -55,12 +44,12 @@ export default function SalesComplete() {
         </Link>
         <Link
           className={classes.link}
-          to="/salescomplete"
+          to="/salesinreview"
           onClick={handleClick}
           aria-current="page"
           style={{ marginLeft: "-0.2rem" }}
         >
-          {t("Complete")}
+          {t("In Review")}
         </Link>
       </Breadcrumbs>
       <Link to={"/additem"}>
@@ -91,13 +80,13 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                <ImageIcon className={classes.image} />
-              </ListItemAvatar>
+                  <ImageIcon className={classes.image} />
+                </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                         <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
+                         <p className={classes.itemName}>{"Product Title"} </p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -105,26 +94,35 @@ export default function SalesComplete() {
                           onClose={handleClose}
                         />
                     </span>
-                    <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
                       <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
                     </span>   
+                    <p>{"  "} {t("item")}</p>
                 </div>
             </Grid>
           </div>  
             <Grid className={classes.escNdbuttonGrid}>
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
-                  <Button
-                    className={classes.btnDetails}
-                    variant="contained"
-                    component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
-                  >
-                    {t("Details")}
-                  </Button>
+                        <Button
+                          className={classes.btnPreview}
+                          variant="contained"
+                          component={Link}
+                          to="/preview"
+                          primary="Preview"
+                        >
+                          {t("View")}
+                        </Button>
+                        <Button
+                          className={classes.btnEdit}
+                          variant="contained"
+                          component={Link}
+                          to="/edititem"
+                          primary="EditItem"
+                        >
+                          {t("Edit item")}
+                        </Button>
               </Grid>    
             </Grid>
         </Grid>
@@ -140,13 +138,13 @@ export default function SalesComplete() {
           <div style={{ justifyContent:"flex-start", fleDirection:"row", alignItems:"center", display: "flex"}}>
             <Grid >
               <ListItemAvatar>
-                <ImageIcon className={classes.image} />
-              </ListItemAvatar>
+                  <ImageIcon className={classes.image} />
+                </ListItemAvatar>
             </Grid>
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>{t("Delivered on")} {" "}</p>
+                        <p className={classes.itemName}>{"Product Title"} </p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -154,26 +152,35 @@ export default function SalesComplete() {
                           onClose={handleClose}
                         />
                     </span>
-                    <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
                       <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
                     </span>   
+                    <p>{"  "} {t("item")}</p>
                 </div>
             </Grid>
           </div>  
             <Grid className={classes.escNdbuttonGrid}>
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
-                  <Button
-                    className={classes.btnDetails}
-                    variant="contained"
-                    component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
-                  >
-                    {t("Details")}
-                  </Button>
+                        <Button
+                          className={classes.btnPreview}
+                          variant="contained"
+                          component={Link}
+                          to="/preview"
+                          primary="Preview"
+                        >
+                          {t("View")}
+                        </Button>
+                        <Button
+                          className={classes.btnEdit}
+                          variant="contained"
+                          component={Link}
+                          to="/edititem"
+                          primary="EditItem"
+                        >
+                          {t("Edit item")}
+                        </Button>
               </Grid>    
             </Grid>
         </Grid>  
@@ -195,7 +202,7 @@ export default function SalesComplete() {
             <Grid className={classes.itemDescrGrid}>
                 <div className={classes.listItem} alignItems="flex-start">
                   <span className={classes.listItemText}>
-                        <p className={classes.itemName}>{t("Delivered on")} {" "} </p>
+                        <p className={classes.itemName}>{"Product Title"} </p>
                         <MoreHorizSharpIcon
                           className={classes.buttonThreeDots}
                           component={Menu}
@@ -203,26 +210,35 @@ export default function SalesComplete() {
                           onClose={handleClose}
                         />
                     </span>
-                    <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
                       <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
                     </span>   
+                    <p>{"  "} {t("item")}</p>
                 </div>
             </Grid>
           </div>  
             <Grid className={classes.escNdbuttonGrid}>
               <EscrowPayment  className={classes.escNdbuttonGrid}/>
               <Grid style={{flexDirection:"column",  marginLeft:"20px", marginRight:"20px"}}>
-                  <Button
-                    className={classes.btnDetails}
-                    variant="contained"
-                    component={Link}
-                    to="/salescompletedetails"
-                    primary="Preview"
-                  >
-                    {t("Details")}
-                  </Button>
+                        <Button
+                          className={classes.btnPreview}
+                          variant="contained"
+                          component={Link}
+                          to="/preview"
+                          primary="Preview"
+                        >
+                          {t("View")}
+                        </Button>
+                        <Button
+                          className={classes.btnEdit}
+                          variant="contained"
+                          component={Link}
+                          to="/edititem"
+                          primary="EditItem"
+                        >
+                          {t("Edit item")}
+                        </Button>
               </Grid>    
             </Grid>
         </Grid> 

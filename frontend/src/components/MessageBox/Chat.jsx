@@ -7,6 +7,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Paper } from "@material-ui/core";
 import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
+import ImageIcon from "@material-ui/icons/Image";
 import BreadcrumbB from "./BreadcrumbB";
 
 
@@ -78,10 +79,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "left",
     left: "10px",
     justifyContent: "left",
-    marginLeft: "1.25rem",
+    marginLeft: "0.25rem",
     marginBottom: "-10px",
+    marginTop: "-10px",
     width: "43px",
     height: "43px",
+    color: "#bababa",
   },
   listItemText: {
     fontFamily: "Open Sans",
@@ -128,12 +131,7 @@ export default function Chat(props) {
       />
       <ListItem className={classes.profileBackground}>
         <ListItemAvatar>
-          <img
-            alt="{imgjson}"
-            className={classes.imageProfile}
-            style={{ marginTop: "-10px" }}
-            src={profileImage.default}
-          />
+          <ImageIcon className={classes.imageProfile} />
         </ListItemAvatar>
         <ListItemText
           classes={{ primary: classes.listItemText }}
