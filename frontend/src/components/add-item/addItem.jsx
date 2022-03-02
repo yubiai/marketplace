@@ -279,6 +279,7 @@ export default function AddItem() {
   const [description, setDescription] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const history = useHistory();
+  const global = useGlobal();
 
   // Wallet User
   const walletUser = sessionStorage.getItem('wallet');
@@ -347,6 +348,10 @@ export default function AddItem() {
         {/* <InputLabel id="condition">Condition</InputLabel> */}
         <div>
           <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
+          <p>Precio Arg: {global.prices.arg}</p>
+          <p>Precio UBI: {global.prices.ubi}</p>
+
+          <p>Valor ubi en Arg: {global.prices && global.prices.ubi * global.prices.arg}</p>
         </div>
         <label className={classes.label}>
           {t("Condition")}
@@ -413,7 +418,7 @@ export default function AddItem() {
           multiline
           placeholder={t("Write a detailed description of your item")}
           onChange={ev => {
-            if ((ev.target.value || '').length < 100) {
+            if ((ev.target.value || '').length < 600) {
               setDescription(ev.target.value);
             }
           }}
