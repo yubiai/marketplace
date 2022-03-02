@@ -12,9 +12,14 @@ export const itemService = {
   getItemUrl
 };
 
-async function getItem(itemId = '') {
+async function getItem(itemId = '', query='') {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/items/item`,
+    `${SERVER_ENDPOINT}/api/items/item${query}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${getToken()}`
+      }
+    }
   );
 }
 

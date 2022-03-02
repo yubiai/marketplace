@@ -170,8 +170,12 @@ const ItemCard = ({ title, price, image }) => {
             </IconButton>
           </MenuItem>
         </Menu>
-
-        <ImageIcon className={classes.productImage} />
+        {
+          image && <img src={image} alt={image} className={classes.productImage} />
+        }
+        {
+          !image && <ImageIcon className={classes.productImage} />
+        }
         <CardContent>
           <Typography
             disableTypography

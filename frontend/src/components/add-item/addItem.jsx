@@ -412,7 +412,7 @@ export default function AddItem() {
           multiline
           placeholder={t("Write a detailed description of your item")}
           onChange={ev => {
-            if ((ev.target.value || '').length < 100) {
+            if ((ev.target.value || '').length < 1000) {
               setDescription(ev.target.value);
             }
           }}
