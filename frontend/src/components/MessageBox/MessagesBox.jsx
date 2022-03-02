@@ -7,6 +7,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Paper } from "@material-ui/core";
 import { TextInput } from "./TextInput.jsx";
 import { MessageLeft, MessageRight } from "./MessageLR";
+import ImageIcon from "@material-ui/icons/Image";
 import BreadcrumbA from "./BreadcrumbA";
 
 const useStyles = makeStyles((theme) => ({
@@ -66,9 +67,11 @@ const useStyles = makeStyles((theme) => ({
   imageProfile: {
     display: "flex",
     alignItems: "left",
+    marginTop: "-10px",
     left: "10px",
     justifyContent: "left",
     marginLeft: "1.25rem",
+    color: "#bababa",
     marginBottom: "-10px",
     width: "43px",
     height: "43px",
@@ -112,12 +115,7 @@ export default function MessagesBox(props) {
       />
       <ListItem className={classes.profileBackground}>
         <ListItemAvatar>
-          <img
-            alt="{imgjson}"
-            className={classes.imageProfile}
-            style={{ marginTop: "-10px" }}
-            src={profileImage.default}
-          />
+          <ImageIcon className={classes.imageProfile} />
         </ListItemAvatar>
 
         <ListItemText
@@ -128,31 +126,31 @@ export default function MessagesBox(props) {
       <Paper className={classes.paper} zDepth={2}>
         <Paper id="style-1" className={classes.messagesBody}>
           <MessageLeft
-            message="Water striders "
-            timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName="Elon"
+            message={"Message "}
+            timestamp={"MM/DD 00:00"}
+            photoURL={<ImageIcon  />}
+            displayName={"ProfileName"}
             avatarDisp={true}
           />
           <MessageLeft
-            message="example2"
-            timestamp="MM/DD 00:00"
-            photoURL=""
-            displayName="Elon"
+            message={"Message "}
+            timestamp={"MM/DD 00:00"}
+            photoURL={<ImageIcon  />}
+            displayName={"ProfileName"}
             avatarDisp={false}
           />
           <MessageRight
-            message="message"
-            timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName="Vitalik"
+            message={"Message "}
+            timestamp={"MM/DD 00:00"}
+            photoURL={<ImageIcon  />}
+            displayName={"ProfileName"}
             avatarDisp={true}
           />
           <MessageRight
-            message="message"
-            timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName="Vitalik"
+            message={"Message "}
+            timestamp={"MM/DD 00:00"}
+            photoURL={<ImageIcon  />}
+            displayName={"ProfileName"}
             avatarDisp={false}
           />
         </Paper>

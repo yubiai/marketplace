@@ -143,29 +143,29 @@ export default function Chat(props) {
           <MessageLeft
             message="Water striders "
             timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
+            photoURL={<ImageIcon />}
             displayName="Elon"
             avatarDisp={true}
           />
           <MessageLeft
             message="example2"
             timestamp="MM/DD 00:00"
-            photoURL=""
+            photoURL={<ImageIcon />}
             displayName="Elon"
             avatarDisp={false}
           />
           <MessageRight
             message="message"
             timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName="Vitalik"
+            photoURL={<ImageIcon />}
+            displayName={"Profile Name"}
             avatarDisp={true}
           />
           <MessageRight
-            message="message"
-            timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName="Vitalik"
+            message={"message"}
+            timestamp={"MM/DD 00:00"}
+            photoURL={<ImageIcon />}
+            displayName={"Profile Name"}
             avatarDisp={false}
           />
         </Paper>
