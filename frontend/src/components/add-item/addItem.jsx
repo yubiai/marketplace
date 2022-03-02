@@ -14,6 +14,7 @@ import { itemService } from '../../services/itemService';
 import { useTranslation } from "react-i18next";
 import AddItemResult from './addItemResult';
 import { useHistory } from "react-router-dom";
+import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -263,7 +264,45 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '14px',
     fontFamily: 'Open Sans',
     fontSize: '14px',
-  }
+  },
+  conversion: {
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"flex-end",
+    width:"100%"
+  },
+  conversionPriceSpan: {
+	display:"flex",
+	flexDirection:"row",
+	justifyContent:"space-between",
+	height:"58px"
+},
+conversionPriceDaiArs: {
+	marginRight:"5px",
+	border:"1px solid gray",
+	borderRadius:"5px",
+	width: "30%",
+	justifyContent: "center",
+	alignItems: "center",
+	display: "flex"
+},
+conversionPriceDaiUbi: {
+marginRight:"5px",
+border:"1px solid gray",
+borderRadius:"5px",
+width: "35%",
+justifyContent: "center",
+alignItems: "center",
+display: "flex"
+},
+conversionPriceUbiArs: {
+border:"1px solid gray",
+ borderRadius:"5px",
+ width: "30%",
+ justifyContent: "center",
+  alignItems: "center",
+ display: "flex"
+},
 }));
 
 export default function AddItem() {
@@ -273,11 +312,13 @@ export default function AddItem() {
   const { t, i18n } = useTranslation("additem");
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
+  const [conversion, setConversion] = React.useState(0);
   const [category, setCategory] = React.useState('YUBI1648');
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const history = useHistory();
+  const global = useGlobal();
 
   // Wallet User
   const walletUser = sessionStorage.getItem('wallet');
@@ -292,6 +333,25 @@ export default function AddItem() {
   /**
    * Format file before open modal
    */
+  const conversionActive = (value) => { 
+    if (currency === 'UBI') {
+      let result = value * global.prices.ubi * global.prices.arg;
+      return setConversion(result);
+    }
+    if (currency === 'DAI') {
+      let result = value / global.prices.ubi;
+      return setConversion(result);  
+    }
+    if (currency === 'AR$') {
+      let result = value / global.prices.ubi / global.prices.arg;
+      console.log(result);
+      return setConversion(result);  
+    }
+      
+    // console.log(value);
+    console.log(currency);
+    };
+
   const setFile = (ev, field) => {
     setFiles({
       ...files,
@@ -346,6 +406,7 @@ export default function AddItem() {
         {/* <InputLabel id="condition">Condition</InputLabel> */}
         <div>
           <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
+         
         </div>
         <label className={classes.label}>
           {t("Condition")}
@@ -412,7 +473,7 @@ export default function AddItem() {
           multiline
           placeholder={t("Write a detailed description of your item")}
           onChange={ev => {
-            if ((ev.target.value || '').length < 1000) {
+            if ((ev.target.value || '').length < 600) {
               setDescription(ev.target.value);
             }
           }}
@@ -421,12 +482,19 @@ export default function AddItem() {
           variant="outlined" />
       </Grid>
       <div>
+
         <label className={classes.labelPrice}>
           {t("Price")}
+          <div>
+            <span className={classes.conversionPriceSpan}>
+                <p className={classes.conversionPriceDaiArs}>Precio DAI/nuARS: {global.prices.arg}</p>
+                <p className={classes.conversionPriceDaiUbi}>Precio DAI/UBI: {global.prices.ubi}</p>
+                <p className={classes.conversionPriceUbiArs}>Precio UBI/nuARS: {global.prices && global.prices.ubi * global.prices.arg}</p>
+            </span>
+          </div>
         </label>
         <div className={classes.divPrice}>
-          <Grid item xs={10} md={3}>
-
+           <Grid item xs={10} md={3}>
             <TextField
               id="standard-select-currency"
               select
@@ -448,36 +516,20 @@ export default function AddItem() {
               label="0.00"
               type="number"
               name="price"
-              onChange={ev => setPrice(ev.target.value)}
-              value={price}
+              onChange={ev => conversionActive(ev.target.value)}
+              // value={price}
               className={classes.price}
               variant="outlined"
               placeholder="Price" />
           </Grid>
+          <p className={classes.conversion}>{conversion}{" "}{currency === 'AR$' ? 'UBI': 'DAI' &&  currency === 'DAI' ? 'UBI': 'UBI' &&  currency === 'UBI' ? 'nuARS': 'UBI' }  </p>
+          
         </div>
       </div>
       <Grid item xs={10} md={10} >
         <h3 className={classes.productImages}>{t("Product Images")}</h3>
         <p>{t("Get noticed by the right buyers with visual examples of your services/products. Images must have a minimum width of 375px(Max Size: 10 MB | *.jpg, *.jpeg, *.png)")}</p>
       </Grid>
-
-      {/* <label className={classes.imguploader} htmlFor="upload-photo">
-              <input
-                  style={{ display: "none" }}
-
-                  id="upload-photo"
-                  name="upload-photo"
-                  type="file"
-              />
-              <Fab
-                className={classes.addPhotoButton}
-                component="span"
-                aria-label="add"
-                variant="extended"
-              >
-              <AddAPhotoIcon />
-              </Fab>
-      </label>    */}
       <Grid item xs={10} md={3} >
         <Box component="div" className={classes.dragNdropBox}>
           <div className={

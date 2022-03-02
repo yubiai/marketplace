@@ -24,6 +24,14 @@ import AddItem from "./components/add-item/addItem";
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
 
+
+import axios from "axios";
+import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
+import { priceService } from "./services/priceService.js.js";
+
+// LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
+axios.defaults.baseURL = 'http://137.184.45.236:4001/api';
+
 const useStyles = makeStyles((theme) => ({
   header: {
     position: "fixed",
@@ -45,6 +53,9 @@ function App() {
   const [signerAddress, setSignerAddress] = useState(undefined);
   const classes = useStyles();
 
+  const global = useGlobal();
+  const dispatch = useDispatchGlobal();
+
   useEffect(() => {
     const init = async () => {
       const { paymentProcessor, ubi, signerAddress } = await getBlockchain();
@@ -54,6 +65,33 @@ function App() {
     };
     init();
   }, []);
+
+  const refreshPrices = async() => {
+    console.log("Arranco ESTO MAQUINA")
+    await priceService
+    .getPrices()
+    .then((res) => {
+      console.log(res.data)
+      let data = res.data;
+      let newPrices = {
+        ubi: data[0].price,
+        arg: data[1].price
+      }
+      dispatch({
+        type: 'REFRESHPRICES',
+        payload: newPrices
+      })      
+
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+    setTimeout(refreshPrices, 5 * 60 * 1000)
+  }
+
+  useEffect(() => {
+    refreshPrices();
+  },[])
 
   if (typeof window.ethereum === "undefined") {
     return <Message />;
@@ -180,7 +218,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-
         <Footer />
       </div>
     </Router>

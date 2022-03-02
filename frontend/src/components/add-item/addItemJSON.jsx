@@ -24,17 +24,22 @@ const currencies = [
       label: 'UBI',
     },
     {
-      value: 'ETH',
-      label: 'eth',
+      value: 'AR$',
+      label: 'AR$',
     },
     {
-      value: 'BTC',
-      label: '฿',
+      value: 'DAI',
+      label: 'DAI',
     },
-    {
-      value: 'xDAI',
-      label: '¥',
-    },
+    // {
+    //   value: 'ETH',
+    //   label: 'eth',
+    // },
+    // {
+    //   value: 'BTC',
+    //   label: '฿',
+    // },
+    
 ];
 
 const categories = [
