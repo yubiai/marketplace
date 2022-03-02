@@ -264,6 +264,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '14px',
     fontFamily: 'Open Sans',
     fontSize: '14px',
+  },
+  conversion: {
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"flex-end",
+    width:"100%"
   }
 }));
 
@@ -274,6 +280,7 @@ export default function AddItem() {
   const { t, i18n } = useTranslation("additem");
   const [currency, setCurrency] = React.useState('UBI');
   const [condition, setCondition] = React.useState('New');
+  const [conversion, setConversion] = React.useState(0);
   const [category, setCategory] = React.useState('YUBI1648');
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
@@ -294,6 +301,25 @@ export default function AddItem() {
   /**
    * Format file before open modal
    */
+  const conversionActive = (value) => { 
+    if (currency === 'UBI') {
+      let result = value * global.prices.ubi * global.prices.arg;
+      return setConversion(result);
+    }
+    if (currency === 'USD') {
+      let result = value / global.prices.ubi;
+      return setConversion(result);  
+    }
+    if (currency === 'AR$') {
+      let result = value / global.prices.ubi / global.prices.arg;
+      console.log(result);
+      return setConversion(result);  
+    }
+      
+    // console.log(value);
+    console.log(currency);
+    };
+
   const setFile = (ev, field) => {
     setFiles({
       ...files,
@@ -348,10 +374,7 @@ export default function AddItem() {
         {/* <InputLabel id="condition">Condition</InputLabel> */}
         <div>
           <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
-          <p>Precio Arg: {global.prices.arg}</p>
-          <p>Precio UBI: {global.prices.ubi}</p>
-
-          <p>Valor ubi en Arg: {global.prices && global.prices.ubi * global.prices.arg}</p>
+         
         </div>
         <label className={classes.label}>
           {t("Condition")}
@@ -427,12 +450,19 @@ export default function AddItem() {
           variant="outlined" />
       </Grid>
       <div>
+
         <label className={classes.labelPrice}>
           {t("Price")}
+          <div>
+            <span style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+                <p style={{marginRight:"5px"}} >Precio Arg: {global.prices.arg}</p>
+                <p style={{marginRight:"5px"}}>Precio UBI: {global.prices.ubi}</p>
+                <p >Valor ubi en Arg: {global.prices && global.prices.ubi * global.prices.arg}</p>
+            </span>
+          </div>
         </label>
         <div className={classes.divPrice}>
-          <Grid item xs={10} md={3}>
-
+           <Grid item xs={10} md={3}>
             <TextField
               id="standard-select-currency"
               select
@@ -454,12 +484,14 @@ export default function AddItem() {
               label="0.00"
               type="number"
               name="price"
-              onChange={ev => setPrice(ev.target.value)}
-              value={price}
+              onChange={ev => conversionActive(ev.target.value)}
+              // value={price}
               className={classes.price}
               variant="outlined"
               placeholder="Price" />
           </Grid>
+          <p className={classes.conversion}>{conversion}{" "}{currency === 'AR$' ? 'UBI': '$' &&  currency === 'USD' ? 'UBI': 'UBI' &&  currency === 'UBI' ? 'ARG': 'UBI' }  </p>
+          
         </div>
       </div>
       <Grid item xs={10} md={10} >
