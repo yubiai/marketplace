@@ -888,6 +888,9 @@ export default function NavBar() {
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("es"); handleClose();}}>
         Español
       </MenuItem>
+      <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("it"); handleClose();}}>
+        Italiano
+      </MenuItem>  
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={handleClose}>
         Française
       </MenuItem>
@@ -1117,7 +1120,7 @@ export default function NavBar() {
                   {/* Second row */}
                   <Grid item sm={3} xs={6} className={classes.location}>
                     <LocationOnOutlinedIcon></LocationOnOutlinedIcon>{t("Send to")}{" "}
-                    <b>Buenos Aires</b>{" "}
+                    <b>{"Location"}</b>{" "}
                     {/* modify in base of location of user */}
                   </Grid>
                   <Grid item sm={7} xs={6} className={classes.listItemsMenu}>

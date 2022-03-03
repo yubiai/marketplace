@@ -1,0 +1,305 @@
+{
+    "navbar": {
+      "Connect": "Collegare",
+      "Send to": "Inviare a",
+      "Search for goods": "Cerca prodotti",
+      "Categories": "Categorie",
+      "Sell": "Vendere",
+      "Browsing history": "Cronologia di navigazione",
+      "Watch list": "Preferiti",
+      "Help desk": "Supporto",
+      "orders": "Ordini",
+      "sales": "Vendite",
+      "mailbox": "Posta",
+      "my_info": "Informazione Personale",
+      "kleros_dispute_resolver": "Risolutore di Controversie di Kleros",
+      "disconnect": "Scollegare",
+      "Profile": "Profilo",
+      "Notifications": "Notifiche",
+      "Cart": "Carrello",
+      "Arts & Crafts": "Arte e Artigianato",
+      "Automotive": "Automobile",
+      "Appliances": "Elettrodomestici",
+      "VideoGames": "Videogiochi",
+      "Agro":	"Agro",
+      "Food and Drinks":	"Cibo e Bevande",
+      "Animal and Pets":	"Animali e Animali Domestici",
+      "Antiques and Collectibles":	"Antichità e Collezioni",
+      "Cars, Motorcycles and Others":	"Macchine, Moto e Altri",
+      "Babies":	"Bambini",
+      "Beauty and Personal Care":	"Bellezza e Cura Personale",
+      "Cameras and Accessories":	"Fotocamere e Accessori",
+      "Cell Phones and Phones":	"Cellulari e Telefoni",
+      "Computing":	"Computer",
+      "Construction":	"Costruzione",
+      "Sports and Fitness":	"Sport e Fitness",
+      "Appliances and Air Ac.":	"Elettrodomestici e Aria Condizionata.",
+      "Electronics, Audio and Video":	"Elettronica, Audio e Video",
+      "Tickets for Events":	"Biglietti per eventi",
+      "Tools":	"Ferramenta",
+      "Home, Furniture and Garden":	"Casa, Mobili e Giardino",
+      "Industries and Offices":	"Industrie e Uffici",
+      "Real Estate":	"Beni Immobili",
+      "Musical instruments":	"Strumenti Musicali",
+      "Jewelry and watches":	"Gioielli e Orologi",
+      "Games and toys":	"Giochi e Giocattoli",
+      "Books, Magazines and Comics":	"Libri, Riviste e Fumetti",
+      "Music, Movies and Series":	"Musica, Film e Serie",
+      "Clothes and accessories":	"Vestiti e Accessori",
+      "Health and Medical Equipment":	"Salute e Attrezzature Mediche",
+      "Services":	"Servizi",
+      "Souvenirs, Party Favors and Parties": "Souvenir, Bomboniere e Feste",
+      "Other categories":	"Altre Categorie",
+      "UBI's dripped": "UBIs sgocciolati"
+    },
+    "store": {
+      "Last items posted on the marketplace.": "Ultimi articoli pubblicati.",
+      "Items on your watch list.": "Articoli nella lista di favoriti.",
+      "Last items you've watched on Health and household.": "Ultimi articoli che hai guardato su Salute e Famiglia."
+    },
+    "footer": {
+      "Contact me, Share us your ETHMail": "Contattami, condividi il tuo ETHMail",
+      "Governance Forum": "Forum di Governance",
+      "UBI Vaults": "Casseforti UBI"
+    },
+    "orders": {
+      "Orders": "Ordini",
+      "Delivered on": "Consegnato il",
+      "item": "articolo",
+      "Order details": "Dettagli dell'ordine",
+      "Buy it again": "Compra ancora"
+    },
+    "checkorders": {
+      "Orders": "Ordini",
+      "Order details": "Dettagli dell'ordine",
+      "item": "articolo",
+      "Transaction Details": "Dettagli sulla transazione",
+      "from": "da",
+      "to": "a",
+      " Date  |": "Data",
+      "Amount": "Ammontare",
+      "Transaction Fee": "Tassa di Transazione",
+      "Gas price": "Prezzo del gas",
+      "Seller Information": "Informazioni del venditore",
+      "address": "Indirizzo",
+      "Reputation": "Reputazione",
+      " sales in the last ": " vendite negli ultimi ",
+      "days": "giorni",
+      "Send message": "Invia messaggio"
+    },
+    "sidebar": {
+      "My account": "Il mio account",
+      "Orders": "Ordini",
+      "Sales": "Vendite",
+      "Active": "Attivi",
+      "Complete": "Completi",
+      "Mailbox": "Posta",
+      "My Info": "Il mio Profilo",
+      "In review": "In Revisione",
+      "Add new product": "Aggiungi nuovo prodotto"
+    },
+    "salesactive": {
+      "Sales": "Vendite",
+      "Active": "Attive",
+      "View": "Visualizza",
+      "Edit item": "Modifica articolo",
+      "item": "Articolo"
+    },
+    "menusalesactive": {
+      "Pause Sell": "Pausa vendita",
+      "Sell a similar item": "Vendi un articolo simile",
+      "View": "Visualizza",
+      "Edit Item": "Modifica articolo"
+    },
+    "salescomplete": {
+      "Sales": "Vendite",
+      "Complete": "Completi",
+      "Details": "Dettagli",
+      "item": "articolo",
+      "Delivered on": "Consegnato il"
+    },
+    "salescompletedetails": {
+      "Sales": "Vendite",
+      "Complete": "Completi",
+      "Details": "Dettagli",
+      "item": "Articolo",
+      "Transaction Details": "Dettagli sulla transazione",
+      "from": "da",
+      "to": "a",
+      " Date  |": " Data |",
+      "Buy it again": "Compra ancora",
+      "Amount": "Ammontare",
+      "Transaction Fee": "Tassa di Transazione",
+      "Gas price": "Prezzo del gas",
+      "Buyer Information": "Informazioni del compratore",
+      "address": "Indirizzo",
+      "Reputation": "Reputazione",
+      "Send message": "Invia messaggio"
+    },
+    "mailbox": {
+      "Mailbox": "Posta",
+      "Available": "Disponibile",
+      "Paused": "In pausa",
+      "Sold": "Venduto",
+      "Chat": "Chat",
+      "Delete Chat": "Cancella conversazione",
+      "Seller Information":"Informazione sul venditore"
+    },
+    "menumailbox": {
+      "Chat": "Chat",
+      "Delete Chat": "Cancella conversazione",
+      "Seller Information":"Informazione sul venditore"
+    },
+    "chat": {
+      "Mailbox": "Posta",
+      "Chat": "Scrivi un messaggio"
+    },
+    "breadcrumbB": {
+      "Mailbox": "Posta"
+    },
+    "breadcrumbA": {
+      "Sales": "Vendite",
+      "Complete": "Completi",
+      "Details": "Dettagli di vendite",
+      "Sales messages": "Messaggi di vendita",
+      "Orders": "Ordini",
+      "Order details": "Dettagli dell'ordine",
+      "Messages of the order": "Messaggi dell'ordine"
+    },
+    "myinfo": {
+      "My Info": "Il mio Profilo",
+      "Proof of humanity information": "Informazioni del tuo profilo su Proof of Humanity",
+      "My PoH Profile": "Il Mio Profilo su PoH",
+      "Personal and shipping information": "Informazioni personali e di spedizione",
+      "This info will only be shared when you make a purchase of an item that needs to be shipped.": "Quest'informazione sara condivisa soltanto quando si acquista un articolo che deve essere spedito.",
+      "Real Name": "Nome reale",
+      "id": "Carta d'identità",
+      "Shipping address": "Indirizzo di spedizione",
+      "Cellphone": "Numero di cellulare",
+      "Telegram handle:": "Usuario di Telegram:",
+      "UBI's dripped": "UBIs sgocciolati"
+    },
+    "myinfoeditname": {
+      "Modify Name": "Modifica Nome",
+      "First Name": "Nome",
+      "Last Name": "Cognome",
+      "Please note that in order to receive shipments you must use your real name.": "Si fa notare che per ricevere la spedizione è necessario utilizzare il nome reale.",
+      "Save": "Salva"
+    },
+    "myinfoeditId": {
+      "Modify ID Number": "Modifica Carta d'Identità",
+      "ID number": "Carta d'Identità Numero",
+      "Please note that in order to receive shipments you must use a valid ID number.": "Si fa notare che per ricevere la spedizione è necessario utilizzare una Carta d'Identità reale",
+      "Save": "Salva"
+    },
+    "myinfoeditShipping": {
+      "Modify shipping address": "Modifica indirizzo di spedizione",
+      "Street": "Strada",
+      "Number": "Numero Civico",
+      "Apartment/House(Optional)": "Appartamento/casa (opzionale)",
+      "Zip Code": "CAP",
+      "City": "Città",
+      "Province/State": "Provincia/Stato",
+      "Country": "Paese",
+      "Save": "Salva"
+    },
+    "myinfoeditCellphone": {
+      "Modify cellphone number": "Modifica numero di cellulare",
+      "Cellphone number": "Numero de cellulare",
+      "Remember that you have the option to be contacted via Telegram.": "Ricorda che hai anche la possibilità di essere contattato tramite Telegram.",
+      "Save": "Salva"
+    },
+    "myinfoeditTelegram": {
+      "Modify Telegram handle": "Modifica usuario di Telegram",
+      "Telegram handle": "Usuario di Telegram",
+      "Save": "Salva"
+    },
+    "additem": {
+      "Sell your product": "Vendi il tuo prodotto",
+      "Condition": "Condizione",
+      "Category": "Categoria",
+      "Currency": "Moneta",
+      "i.e MacBook Air 13 inch gray": "Esempio: MacBook Air 13 pollici grigio",
+      "Enter item name, model & manufacturer": "Inserisci nome dell'articolo, modello e fabbricante",
+      "Title": "Titolo",
+      "Price": "Prezzo",
+      "New": "Nuovo",
+      "Description": "Descrizione",
+      "Write a detailed description of your item": "Scrivi una descrizione dettagliata del tuo articolo",
+      "Submit": "Invia",
+      "Product Images": "Imagini del Prodotto",
+      "Get noticed by the right buyers with visual examples of your services/products. Images must have a minimum width of 375px(Max Size: 10 MB | *.jpg, *.jpeg, *.png)": "Fatti notare fra i compratori giusti con esempi visivi dei tuoi servizi/prodotti. Le immagini devono avere una larghezza minima di 375px (Dimensione massima: 10 MB | *.jpg, *.jpeg, *.png)",
+      "Drag & drop a photo or Browse": "Trascina e rilascia una foto o Sfoglia",
+      "Preview & Submit for review": "Anteprima e invia a revisione"
+    },
+    "additemJson": {
+      "New": "Nuovo"
+    },
+    "AddItemPreview": {
+      "Review your listing": "Rivedi il tuo annuncio",
+      "Name": "Nome dell'Articolo",
+      "Price": "Prezzo",
+      "Description": "Descrizione",
+      "Go back": "Indietro",
+      "Submit for review": "Invia a revisione"
+    },
+    "AddItemResult": {
+      "Your listing has been submitted!": "Il tuo annuncio è stato inviato!",
+      "Our team would review your listing and notify you once your listing is live.": "Il nostro team esaminerà il tuo annuncio e ti farà sapere quando il tuo annuncio sarà attivo.",
+      "Finalize": "Finalizar"
+    },
+    "checkout": {
+      "Checkout": "Pagamento",
+      "Back to Shopping": "Torna allo Shopping",
+      "Shipping Details": "Dettagli di Spedizione",
+      "Shipping Method": "Modalità di Spedizione",
+      "Manage shipment with the seller": "Gestire la spedizione con il venditore",
+      "Order Summary": "Sommario dell'Ordine",
+      "Sub total": "Sub totale",
+      "Yubiai Fee": "Tassa di Yubiai",
+      "UBI Burner Fee": "Tassa di UBI Burner",
+      "Once both parts have agreed on the time of the payment being held on the escrow, the seller will assign it and you will be able to send the payment.": "Venditore e compratore si dovranno mettere d'accordo sul tempo in cui il pagamento verrà tenuto in deposito di garanzia (cioè, su Escrow). Dopodichè, il venditore lo assegnerà sull'ordine. Finalmente, il venditore potrà inviare il pagamento.",
+      "Order Total": "Totale",
+      "Pay with Escrow": "Pagare con Escrow"
+    },
+    "shippDetails": {
+      "Default address": "Indirizzo predefinito",
+      "New Address": "Nuovo Indirizzo",
+      "New delivery address": "Nuovo Indirizzo di Spedizione",
+      "Street": "Strada",
+      "Number": "Numero Civico",
+      "Apartment/House(Optional)": "Appartamento/casa (opzionale)",
+      "Zip Code": "CAP",
+      "City": "Città",
+      "Province/State": "Provincia/Stato",
+      "Country": "Paese"
+    },
+    "escrowCheckout": {
+      "Payment waiting on escrow": "Pagamento in attesa su Escrow",
+      "Days": "Giorni",
+      "Hours": "Ore",
+      "Minutes": "Minuti"
+  },
+  "itemActive": {
+    "Back to Shopping": "Torna allo Shopping",
+    "Product Description": "Descrizione del Prodotto",
+    "Item description field": "Campo di descrizione dell'articolo"
+  },
+  "itemTitle": {
+    "Seller posts": "Annunci del Venditore",
+    "sold": "Venduti",
+    "Product Title": "Titolo del Prodotto",
+    "opinions": "Opinioni",
+    "5% additional for Yubiai Fee": "5% addizionale per la tassa Yubiai",
+    "5% additional UBI Burner": "5% addizionale per la tassa UBI Burner",
+    "Manage shipment with the seller": "Gestire la spedizione con il venditore",
+    "Select your size": "Scegli misura",
+    "Only ": "Soltanto ",
+    "in stock -order soon": "in stock -ordina presto",
+    "Buy: ": "Compra: ",
+    "unit": "unità",
+    "available)": "disponibile)",
+    "Buy Now": "Compra Ora",
+    "Add to cart": "Aggiungi al carrello"
+  }
+}
