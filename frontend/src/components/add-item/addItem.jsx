@@ -331,7 +331,7 @@ export default function AddItem() {
   const [pictures, setPictures] = React.useState([]);
 
   /**
-   * Format file before open modal
+   * Conversor for each currency
    */
   const conversionActive = (value) => { 
     if (currency === 'UBI') {
@@ -351,7 +351,9 @@ export default function AddItem() {
     // console.log(value);
     console.log(currency);
     };
-
+  /**
+   * Format file before open modal
+   */
   const setFile = (ev, field) => {
     setFiles({
       ...files,
@@ -517,7 +519,6 @@ export default function AddItem() {
               type="number"
               name="price"
               onChange={ev => conversionActive(ev.target.value)}
-              // value={price}
               className={classes.price}
               variant="outlined"
               placeholder="Price" />

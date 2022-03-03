@@ -16,6 +16,8 @@ import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import ImageIcon from "@material-ui/icons/Image";
 import Container from "@material-ui/core/Container";
+import { currencies } from "./currencyJSON";
+import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,21 +109,26 @@ const useStyles = makeStyles((theme) => ({
 
 const ItemCard = ({ title, price, image }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const handleClick = (event) => {
     console.log(event);
     setAnchorEl(event.currentTarget);
   };
-
+  
   const open = Boolean(anchorEl);
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const classes = useStyles();
-  // const logoImage = require("../../media/Shoes-PNG-File.png");
-
+  const global = useGlobal();
+  const [currency, setCurrency] = React.useState('UBI');
+  const [conversion, setConversion] = React.useState(0); 
+  const conversionActive = (price) => { 
+    if (currency === 'UBI') {
+       let result = price / global.prices.ubi;
+      return setConversion(result);  
+    } 
+    
+  };
   return (
     <Grid
       style={{ display: "grid", width: "100%", maxWidth: "100%" }}
@@ -193,7 +200,7 @@ const ItemCard = ({ title, price, image }) => {
             color="textPrimary"
             component="p"
           >
-            {price} UBI
+            { price / global.prices.ubi  }{" "}{currency}{" "}<p style={{color:"#bababa"}}>{price}{" "}DAI</p> 
           </Typography>
         </CardContent>
       </Paper>
