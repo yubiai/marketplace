@@ -120,7 +120,7 @@ export default function MessagesBox(props) {
 
         <ListItemText
           classes={{ primary: classes.listItemText }}
-          primary="Vitalik Buterin"
+          primary={"Profile Name"}
         />
       </ListItem>
       <Paper className={classes.paper} zDepth={2}>

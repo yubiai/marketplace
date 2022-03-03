@@ -20,7 +20,6 @@ export default function SalesActive() {
   const classes = styles();
   const { t, i18n } = useTranslation("salesactive");
   const [open, setOpen] = React.useState(true);
-  const activeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
     setOpen(!open);
   };

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     // borderRadius:'20px'
   },
   sellYourProduct: {
-    width: 205,
+    width: 246,
     height: 33,
     fontFamily: 'Open Sans',
     fontSize: 24,
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#000000"
   },
   productImages: {
-    width: 146,
+    width: 197,
     height: 25,
     fontFamily: 'Open Sans',
     fontSize: 18,

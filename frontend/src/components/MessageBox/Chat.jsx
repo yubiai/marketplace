@@ -135,7 +135,7 @@ export default function Chat(props) {
         </ListItemAvatar>
         <ListItemText
           classes={{ primary: classes.listItemText }}
-          primary="Vitalik Buterin"
+          primary={"Profile Name"}
         />
       </ListItem>
       <Paper className={classes.paper} zDepth={2}>
@@ -144,14 +144,14 @@ export default function Chat(props) {
             message="Water striders "
             timestamp="MM/DD 00:00"
             photoURL={<ImageIcon />}
-            displayName="Elon"
+            displayName={"Profile Name"}
             avatarDisp={true}
           />
           <MessageLeft
             message="example2"
             timestamp="MM/DD 00:00"
             photoURL={<ImageIcon />}
-            displayName="Elon"
+            displayName={"Profile Name"}
             avatarDisp={false}
           />
           <MessageRight

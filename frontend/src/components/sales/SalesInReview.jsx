@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
 
 export default function SalesInReview() {
   const classes = styles();
-  const { t, i18n } = useTranslation("salesinreview");
+  const { t, i18n } = useTranslation("salesactive");
   const [open, setOpen] = React.useState(true);
   const activeImage = require("../../media/canoneos.jpg");
   const handleClick = () => {
