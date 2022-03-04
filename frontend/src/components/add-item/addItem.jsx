@@ -333,23 +333,19 @@ export default function AddItem() {
   /**
    * Conversor for each currency
    */
-  const conversionActive = (value) => { 
+   const conversionActive = (value) => { 
+    let conver = 0
     if (currency === 'UBI') {
-      let result = value * global.prices.ubi * global.prices.arg;
-      return setConversion(result);
+        conver = value * global.prices.ubi * global.prices.arg;
     }
     if (currency === 'DAI') {
-      let result = value / global.prices.ubi;
-      return setConversion(result);  
+        conver = value / global.prices.ubi;
     }
     if (currency === 'AR$') {
-      let result = value / global.prices.ubi / global.prices.arg;
-      console.log(result);
-      return setConversion(result);  
+        conver = value / global.prices.ubi / global.prices.arg;
     }
-      
-    // console.log(value);
-    console.log(currency);
+    let result = conver.toFixed(2).replace('00', '');
+    return setConversion(result);
     };
   /**
    * Format file before open modal
