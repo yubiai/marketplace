@@ -9,13 +9,9 @@ import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
 import { useTranslation } from "react-i18next";
 
-<<<<<<< HEAD
-const API_URL = "https://yubiai-backend.herokuapp.com";
-=======
 import { itemService } from "../../services/itemService";
 
 const API_URL = "http://localhost:4000";
->>>>>>> 42104ece6292cc14277356ddc68978b4cffaa23c
 const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [

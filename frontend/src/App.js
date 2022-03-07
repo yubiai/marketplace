@@ -21,9 +21,6 @@ import CheckOrders from "./components/orders/CheckOrders";
 import SalesCompleteDetails from "./components/sales/SalesCompleteDetails";
 import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
-<<<<<<< HEAD
-import axios from "axios";
-=======
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
 
@@ -31,7 +28,6 @@ import Checkout from "./components/checkout/checkout";
 import axios from "axios";
 import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
 import { priceService } from "./services/priceService.js.js";
->>>>>>> 42104ece6292cc14277356ddc68978b4cffaa23c
 
 // LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
 axios.defaults.baseURL = 'http://137.184.45.236:4001/api';

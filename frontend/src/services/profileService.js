@@ -37,12 +37,6 @@ async function updateProfile(userId, payload = {}) {
   );
 }
 
-<<<<<<< HEAD
-async function getProfile(signerAddress) {
-    return await axios.post(`/profiles/`, {
-        walletAddress: signerAddress,
-      });
-=======
 /**
  * Remove provided profile
  * @param {str} userId
@@ -51,7 +45,6 @@ async function getProfile(signerAddress) {
 async function deleteProfile(userId) {
   return await axios.delete(
     `${SERVER_ENDPOINT}/api/profiles/${userId}`);
->>>>>>> 42104ece6292cc14277356ddc68978b4cffaa23c
 }
 
 /**
