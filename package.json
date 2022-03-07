@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hardhat-build": "npx hardhat node & npx hardhat run --network localhost scripts/deploy.js"
   },
   "keywords": [],
   "author": "",
