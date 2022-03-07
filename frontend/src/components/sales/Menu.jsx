@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       right: "15px",
-      top: "15px",
+      top: "18px",
     },
   },
   link: {

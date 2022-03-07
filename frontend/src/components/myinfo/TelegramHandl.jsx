@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "500",
     textTransform: "none",
     outline: "none !important",
-    minWidth: "60px",
-    maxWidth: "60px",
+    width: "100%",
+    minWidth: "70px",
+    maxWidth: "80px",
     justifyContent: "space-evenly",
     top: "0rem",
     "&:hover": {
@@ -42,6 +43,19 @@ const useStyles = makeStyles((theme) => ({
   dialogContent: {
     fontFamily: "Open Sans",
     marginTop: "-1.5rem",
+  },
+  textField: {
+    '& label.Mui-focused': {
+        color: '#00ABD1',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: '#00ABD1',
+        },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: '#00ABD1',
+          },
+       },
   },
 }));
 
@@ -89,6 +103,7 @@ export default function TelHandle() {
             label={t("Telegram handle")}
             type="text"
             fullWidth
+            className={classes.textField}
           />
         </DialogContent>
         <DialogActions>

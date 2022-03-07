@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "0 !important",
     paddingRight: "0 !important",
     width: "100%",
+    maxWidth: "300px",
+    minWidth: "218px",
     padding: 0,
     [theme.breakpoints.down(900)]: {
       height: "100%",

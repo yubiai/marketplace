@@ -9,7 +9,13 @@ import Carrousel from "../carrousel/Carrousel";
 import ItemCard from "../item-card/ItemCard";
 import { useTranslation } from "react-i18next";
 
+<<<<<<< HEAD
 const API_URL = "https://yubiai-backend.herokuapp.com";
+=======
+import { itemService } from "../../services/itemService";
+
+const API_URL = "http://localhost:4000";
+>>>>>>> 42104ece6292cc14277356ddc68978b4cffaa23c
 const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [
@@ -61,9 +67,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const LIMIT_ITEMS = 6;
+
 const Store = ({ paymentProcessor, ubi, signerAddress }) => {
   const classes = useStyles();
   const { t, i18n } = useTranslation("store");
+  const [lastItems, setLastItems] = React.useState([]);
+  const [watchedItems, setWatchedItems] = React.useState([]);
+  const [watchListItems, setWatchListItems] = React.useState([]);
+
   const buy = async (item) => {
     const response1 = await axios.get(
       `${API_URL}/api/items/getPaymentId/${item.id}`
@@ -98,6 +110,14 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     );
   });
 
+  React.useEffect(async () => {
+    const itemsResponse = await itemService.getItem('', '?condition=Active');
+    const data = itemsResponse.data.result || [];
+    setLastItems([...data].slice(0, LIMIT_ITEMS));
+    setWatchedItems([...data].slice(0, LIMIT_ITEMS));
+    setWatchListItems([...data].slice(0, LIMIT_ITEMS));
+  }, []);
+
   return (
     <Container maxWidth="lg">
       <div className="row" style={{ marginBottom: "100px" }}>
@@ -129,12 +149,16 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               style={{ width: "100%",  marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
-              <ItemCard title={"Producto 1"} price={"5000"} />
-              <ItemCard title={"Producto 2"} price={"2300"} />
-              <ItemCard title={"Producto 3"} price={"235"} />
-              <ItemCard title={"Producto 4"} price={"1400"} />
-              <ItemCard title={"Producto 5"} price={"65789"} />
-              <ItemCard title={"Producto 6"} price={"5"} />
+              {
+                (lastItems || []).map((item, index) => {
+                  return (
+                    <ItemCard key={`latest-item-${index}`}
+                              image={item.pictures[0]}
+                              title={item.title}
+                              price={item.price} />
+                  );
+                })
+              }
             </Carrousel>
           </div>
         </Grid>
@@ -159,12 +183,16 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
-              <ItemCard title={"Producto 1"} price={"5000"} />
-              <ItemCard title={"Producto 2"} price={"2300"} />
-              <ItemCard title={"Producto 3"} price={"235"} />
-              <ItemCard title={"Producto 4"} price={"1400"} />
-              <ItemCard title={"Producto 5"} price={"65789"} />
-              <ItemCard title={"Producto 6"} price={"5"} />
+              {
+                (watchedItems || []).map((item, index) => {
+                  return (
+                    <ItemCard key={`watch-item-${index}`}
+                              image={item.pictures[0]}
+                              title={item.title}
+                              price={item.price} />
+                  );
+                })
+              }
             </Carrousel>
           </div>
         </Grid>
@@ -189,12 +217,16 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
               style={{ width: "100%", marginBottom: "10px" }}
               slideVisibleDefault={SLIDE_VISIBLE_DEFAULT}
             >
-              <ItemCard title={"Producto 1"} price={"5000"} />
-              <ItemCard title={"Producto 2"} price={"2300"} />
-              <ItemCard title={"Producto 3"} price={"235"} />
-              <ItemCard title={"Producto 4"} price={"1400"} />
-              <ItemCard title={"Producto 5"} price={"65789"} />
-              <ItemCard title={"Producto 6"} price={"5"} />
+              {
+                (watchListItems || []).map((item, index) => {
+                  return (
+                    <ItemCard key={`watchlist-item-${index}`}
+                              image={item.pictures[0]}
+                              title={item.title}
+                              price={item.price} />
+                  );
+                })
+              }
             </Carrousel>
           </div>
         </Grid>

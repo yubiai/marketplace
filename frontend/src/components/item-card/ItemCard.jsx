@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ListItem from "../list-item/ListItem";
+import { ethers } from "ethers";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,7 +15,10 @@ import CardHeader from "@material-ui/core/CardHeader";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ImageIcon from "@material-ui/icons/Image";
 import Container from "@material-ui/core/Container";
+import { currencies } from "./currencyJSON";
+import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,10 +29,20 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     fontFamily: "Open Sans",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   productImage: {
+    height: "85px",
     width: "150px",
     padding: `${theme.spacing(0)} 12.5px`,
+    color: "#bababa"
+  },
+  productDescription: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
   },
   media: {
     height: 0,
@@ -104,30 +118,40 @@ const useStyles = makeStyles((theme) => ({
 
 const ItemCard = ({ title, price, image }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const handleClick = (event) => {
     console.log(event);
     setAnchorEl(event.currentTarget);
   };
-
+  
   const open = Boolean(anchorEl);
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const classes = useStyles();
-  const logoImage = require("../../media/Shoes-PNG-File.png");
+  const global = useGlobal();
+  const [currency, setCurrency] = React.useState('UBI');
+  const [conversion, setConversion] = React.useState(0); 
+  const conversionActive = (price) => { 
+    if (currency === 'UBI' && global.prices.ubi) {
+      let result = (price / global.prices.ubi).toFixed(2).replace('00', '');
+      if (!conversion) {
+        setConversion(result);
+      }
+      return result;
+    }
+    return price;
+  };
 
   return (
     <Grid
-      style={{ display: "grid", width: "100%", maxWidth: "100%" }}
+      style={{ display: "grid", width: "100%", maxWidth: "100%", height: "100%" }}
       item
       xs={6}
       sm={2}
     >
       <Paper className={classes.paper}>
         <CardHeader
+          style={{marginLeft: 'auto'}}
           action={
             <IconButton
               aria-label="more"
@@ -167,13 +191,13 @@ const ItemCard = ({ title, price, image }) => {
             </IconButton>
           </MenuItem>
         </Menu>
-
-        <img
-          className={classes.productImage}
-          src={logoImage.default}
-          alt="Prdct1"
-        />
-        <CardContent>
+        {
+          image && <img src={image} alt={image} className={classes.productImage} />
+        }
+        {
+          !image && <ImageIcon className={classes.productImage} />
+        }
+        <CardContent className={classes.productDescription}>
           <Typography
             disableTypography
             style={{ fontFamily: "Open Sans" }}
@@ -185,12 +209,12 @@ const ItemCard = ({ title, price, image }) => {
           </Typography>
           <Typography
             disableTypography
-            style={{ fontFamily: "Open Sans" }}
+            style={{ fontFamily: "Open Sans", marginTop: 'auto' }}
             variant="body2"
             color="textPrimary"
             component="p"
           >
-            {price} UBI
+            { conversionActive(price) }{" "}{currency}{" "}<p style={{color:"#bababa",marginBottom: 0}}>{price}{" "}DAI</p> 
           </Typography>
         </CardContent>
       </Paper>

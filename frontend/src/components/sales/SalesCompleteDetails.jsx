@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import CallMadeOutlinedIcon from "@material-ui/icons/CallMadeOutlined";
+import EscrowPayment from "../checkout/escrowPayChk";
+import ImageIcon from "@material-ui/icons/Image";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,9 +23,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "159ch",
     backgroundColor: theme.palette.background.paper,
     fontFamily: "Open Sans",
-    [theme.breakpoints.down(900)]: {
-      marginBottom: 250,
-    },
+   
   },
   inline: {
     fontSize: "11px",
@@ -60,6 +60,22 @@ const useStyles = makeStyles((theme) => ({
       width: "calc(100% - 28px)",
     },
   },
+  ItemGrid: {
+    backgroundColor: "white",
+    borderRadius: "10px",
+    marginBottom: "4px",
+    marginLeft: "2rem",
+    height: "100%",
+    maxHeight: "122px",
+    minHeight: "122px",
+    width: "100%",
+    maxWidth:"528px",
+    
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      maxWidth: "450px",
+    },
+  },
   profileBuyerGrid: {
     [theme.breakpoints.down(960)]: {
       width: "100%",
@@ -67,6 +83,11 @@ const useStyles = makeStyles((theme) => ({
       flex: 1,
       marginLeft: "0 !important",
       maxWidth: "calc(100% - 120px)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      maxWidth: "445px !important",
+      minWidth: "445px !important",
     },
     [theme.breakpoints.down(481)]: {
       maxWidth: "initial",
@@ -116,23 +137,32 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageProfile: {
-    display: "flex",
+    display: "block",
     alignItems: "left",
     left: "10px",
     justifyContent: "left",
     marginLeft: "1px",
     marginBottom: "-10px",
-    width: "104px",
-    height: "104px",
+    maxWidth: "104px",
+    minWidth: "104px",
+    maxHeight: "104px",
+    marginTop: 0,
+    width: "100%",
+    height: "auto",
+    color: "#bababa",
   },
-  imageOrder: {
+  imageSales: {
     display: "flex",
     alignItems: "center",
     right: "1px",
     maxWidth: "70px",
+    width: "100%",
+    height: "100%",
+    maxHeight: "48px",
     justifyContent: "space-between",
     marginLeft: "auto",
-    marginTop: "-65px",
+    marginTop: "-49px",
+    color: "#bababa",
   },
   listItemTransaction: {
     height: "auto",
@@ -199,13 +229,31 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "5px",
     color: "#00ABD1",
   },
+  escNdbuttonGrid: {
+    backgroundColor:"white",
+    borderRadius: "10px",
+    marginLeft: "7px",
+    [theme.breakpoints.down(1100)]: {
+        marginLeft: "2rem"
+      },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      maxWidth: "450px",
+      marginTop: "10px"
+    },  
+  },
+  ItndEscGrid : {
+    [theme.breakpoints.down("xs")]: {
+      flexDirection:"column",
+      display:"flex",
+    },
+
+  }
 }));
 
 export default function AlignItemsList() {
   const classes = useStyles();
   const { t, i18n } = useTranslation("salescompletedetails");
-  const profileImage = require("../../media/vbuterin.png");
-  const shoeImage = require("../../media/canoneos.jpg");
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -238,32 +286,27 @@ export default function AlignItemsList() {
           {t("Details")}
         </Link>
       </Breadcrumbs>
-
-      <Grid
+       <Grid
         container
         spacing={1}
         variant="fullWidth"
         direction="row"
-        justifyContent="space-between"
+        // justifyContent="space-between"
         alignItems="left"
+        className={classes.ItndEscGrid}
         style={{ marginTop: "4px" }}
       >
         <Grid
           item
           xs={10}
           md={10}
-          className={classes.listItemGrid}
-          style={{
-            marginBottom: "4px",
-            marginLeft: "2rem",
-            height: "67px",
-          }}
+          className={classes.ItemGrid}
         >
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
               //en primary va nombre del order item}
-              primary="Canon EOS Rebel T7 EF-S 18-55mm"
+              primary={"Product Title"}
               secondary={
                 <React.Fragment>
                   <Typography
@@ -275,18 +318,16 @@ export default function AlignItemsList() {
                   >
                     {" "} {t("item")}
                   </Typography>
-
-                  <ListItemAvatar>
-                    <img
-                      alt="{imgjson}"
-                      className={classes.imageOrder}
-                      src={shoeImage.default}
-                    />
+                   <ListItemAvatar>
+                    <ImageIcon className={classes.imageSales}/>
                   </ListItemAvatar>
                 </React.Fragment>
               }
             />
           </ListItem>
+        </Grid>
+        <Grid className={classes.escNdbuttonGrid}>
+          <EscrowPayment   />
         </Grid>
       </Grid>
 
@@ -453,19 +494,22 @@ export default function AlignItemsList() {
           </ListItem>
         </Grid>
         <Grid
-          item
-          xs={5}
-          md={5}
-          className={`${classes.listItemGrid} ${classes.profileBuyerGrid}`}
-          style={{
-            backgroundColor: "white",
-            borderRadius: "10px",
-            marginLeft: "7px",
-            height: "190px",
-            justifyContent: "space-around",
-            width: "30vw",
-          }}
-        >
+            item
+            xs={5}
+            md={5}
+            className={`${classes.listItemGrid} ${classes.profileBuyerGrid}`}
+            style={{
+              backgroundColor: "white",
+              borderRadius: "10px",
+              marginLeft: "7px",
+              height: "190px",
+              justifyContent: "space-around",
+              width: "100%",
+              maxWidth: "375px",
+              minWidth: "375px",
+            }}
+          >
+          
           <ListItem className={classes.listItem} alignItems="flex-start">
             <ListItemText
               disableTypography
@@ -481,24 +525,14 @@ export default function AlignItemsList() {
                   height: "100%",
                   maxWidth: "100px", }}
               >
-                <img
-                  alt="{imgjson}"
-                  className={classes.imageProfile}
-                  style={{
-                    marginTop: 0,
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                  src={profileImage.default}
-                />
+                <ImageIcon className={classes.imageProfile}/>
               </ListItemAvatar>
             </Grid>
             <Grid
               xs={9}
               style={{
                 height: "100%",
-                margin: "0 0.5rem",
+                margin: "0 1.5rem",
                 justifyContent: "center",
               }}
             >
@@ -518,7 +552,7 @@ export default function AlignItemsList() {
                           display: "inline-flex",
                           color: "black",
                         }}
-                        primary="Vitalik Buterin"
+                        primary={"Buyer Name"}
                       />{" "}
                       <span
                         style={{
