@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
@@ -23,7 +23,7 @@ import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
-
+import IpfsRouter from 'ipfs-react-router';
 
 import axios from "axios";
 import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
@@ -98,7 +98,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <IpfsRouter>
       <GlobalStyle />
       <div
         style={{
@@ -220,7 +220,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </Router>
+    </IpfsRouter>
   );
 }
 
