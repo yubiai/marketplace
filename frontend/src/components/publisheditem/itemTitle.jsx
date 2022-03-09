@@ -31,8 +31,8 @@ return (
                             <a className={classes.PriceFiat}>{"(Price ARS/USD)"}</a>
                         </span>
                         <span style={{flexDirection:"column", display: "flex"}}>
-                            <a className={classes.Fee}>{t("5% additional for Yubiai Fee")}</a>
-                            <a className={classes.Fee}>{t("5% additional UBI Burner")}</a>
+                            <a className={classes.Fee}>{t("0.3% additional for Yubiai Fee")}</a>
+                            <a className={classes.Fee}>{t("0.3% additional UBI Burner")}</a>
                             <span style={{flexDirection:"row", display:"flex"}}>
                                 <LocationOnIcon /><a className={classes.delivery}>{"Deliver to"}{"Location"}</a>
                             </span>
