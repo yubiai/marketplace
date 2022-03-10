@@ -964,7 +964,7 @@ export default function NavBar() {
       <MenuItem>
         {/* <Router> */}
           <IconButton color="inherit">
-            <Link to="/additem">
+            <Link to="/#/additem">
               <Badge color="secondary">
                 <LoyaltyOutlinedIcon
                   className={classes.linkmenuicon}
