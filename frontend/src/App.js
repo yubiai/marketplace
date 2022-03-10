@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
-import { BrowserRouter as HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
@@ -110,7 +111,7 @@ function App() {
         </header>
         <div className={classes.body}>
           <Switch>
-            <Route to="/ordersactive">
+            <Route path="/ordersactive">
               <Layout>
                 <OrdersView />
               </Layout>
