@@ -91,7 +91,7 @@ export default function OrdersComplete() {
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
-                      <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
+                      <p className={classes.PriceFiat}>{"(Price DAI)"}</p>
                     </span>   
                 </div>
             </Grid>
@@ -161,7 +161,7 @@ export default function OrdersComplete() {
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
-                      <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
+                      <p className={classes.PriceFiat}>{"(Price DAI)"}</p>
                     </span>   
                 </div>
             </Grid>
@@ -231,7 +231,7 @@ export default function OrdersComplete() {
                     <p>{"Quantiy"} {t("item")}</p>
                     <span className={classes.inline}>
                       <p className={classes.Price}>{"Price UBI"}</p>
-                      <p className={classes.PriceFiat}>{"(Price ARS/USD)"}</p>
+                      <p className={classes.PriceFiat}>{"(Price DAI)"}</p>
                     </span>   
                 </div>
             </Grid>

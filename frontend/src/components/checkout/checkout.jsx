@@ -295,7 +295,7 @@ return (
                 <p className={classes.productTitle}>{"Product Name"} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>
             <Grid variant="fullWidth"
@@ -306,7 +306,7 @@ return (
                 <p className={classes.productTitle}>{"Product Name"} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>    
              <Divider className={classes.dividerSummary}/>
@@ -318,7 +318,7 @@ return (
                 <p className={classes.subtotalTitle}>{t("Sub total")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>  
             <Grid variant="fullWidth"
@@ -329,7 +329,7 @@ return (
                 <p className={classes.YubFeeTitle}>{t("Yubiai Fee")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>  
             <Grid variant="fullWidth"
@@ -340,7 +340,7 @@ return (
                 <p className={classes.ubiBurnFeeTitle}>{t("UBI Burner Fee")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>
             <Divider className={classes.dividerSummary}/>
@@ -352,7 +352,7 @@ return (
                 <p className={classes.orderTotalTitle}>{t("Order Total")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>
             </Grid>
             </div> 

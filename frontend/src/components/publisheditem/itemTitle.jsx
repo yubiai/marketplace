@@ -28,7 +28,7 @@ return (
                         </div>
                         <span style={{flexDirection:"row", display: "flex", marginLeft:"-50px"}}>
                             <a className={classes.Price}>{"Price UBI"}</a>
-                            <a className={classes.PriceFiat}>{"(Price ARS/USD)"}</a>
+                            <a className={classes.PriceFiat}>{"(Price DAI)"}</a>
                         </span>
                         <span style={{flexDirection:"column", display: "flex"}}>
                             <a className={classes.Fee}>{t("0.3% additional for Yubiai Fee")}</a>
