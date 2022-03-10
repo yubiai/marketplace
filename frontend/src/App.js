@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as HashRouter, Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
@@ -98,7 +98,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <HashRouter>
       <GlobalStyle />
       <div
         style={{
@@ -112,7 +112,7 @@ function App() {
         </header>
         <div className={classes.body}>
           <Switch>
-            <Route path="/ordersactive">
+            <Route to="/ordersactive">
               <Layout>
                 <OrdersView />
               </Layout>
@@ -220,7 +220,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
