@@ -36,9 +36,9 @@ import { profileService } from "../../services/profileService";
 import { etherscanService } from "../../services/etherscanService";
 import { useTranslation } from "react-i18next";
 
-const API_URL = "https://yubiai-api.herokuapp.com"
+// const API_URL = "https://yubiai-api.herokuapp.com"
 // SI NO ANDA EL SERVIDOR COMENTAR ARRIBA Y DESCOMENTAR ABAJO levantando backend en su local.
-//const API_URL = "http://localhost:4000";
+const API_URL = "http://localhost:4000";
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
 
 const useStyles = makeStyles((theme) => ({

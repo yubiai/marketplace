@@ -24,12 +24,14 @@ import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
+import mbDispResol from "./components/mailbox/disputeResolution";
 import axios from "axios";
 import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
 import { priceService } from "./services/priceService.js.js";
 
-// LOCAL axios.defaults.baseURL = 'http://localhost:4000/api';
-axios.defaults.baseURL = 'https://yubiai-api.herokuapp.com/api';
+//to run locally comment second line and uncomment first line
+ axios.defaults.baseURL = 'http://localhost:4000/api';
+// axios.defaults.baseURL = 'https://yubiai-api.herokuapp.com/api';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -185,6 +187,11 @@ function App() {
             <Route path="/mailbox">
               <Layout>
                 <Mailbox />
+              </Layout>
+            </Route>
+            <Route path="/mbdispuresol">
+              <Layout>
+                <mbDispResol />
               </Layout>
             </Route>
             <Route path="/myinfo">
