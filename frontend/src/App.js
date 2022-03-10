@@ -23,8 +23,6 @@ import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
-import IpfsRouter from 'ipfs-react-router';
-
 import axios from "axios";
 import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
 import { priceService } from "./services/priceService.js.js";
@@ -98,7 +96,7 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <HashRouter basename="/">
       <GlobalStyle />
       <div
         style={{
