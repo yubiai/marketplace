@@ -24,6 +24,7 @@ import MyInfo from "./components/myinfo/MyInfo";
 import AddItem from "./components/add-item/addItem";
 import ItemActive from "./components/publisheditem/itemActive";
 import Checkout from "./components/checkout/checkout";
+import MngShipEsc from "./components/checkout/mngShipEsc";
 import mbDispResol from "./components/mailbox/disputeResolution";
 import axios from "axios";
 import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
@@ -202,6 +203,11 @@ function App() {
             <Route path="/checkout">
                 <Checkout />
             </Route>
+            <Route path="/mngshipesc">
+              <Layout>
+                <MngShipEsc />
+              </Layout>
+            </Route>  
             <Route path="/itemactive">
                 <ItemActive />
             </Route>

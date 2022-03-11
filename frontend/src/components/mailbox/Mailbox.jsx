@@ -77,7 +77,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {"Price UBI"}{"(Price ARS/USD)"}
+                    {"Price UBI"}{"(Price DAI)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Available")}</l>
                   <FiberManualRecordSharpIcon
@@ -143,7 +143,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {"Price UBI"}{"(Price ARS/USD)"}
+                    {"Price UBI"}{"(Price DAI)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Paused")}</l>
                   <FiberManualRecordSharpIcon
@@ -208,7 +208,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {"Price UBI"}{"(Price ARS/USD)"}
+                    {"Price UBI"}{"(Price DAI)"}
                   </Typography>
                   <l style={{ fontWeight: "200" }}>{t("Sold")}</l>
                   <FiberManualRecordSharpIcon

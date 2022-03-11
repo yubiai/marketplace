@@ -17,18 +17,15 @@ import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import ShippDetails from "./shippDetails";
 import EscrowPayment from "./escrowPayChk";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-    // width: '100%',
-    // maxWidth: '801px',
-    // backgroundColor: theme.palette.background.paper,
-    // padding: '20px',
+  root: {
     fontFamily: "Open Sans",
   },
   gridCheckout: {
@@ -267,7 +264,7 @@ return (
             >
           <Grid direction="column" item xs={10} md={5} className={classes.gridCheckout}>
             <div className={classes.backToShop}>
-              <Link className={classes.backToShopText}>
+              <Link to="/#" className={classes.backToShopText}>
               <ArrowBackIosIcon className={classes.backToShopIcon} />
               {t("Back to Shopping")}
               </Link>
@@ -278,7 +275,10 @@ return (
               <ShippDetails />
               <div style={{marginTop:"20px"}}>
                 <h4 className={classes.shippingTitle}>{t("Shipping Method")}</h4>
-                <Button className={classes.shippingMethod}>{t("Manage shipment with the seller")}</Button>
+                <Button
+                   component={Link}
+                   to="/mngshipesc"
+                   className={classes.shippingMethod}>{t("Manage shipment with the seller")}</Button>
               </div>
                   <EscrowPayment />
             </div>
@@ -295,7 +295,7 @@ return (
                 <p className={classes.productTitle}>{"Product Name"} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>
             <Grid variant="fullWidth"
@@ -306,7 +306,7 @@ return (
                 <p className={classes.productTitle}>{"Product Name"} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>    
              <Divider className={classes.dividerSummary}/>
@@ -318,7 +318,7 @@ return (
                 <p className={classes.subtotalTitle}>{t("Sub total")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>  
             <Grid variant="fullWidth"
@@ -329,7 +329,7 @@ return (
                 <p className={classes.YubFeeTitle}>{t("Yubiai Fee")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>  
             <Grid variant="fullWidth"
@@ -340,7 +340,7 @@ return (
                 <p className={classes.ubiBurnFeeTitle}>{t("UBI Burner Fee")}</p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>  
             </Grid>
             <Divider className={classes.dividerSummary}/>
@@ -352,7 +352,7 @@ return (
                 <p className={classes.orderTotalTitle}>{t("Order Total")} </p>
                 <Grid className={classes.subtotalGridTitle}>
                   <p className={classes.subtotalPrice}>{"Price UBI"}</p>
-                  <p className={classes.subtotalPriceFiat}>{"(Price ARS/USD)"}</p>
+                  <p className={classes.subtotalPriceFiat}>{"(Price DAI)"}</p>
                 </Grid>
             </Grid>
             </div> 
