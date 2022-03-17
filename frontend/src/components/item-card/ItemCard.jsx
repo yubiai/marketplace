@@ -129,6 +129,14 @@ const useStyles = makeStyles((theme) => ({
       outline: "none",
     },
   },
+  productPrice: {
+    fontSize: 17,
+    fontWeight: "bold",
+    color: "#1d1d1d",
+    [theme.breakpoints.down(1024)]: {
+      fontSize: 15
+    },
+  }
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -242,7 +250,7 @@ const ItemCard = ({ title, price, image }) => {
             color="textPrimary"
             component="p"
           >
-            <span style={{fontSize: "17px", fontWeight: "bold", color: "#1d1d1d"}}>{ conversionActive(price) }{" "}{currency}{" "}</span>
+            <span class={classes.productPrice}>{ conversionActive(price) }{" "}{currency}{" "}</span>
             <p style={{color:"#bababa",marginBottom: 0}}>{price}{" "}DAI</p> 
           </Typography>
         </CardContent>

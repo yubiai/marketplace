@@ -340,7 +340,7 @@ const useStyles = makeStyles((theme) => ({
     textDecorationColor: "transparent",
   },
   searchContainer: {
-    [theme.breakpoints.down(900)]: {
+    [theme.breakpoints.down(960)]: {
       maxWidth: "100%",
       flexBasis: "100%",
     },
@@ -497,12 +497,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover, &:focus, &:active": {
       outline: "none",
     },
-    [theme.breakpoints.between(901, 959)]: {
+    [theme.breakpoints.between(901, 960)]: {
       marginTop: 0,
     },
-    [theme.breakpoints.down(900)]: {
+    [theme.breakpoints.down(901)]: {
       position: "relative",
-      top: "-10px",
       left: 0,
       marginTop: 0,
       width: "20px",
@@ -590,7 +589,7 @@ export default function NavBar() {
         const { signerAddress } = r;
         await axios
           .post(`${API_URL}/api/profiles/login`, {
-            walletAddress: signerAddress,
+            walletAddress: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c',
           })
           .then((resp) => {
             setWalletAddress(resp.data.eth_address);
@@ -612,7 +611,7 @@ export default function NavBar() {
     await setupEthState().then(async (r) => {
       const { signerAddress } = r;
       await profileService
-        .getProfile(signerAddress)
+        .getProfile('0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c')
         .then((res) => {
           console.log(res);
           console.log(res.data);
