@@ -42,6 +42,10 @@
         background-color: #e3e3e3;
       }
 
+      .base-root.root-add-item {
+        overflow: hidden;
+      }
+
       .base-root-content {
         overflow: hidden;
       }
@@ -68,6 +72,10 @@
           return window.location.pathname !== "/" && window.innerWidth > 900;
         }
 
+        function isAddItemView() {
+          return window.location.hash.indexOf("addItem") !== -1 && window.innerWidth < 900;
+        }
+
         function setBaseRootContentClassName() {
           if (isNotHomeAndDesktop()) {
             baseRootDOM.classList.add("base-root-content");
@@ -76,15 +84,26 @@
           }
         }
 
+        function setAddItemViewContentClassName() {
+          if (isAddItemView()) {
+            baseRootDOM.classList.add("root-add-item");
+          } else {
+            baseRootDOM.classList.remove("root-add-item");
+          }
+        }
+
         window.addEventListener("popstate", function () {
           setBaseRootContentClassName();
+          setAddItemViewContentClassName();
         });
 
         window.addEventListener("resize", function () {
           setBaseRootContentClassName();
+          setAddItemViewContentClassName();
         });
 
         setBaseRootContentClassName();
+        setAddItemViewContentClassName();
       })();
     </script>
   </body>
