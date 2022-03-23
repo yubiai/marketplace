@@ -22,27 +22,35 @@ import { useGlobal } from "../../providers/globalProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing(0),
     textAlign: "center",
+    height: '100%',
     color: theme.palette.text.secondary,
     fontFamily: "Open Sans",
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    minHeight: '300px',
+    borderRadius: 10
   },
   productImage: {
-    height: "85px",
     width: "150px",
     padding: `${theme.spacing(0)} 12.5px`,
-    color: "#bababa"
+    color: "#bababa",
+    marginBottom: 20,
+    marginTop: 'auto'
   },
   productDescription: {
-    height: '100%',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    textAlign: 'left',
+    marginTop: 'auto',
+    borderTop: '1px solid #727272',
+    justifyContent: 'flex-end'
   },
   media: {
     height: 0,
@@ -81,6 +89,13 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
     },
   },
+  cardTitle: {
+    display: 'block',
+    fontFamily: "Open Sans",
+    marginBottom: '8px',
+    height: '60px',
+    overflow: 'hidden'
+  },
   iconCart: {
     marginTop: "0.5rem",
     paddingTop: "0rem",
@@ -114,6 +129,14 @@ const useStyles = makeStyles((theme) => ({
       outline: "none",
     },
   },
+  productPrice: {
+    fontSize: 17,
+    fontWeight: "bold",
+    color: "#1d1d1d",
+    [theme.breakpoints.down(1024)]: {
+      fontSize: 15
+    },
+  }
 }));
 
 const ItemCard = ({ title, price, image }) => {
@@ -141,16 +164,24 @@ const ItemCard = ({ title, price, image }) => {
     }
     return price;
   };
+  const formatTitle = (title) => {
+    if (title.length > 45) {
+      return `${title.substr(0, 42)}...`;
+    }
+    return title;
+  }
 
   return (
     <Grid
-      style={{ display: "grid", width: "100%", maxWidth: "100%", height: "100%" }}
+      style={{ width: "100%", maxWidth: "100%", height: "100%" }}
       item
       xs={6}
       sm={2}
     >
       <Paper className={classes.paper}>
-        <CardHeader
+        {
+          /*
+            <CardHeader
           style={{marginLeft: 'auto'}}
           action={
             <IconButton
@@ -164,8 +195,12 @@ const ItemCard = ({ title, price, image }) => {
             </IconButton>
           }
         />
+          */
+        }
         {/* <VisibilityIcon className={classes.saveWatchilist}/> */}
-        <Menu
+        {
+          /*
+          <Menu
           id="more-menu"
           anchorEl={anchorEl}
           keepMounted
@@ -190,7 +225,8 @@ const ItemCard = ({ title, price, image }) => {
               <ShareIcon />
             </IconButton>
           </MenuItem>
-        </Menu>
+          </Menu>*/
+        }
         {
           image && <img src={image} alt={image} className={classes.productImage} />
         }
@@ -200,21 +236,22 @@ const ItemCard = ({ title, price, image }) => {
         <CardContent className={classes.productDescription}>
           <Typography
             disableTypography
-            style={{ fontFamily: "Open Sans" }}
+            className={classes.cardTitle}
             variant="body2"
             color="textSecondary"
             component="p"
           >
-            {title}
+            {formatTitle(title)}
           </Typography>
           <Typography
             disableTypography
-            style={{ fontFamily: "Open Sans", marginTop: 'auto' }}
+            style={{ fontFamily: "Open Sans" }}
             variant="body2"
             color="textPrimary"
             component="p"
           >
-            { conversionActive(price) }{" "}{currency}{" "}<p style={{color:"#bababa",marginBottom: 0}}>{price}{" "}DAI</p> 
+            <span class={classes.productPrice}>{ conversionActive(price) }{" "}{currency}{" "}</span>
+            <p style={{color:"#bababa",marginBottom: 0}}>{price}{" "}DAI</p> 
           </Typography>
         </CardContent>
       </Paper>

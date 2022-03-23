@@ -22,22 +22,42 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '159ch',
     backgroundColor: theme.palette.background.paper,
     padding: '20px',
+    [theme.breakpoints.down(900)]: {
+      overflow: 'hidden',
+    },
   },
   gridRoot: {
-    marginTop: '4px',
-    marginLeft: '1rem',
     backgroundColor: 'white',
     borderRadius: '20px',
     overflowY: 'scroll',
-    height: '680px',
-    width: '700px',
-    [theme.breakpoints.down(628)]: {
-      width: '100%',
+    height: '100%',
+    width: '100%',
+    padding: '1.5rem',
+    overflow: 'hidden',
+    height: '100%',
+    margin: '0 1rem 100px',
+    [theme.breakpoints.down(900)]: {
+      width: 'calc(100% - 30px)',
+      overflowY: 'scroll',
+      height: '69vh'
+    },
+  },
+  gridSectionParent: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    [theme.breakpoints.down(900)]: {
+      flexWrap: 'wrap'
     },
   },
   gridCondition: {
-    // backgroundColor: 'white',
-    // borderRadius:'20px'
+    marginRight: '1rem',
+    [theme.breakpoints.down(900)]: {
+      minWidth: '100%',
+      maxWidth: '100%',
+      width: '100%',
+      flexBasis: '100%'
+    },
   },
   sellYourProduct: {
     width: 246,
@@ -65,7 +85,6 @@ const useStyles = makeStyles((theme) => ({
     height: '180px',
     // width: '180px',
     display: 'flex',
-
   },
   dragNdropSpan: {
     margin: 'auto',
@@ -81,7 +100,6 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0,
     cursor: 'pointer',
     zIndex: 10,
-
   },
   dragNdropIconContainerFill: {
     // background: 'rgba(0, 0, 0, 0.5)',
@@ -163,6 +181,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'white',
     }
   },
+  gridTitle: {
+    [theme.breakpoints.down(900)]: {
+      minWidth: '100%',
+      maxWidth: '100%',
+      width: '100%',
+      flexBasis: '100%'
+    },
+  },
   title: {
     width: '100%',
     margin: '5px',
@@ -188,19 +214,27 @@ const useStyles = makeStyles((theme) => ({
     margin: '5px'
   },
   gridCategory: {
-    display: "grid"
+    [theme.breakpoints.down(900)]: {
+      minWidth: '100%',
+      maxWidth: '100%',
+      width: '100%',
+      flexBasis: '100%'
+    },
   },
   category: {
     m: 1,
     width: '100%',
     margin: '5px',
-    marginTop: "-31px",
     [theme.breakpoints.down('xs')]: {
-      // display: 'flex',
-      // flexDirection: 'column',
-      // height: '100%',
-      // justifyContent: 'space-around'
       marginTop: "7px",
+    },
+  },
+  gridDescription: {
+    [theme.breakpoints.down(900)]: {
+      minWidth: '100%',
+      maxWidth: '100%',
+      width: '100%',
+      flexBasis: '100%'
     },
   },
   description: {
@@ -345,8 +379,9 @@ export default function AddItem() {
         conver = value / global.prices.ubi / global.prices.arg;
     }
     let result = conver.toFixed(2).replace('00', '');
+    setPrice(value);
     return setConversion(result);
-    };
+  };
   /**
    * Format file before open modal
    */
@@ -397,57 +432,76 @@ export default function AddItem() {
   return (
     <Grid container spacing={2}
       variant="fullWidth"
-      alignItems="left" className={classes.gridRoot} >
-
-      {/* <form noValidate autoComplete="off"> */}
-      <Grid item xs={10} md={5} className={classes.gridCondition}>
-        {/* <InputLabel id="condition">Condition</InputLabel> */}
-        <div>
-          <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
-         
-        </div>
-        <label className={classes.label}>
-          {t("Condition")}
-        </label>
-        <Select
-          labelId="demo-simple-select-label"
-          id="condition"
-          value={condition}
-          onChange={ev => setCondition(ev.target.value)}
-          className={classes.condition}
-          label="Condition"
-          variant="outlined"
-          helperText="Please select your condition"
-        >{conditions.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-        </Select>
-      </Grid>
-
-      <Grid item xs={10} md={5} alignItems="flex-end" className={classes.gridCategory} >
-        {/* <InputLabel id="category">Category</InputLabel> */}
-        <label className={classes.labelCategory}>
-          {t("Category")}
-        </label>
-        <Select
-          labelId="demo-simple-select-label"
-          id="category"
-          value={category}
-          onChange={ev => setCategory(ev.target.value)}
-          className={classes.category}
-          label="Category"
-          variant="outlined"
-        >{categories.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-        </Select>
-      </Grid>
-
-      <Grid item xs={10} md={10} >
+      alignItems="left" className={classes.gridRoot}>
+      <div style={{width: '100%'}}>
+        <h2 className={classes.sellYourProduct}>{t("Sell your product")}</h2>
+      </div>
+      <div className={classes.gridSectionParent}>
+        <Grid item xs={10} md={5} className={classes.gridCondition}>
+          <label className={classes.label}>
+            {t("Condition")}
+          </label>
+          <Select
+            labelId="demo-simple-select-label"
+            id="condition"
+            value={condition}
+            onChange={ev => setCondition(ev.target.value)}
+            className={classes.condition}
+            label="Condition"
+            variant="outlined"
+            helperText="Please select your condition"
+          >{conditions.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+          </Select>
+        </Grid>
+        <Grid item xs={10} md={5} className={classes.gridCategory}>
+          <label className={classes.label}>
+            {t("Category")}
+          </label>
+          <Select
+            labelId="demo-simple-select-label"
+            id="category"
+            value={category}
+            onChange={ev => setCategory(ev.target.value)}
+            className={classes.category}
+            label="Category"
+            variant="outlined"
+            helperText="Please select your category"
+          >{categories.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+          </Select>
+        </Grid>
+        {
+          /*
+                 <Grid item xs={10} md={5} className={classes.gridCategory}>
+          <label className={classes.labelCategory}>
+            {t("Category")}
+          </label>
+          <Select
+            labelId="demo-simple-select-label"
+            id="category"
+            value={category}
+            onChange={ev => setCategory(ev.target.value)}
+            className={classes.category}
+            label="Category"
+            variant="outlined"
+          >{categories.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+          </Select>
+        </Grid> 
+          */
+        }
+      </div>
+      <Grid item xs={10} md={10} className={classes.gridTitle}>
         <label className={classes.label}>
           {t("Title")}
         </label>
@@ -461,7 +515,7 @@ export default function AddItem() {
           onChange={ev => setName(ev.target.value)}
           placeholder={t("i.e MacAir Book 13 inch gray")} />
       </Grid>
-      <Grid item xs={10} md={10}>
+      <Grid item xs={10} md={10} className={classes.gridDescription}>
         <label className={classes.label}>
           {t("Description")}
         </label>
@@ -618,7 +672,6 @@ export default function AddItem() {
           {t("Preview & Submit for review")}
         </Button>
       </Grid>
-      {/* </form> */}
       <div sx={{ marginBottom: '200ch' }}>&nbsp;<br></br></div>
       {
         showItemPreview &&

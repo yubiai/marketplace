@@ -8,6 +8,12 @@
   pointer-events: none;
 }
 
+@media screen and (max-width: 900px) {
+  .App.App-addItemView {
+    overflow: hidden;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import { useLocation } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 import SideBar from "../sidebar/Sidebar";
@@ -7,6 +8,11 @@ import SideBar from "../sidebar/Sidebar";
 const useStyles = makeStyles((theme) => ({
   baseContainer: {
     height: "100%",
+  },
+  addItemContainer: {
+    [theme.breakpoints.down(900)]: {
+      overflow: 'hidden'
+    },
   },
   sidebarContainer: {
     paddingLeft: "0 !important",
@@ -38,16 +44,24 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "200px",
     },
   },
+  layoutAddItem: {
+    [theme.breakpoints.down(900)]: {
+      zIndex: 100
+    },
+  }
 }));
 
 const Layout: React.FC = ({ children }) => {
+  const location = useLocation();
+  const isAddItemView = location.pathname.indexOf('addItem') !== -1;
+
   const classes = useStyles();
   return (
-    <Grid container className={classes.baseContainer} spacing={3}>
+    <Grid container className={`${classes.baseContainer} ${isAddItemView ? classes.addItemContainer : ''}`} spacing={3}>
       <Grid className={classes.sidebarContainer} item sm={3} md={3}>
         <SideBar />
       </Grid>
-      <Grid className={classes.layoutBody} item sm={9} md={9}>
+      <Grid className={`${classes.layoutBody} ${isAddItemView ? classes.layoutAddItem : ''}`} item sm={9} md={9}>
         {children}
       </Grid>
     </Grid>
