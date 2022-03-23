@@ -31,8 +31,9 @@ import { useDispatchGlobal, useGlobal } from "./providers/globalProvider.js";
 import { priceService } from "./services/priceService.js.js";
 
 //to run locally comment second line and uncomment first line
- axios.defaults.baseURL = 'http://localhost:4000/api';
-// axios.defaults.baseURL = 'https://yubiai-api.herokuapp.com/api';
+// axios.defaults.baseURL = 'http://localhost:4000/api';
+// FIXME: Mover esto a una variable de entorno.
+axios.defaults.baseURL = 'https://yubiai-api.herokuapp.com/api';
 
 const useStyles = makeStyles((theme) => ({
   header: {
