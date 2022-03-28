@@ -14,24 +14,24 @@ export const cartService = {
 
 async function getCarts() {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/carts/`);
+    `${SERVER_ENDPOINT}/carts/`);
 }
 
 async function getCart(userId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/carts/cart/${userId}`);
+    `${SERVER_ENDPOINT}/carts/cart/${userId}`);
 }
 
 async function incrementArticle(payload = {}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/carts/article/increment`,
+    `${SERVER_ENDPOINT}/carts/article/increment`,
     { ...payload }
   );
 }
 
 async function decrementArticle(payload = {}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/carts/article/decrement`,
+    `${SERVER_ENDPOINT}/carts/article/decrement`,
     { ...payload }
   );
 }
@@ -39,7 +39,7 @@ async function decrementArticle(payload = {}) {
 // FIXME: Delete article should use DELETE verb.
 async function deleteArticle(payload = {}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/carts/article/delete`,
+    `${SERVER_ENDPOINT}/carts/article/delete`,
     { ...payload }
   );
 }

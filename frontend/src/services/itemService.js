@@ -14,7 +14,7 @@ export const itemService = {
 
 async function getItem(itemId = '', query='') {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/items/item${query}`,
+    `${SERVER_ENDPOINT}/items/item${query}`,
     {
       headers: {
         'Authorization': `Bearer ${getToken()}`
@@ -27,7 +27,7 @@ async function newItem(payload, categoryId) {
   return new Promise(async(resolve, reject) => {
     try {
       let result = await axios.post(
-        `${SERVER_ENDPOINT}/api/items/item?categoryId=${categoryId}`,
+        `${SERVER_ENDPOINT}/items/item?categoryId=${categoryId}`,
         payload,
         {
           headers: {
@@ -48,18 +48,18 @@ async function newItem(payload, categoryId) {
 
 async function getItemBySlug(slugId = '') {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/items/item/${slugId}`,
+    `${SERVER_ENDPOINT}/items/item/${slugId}`,
   );
 }
 
 async function getItemPayment(itemId = '') {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/items/getPaymentId/${itemId}`,
+    `${SERVER_ENDPOINT}/items/getPaymentId/${itemId}`,
   );
 }
 
 async function getItemUrl(paymentId = '') {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/items/getItemUrl/${paymentId}`,
+    `${SERVER_ENDPOINT}/items/getItemUrl/${paymentId}`,
   );
 }

@@ -12,7 +12,7 @@ export const categoryService = {
 // TODO: en vez de sacar las categorias de la api de meli,
 // sacarlos del story book de yubiai
 async function getCategories() {
-  return await axios.get(`${SERVER_ENDPOINT}/api/categories/`);
+  return await axios.get(`${SERVER_ENDPOINT}/categories/`);
 }
 
 async function createCategory(payload = {
@@ -22,12 +22,12 @@ async function createCategory(payload = {
   permalink: '',
 }) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/categories`,
+    `${SERVER_ENDPOINT}/categories`,
     {...payload}
   );
 }
 
 async function getCategory(categoryId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/categories/${categoryId}`);
+    `${SERVER_ENDPOINT}/categories/${categoryId}`);
 }

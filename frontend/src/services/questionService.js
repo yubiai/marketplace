@@ -14,29 +14,29 @@ export const questionService = {
 
 async function newQuestion(payload = {}) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/questions/`,
+    `${SERVER_ENDPOINT}/questions/`,
     { ...payload }
   );
 }
 
 async function getQuestion(questionId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/questions/${questionId}`);
+    `${SERVER_ENDPOINT}/questions/${questionId}`);
 }
 
 async function deleteQuestion(questionId) {
   return await axios.delete(
-    `${SERVER_ENDPOINT}/api/questions/${questionId}`);
+    `${SERVER_ENDPOINT}/questions/${questionId}`);
 }
 
 async function getQuestionsByProduct(productId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/questions/product/${productId}`);
+    `${SERVER_ENDPOINT}/questions/product/${productId}`);
 }
 
 async function addAnswerByIdQuestion(questionId, payload={}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/questions/answer/${questionId}`,
+    `${SERVER_ENDPOINT}/questions/answer/${questionId}`,
     { ...payload }
   );
 }

@@ -20,7 +20,7 @@ export const profileService = {
  */
 async function getProfile(walletAddress) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/profiles/`,
+    `${SERVER_ENDPOINT}/profiles/`,
     { walletAddress }
   );
 }
@@ -32,7 +32,7 @@ async function getProfile(walletAddress) {
  */
 async function updateProfile(userId, payload = {}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/profiles/${userId}`,
+    `${SERVER_ENDPOINT}/profiles/${userId}`,
     { ...payload }
   );
 }
@@ -44,7 +44,7 @@ async function updateProfile(userId, payload = {}) {
  */
 async function deleteProfile(userId) {
   return await axios.delete(
-    `${SERVER_ENDPOINT}/api/profiles/${userId}`);
+    `${SERVER_ENDPOINT}/profiles/${userId}`);
 }
 
 /**
@@ -53,7 +53,7 @@ async function deleteProfile(userId) {
  */
 async function login(walletAddress) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/profiles/login`,
+    `${SERVER_ENDPOINT}/profiles/login`,
     { walletAddress }
   );
 }
@@ -64,7 +64,7 @@ async function login(walletAddress) {
  */
 async function getFavorites(userId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/profiles/favorites/${userId}`);
+    `${SERVER_ENDPOINT}/profiles/favorites/${userId}`);
 }
 
 /**
@@ -74,7 +74,7 @@ async function getFavorites(userId) {
  */
 async function updateFavorites(userId, payload = {}) {
   return await axios.put(
-    `${SERVER_ENDPOINT}/api/profiles/favorites/${userId}`,
+    `${SERVER_ENDPOINT}/profiles/favorites/${userId}`,
     { ...payload }
   );
 }
@@ -85,7 +85,7 @@ async function updateFavorites(userId, payload = {}) {
  */
 async function getMyPurchases(userId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/profiles/my_purchases/${userId}`);
+    `${SERVER_ENDPOINT}/profiles/my_purchases/${userId}`);
 }
 
 /**
@@ -94,5 +94,5 @@ async function getMyPurchases(userId) {
  */
 async function getMySales(userId) {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/profiles/my_sales/${userId}`);
+    `${SERVER_ENDPOINT}/profiles/my_sales/${userId}`);
 }

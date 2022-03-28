@@ -20,34 +20,34 @@ async function costShipping() {
 
 async function newShipping(payload = {}) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/shipping/newshipping`,
+    `${SERVER_ENDPOINT}/shipping/newshipping`,
     {...payload}
   );
 }
 
 async function getLabel() {
   return await axios.get(
-    `${SERVER_ENDPOINT}/api/shipping/getlabel`,
+    `${SERVER_ENDPOINT}/shipping/getlabel`,
   );
 }
 
 async function cancelShipping(payload = {}) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/shipping/cancel`,
+    `${SERVER_ENDPOINT}/shipping/cancel`,
     { ...payload }
   );
 }
 
 async function status(payload = {}) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/shipping/status`,
+    `${SERVER_ENDPOINT}/shipping/status`,
     { ...payload }
   );
 }
 
 async function historyShipping(payload = {}) {
   return await axios.post(
-    `${SERVER_ENDPOINT}/api/shipping/historystatus`,
+    `${SERVER_ENDPOINT}/shipping/historystatus`,
     { ...payload }
   );
 }
