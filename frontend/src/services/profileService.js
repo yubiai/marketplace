@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const SERVER_ENDPOINT = (
-  process.env.REACT_APP_BE_SERVER || 'http://localhost:4000');
+  process.env.REACT_APP_API_URL || 'http://localhost:4000');
 
 export const profileService = {
   getProfile,
