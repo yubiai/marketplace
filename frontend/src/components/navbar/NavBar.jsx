@@ -37,8 +37,9 @@ import { etherscanService } from "../../services/etherscanService";
 import { useTranslation } from "react-i18next";
 
 // const API_URL = "https://yubiai-api.herokuapp.com"
-// SI NO ANDA EL SERVIDOR COMENTAR ARRIBA Y DESCOMENTAR ABAJO levantando backend en su local.
-const API_URL = "http://localhost:4000";
+// If server doesn't work, comment above and uncomment below, starting BE server locally.
+// const API_URL = "http://localhost:4000";
+const API_URL = process.env.REACT_APP_API_URL;
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
 
 const useStyles = makeStyles((theme) => ({
@@ -588,7 +589,7 @@ export default function NavBar() {
       setupEthState().then(async(r) => {
         const { signerAddress } = r;
         await axios
-          .post(`${API_URL}/api/profiles/login`, {
+          .post(`${API_URL}/profiles/login`, {
             walletAddress: signerAddress,
           })
           .then((resp) => {

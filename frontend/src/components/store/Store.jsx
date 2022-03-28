@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 import { itemService } from "../../services/itemService";
 
-const API_URL = "http://localhost:4000";
+const API_URL = process.env.REACT_APP_API_URL;
 const SLIDE_VISIBLE_DEFAULT = 6;
 
 const ITEMS = [
