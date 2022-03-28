@@ -589,7 +589,7 @@ export default function NavBar() {
         const { signerAddress } = r;
         await axios
           .post(`${API_URL}/api/profiles/login`, {
-            walletAddress: '0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c',
+            walletAddress: signerAddress,
           })
           .then((resp) => {
             setWalletAddress(resp.data.eth_address);
@@ -611,7 +611,7 @@ export default function NavBar() {
     await setupEthState().then(async (r) => {
       const { signerAddress } = r;
       await profileService
-        .getProfile('0x38017ec5de3f81d8b29b9260a3b64fa7f78c039c')
+        .getProfile(signerAddress)
         .then((res) => {
           console.log(res);
           console.log(res.data);
