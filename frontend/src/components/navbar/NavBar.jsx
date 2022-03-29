@@ -865,7 +865,7 @@ export default function NavBar() {
         Deutsche
       </MenuItem>
       <MenuItem style={{ fontFamily: "Open Sans" }} onClick={() => {i18n.changeLanguage("zh"); handleClose();}}>
-        中国人
+        中文
       </MenuItem>
     </Menu>
 
