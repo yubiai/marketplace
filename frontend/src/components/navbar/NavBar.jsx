@@ -43,9 +43,22 @@ const API_URL = process.env.REACT_APP_API_URL;
 let name = "Manuel Rodríguez Roldán"; /*fetch from poh address*/
 
 const useStyles = makeStyles((theme) => ({
+  parentRoot: {
+    [theme.breakpoints.down(400)]: {
+      marginLeft: 0
+    },
+  },
   root: {
     marginTop: "10px",
     margin: "10px",
+    [theme.breakpoints.down(400)]: {
+      marginLeft: 0
+    },
+  },
+  subRoot: {
+    [theme.breakpoints.down(960)]: {
+      flexWrap: "nowrap"
+    },
   },
   navbar: {
     background:
@@ -54,34 +67,16 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "105px",
     maxHeight: "105px",
     zIndex: 99,
-    //  [theme.breakpoints.down('lg')]: {
-    //     marginLeft: '0 !important',
-    //     marginTop: '0.5rem !important',
-    //     maxWidth: 'initial !important',
-    //     minWidth: 'initial !important',
-    //     position: 'relative',
-    // },
-    // [theme.breakpoints.between(901, 959)]: {
-    //     flexBasis: '100%',
-    //     maxWidth: '60vw'
-    // },
-    // [theme.breakpoints.down(960)]: {
-    //     height: '105px',
-    //     minHeight:'105px',
-    //     maxHeight:'105px',
-    //     zIndex: 99,
-    //   },
-    [theme.breakpoints.down(900)]: {
-      height: "70px",
-      minHeight: "70px",
-      maxHeight: "70px",
-      zIndex: 99,
-    },
-    [theme.breakpoints.down("xs")]: {
-      height: "70px",
-      minHeight: "70px",
-      maxHeight: "70px",
-      zIndex: 99,
+    [theme.breakpoints.down(960)]: {
+        height: "auto",
+        minHeight: 0,
+        maxHeight: "initial",
+        zIndex: 99,
+      },
+  },
+  sectionDesktopIconContainer: {
+    [theme.breakpoints.down(960)]: {
+      flex: 0,
     },
   },
   logo: {
@@ -111,26 +106,6 @@ const useStyles = makeStyles((theme) => ({
     width: "29px",
     [theme.breakpoints.up(960)]: {
       display: "none",
-    },
-    [theme.breakpoints.down(960)]: {
-      position: "relative",
-      // marginLeft: '1rem',
-      // marginTop: '7rem',
-      // marginBottom: '-3rem',
-      // top: '2rem',
-      left: "-2.5rem",
-      top: "1.5rem",
-      float: " left",
-    },
-    [theme.breakpoints.down("xs")]: {
-      position: "relative",
-      // marginLeft: '1rem',
-      // marginTop: '7rem',
-      // marginBottom: '-3rem',
-      // top: '2rem',
-      left: "-1.5rem",
-      top: "1.5rem",
-      float: " left",
     },
   },
   menuButton: {},
@@ -197,24 +172,23 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.between(960, 1230)]: {
       marginLeft: 0,
     },
-    [theme.breakpoints.down("sm")]: {
-      display: "none", // remove
-      position: "relative",
-      float: "left",
-      left: "-34rem",
-      marginBottom: "-1.5rem",
-      top: "3.5rem",
-    },
-    [theme.breakpoints.down("xs")]: {
-      position: "relative",
-      top: "2rem",
-      left: "-8rem",
-      float: " left",
+    [theme.breakpoints.down(960)]: {
+      marginLeft: 0,
     },
   },
   langContainer: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
+    [theme.breakpoints.down(960)]: {
+      flexBasis: 0,
+      width: 20
+    },
+    [theme.breakpoints.down(400)]: {
+      width: 30
+    },
+  },
+  menuLanguageSection: {
+    top: 59,
+    [theme.breakpoints.down(960)]: {
+      top: 0
     },
   },
   notificon: {
@@ -344,6 +318,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(960)]: {
       maxWidth: "100%",
       flexBasis: "100%",
+      flex: 1,
+      width: "100%",
+      display: "flex"
     },
   },
   search: {
@@ -377,16 +354,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "-2rem",
       maxWidth: "400px",
       minWidth: "400px",
-      width: "100%",
-      top: "-1.5rem",
-    },
-    [theme.breakpoints.down("xs")]: {
-      top: "-1.5rem",
-      right: "-1rem",
-      position: "relative",
-      marginLeft: "-4rem",
-      maxWidth: "200px",
-      minWidth: "200px",
       width: "100%",
     },
   },
@@ -863,7 +830,7 @@ export default function NavBar() {
   const language = "language-menu";
   const renderMenuLanguage = (
     <Menu
-      style={{top:"59px"}}
+      className={classes.menuLanguageSection}
       id={language}
       anchorEl={languageAnchorEl}
       getContentAnchorEl={null}
@@ -1049,10 +1016,10 @@ export default function NavBar() {
       <Router>
         <AppBar className={classes.navbar} position="static">
           <Toolbar>
-            <Container maxWidth="lg">
+            <Container className={classes.parentRoot} maxWidth="lg">
               <div className={classes.root}>
-                <Grid container spacing={2}>
-                  <Grid item sm={3} xs={6}>
+                <Grid className={classes.subRoot} container spacing={2}>
+                  <Grid className={classes.sectionDesktopIconContainer} item sm={3} xs={6}>
                     <div className={classes.sectionDesktopIcon}>
                       <div>
                         <a href="/">
