@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import SendIcon from "@material-ui/icons/Send";
-import { useLocation } from "react-router-dom";
+//import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -137,11 +137,11 @@ export default function StickyFooter(props) {
   const [isHomePage, setIsHomePage] = useState("");
   const { t, i18n } = useTranslation("footer");
 
-  let location = useLocation();
+  //let location = useLocation();
 
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     setIsHomePage(location.pathname === "/");
-  }, [location]);
+  }, [location]);*/
 
   const preventDefault = (event) => {
     console.log(name);

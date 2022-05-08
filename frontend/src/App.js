@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getBlockchain } from "./ethereum.js";
-import { HashRouter, useLocation } from 'react-router-dom';
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Layout from "./components/layout/Layout";
 import Store from "./components/store/Store";
@@ -100,18 +99,18 @@ function App() {
     return <Message />;
   }
 
-  const location = useLocation();
-  const isAddItemView = location.pathname.indexOf('addItem') !== -1;
+  //const location = useLocation();
+  //const isAddItemView = location.pathname.indexOf('addItem') !== -1;
 
   return (
-    <HashRouter basename="/">
+     <Router>
       <GlobalStyle />
       <div
         style={{
           fontFamily: "Open Sans",
           height: "100%",
         }}
-        className={isAddItemView ? "App App-addItemView" : "App"}
+        className={"App"}
       >
         <header className={classes.header}>
           <NavBar />
@@ -236,7 +235,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </HashRouter>
+      </Router>
   );
 }
 
