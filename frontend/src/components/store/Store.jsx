@@ -106,12 +106,15 @@ const Store = ({ paymentProcessor, ubi, signerAddress }) => {
     );
   });
 
-  React.useEffect(async () => {
-    const itemsResponse = await itemService.getItem('', '?condition=Active');
-    const data = itemsResponse.data.result || [];
-    setLastItems([...data].slice(0, LIMIT_ITEMS));
-    setWatchedItems([...data].slice(0, LIMIT_ITEMS));
-    setWatchListItems([...data].slice(0, LIMIT_ITEMS));
+  React.useEffect(() => {
+    async function fechData() {
+      const itemsResponse = await itemService.getItem('', '?condition=Active');
+      const data = itemsResponse.data.result || [];
+      setLastItems([...data].slice(0, LIMIT_ITEMS));
+      setWatchedItems([...data].slice(0, LIMIT_ITEMS));
+      setWatchListItems([...data].slice(0, LIMIT_ITEMS));
+    }
+    fechData()
   }, []);
 
   return (
